@@ -1,7 +1,8 @@
 #################
 ## Eclipse
 #################
-
+*uploads/
+*v-admin/v-includes/library/ffmpeg
 *.pydevproject
 .project
 .metadata
