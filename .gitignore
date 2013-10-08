@@ -2,6 +2,8 @@
 ## Eclipse
 #################
 *uploads/
+*members/videos/
+*members/gallery/
 *v-admin/v-includes/library/ffmpeg
 *.pydevproject
 .project
