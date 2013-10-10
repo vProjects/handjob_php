@@ -3,6 +3,7 @@
 #################
 *uploads/
 *members/videos/
+*members/sliced/
 *members/gallery/
 *v-admin/v-includes/library/ffmpeg
 *.pydevproject

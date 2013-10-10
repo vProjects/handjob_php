@@ -2,6 +2,8 @@
 	//include dal file
 	include('../library/library.DAL.php');
 	$manageData = new manageContent_DAL();
+	include('../library/library.media.php');
+	$mediaQuery = new libraryMedia();
 	
 	//get the value from the post request
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -44,8 +46,7 @@
 	mkdir("../../../members/gallery/".$outputFolder."/s",0700);
 	
 	//get movie duration
-	/*$movieDuration = $mediaQuery->getVideoLength($inputFile);
-	$movieDuration;*/
+	$movieDuration = $mediaQuery->getVideoLength($inputFile);
 	
 	//create the output folder for videos
 	mkdir("../../../members/videos/".$outputFolder,0700);
@@ -59,8 +60,8 @@
 			
 	//required vid formats
 	$vidFormat_1 = "flv";
-	$vidFormat_2 = "avi";
-	$vidFormat_3 = "wmv";
+	$vidFormat_2 = "";
+	$vidFormat_3 = "";
 	
 	//resolution according to the inputs format WxH
 	$resolutionLarge = $l_vedio_w."x".$l_vedio_h ;
@@ -71,6 +72,21 @@
 	
 	//insert the values in the cron table for automated execution by crons job
 	$manageData->insertCronGallery($inputVidForConversion,$outputVideoPath,$outputFilename,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
+	
+	//create a directtory for the sliced videos
+	mkdir("../../../members/sliced/".$outputFolder,0700);
+	//create a directtory for the sliced videos for medium and small resolution
+	mkdir("../../../members/sliced/".$outputFolder."/m",0700);
+	mkdir("../../../members/sliced/".$outputFolder."/s",0700);
+	
+	//path for the sliced videos
+	$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/members/sliced/".$outputFolder."/";
+	
+	//sliced video format
+	$sliced_format = "flv";
+	
+	//insert the values in the cron table for slicing
+	$manageData->insertCronSilce($outputFilename,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
 	
 	//return the name of the folder using get request
 	//header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);

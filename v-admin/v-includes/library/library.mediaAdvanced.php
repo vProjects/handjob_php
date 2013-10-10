@@ -20,18 +20,18 @@
 		{
 			//convert videos in all the three formats Large
 			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_1,$outputFilename.".".$vidFormat_1,$resolutionLarge);
-			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionLarge);
-			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionLarge);
+			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionLarge);
+			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionLarge);
 		
 			//convert videos in all the three formats Medium
 			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."m/",$vidFormat_1,$outputFilename.".".$vidFormat_1,$resolutionMedium);
-			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."m/",$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionMedium);
-			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."m/",$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionMedium);
+			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."m/",$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionMedium);
+			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."m/",$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionMedium);
 			
 			//convert videos in all the three formats Small
 			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_1,$outputFilename.".".$vidFormat_1,$resolutionSmall);
-			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionSmall);
-			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionSmall);
+			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionSmall);
+			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionSmall);
 		}
 		
 		/*
@@ -56,6 +56,22 @@
 			
 			//get snapshots small
 			$this->mediaQuery->getSnaps($inputFile,$no_snapshot,$imageWidthSmall,$imageHeightSmall,$outputPath."s/",$outputFilename);
+		}
+		
+		/*
+		- method to slice the video in n parts
+		- @param time format hh:mm:ss
+		- Auth Singh
+		*/
+		function sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l,$resolution_m,$resolution_s)
+		{
+			$outputFilename = $outputFilename.".".$outputFormat;
+			//slice the video -->large
+			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l);
+			//slice the video -->medium
+			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."m/",$outputFormat,$outputFilename,$resolution_m);
+			//slice the video -->small
+			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."s/",$outputFormat,$outputFilename,$resolution_s);
 		}
 	}
 ?>

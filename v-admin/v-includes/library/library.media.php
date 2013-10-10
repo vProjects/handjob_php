@@ -45,18 +45,19 @@
 		*/
 		function convertVideo($inputFile,$outPath,$outputFormat,$outputFilename,$resolution)
 		{
-			exec("$this->ffmpeg -i $inputFile -ar 22050 -ab 32k -f $outputFormat -s $resolution $outPath".$outputFilename);
+			exec("$this->ffmpeg -i $inputFile -b:a 128k -b:v 1600k -vcodec h264 -s $resolution -f $outputFormat $outPath".$outputFilename);
 			return "1";
 		}
 		
 		/*
 		- method to slice the video
 		- @param time format tt:hh:ss
+		- @param resoltution format example 1200x768
 		- Auth Singh
 		*/
-		function sliceVideo($inputFile,$startTime,$endTime,$outPath,$outputFormat,$outputFilename)
+		function sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution)
 		{
-			exec("$this->ffmpeg -ss $startTime -t $endTime -i $inputFile -acodec copy -vcodec $outputFormat -async 1 $outPath".$outputFilename);
+			exec("$this->ffmpeg -ss $startTime -i $inputFile -t $interval -acodec copy -vcodec h264 -s $resolution -async 1 $outPath".$outputFilename);
 		}
 		
 		/*
