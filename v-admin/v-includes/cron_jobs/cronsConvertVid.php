@@ -20,6 +20,11 @@
 			$manageMedia->convertAll($cronValue['input_video'],$cronValue['outVid_path'],$cronValue['out_filename'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],$cronValue['resolution_l'],$cronValue['resolution_m'],$cronValue['resolution_s']);
 			
 			$result = "1";
+			
+			//insert the appropiate values in the gallery table and movies table
+			
+			//delete the values from cron gallery table
+			$manageData->deleteValue('cron_gallery','id',$cronValue['id']);
 		}
 	}
 	
@@ -40,6 +45,10 @@
 				//slice the videos
 				$manageMedia->sliceVideo($cronSilceValue['input_path'],$start_time,$timeinterval,$cronSilceValue['output_path'],$cronSilceValue['output_format'],$cronSilceValue['vid_name']."_".$i,$cronSilceValue['resolution_l'],$cronSilceValue['resolution_m'],$cronSilceValue['resolution_s']);
 				
+				
+				//delete the values from cron gallery table
+				//$manageData->insertSilcedInfo(
+				//insert the appropiate values in the gallery table and movies table
 			}
 		}
 		

@@ -126,6 +126,55 @@
 			$query->execute($values);
 			return $query->rowCount();
 		}
+		
+		/*
+		- method to insert the value for slice_info table
+		- Auth Singh
+		*/
+		function insertSilcedInfo($gallery_id,$path,$model,$category,$date,$view,$rating)
+		{
+			$query = $this->link->prepare("INSERT INTO `sliced_vids`( `gallery_id`, `path`, `model`, `category`, `date`, `view`, `rating`) VALUES (?,?,?,?,?,?,?)");
+			$values = array($gallery_id,$path,$model,$category,$date,$view,$rating);
+			$query->execute($values);
+			return $query->rowCount();
+		}
+		
+		/*
+		- method to insert into gallery_info table
+		- Auth Singh
+		*/
+		function insertGalleryInfo($galleryId,$path,$category,$model,$date,$status)
+		{
+			$query = $this->link->prepare("INSERT INTO `gallery_info`(`gallery_id`, `path`, `category`, `model`, `date`,  `status`) VALUES (?,?,?,?,?,?,)");
+			$values = array($galleryId,$path,$category,$model,$date,$status);
+			$query->execute($values);
+			return $query->rowCount();
+		}
+		
+		/*
+		- method to insert into movie_info table
+		- Auth Singh
+		*/
+		function insertMovieInfo($galleryId,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status)
+		{
+			$query = $this->link->prepare("INSERT INTO `movie_info`(`gallery_id`, `category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status);
+			$query->execute($values);
+			return $query->rowCount();
+		}
+		
+		/*
+		- method to delete the values 
+		- Auth Singh
+		*/
+		function deleteValue($table_name,$column_name,$column_value)
+		{
+			$queryString = "DELETE FROM $table_name WHERE $column_name =$column_value";
+			$query = $this->link->prepare($queryString);
+			$query->execute();
+			$count = $query->rowCount();
+			return $count;
+		}
 	}
 
 ?>

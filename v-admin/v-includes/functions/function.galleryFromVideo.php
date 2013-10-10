@@ -12,7 +12,7 @@
 		$no_snapshot = $_POST['no_snapshot'];
 		$vedio_h = $_POST['vedio_h'];
 		$vedio_w = $_POST['vedio_w'];
-		$model_name = $_POST['model_name'];
+		$model_name = $_POST['model'];
 		$category = $_POST['category'];
 		
 		$l_vedio_h = $_POST['l_vedio_h'];
@@ -73,20 +73,24 @@
 	//insert the values in the cron table for automated execution by crons job
 	$manageData->insertCronGallery($inputVidForConversion,$outputVideoPath,$outputFilename,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
 	
-	//create a directtory for the sliced videos
-	mkdir("../../../members/sliced/".$outputFolder,0700);
-	//create a directtory for the sliced videos for medium and small resolution
-	mkdir("../../../members/sliced/".$outputFolder."/m",0700);
-	mkdir("../../../members/sliced/".$outputFolder."/s",0700);
-	
-	//path for the sliced videos
-	$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/members/sliced/".$outputFolder."/";
-	
-	//sliced video format
-	$sliced_format = "flv";
-	
-	//insert the values in the cron table for slicing
-	$manageData->insertCronSilce($outputFilename,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
+	//check if slicing is required or not
+	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)
+	{
+		//create a directtory for the sliced videos
+		mkdir("../../../members/sliced/".$outputFolder,0700);
+		//create a directtory for the sliced videos for medium and small resolution
+		mkdir("../../../members/sliced/".$outputFolder."/m",0700);
+		mkdir("../../../members/sliced/".$outputFolder."/s",0700);
+		
+		//path for the sliced videos
+		$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/members/sliced/".$outputFolder."/";
+		
+		//sliced video format
+		$sliced_format = "flv";
+		
+		//insert the values in the cron table for slicing
+		$manageData->insertCronSilce($outputFilename,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
+	}
 	
 	//return the name of the folder using get request
 	//header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);
