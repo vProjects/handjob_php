@@ -15,6 +15,7 @@
 		
 		};
 	}
+	
 </script>
 
 </head>
@@ -30,8 +31,29 @@
                 <div class="span4">
                     <form class="form-search pull-right">
                       <input type="text" class="input-medium search-query">
-                      <button type="submit" class="btn btn-primary">Search</button>
+                      <button type="submit" class="btn btn-danger">Search</button>
+                      <!-- Button to trigger modal -->
+                      <a href="#myModal" role="button" class="popup_link" data-toggle="modal">Advanced Search</a>
                     </form>
                 </div>  <!-- will contain the search bar -->	
             </div>
         </div>
+                    
+                    
+                   
+                    <!-- Modal section starts here -->
+                    <div id="myModal" class="modal hide fade popup_page" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-header popup_page_header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 id="myModalLabel">Modal header</h4>
+                      </div>
+                      <div class="modal-body">
+                        <p>One fine body…</p>
+                      </div>
+                      <div class="modal-footer popup_page_footer">
+                        <button class="btn btn-danger" data-dismiss="modal" aria-hidden="true">Close</button>
+                      </div>
+                    </div>
+                    <!-- Modal section ends here -->
+                    
+               

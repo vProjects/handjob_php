@@ -182,5 +182,21 @@ body{
 	font-weight: bold;
 	margin-top: 1%;
 }
-
+/* advanced search page css */
+.popup_link{
+	font-weight: bold;
+    margin-left: 25px;
+}
+.popup_page{
+	background-color: #ffffff;
+	color:#333333;
+}
+.popup_page_header{
+	border-bottom:none;
+	color: #F20056;
+}
+.popup_page_footer{
+	background-color:#E5E7E1;
+	border-top: 1px solid #ffffff;
+}
 
