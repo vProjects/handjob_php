@@ -17,7 +17,13 @@
 	}
 	
 </script>
-
+<!-- playing-movie page specific css and js -->
+<link href="videoplayer/video-js.css" rel="stylesheet" type="text/css">
+<script src="videoplayer/video.js"></script>
+<script>
+    videojs.options.flash.swf = "videoplayer/video-js.swf";
+  </script>
+<!-- playing-movie page specific css and js ends here -->
 </head>
 <body>
 
