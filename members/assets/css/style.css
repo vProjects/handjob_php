@@ -187,6 +187,9 @@ body{
 	font-weight: bold;
     margin-left: 25px;
 }
+.popup_link:hover{
+	text-decoration:none;
+}
 .popup_page{
 	background-color: #ffffff;
 	color:#333333;
@@ -198,5 +201,15 @@ body{
 .popup_page_footer{
 	background-color:#E5E7E1;
 	border-top: 1px solid #ffffff;
+}
+.advaced_search_form{
+	margin-bottom:40px;
+	background-color:#ffffff;
+}
+.form_part{
+	padding-left:25px;
+}
+.form_part_button{
+	padding-left:60px;
 }
 
