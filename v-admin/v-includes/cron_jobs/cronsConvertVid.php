@@ -7,7 +7,10 @@
 	
 	$cronValues = $manageData->getValue('cron_gallery','*');
 	$cronSilceValues = $manageData->getValue('cron_slice','*');
-	print_r($cronSilceValues);
+	//print_r($cronSilceValues);
+	
+	//get the present date for the article insertion
+	$date = date('Y-m-d');
 	
 	foreach($cronValues as $cronValue)
 	{
@@ -22,6 +25,8 @@
 			$result = "1";
 			
 			//insert the appropiate values in the gallery table and movies table
+			$manageData->insertGalleryInfo($cronValue['out_filename'],$cronValue['out_snap_path'],$cronValue['category'],$cronValue['model'],$date,0,0,1);
+			$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$date,1);
 			
 			//delete the values from cron gallery table
 			$manageData->deleteValue('cron_gallery','id',$cronValue['id']);
@@ -45,11 +50,13 @@
 				//slice the videos
 				$manageMedia->sliceVideo($cronSilceValue['input_path'],$start_time,$timeinterval,$cronSilceValue['output_path'],$cronSilceValue['output_format'],$cronSilceValue['vid_name']."_".$i,$cronSilceValue['resolution_l'],$cronSilceValue['resolution_m'],$cronSilceValue['resolution_s']);
 				
-				
-				//delete the values from cron gallery table
-				//$manageData->insertSilcedInfo(
-				//insert the appropiate values in the gallery table and movies table
 			}
+			
+			//insert the appropiate values in the gallery table and movies table
+			$manageData->insertSilcedInfo($cronSilceValue['vid_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$date,0,0);
+				
+			//delete the values from cron gallery table
+			$manageData->deleteValue('cron_slice','id',$cronSilceValue['id']);
 		}
 		
 	}

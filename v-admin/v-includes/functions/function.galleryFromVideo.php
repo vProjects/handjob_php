@@ -13,7 +13,6 @@
 		$vedio_h = $_POST['vedio_h'];
 		$vedio_w = $_POST['vedio_w'];
 		$model_name = $_POST['model'];
-		$category = $_POST['category'];
 		
 		$l_vedio_h = $_POST['l_vedio_h'];
 		$l_vedio_w = $_POST['l_vedio_w'];
@@ -25,6 +24,38 @@
 		$s_vedio_w = $_POST['s_vedio_w'];
 		
 		$no_slicing = $_POST['no_slicing'];
+	}
+	$category_string = "" ;
+	$model_string = "" ;
+	
+	if(!empty($GLOBALS['_POST']['category']) && $GLOBALS['_POST'] > 0)
+	{
+		$category = $GLOBALS['_POST']['category'];
+		//convert array to string seperated by commas
+		foreach($category as $cate)
+		{
+			$category_string = $category_string.",".$cate ;
+		}
+		/*
+		- remove the first word from the $category_string sa it
+		- it contains a comma
+		*/
+		$category_string = substr($category_string,1);
+	}
+	
+	if(!empty($GLOBALS['_POST']['model']) && $GLOBALS['_POST'] > 0)
+	{
+		$models = $GLOBALS['_POST']['model'];
+		//convert array to string seperated by commas
+		foreach($models as $model)
+		{
+			$model_string = $model_string.",".$model ;
+		}
+		/*
+		- remove the first word from the $category_string sa it
+		- it contains a comma
+		*/
+		$model_string = substr($model_string,1);
 	}
 	
 	//create a folder with unique name using unique id
@@ -71,7 +102,7 @@
 	$inputVidForConversion = "../../../uploads/videos/".$filename;
 	
 	//insert the values in the cron table for automated execution by crons job
-	$manageData->insertCronGallery($inputVidForConversion,$outputVideoPath,$outputFilename,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
+	$manageData->insertCronGallery($inputVidForConversion,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
 	
 	//check if slicing is required or not
 	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)
@@ -89,7 +120,7 @@
 		$sliced_format = "flv";
 		
 		//insert the values in the cron table for slicing
-		$manageData->insertCronSilce($outputFilename,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
+		$manageData->insertCronSilce($outputFilename,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
 	}
 	
 	//return the name of the folder using get request
