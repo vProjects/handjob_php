@@ -373,7 +373,7 @@
                 </div>
                 <div class="popularmodels">
                     <div class="row-fluid">
-                        <div class="mostPopular" class="span12">
+                        <div class="mostPopular span12">
 						
                             <img onmouseover="showDetails('description')"  id= "mp" class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
 						

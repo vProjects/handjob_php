@@ -157,6 +157,7 @@ body{
 	background:#000;
 	color:#FFF;
 	margin-left:0;
+	margin-top:15px;
 }
 #description{
 	width: 34%;
@@ -211,5 +212,21 @@ body{
 }
 .form_part_button{
 	padding-left:60px;
+}
+/* blog list page css*/
+.blog_container{
+	padding: 1%;
+	margin: 1% 0 0 0;
+	box-shadow: 4px 4px 7px 0px grey;
+	background-color:#FDFDFD;
+}
+.blog_author_name{
+	color:#da4f49;
+}
+.blog_heading{
+	color:#000000;
+}
+.blog_heading:hover{
+	color:#010101;
 }
 
