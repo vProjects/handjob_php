@@ -1,0 +1,128 @@
+/*!
+ * handjobs 1.00
+ *
+ * Copyright 2013 V-Labs
+ * Licensed under V-Labs
+ * you can not use and reproduce these codes without having prior permission of Vyrazu Labs
+ * vyrazu.com
+ * 
+ */
+
+
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-color:#000;
+	margin:0px;
+	padding:0px;
+	color:#FFF;
+}
+.header{
+	height:auto;
+}
+.logo{
+	padding:1%;
+}
+.search_form{
+	padding:5%;
+}
+.navigation{
+	height: auto;
+}
+.navbar_inner{
+	padding:0px;
+	margin:0px 10px;
+}
+.navbar .nav > li{
+	font-size:16px;
+	color:#FFF;
+	text-transform:uppercase;
+	border-right: 1px solid #CACABB;
+}
+.navbar .nav > li:hover{
+	background-color:#f20056;
+	-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	-moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+}
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+	background-color: #f20056;
+	-webkit-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	-moz-box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.125);
+	color:#FFF;
+}
+.navbar .nav > li > a {
+	text-shadow: 0 1px 0;
+	padding:15px 20px;
+}
+.navbar .nav > li > a:hover{
+	color:#fff;
+}
+.slider{
+	height:400px;
+	background-color:#FFF;
+}
+.site_description{
+	margin:15px 0px;
+}
+.site_heading{
+	text-transform:uppercase;
+}
+.site_login_button{
+	margin-top:20px;
+	text-transform:capitalize;
+}
+.photo_update{
+	margin:20px 0px;
+}
+.photo_update_outline{
+	border-bottom:1px solid #FFF;
+}
+.pageno_nav{
+	color:#f20056;
+}
+.pageno_nav ul li{
+	float: left;
+    list-style: none outside none;
+    margin: 0 5px;
+    padding: 0 15px 0 5px;
+	border-right:1px solid #fff;
+}
+.pageno_nav_viewall{
+	border:none;
+}
+.pageno_nav ul li a{
+	color:#f20056;
+}
+.pageno_nav ul li a:hover{
+	text-decoration:underline;
+	font-weight:bold;
+}
+.section_element{
+	box-shadow: 0 0 3px 0 #FFFFFF;
+	padding:8px 5px 0px;
+	margin-top:1%;
+}
+.img_update{
+	width:100%;
+}
+.photo_section_footer{
+	background-image:url(../../images/update_information.png);
+	background-repeat:repeat;
+	margin: 5px 0;
+}
+.photo_section_footer p{
+	padding:0px 0px 5px 2px;
+	margin:0px;
+}
+.footer{
+	background-color:#1F1F1F;
+	margin:10px 0px 0px;
+}
+.footer_part{
+	padding:0px 10px;
+	margin:10px 0px;
+}
+

@@ -1,5 +1,5 @@
 <?php
-	$page_title = 'BLOGS';
+	$page_title = 'BLOG';
 	//get header
 	include ('v-templates/header.php');
 ?>
