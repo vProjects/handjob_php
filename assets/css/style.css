@@ -12,11 +12,20 @@
 @charset "utf-8";
 /* CSS Document */
 
+@font-face{
+	font-family:Berthold;
+	src:url(../../font/Berthold%20Akzidenz%20Grotesk%20BE%20Light.ttf) format("truetype");
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+	font-family:Berthold;
+}
+
 body{
-	background-color:#000;
+	background-color:#E5E7E1;
 	margin:0px;
 	padding:0px;
-	color:#FFF;
+	color:#000;
+	font-size:14px;
 }
 .header{
 	height:auto;
@@ -33,6 +42,9 @@ body{
 .navbar_inner{
 	padding:0px;
 	margin:0px 10px;
+	background-image:url(../../images/handimage.png);
+	background-repeat:repeat-x;
+	background-color:#f20056;
 }
 .navbar .nav > li{
 	font-size:16px;
@@ -77,30 +89,32 @@ body{
 	margin:20px 0px;
 }
 .photo_update_outline{
-	border-bottom:1px solid #FFF;
+	border-bottom:1px solid #f20056;
+	padding-bottom:2px;
 }
 .pageno_nav{
-	color:#f20056;
+	margin:4px 0 0;
+	color:#fff;
+	font-weight:600;
 }
 .pageno_nav ul li{
 	float: left;
     list-style: none outside none;
-    margin: 0 5px;
-    padding: 0 15px 0 5px;
-	border-right:1px solid #fff;
 }
 .pageno_nav_viewall{
 	border:none;
 }
 .pageno_nav ul li a{
-	color:#f20056;
+	color:#fff;
+	margin-left: 5px;
 }
 .pageno_nav ul li a:hover{
 	text-decoration:underline;
 	font-weight:bold;
 }
 .section_element{
-	box-shadow: 0 0 3px 0 #FFFFFF;
+	border: 1px solid grey;
+	box-shadow: 2px 2px 7px 0px grey;
 	padding:8px 5px 0px;
 	margin-top:1%;
 }
@@ -108,8 +122,7 @@ body{
 	width:100%;
 }
 .photo_section_footer{
-	background-image:url(../../images/update_information.png);
-	background-repeat:repeat;
+	background-color:#BFBFBF;
 	margin: 5px 0;
 }
 .photo_section_footer p{
@@ -119,6 +132,7 @@ body{
 .footer{
 	background-color:#1F1F1F;
 	margin:10px 0px 0px;
+	color:#FFF;
 }
 .footer_part{
 	padding:0px 10px;
@@ -140,7 +154,7 @@ body{
   width: 100%;
   left: 0;
   top: 0;
-  }
+}
 
 .rslides li:first-child {
   position: relative;
@@ -155,4 +169,48 @@ body{
   width: 100%;
   border: 0;
   max-height:400px;
-  }
+}
+
+/* index page css */
+.center_page{
+	background-color:#FFF;
+	margin:40px 0px;
+	box-shadow: 3px 3px 4px #000000;
+}
+.home_footer{
+	line-height: 18px;
+    padding-right: 4%;
+    text-align: center;
+	color:#696969;
+}
+.home_logo{
+	padding:2%;
+}
+.home_image_banner{
+	margin:20px 0;
+}
+.home_image_banner_row{
+	height:100px;
+}
+.home_image{
+	margin-left:0px;
+}
+.adult_statement{
+	margin: 50px 0 20px;
+}
+.terms_condition{
+	box-shadow: 2px 2px 4px #323232;
+	height: 300px;
+	overflow-y: scroll;
+	padding: 10px;
+}
+.terms_condition_heading{
+	color:#f15199;
+}
+.right_part{
+	padding:20px 20px 0 0;
+}
+.right_part_images{
+	margin:10px 0px;
+}
+
