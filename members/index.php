@@ -2,6 +2,7 @@
 	$page_title = 'HOME';
 	//get header
 	include ('v-templates/header.php');
+	
 ?>
 
     	
@@ -14,6 +15,7 @@
 	<div id="bodyContainer" class="row-fluid">
             <div class="span9" id="leftContainer">
             <div class="row-fluid">
+            	<?php //echo $_SERVER['DOCUMENT_ROOT'];?>
                     <div id="searchBar" class="span12">
                             <h4>Search By Model</h4>
 							<div class="pagination pagination-small">
