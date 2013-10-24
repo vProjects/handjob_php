@@ -55,8 +55,6 @@ body{
 }
 .navbar .nav > li{
 	color:#4D4D4D;
-	border-left:1px solid #808080;
-	font-size: 15px;
     margin-left: 5px;
 }
 .navbar .nav > li:hover{
@@ -64,7 +62,7 @@ body{
 	
 }
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
-	color: #686868;
+	color: #000;
 }
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover{
 	color:#000;
@@ -73,13 +71,18 @@ body{
 }
 .navbar .nav > li > a {
 	color: #686868;
-    padding: 0 40px 6px 5px;
     text-align: left;
     text-shadow: 0 1px 0;
     text-transform: uppercase;
+	font-size:22px;
 }
 .navbar .nav > li > a:hover{
 	color:#000;
+}
+.nav_join{
+}
+.nav_join:hover{
+	color:#da4f49 !important;
 }
 .slider{
 	background-color:#FFF;
@@ -160,13 +163,15 @@ body{
 	padding:0px;
 }
 .footer_part ul li{
-	border-bottom: 1px solid #000000;
     list-style: none outside none;
     margin-top: 5px;
     padding: 5px 0;
 }
 .footer_part ul li a{
 	color:#888888;
+}
+.footer_part ul li a:hover{
+	color:#da4f49;
 }
 .footer_text_part{
 	padding:40px 0 15px;
@@ -210,6 +215,35 @@ body{
   width: 100%;
   border: 0;
   max-height:400px;
+}
+/* bootstrap css modification */
+@media (min-width: 1200px){
+	.row-fluid [class*="span3"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span3{
+		width: 24.5%;
+	}
+	.row-fluid [class*="span4"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span4{
+		width: 33%;
+	}
+}
+@media (max-width: 979px) and (min-width: 768px){
+	.row-fluid [class*="span3"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span3{
+		width: 24.5%;
+	}
+	.row-fluid [class*="span4"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span4{
+		width: 33%;
+	}
 }
 
 /* index page css */
