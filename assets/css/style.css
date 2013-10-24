@@ -314,3 +314,13 @@ body{
 .home_footer_nav li a{
 	color:#f15199;
 }
+/* model page css */
+.search_model{
+	text-align:center;
+	text-transform:uppercase;
+}
+.model_detail_heading{
+	border-bottom: 1px solid #f20056;
+	padding-bottom: 2px;
+}
+
