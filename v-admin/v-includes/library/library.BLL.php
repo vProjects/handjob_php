@@ -104,6 +104,20 @@
 				echo '<option value="'.$filename.'">'.$filename.'</option>';
 			}
 		}
+		
+		function getCronVaues(){
+			$cronGallery = $this->manageContent->getValue("cron_gallery","*");
+			$cronSliced = $this->manageContent->getValue("cron_slice","*");
+			foreach($cronGallery as $cronValue)
+			{
+				echo '<p class="green_text">'.$cronValue['input_video'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR CONVERSION</p>';
+			}
+			foreach($cronSliced as $cronValueSlice)
+			{
+				echo '<p class="green_text">'.$cronValueSlice['input_path'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR SLICING</p>';
+			}
+			echo '<p class="green_text">Schedule Time for the process:'."8:00".'</p>';
+		}
 	}
 
 ?>

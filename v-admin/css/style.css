@@ -197,3 +197,18 @@ blockquote {
 	height: 100px;
     width: 88px;
 }
+.admin_container{
+	margin:10px;
+}
+.process_div{
+	background-color: #000000;
+    border: 2px solid #397C17;
+    margin-top: 16px;
+    min-height: 165px;
+}
+.green_text{
+	color: #33FF00;
+    font-family: arial;
+    font-size: 13px;
+	line-height: 10px;	
+}
