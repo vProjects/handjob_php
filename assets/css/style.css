@@ -324,3 +324,42 @@ body{
 	padding-bottom: 2px;
 }
 
+/* blog list page css */
+.blog_container{
+	margin: 1% 0 0 0;
+	box-shadow: 6px 6px 7px 0px grey;
+	background-color: #FDFDFD;
+}
+.blog_text{
+	padding:2%;
+}
+.tour_blog_heading {
+	color: #000000;
+	text-transform:uppercase;
+}
+.tour_blog_author_name {
+	color: #da4f49;
+}
+.tour_blog_heading:hover{
+	color:#000;
+}
+.tour_blog_comment_outline {
+	background-color: #D5D5D5;
+	border-radius: 6px;
+	margin: 10px 0;
+}
+.tour_blog_comment_name{
+	color: #030303;
+	font-size: 16px;
+	margin: 10px;
+	padding: 5px 0;
+	text-align: right;
+}
+
+.tour_blog_comment_section_p {
+	background-color: #FFF;
+	border-radius: 6px;
+	margin: 10px 12px 10px 12px;
+	padding: 0px 10px;
+	min-height: 50px;
+}
