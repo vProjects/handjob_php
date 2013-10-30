@@ -1,82 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Handjobstop| Model</title>
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="assets/js/responsiveslides.min.js"></script>
- <script>
-    $(function () {
+<?php
+	$page_title = 'Photos';
+	//get header
+	include ('v-templates/header.php');
+	
+?>
 
-      // Slideshow 1
-      $(".rslides").responsiveSlides({
-        speed: 1000,
-        maxwidth: 1400
-      });
+    	
+<?php
+	//get the horizontal navbar
+	include ('v-templates/navbar.php');
+?>
 
-    });
-  </script>
-</head>
-
-<body>
-<!--- header starts here ---->
-<div class="header">
-	<!-- header top part starts here ---->
-    <div class="row-fluid">
-    	<div class="span12">
-        	<div class="span4 logo">
-            	<img src="images/home_logo.png" alt="logo" />
-            </div>
-            <!-- search portion starts here --->
-            <!--<div class="span4 offset5">
-            	<form class="search_form pull-right">
-                  <input type="text" class="input-medium search-query">
-                  <button type="submit" class="btn btn-danger">Search</button>
-                </form>
-            </div>--->
-            <!-- search portion ends here --->
-        </div>
-    </div>
-    <!-- header top part ends here ---->
-    <!-- navbar starts here ---->
-    <div class="navbar navigation">
-    	<div class="navbar-inner navbar_inner">
-        	<div class="container">
-            
-            	<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </a>
-                  
-                  <div class="nav-collapse collapse">
-                  		<ul class="nav">
-                        	<li><a href="tourtest.html">Home</a></li>
-                            <li><a href="video.html">Movies</a></li>
-                            <li><a href="photo.html">Photos</a></li>
-                            <li class="active"><a href="model.html">Models</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Friends</a></li>
-                            <li><a href="members/index.php">Members</a></li>
-                            <li><a href="#" class="nav_join">Join now!</a></li>
-                        </ul>
-                  </div>
-            </div>
-        </div>
-    </div>
-    <!-- navbar ends here ---->
-</div>  
-<!--- header ends here ---->
 <!-- site description part starts here --->
 <div class="container">
 	<div class="row-fluid">
     	<div class="span12 search_model">
-        	<h4>Search By Models</h4>
+        	<h4>Model Directory</h4>
             <div class="pagination pagination-small center">
               <ul>
                 <li><a  class="btn-danger" href="#">A</a></li>
@@ -116,13 +55,14 @@
             <div class="btn btn-danger">More Updates</div>
         </div>
         <div class="pagination pagination-small pageno_nav pull-right">
-            <ul>
+           <ul>
+                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
                 <li><a class="btn-danger" href="#">1</a></li>
                 <li><a class="btn-danger" href="#">2</a></li>
                 <li><a class="btn-danger" href="#">3</a></li>
                 <li><a class="btn-danger" href="#">4</a></li>
                 <li><a class="btn-danger" href="#">5</a></li>
-                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">View All</a></li>
+                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
             </ul>
         </div>
     </div>
@@ -635,64 +575,29 @@
             </div>
         </div>
         <!--- photo row3 ends here --->
+        <div class="row-fluid end_caption">
+        	<div class="pull-left">
+            	<h4>Lorem Ipsum Lorem Ipsum</h4>
+            </div>
+            <div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
+                	<li><a class="btn-danger" href="#">1</a></li>
+                    <li><a class="btn-danger" href="#">2</a></li>
+                    <li><a class="btn-danger" href="#">3</a></li>
+                    <li><a class="btn-danger" href="#">4</a></li>
+                    <li><a class="btn-danger" href="#">5</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
+                </ul>
+            </div>
+            <div class="end_caption_border"></div>
+        </div>
      </div>    
     <!--- model details ends here --->
 </div>
 <!-- site description part ends here --->
-<!--- footer starts here ---->
-<div class="row-fluid footer">
-	<div class="span4 footer_part">
-    	<p class="footer_part_heading">Site links</p>
-        <ul>
-        	<li><a href="#">Home</a></li>
-            <li><a href="#">Updates</a></li>
-            <li><a href="#">Models</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Members</a></li>
-            <li><a href="#">JOIN NOW</a></li>
-        </ul>
-    </div>
-     <div class="span4 footer_part">
-        <p class="footer_part_heading">Contact</p>
-        <ul>
-        	<li><a href="#">Support</a></li>
-            <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Models Wanted</a></li>
-            <li><a href="#">Webmaster</a></li>
-            <li><a href="#">Legal</a></li>
-        </ul>
-      </div>
-      <div class="span4 footer_part">
-        <p class="footer_part_heading">Membership</p>
-        <ul>
-        	<li><a href="#">Pricing Option</a></li>
-            <li><a href="#">Anonymous Billing</a></li>
-            <li><a href="#">Terms And Conditions</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-</div>
-<div class="row-fluid footer_text_part">
-	<div class="span10 offset1">
-        <hr class="footer_hr" />
-        <p>All models on handjobstop.com were 18 years of age or older when photographed lorem ipsum lorem ipsum lorem ipsum</p>
-        <p>WARNING: If you are under 21 years of age or if it is illegal to view adult material in your community, please leave now. We can't be held responsible for your actions. We are not acting in any way to send you this information; you are choosing to receive it! Continuing further means that you understand and accept responsibility for your own actions, thus releasing the creators of this website and our service provider from all liability.</p>
-        <p>All rights reserved. 2013 - www.handjobstop.com</p>
-    </div>    
-</div>
-<!--- footer ends here ------>
 
-<!--- js include part --->
-<script type="text/javascript" src="assets/js/jquery.lazy.js"></script>
-<script src="assets/js/bootstrap.js"></script>
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery("img.lazy").lazy({
-        effect: "fadeIn",
-        effectTime: 1500
-    });
-});
-</script>
-
-</body>
-</html>
+<?php
+	//include footer
+	include ('v-templates/footer.php');
+?> 

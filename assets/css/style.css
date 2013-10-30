@@ -127,6 +127,11 @@ body{
 	text-decoration:underline;
 	font-weight:bold;
 }
+.center{
+}
+.center ul li a{
+	margin-left:6px;
+}
 .section_element{
 	box-shadow: 3px 3px 7px grey;
 	padding:8px 5px 0px;
@@ -183,6 +188,19 @@ body{
 .footer_hr{
 	margin-bottom:5px;
 	color: #DA4F49;
+}
+.end_caption{
+	margin:10px 0;
+	padding-bottom: 2px;
+}
+.end_caption h4{
+	margin:5px 0 0;
+}
+.end_caption_border{
+	height:2px;
+	border-bottom: 1px solid #f20056;
+	border-top: 1px solid #f20056;
+	margin: 40px 0 0;
 }
 .rslides {
   position: relative;
