@@ -6,6 +6,9 @@
 	{
 		private $link;
 		
+		//variable to store the date 
+		private $presentDate;
+		
 		//construct function
 		function __construct()
 		{
@@ -174,6 +177,18 @@
 			$query->execute();
 			$count = $query->rowCount();
 			return $count;
+		}
+		
+		/*
+		- method to insert category
+		- Auth Singh
+		*/
+		function insertCategory($tableName,$category,$date,$view,$rating)
+		{
+			$query = $this->link->prepare("INSERT INTO $tableName( `category`, `date`, `view`, `rating`) VALUES (?,?,?,?)");
+			$values = array($category,$date,$view,$rating);
+			$query->execute($values);
+			return $query->rowCount();
 		}
 	}
 

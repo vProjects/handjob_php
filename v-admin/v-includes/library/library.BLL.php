@@ -118,6 +118,15 @@
 			}
 			echo '<p class="green_text">Schedule Time for the process:'."8:00".'</p>';
 		}
+		
+		function getCategoryList($tableName)
+		{
+			$categorys = $this->manageContent->getValue($tableName);
+			foreach($categorys as $category)
+			{
+				echo '<th>'.'</th>';
+                echo '<th>'.'</th>';
+			}
 	}
 
 ?>

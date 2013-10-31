@@ -52,8 +52,8 @@
             <div id="collapseOn" class="accordion-body collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Movie Category</a></li>
-                        <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Model Category</a></li>
+                        <li><a href="addMovieCat.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Movie Category</a></li>
+                        <li><a href="addModelCat.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Model Category</a></li>
                         <li><a href="moviesCategories.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movie Category</a></li>
                         <li><a href="modelCategories.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Model Category</a></li>
                     </ul>

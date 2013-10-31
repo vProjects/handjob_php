@@ -14,7 +14,7 @@
 		function __construct()
 		{
 			//absolute path for the ffmpeg.exe file
-			$this->ffmpeg = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/v-admin/v-includes/library/ffmpeg/bin/ffmpeg.exe";
+			$this->ffmpeg = "/usr/local/bin/ffmpeg";
 		}
 		
 		/*
@@ -23,19 +23,16 @@
 		*/
 		function getSnaps($moviePath,$no_snapshots,$video_h,$video_w,$output_path,$output_fileName)
 		{
+			//get the duration of the movie
 			$movie = new ffmpeg_movie($moviePath,0);
 			$movieDuration = $movie->getDuration();
-			//duration in milisecond
-			$movieDuration = ($movieDuration/60)*1000;
-			$interval = $movieDuration/$no_snapshots ;
-			for($i=100;$i<$movieDuration;$i=$i+$interval)
-			{
-				$a = intval($i);
-				//echo $a." ==>success<br/>";
-				$movie_frames = $movie->getFrame($i);
-				$movie_frames->resize($video_h,$video_w,0,0,0,0);
-				$movie_frames_jpg = imagejpeg($movie_frames->toGDImage(),$output_path.($output_fileName.$a).".jpg");
-			}
+			//duration in second
+			//echo $movieDuration = ($movieDuration/60);
+			//get frame rate for the snapshots
+			$frameRate = ($no_snapshots)/$movieDuration ;
+			//$frameRate = round($frameRate,2);
+			$resolution = $video_h."x".$video_w;
+			exec("$this->ffmpeg -ss 00:00:20 -i $moviePath -r $frameRate -s $resolution -f image2 $output_path".$output_fileName."%05d.jpg "." 2> /home/sites/handjobstop.com/public_html/logs/snaps_log.txt");
 		}
 		
 		/*
@@ -45,7 +42,7 @@
 		*/
 		function convertVideo($inputFile,$outPath,$outputFormat,$outputFilename,$resolution)
 		{
-			exec("$this->ffmpeg -i $inputFile -b:a 128k -b:v 1600k -vcodec h264 -s $resolution -f $outputFormat $outPath".$outputFilename);
+			exec("$this->ffmpeg -i $inputFile -c:v libx264 -c:a copy -s $resolution -f $outputFormat $outPath".$outputFilename." 2> /home/sites/handjobstop.com/public_html/logs/convert_log.txt");
 			return "1";
 		}
 		
@@ -57,7 +54,7 @@
 		*/
 		function sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution)
 		{
-			exec("$this->ffmpeg -ss $startTime -i $inputFile -t $interval -acodec copy -vcodec h264 -s $resolution -async 1 $outPath".$outputFilename);
+			exec("$this->ffmpeg -ss $startTime -i $inputFile -c:v libx264 -c:a copy -s $resolution -async 1 -t $interval $outPath".$outputFilename." 2> /home/sites/handjobstop.com/public_html/logs/slice_log.txt");
 		}
 		
 		/*

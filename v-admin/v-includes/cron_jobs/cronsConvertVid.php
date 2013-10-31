@@ -1,6 +1,6 @@
 <?php
-	require_once('../library/library.mediaAdvanced.php');
-	require_once('../library/library.DAL.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.mediaAdvanced.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.DAL.php');
 	
 	$manageMedia = new manageVideos();
 	$manageData = new manageContent_DAL();
@@ -18,7 +18,6 @@
 		{
 			//get snaps of the videos
 			$manageMedia->getSnapsAll($cronValue['snap_input'],$cronValue['no_snapshot'],$cronValue['out_snap_path'],$cronValue['out_snap_filename'],$cronValue['snap_w'],$cronValue['snap_h']);
-			
 			//convert the videos
 			$manageMedia->convertAll($cronValue['input_video'],$cronValue['outVid_path'],$cronValue['out_filename'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],$cronValue['resolution_l'],$cronValue['resolution_m'],$cronValue['resolution_s']);
 			
@@ -57,6 +56,8 @@
 				
 			//delete the values from cron gallery table
 			$manageData->deleteValue('cron_slice','id',$cronSilceValue['id']);
+			//once done exit
+			exit();
 		}
 		
 	}

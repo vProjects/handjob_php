@@ -1,5 +1,5 @@
 <?php
-	require_once('library.media.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.media.php');
 	
 	class manageVideos
 	{

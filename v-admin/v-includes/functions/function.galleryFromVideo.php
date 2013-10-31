@@ -60,34 +60,35 @@
 	
 	//create a folder with unique name using unique id
 	$outputFolder = uniqid();
-	mkdir("../../../members/gallery/".$outputFolder,0700);
+	
+	mkdir("../../../members/gallery/".$outputFolder,0777,true);
 	
 	//take the default path for input file
-	$inputFile = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/uploads/videos/".$filename;
+	$inputFile = $_SERVER['DOCUMENT_ROOT']."uploads/videos/".$filename;
 	
 	//store the gallery images in the newly created gallery folder
-	$outputPath = "../../../members/gallery/".$outputFolder."/";
+	$outputPath = $_SERVER['DOCUMENT_ROOT']."members/gallery/".$outputFolder."/";
 	
 	$outputFilename = $outputFolder;
 	
 	//create the output folder for small pics
-	mkdir("../../../members/gallery/".$outputFolder."/m",0700);
+	mkdir("../../../members/gallery/".$outputFolder."/m",0777,true);
 	
 	//create the output folder for medium pics
-	mkdir("../../../members/gallery/".$outputFolder."/s",0700);
+	mkdir("../../../members/gallery/".$outputFolder."/s",0777,true);
 	
 	//get movie duration
 	$movieDuration = $mediaQuery->getVideoLength($inputFile);
 	
 	//create the output folder for videos
-	mkdir("../../../members/videos/".$outputFolder,0700);
+	mkdir("../../../members/videos/".$outputFolder,0777,true);
 	//create the output folder for videos medium
-	mkdir("../../../members/videos/".$outputFolder."/m",0700);
+	mkdir("../../../members/videos/".$outputFolder."/m",0777,true);
 	//create the output folder for videos small
-	mkdir("../../../members/videos/".$outputFolder."/s",0700);
+	mkdir("../../../members/videos/".$outputFolder."/s",0777,true);
 	
 	//output path for video processing
-	$outputVideoPath = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/members/videos/".$outputFolder."/";
+	$outputVideoPath = $_SERVER['DOCUMENT_ROOT']."members/videos/".$outputFolder."/";
 			
 	//required vid formats
 	$vidFormat_1 = "flv";
@@ -99,7 +100,7 @@
 	$resolutionMedium = $m_vedio_w."x".$m_vedio_h ;
 	$resolutionSmall = $s_vedio_w."x".$s_vedio_h ;
 	
-	$inputVidForConversion = "../../../uploads/videos/".$filename;
+	$inputVidForConversion = $_SERVER['DOCUMENT_ROOT']."uploads/videos/".$filename;
 	
 	//insert the values in the cron table for automated execution by crons job
 	$manageData->insertCronGallery($inputVidForConversion,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
@@ -108,13 +109,13 @@
 	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)
 	{
 		//create a directtory for the sliced videos
-		mkdir("../../../members/sliced/".$outputFolder,0700);
+		mkdir("../../../members/sliced/".$outputFolder,0777,true);
 		//create a directtory for the sliced videos for medium and small resolution
-		mkdir("../../../members/sliced/".$outputFolder."/m",0700);
-		mkdir("../../../members/sliced/".$outputFolder."/s",0700);
+		mkdir("../../../members/sliced/".$outputFolder."/m",0777,true);
+		mkdir("../../../members/sliced/".$outputFolder."/s",0777,true);
 		
 		//path for the sliced videos
-		$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."/vyrazu/handjob_php/members/sliced/".$outputFolder."/";
+		$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."members/sliced/".$outputFolder."/";
 		
 		//sliced video format
 		$sliced_format = "flv";
@@ -124,7 +125,7 @@
 	}
 	
 	//return the name of the folder using get request
-	//header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);
+	header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);
 	
 	
 ?>
