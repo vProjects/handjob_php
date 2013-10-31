@@ -105,6 +105,10 @@
 			}
 		}
 		
+		/*
+		- get the values from the cron table
+		-Auth Singh
+		*/
 		function getCronVaues(){
 			$cronGallery = $this->manageContent->getValue("cron_gallery","*");
 			$cronSliced = $this->manageContent->getValue("cron_slice","*");
@@ -116,8 +120,58 @@
 			{
 				echo '<p class="green_text">'.$cronValueSlice['input_path'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR SLICING</p>';
 			}
-			echo '<p class="green_text">Schedule Time for the process:'."8:00".'</p>';
 		}
+		
+		/*
+		- category list used to get the total categories present
+		- @param table name for the category
+		- Auth Singh
+		*/
+		function getCategoryList($tableName)
+		{
+			$categorys = $this->manageContent->getValue($tableName,"*");
+			foreach($categorys as $category)
+			{
+				echo '<tr>';
+				echo '<td>'.$category['category'].'</td>';
+                echo '<td>'.$category['date'].'</td>';
+				echo '<td><button class="btn btn-warning" type="button">
+						<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+					</td>
+					<td><button class=" btn btn-danger" type="button">
+						<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+					</td></tr/>';
+				
+			}
+		}
+		
+		/*
+		- category list used to get the total categories present for the select box
+		- @param table name for the category
+		- Auth Singh
+		*/
+		function getCategoryListSelectBox($tableName)
+		{
+			$categorys = $this->manageContent->getValue($tableName,"*");
+			foreach($categorys as $category)
+			{
+				echo '<option value="'.$category['category'].'">'.$category['category'].'</option>';
+			}
+		}
+		
+		/*
+		- get model names for the select box
+		- Auth Singh
+		*/
+		function getModelNames()
+		{
+			$modelNames = $this->manageContent->getValue("model_info","name");
+			foreach($modelNames as $modelName)
+			{
+				echo '<option value="'.$modelName['name'].'">'.$modelName['name'].'</option>';
+			}
+		}
+		
 	}
 
 ?>
