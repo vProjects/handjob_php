@@ -14,15 +14,28 @@
 	
 	if(!empty($category) && isset($category))
 	{
-		$result = $manageData->insertCategory($tableName,$category,$presentDate,0,0);
+		$result = $manageData->insertCategory($tableName,$category,$presentDate,0,0) ;
 		//print the output status of the insertion
 		if($result == 1)
 		{
-			$_SESSION['result'] = "Successfully added.";
+			$_SESSION['result'] = "Successfully added." ;
 		}
 		else
 		{
-			$_SESSION['result'] = "Please try again.";
+			$_SESSION['result'] = "Please try again." ;
 		}
 	}
+	
+	//value for the redirection in header location
+	if($tableName == "model_category")
+	{
+		$returnPage = "addModelCat.php" ;
+	}
+	else
+	{
+		$returnPage = "addMovieCat.php" ;
+	}
+	
+	//redirecting to the same page
+	header('Location: ../../'.$returnPage);
 ?>

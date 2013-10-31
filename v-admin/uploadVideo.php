@@ -19,7 +19,7 @@
                         <select class="selectbox1" name="filename">
                     		<option value="">Select One</option>
                         	<?php
-								$manageDate->getFiles("videos");
+								$manageData->getFiles("videos");
 							?>
                         </select>
                     </div>
@@ -40,23 +40,23 @@
                     <div class="form-control v-form">
                         <label class="control-label">Model</label>
                         <select class="selectbox1" multiple="multiple" name="model[]">
-                            <option value="1">VALUE</option>
-                            <option value="2">VALUE</option>
-                            <option value="3">VALUE</option>
-                            <option value="4">VALUE</option>
-                            <option value="5">VALUE</option>
-                            <option value="6">VALUE</option>
+                            <?php 
+								//get the list of the model categories
+								$manageData->getModelNames();
+							?>
                         </select>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Category</label>
                         <select class="selectbox1" multiple="multiple" name="category[]">
-                            <option value="1">VALUE</option>
-                            <option value="2">VALUE</option>
-                            <option value="3">VALUE</option>
-                            <option value="4">VALUE</option>
-                            <option value="5">VALUE</option>
-                            <option value="6">VALUE</option>
+                            <?php 
+								echo '<option>--------------------------------Movie Category--------------------------------</option>';
+								//get the list of the movie categories
+								$manageData->getCategoryListSelectBox("movie_category");
+								echo '<option>--------------------------------Model Category--------------------------------</option>';
+								//get the list of the model categories
+								$manageData->getCategoryListSelectBox("model_category");
+							?>
                         </select>
                     </div>
                     <div class="form-control v-form row">

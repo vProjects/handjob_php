@@ -31,7 +31,7 @@
                     
 					<?php
                         //call the method from BLL to get model list
-                        $manageDate->getModelList();							
+                        $manageData->getModelList();							
                     ?>
                         
                 </table>
