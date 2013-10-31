@@ -4,10 +4,11 @@
     	<p class="footer_part_heading">Site links</p>
         <ul>
         	<li><a href="#">Home</a></li>
-            <li><a href="#">Updates</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Photos</a></li>
             <li><a href="#">Models</a></li>
             <li><a href="#">Blog</a></li>
-            <li><a href="#">Members</a></li>
+            <li><a href="#">Freinds</a></li>
             <li><a href="#">JOIN NOW</a></li>
         </ul>
     </div>

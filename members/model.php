@@ -10,7 +10,7 @@
 <div id="bodyContainer" class="row-fluid">
     	 <div class="row-fluid">
             <div class="span12 blank">
-                <h4>Search By Model</h4>
+                <h4>Model Directory</h4>
                 <div class="pagination pagination-small center">
                   <ul>
                     <li><a  class="btn-danger" href="#">A</a></li>

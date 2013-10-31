@@ -27,10 +27,16 @@
 <div class="header">
 	<!-- header top part starts here ---->
     <div class="row-fluid">
-    	<div class="span12">
-        	<div class="span4 logo">
-            	<img src="images/home_logo.png" alt="logo" />
-            </div>
+        <div class="span6 logo">
+            <img src="images/home_logo.png" alt="logo" />
+        </div>
+        <div class="span4 offset2" id="login_section">
+            <h5 class="site_heading">Member's Login</h5>
+            <form class="form-inline">
+              <input type="text" class="input-small login_textbox" placeholder="Username">
+              <input type="password" class="input-small login_textbox" placeholder="Password">
+              <button type="submit" class="btn btn-danger">Log In</button>
+            </form>
         </div>
     </div>
     <!-- header top part ends here ---->

@@ -248,6 +248,9 @@ body{
 	.row-fluid .span4{
 		width: 33%;
 	}
+	#login_section{
+		margin-left: 15%;
+	}
 }
 @media (max-width: 979px) and (min-width: 768px){
 	.row-fluid [class*="span3"]{
@@ -261,6 +264,9 @@ body{
 	}
 	.row-fluid .span4{
 		width: 33%;
+	}
+	#login_section{
+		margin-left: 12%;
 	}
 }
 
@@ -381,3 +387,32 @@ body{
 	padding: 0px 10px;
 	min-height: 50px;
 }
+
+/* model detail page css */
+.model_detail{
+	margin:20px 0;
+}
+.model_info_topic{
+	font-size:18px;
+	color:#bd362f;
+	padding-left:15px;
+}
+.model_info_description{
+	font-size:17px;
+	color:#4A4A4A;
+	font-weight:bold;
+}
+.model_detail_part{
+	margin:10px 0;
+}
+/* login box css */
+#login_section{
+	padding-top: 15px;
+	background-color: #C8C8C8;
+	padding-left: 30px;
+	padding-bottom: 10px;
+}
+.login_textbox{
+	width:130px;
+}
+

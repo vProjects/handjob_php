@@ -30,19 +30,17 @@
 <div class="container">
 	<div id="header">
         <div class="row-fluid banner">
-        	<div class="span12">
-                <div class="span8">
-                    <div class="span4 logo"><img src="images/logo.png" alt="logo"></div>
-                </div>  <!-- will contain the logo -->
-                <div class="span4">
-                    <form class="form-search pull-right">
-                      <input type="text" class="input-medium search-query">
-                      <button type="submit" class="btn btn-danger">Search</button>
-                      <!-- Button to trigger modal -->
-                      <a href="advance_search.php" class="popup_link">Advanced Search</a>
-                    </form>
-                </div>  <!-- will contain the search bar -->	
-            </div>
+            <div class="span5 logo">
+                <img src="images/home_logo.png" alt="logo" width="500">
+            </div>  <!-- will contain the logo -->
+            <div class="span4 offset3">
+                <form class="form-search pull-right">
+                  <input type="text" class="input-medium search-query">
+                  <button type="submit" class="btn btn-danger">Search</button>
+                  <!-- Button to trigger modal -->
+                  <a href="advance_search.php" class="popup_link">Advanced Search</a>
+                </form>
+            </div>  <!-- will contain the search bar -->	
         </div>
                     
                     

@@ -1,6 +1,6 @@
 <div class="navigation">
         	<div class="navbar">
-              <div class="navbar-inner">
+              <div class="navbar-inner navbar_inner">
                 <div class="container">
              
                   <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -20,7 +20,7 @@
                               <li <?php if($page_title == 'VIDEOS'){echo 'class="active"';}?>><a href="videos.php">Videos</a></li>
                               <li <?php if($page_title == 'BLOGS'){echo 'class="active"';}?>><a href="blog_list.php">Blogs</a></li>
                               <li><a href="#">Friends</a></li>
-                              <li><a href="#">Logout</a></li>
+                              <li><a href="#" class="nav_logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>

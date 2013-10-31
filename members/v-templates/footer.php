@@ -1,30 +1,45 @@
-<!-- footer starts from here -->
-    <div class="footer span12 row-fluid">
-    	<div class=" row-fluid">
-    		<div class="span4 footer_part">
-            	<p>HOME  |  MODELS  |  PHOTOS  |  VIDEOS </p>
-           	  <p>@Copyright 2013 handjobstop.com</p>
-                <p>18 U.S.C. 2257 Compliance statement</p>
-          </div>
-            <div class="span4 footer_part">
-            	<p>ABOUT HANDJOBSTOP.COM</p>
-              <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
-                
-
-          </div>
-			<div class="span4 footer_part">
-           	  <p>SOCIAL LINKS <img src="images/f.png" alt="facebook"><img src="images/t.png" alt="twitter">
-              <img src="images/i.png" alt="linkedin"></p>
-              <P>Contact To conatact us email us at: 
-<br />yoursite@yoursite.com</P>
-
-			</div>
-    
-    	</div>
+<!--- footer starts here ---->
+<div class="row-fluid footer">
+	<div class="span4 footer_part">
+    	<p class="footer_part_heading">Site links</p>
+        <ul>
+        	<li><a href="#">Home</a></li>
+            <li><a href="#">Models</a></li>
+            <li><a href="#">Photos</a></li>
+            <li><a href="#">Videos</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Freinds</a></li>
+        </ul>
     </div>
-            
-            
-     <!-- footer ends here -->
+     <div class="span4 footer_part">
+        <p class="footer_part_heading">Contact</p>
+        <ul>
+        	<li><a href="#">Support</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Models Wanted</a></li>
+            <li><a href="#">Webmaster</a></li>
+            <li><a href="#">Legal</a></li>
+        </ul>
+      </div>
+      <div class="span4 footer_part">
+        <p class="footer_part_heading">Membership</p>
+        <ul>
+        	<li><a href="#">Pricing Option</a></li>
+            <li><a href="#">Anonymous Billing</a></li>
+            <li><a href="#">Terms And Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+</div>
+<div class="row-fluid footer_text_part">
+	<div class="span10 offset1">
+        <hr class="footer_hr" />
+        <p>All models on handjobstop.com were 18 years of age or older when photographed lorem ipsum lorem ipsum lorem ipsum</p>
+        <p>WARNING: If you are under 21 years of age or if it is illegal to view adult material in your community, please leave now. We can't be held responsible for your actions. We are not acting in any way to send you this information; you are choosing to receive it! Continuing further means that you understand and accept responsibility for your own actions, thus releasing the creators of this website and our service provider from all liability.</p>
+        <p>All rights reserved. 2013 - www.handjobstop.com</p>
+    </div>    
+</div>
+<!--- footer ends here ------>
 
 </div> 
 
