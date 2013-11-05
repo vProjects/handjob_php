@@ -191,10 +191,11 @@ body{
 	color: #DA4F49;
 }
 .end_caption{
-	margin:10px 0;
+	margin: 2px 0 10px;
 	padding-bottom: 2px;
 	border-bottom: 1px solid #f20056;
 	border-top: 1px solid #f20056;
+	text-align: center;
 }
 .end_caption h4{
 	margin:5px 0 0;

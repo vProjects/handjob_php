@@ -219,11 +219,8 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
          </div>
         <!--- photo row3 ends here --->
-        <div class="row-fluid end_caption">
-        	<div class="pull-left">
-            	<h4>Lorem Ipsum Lorem Ipsum</h4>
-            </div>
-            <div class="pagination pagination-small pageno_nav pull-right">
+        <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
                 	<li><a class="btn-danger" href="#">1</a></li>
@@ -234,6 +231,9 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
+        </div>
+        <div class="row-fluid end_caption">
+            <h4>Lorem Ipsum Lorem Ipsum</h4>
         </div>
      </div>    
     <!-- video update portion ends here ---->
@@ -524,11 +524,8 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <!--- photo row3 ends here --->
-        <div class="row-fluid end_caption">
-        	<div class="pull-left">
-            	<h4>Lorem Ipsum Lorem Ipsum</h4>
-            </div>
-            <div class="pagination pagination-small pageno_nav pull-right">
+        <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
                 	<li><a class="btn-danger" href="#">1</a></li>
@@ -539,6 +536,9 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
+        </div>
+        <div class="row-fluid end_caption">
+            <h4>Lorem Ipsum Lorem Ipsum</h4>
         </div>
     </div>
     <!-- photo update portion ends here --->
@@ -820,11 +820,8 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <!--- photo row3 ends here --->
-        <div class="row-fluid end_caption">
-        	<div class="pull-left">
-            	<h4>Lorem Ipsum Lorem Ipsum</h4>
-            </div>
-            <div class="pagination pagination-small pageno_nav pull-right">
+        <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
                 	<li><a class="btn-danger" href="#">1</a></li>
@@ -835,6 +832,10 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
+        </div>
+        <div class="row-fluid end_caption">
+            <h4>Lorem Ipsum Lorem Ipsum</h4>
+        </div>
         </div>
         <!-- members favourite portion starts here ---->
     <div class="row-fluid photo_update">
@@ -1024,11 +1025,8 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
          </div>
         <!--- photo row3 ends here --->
-        <div class="row-fluid end_caption">
-        	<div class="pull-left">
-            	<h4>Lorem Ipsum Lorem Ipsum</h4>
-            </div>
-            <div class="pagination pagination-small pageno_nav pull-right">
+        <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
                 	<li><a class="btn-danger" href="#">1</a></li>
@@ -1039,6 +1037,9 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
+        </div>
+        <div class="row-fluid end_caption">
+            <h4>Lorem Ipsum Lorem Ipsum</h4>
         </div>
      </div>    
     <!-- members favourite portion ends here ---->
