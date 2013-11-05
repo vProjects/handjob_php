@@ -38,7 +38,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         	<div class="btn-group">
             	<div class="btn btn-danger">Most Recent</div>
                 <div class="btn btn-danger">Top Rated</div>
-                <div class="btn btn-danger">More Updates</div>
+                <div class="btn btn-danger">A-Z</div>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
@@ -234,7 +234,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
-            <div class="end_caption_border"></div>
         </div>
      </div>    
     <!-- video update portion ends here ---->
@@ -245,7 +244,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         	<div class="btn-group">
             	<div class="btn btn-danger">Most Recent</div>
                 <div class="btn btn-danger">Top Rated</div>
-                <div class="btn btn-danger">More Updates</div>
+                <div class="btn btn-danger">A-Z</div>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
@@ -540,7 +539,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
-            <div class="end_caption_border"></div>
         </div>
     </div>
     <!-- photo update portion ends here --->
@@ -552,7 +550,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         	<div class="btn-group">
             	<div class="btn btn-danger">Most Recent</div>
                 <div class="btn btn-danger">Top Rated</div>
-                <div class="btn btn-danger">More Updates</div>
+                <div class="btn btn-danger">A-Z</div>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
@@ -837,7 +835,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
-            <div class="end_caption_border"></div>
         </div>
         <!-- members favourite portion starts here ---->
     <div class="row-fluid photo_update">
@@ -846,7 +843,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         	<div class="btn-group">
             	<div class="btn btn-danger">Most Recent</div>
                 <div class="btn btn-danger">Top Rated</div>
-                <div class="btn btn-danger">More Updates</div>
+                <div class="btn btn-danger">A-Z</div>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
@@ -1042,7 +1039,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
-            <div class="end_caption_border"></div>
         </div>
      </div>    
     <!-- members favourite portion ends here ---->

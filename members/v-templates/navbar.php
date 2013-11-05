@@ -15,10 +15,10 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                               <li <?php if($page_title == 'HOME'){echo 'class="active"';}?>><a href="index.php">Home</a></li>
-                              <li <?php if($page_title == 'MODELS'){echo 'class="active"';}?>><a href="model.php">Model</a></li>
-                              <li <?php if($page_title == 'PHOTOS'){echo 'class="active"';}?>><a href="photos.php">Photo</a></li>
-                              <li <?php if($page_title == 'VIDEOS'){echo 'class="active"';}?>><a href="videos.php">Videos</a></li>
-                              <li <?php if($page_title == 'BLOGS'){echo 'class="active"';}?>><a href="blog_list.php">Blogs</a></li>
+                              <li <?php if($page_title == 'VIDEOS'){echo 'class="active"';}?>><a href="videos.php">Movies</a></li>
+                              <li <?php if($page_title == 'PHOTOS'){echo 'class="active"';}?>><a href="photos.php">Photos</a></li>
+                              <li <?php if($page_title == 'MODELS'){echo 'class="active"';}?>><a href="model.php">Models</a></li>
+                              <li <?php if($page_title == 'BLOGS'){echo 'class="active"';}?>><a href="blog_list.php">Blog</a></li>
                               <li><a href="#">Friends</a></li>
                               <li><a href="#" class="nav_logout">Logout</a></li>
                         </ul>

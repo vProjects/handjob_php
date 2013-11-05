@@ -50,7 +50,7 @@
     	<div class="btn-group">
             <div class="btn btn-danger">Most Recent</div>
             <div class="btn btn-danger">Top Rated</div>
-            <div class="btn btn-danger">More Updates</div>
+            <div class="btn btn-danger">A-Z</div>
         </div>
         <div class="pagination pagination-small pageno_nav pull-right">
             <ul>
@@ -588,7 +588,6 @@
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
-            <div class="end_caption_border"></div>
         </div>
      </div>    
     <!--- model details ends here --->

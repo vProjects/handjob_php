@@ -354,7 +354,6 @@
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
-            <div class="end_caption_border"></div>
         </div>
       <!-- model section end here-->  
 </div>

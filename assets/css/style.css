@@ -82,7 +82,7 @@ body{
 .nav_join{
 }
 .nav_join:hover{
-	color:#da4f49 !important;
+	color:#ff0000 !important;
 }
 .slider{
 	background-color:#FFF;
@@ -124,18 +124,19 @@ body{
 	margin-left: 5px;
 }
 .pageno_nav ul li a:hover{
-	text-decoration:underline;
 	font-weight:bold;
 }
 .center{
 }
 .center ul li a{
 	margin-left:6px;
+	font-weight:bold;
 }
 .section_element{
 	box-shadow: 3px 3px 7px grey;
 	padding:8px 5px 0px;
 	margin-top:1%;
+	background-color:#FFF;
 }
 .img_update{
 	width:100%;
@@ -192,6 +193,8 @@ body{
 .end_caption{
 	margin:10px 0;
 	padding-bottom: 2px;
+	border-bottom: 1px solid #f20056;
+	border-top: 1px solid #f20056;
 }
 .end_caption h4{
 	margin:5px 0 0;
@@ -268,6 +271,10 @@ body{
 	#login_section{
 		margin-left: 12%;
 	}
+}
+.btn-danger{
+	background-image:none;
+	background-color:#ff0000 !important;
 }
 
 /* index page css */
