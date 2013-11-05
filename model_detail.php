@@ -13,7 +13,7 @@
 <!-- site description part starts here --->
 <div class="container">
 	<div class="row-fluid">
-    	<h3 class="site_heading">Model Name</h3>
+    	<h3>Model Name</h3>
     </div>
     <!-- model detail starts here -->
     <div class="row-fluid model_detail">

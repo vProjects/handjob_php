@@ -318,3 +318,20 @@ body{
     padding: 5px 0;
     text-align: right;
 }
+/* model detail page css */
+.model_detail{
+	margin:20px 0;
+}
+.model_info_topic{
+	font-size:18px;
+	color:#bd362f;
+	padding-left:15px;
+}
+.model_info_description{
+	font-size:17px;
+	color:#4A4A4A;
+	font-weight:bold;
+}
+.model_detail_part{
+	margin:10px 0;
+}
