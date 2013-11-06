@@ -564,9 +564,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 </ul>
             </div>
         </div>
-     </div>   
-    <!-- Model update portion ends here ---->
-    <!--- photo row1 starts here --->
+        <!--- photo row1 starts here --->
         <div class="row-fluid">
         	<div class="span3 section_element">
             	
@@ -836,8 +834,9 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         <div class="row-fluid end_caption">
             <h4>Lorem Ipsum Lorem Ipsum</h4>
         </div>
-        </div>
-        <!-- members favourite portion starts here ---->
+     </div>   
+    <!-- Model update portion ends here ---->    
+    <!-- members favourite portion starts here ---->
     <div class="row-fluid photo_update">
     	<h3 class="site_heading"> Members Favourite</h3>
         <div class="row-fluid photo_update_outline">

@@ -5,60 +5,24 @@
 
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
+	
+	//get the value of id from the query string
+	$model_id = $GLOBALS["_GET"]["model_id"];
 ?>
 
 	<div id="bodyContainer" class="row-fluid">
     	
-        <div class="row-fluid">
-            <h3 class="site_heading">Model Name</h3>
-        </div>
+        
         <!-- model detail starts here -->
-        <div class="row-fluid model_detail">
-            <div class="span3">
-                <img src="images/image.jpg" width="250">
-            </div>
-            <div class="span8">
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Age:</div>
-                    <div class="span8 model_info_description">22 yr</div>
-                </div>
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Height:</div>
-                    <div class="span8 model_info_description">5'7"</div>
-                </div>
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Weight:</div>
-                    <div class="span8 model_info_description">60kg</div>
-                </div>
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Measurement:</div>
-                    <div class="span8 model_info_description">24/36/24</div>
-                </div>
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Category:</div>
-                    <div class="span8 model_info_description">Value, Value</div>
-                </div>
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Description:</div>
-                    <div class="span8 model_info_description">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</div>
-                </div>
-                <div class="row-fluid model_detail_part">
-                    <div class="span3 model_info_topic">Rating:</div>
-                    <div class="span8 model_info_description">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+			//if the get varriable is set 
+			if(isset($model_id) && !empty($model_id))
+			{
+				//get the UI structure of model details
+				$manageData->getModelDetails($model_id);
+			}
+		?>
+        
         <!-- model detail ends here -->
         
         <div class="row-fluid">

@@ -5,7 +5,6 @@
 	include('v-templates/sidebar.php');
 ?>
 
-        
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<blockquote>
@@ -44,12 +43,14 @@
                 <div class="form-control v-form">
                 	<label class="control-label">Category</label>
                     <select class="selectbox1" multiple="multiple" name="category[]">
-                    	<option value="1">VALUE</option>
-                        <option value="2">VALUE</option>
-                        <option value="3">VALUE</option>
-                        <option value="4">VALUE</option>
-                        <option value="5">VALUE</option>
-                        <option value="6">VALUE</option>
+                    	<?php 
+								echo '<option value="">--------------------------------Movie Category--------------------------------</option>';
+								//get the list of the movie categories
+								$manageData->getCategoryListSelectBox("movie_category");
+								echo '<option value="">--------------------------------Model Category--------------------------------</option>';
+								//get the list of the model categories
+								$manageData->getCategoryListSelectBox("model_category");
+							?>
                     </select>
                 </div>
                 <div class="form-control v-form">

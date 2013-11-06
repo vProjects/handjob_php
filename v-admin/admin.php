@@ -10,7 +10,7 @@
                 <div class="span11 process_div">
                 	<p class="green_text">System processes running now...!!</p>
                     <?php
-						$manageDate->getCronVaues();
+						$manageData->getCronVaues();
 					?>
                 </div>
             </div>

@@ -343,3 +343,10 @@ body{
 .model_detail_part{
 	margin:10px 0;
 }
+.red_text{
+	color:#FF0000;
+}
+.red_text a{
+	color:#FF0000;
+	text-decoration:none;
+}

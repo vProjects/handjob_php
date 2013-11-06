@@ -66,12 +66,12 @@
 			
 			
 			echo $model_name.','.$description.','.$age.','.$height.','.$weight.','.$measurement.','.$status.','.$date;
-			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,'ma',$status);
+			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,0,$status);
 			echo $result;
 			if($result == 1)
 			{
 				//resize and save images in the location inside the members area
-				$manageMedia->resizeImage($inputPath,200,$HWRatio*200,$outputPath);
+				$manageMedia->resizeImage($inputPath,250,377,$outputPath);
 				
 				//delete the thumb image from the temp folder
 				//unlink($inputPath);
@@ -94,6 +94,6 @@
 	
 	$_SESSION['result'] = $result;
 	
-	//header('Location: ../../addModel.php');
+	header('Location: ../../addModel.php');
 	
 ?>
