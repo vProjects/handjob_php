@@ -33,7 +33,7 @@
 		function getModels()
 		{
 			//get values from the database
-			$models = $this->manageContent->getValue("model_info","*");
+			$models = $this->manageContent->getValue('model_info','*');
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -125,5 +125,7 @@
 				</div>
 			</div>';
 		}
+		
+		/**/
 	}
 ?>

@@ -50,10 +50,10 @@
                         <label class="control-label">Category</label>
                         <select class="selectbox1" multiple="multiple" name="category[]">
                             <?php 
-								echo '<option>--------------------------------Movie Category--------------------------------</option>';
+								echo '<option value="">--------------------------------Movie Category--------------------------------</option>';
 								//get the list of the movie categories
 								$manageData->getCategoryListSelectBox("movie_category");
-								echo '<option>--------------------------------Model Category--------------------------------</option>';
+								echo '<option value="">--------------------------------Model Category--------------------------------</option>';
 								//get the list of the model categories
 								$manageData->getCategoryListSelectBox("model_category");
 							?>

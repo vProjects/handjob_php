@@ -66,7 +66,7 @@
 			
 			
 			echo $model_name.','.$description.','.$age.','.$height.','.$weight.','.$measurement.','.$status.','.$date;
-			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,0,$status);
+			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,'ma',$status);
 			echo $result;
 			if($result == 1)
 			{

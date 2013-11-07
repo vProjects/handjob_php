@@ -15,15 +15,35 @@
                 <form action="v-includes/functions/function.galleryFromImage.php" method="post">
                     <div class="form-control v-form">
                         <label class="control-label">Folder Name</label>
-                        <input type="text" placeholder="" class="textbox1" name="foldername"/>
+                        <select class="selectbox1" name="foldername">
+                        	<option value="">Select one</option>
+                            <?php
+								//get the names of the folders
+								$manageData->getFolders();
+							?>
+                        </select>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Model</label>
-                        <input type="text" placeholder="" class="textbox1" name="model_name"/>
+                        <select class="selectbox1" multiple="multiple" name="model[]">
+                            <?php 
+								//get the list of the model categories
+								$manageData->getModelNames();
+							?>
+                        </select>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Category</label>
-                        <input type="text" placeholder="" class="textbox1" name="category"/>
+                        <select class="selectbox1" multiple="multiple" name="category[]">
+                            <?php 
+								echo '<option value="">--------------------------------Movie Category--------------------------------</option>';
+								//get the list of the movie categories
+								$manageData->getCategoryListSelectBox("movie_category");
+								echo '<option value="">--------------------------------Model Category--------------------------------</option>';
+								//get the list of the model categories
+								$manageData->getCategoryListSelectBox("model_category");
+							?>
+                        </select>
                     </div>
                     <div class="function_result"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></div>
                 	<input type="submit" value="Create Gallery" class="btn btn-large btn-warning btn_l" />
@@ -38,7 +58,7 @@
 						echo '<h2>Your Gallery(Gallery ID:'.$GLOBALS['_GET']['galleryId'].')</h2>';
                         //get the gallery id which contains the folder name of gallery images
                         $galleryId = $GLOBALS['_GET']['galleryId'];
-						$manageDate->getGallery($galleryId);
+						$manageData->getGallery($galleryId);
                     }
                     
                 ?>

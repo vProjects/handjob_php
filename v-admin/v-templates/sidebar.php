@@ -35,7 +35,7 @@
                         <li><a href="uploadVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Gallery From Videos</a></li>
                         <li><a href="galleryFromImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Gallery From Images</a></li>
                         <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Videos</a></li>
-                        <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>
+                        <li><a href="listGallery.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>
                     </ul>
                 </div>
             </div>
