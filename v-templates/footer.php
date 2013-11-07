@@ -23,7 +23,7 @@
         </ul>
       </div>
       <div class="span4 footer_part">
-        <p class="footer_part_heading">Membership</p>
+        <p class="footer_part_heading">Social Media</p>
         <ul>
         	<li><a href="#">Pricing Option</a></li>
             <li><a href="#">Anonymous Billing</a></li>

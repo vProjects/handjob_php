@@ -20,7 +20,7 @@
                         <h4>Model Directory</h4>
                         <div class="pagination pagination-small center">
                           <ul>
-                            <li><a class="btn-danger" href="#">A</a></li>
+                            <li><a class="btn-danger center_1st" href="#">A</a></li>
                             <li><a href="#">B</a></li>
                             <li><a href="#">C</a></li>
                             <li><a href="#">D</a></li>

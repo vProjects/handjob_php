@@ -38,7 +38,7 @@
             <div class="span5 logo">
                 <img src="images/home_logo.png" alt="logo" width="500">
             </div>  <!-- will contain the logo -->
-            <div class="span4 offset3">
+            <div class="span4 offset3 pull-right" id="advanced_search">
                 <form class="form-search pull-right">
                   <input type="text" class="input-medium search-query">
                   <button type="submit" class="btn btn-danger">Search</button>

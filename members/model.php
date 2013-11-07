@@ -13,7 +13,7 @@
                 <h4>Model Directory</h4>
                 <div class="pagination pagination-small center">
                   <ul>
-                    <li><a  class="btn-danger" href="#">A</a></li>
+                    <li><a  class="btn-danger center_1st" href="#">A</a></li>
                     <li><a href="#">B</a></li>
                     <li><a href="#">C</a></li>
                     <li><a href="#">D</a></li>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-       <div class="row-fluid">
+       <div class="row-fluid btn_group_outline">
        		<div class="btn-group">
 			  <button class="btn btn-large btn-danger">Most Recent</button>
 			  <button class="btn btn-large btn-danger">Most Popular</button>
@@ -64,7 +64,7 @@
 				<div class="pagination pagination-small center">
 				  <ul>
 					<li><a href="#">Prev</a></li>
-					<li><a class="btn-danger" href="#">1</a></li>
+					<li><a class="btn-danger center_1st" href="#">1</a></li>
 					<li><a href="#">2</a></li>
 					<li><a href="#">3</a></li>
 					<li><a href="#">4</a></li>

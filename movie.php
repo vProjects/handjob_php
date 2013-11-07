@@ -18,7 +18,7 @@
         	<h4>Model Directory</h4>
             <div class="pagination pagination-small center">
               <ul>
-                <li><a  class="btn-danger" href="#">A</a></li>
+                <li><a  class="btn-danger center_1st" href="#">A</a></li>
                 <li><a href="#">B</a></li>
                 <li><a href="#">C</a></li>
                 <li><a href="#">D</a></li>
@@ -73,7 +73,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -90,7 +90,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -107,7 +107,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -129,7 +129,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -146,7 +146,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -163,7 +163,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -185,7 +185,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -202,7 +202,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -219,7 +219,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -240,7 +240,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -257,7 +257,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -274,7 +274,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -296,7 +296,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -313,7 +313,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -330,7 +330,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -352,7 +352,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -369,7 +369,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -386,7 +386,7 @@
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -401,11 +401,8 @@
             </div>
          </div>
         <!--- photo row3 ends here --->
-        <div class="row-fluid end_caption">
-        	<div class="pull-left">
-            	<h4>Lorem Ipsum Lorem Ipsum</h4>
-            </div>
-            <div class="pagination pagination-small pageno_nav pull-right">
+        <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
                 	<li><a class="btn-danger" href="#">1</a></li>
@@ -416,6 +413,9 @@
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
+        </div>
+        <div class="row-fluid end_caption">
+            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
      </div>    
     <!--- model details ends here --->

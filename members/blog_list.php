@@ -196,6 +196,25 @@
                 </div>
             </div>
             <!---- blog list ends here --->
+            <div class="row-fluid">
+                <div class="span12 blank">
+                    <div class="pagination pagination-small center">
+                      <ul>
+                        <li><a href="#">Prev</a></li>
+                        <li><a class="btn-danger center_1st" href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">6</a></li>
+                        <li><a href="#">7</a></li>
+                        <li><a href="#">8</a></li>
+                        <li><a href="#">9</a></li>
+                        <li><a href="#">Next</a></li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- leftcontainer ends here---->
         

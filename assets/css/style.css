@@ -104,7 +104,7 @@ body{
 	font-size:14px;
 }
 .photo_update_outline{
-	border-bottom:1px solid #f20056;
+	border-bottom:1px solid #f20000;
 	padding-bottom:2px;
 }
 .pageno_nav{
@@ -122,6 +122,7 @@ body{
 .pageno_nav ul li a{
 	color:#fff;
 	margin-left: 5px;
+	background-color:#ff0000;
 }
 .pageno_nav ul li a:hover{
 	font-weight:bold;
@@ -131,6 +132,10 @@ body{
 .center ul li a{
 	margin-left:6px;
 	font-weight:bold;
+}
+.center_1st{
+	color:#fff;
+	background-color:#ff0000 !important;
 }
 .section_element{
 	box-shadow: 3px 3px 7px grey;
@@ -143,6 +148,9 @@ body{
 }
 .photo_section_footer{
 	margin: 5px 0;
+}
+.photo_section_heading{
+	color:#ff0000;
 }
 .photo_section_footer p{
 	padding:0px 0px 5px 2px;
@@ -202,8 +210,8 @@ body{
 }
 .end_caption_border{
 	height:2px;
-	border-bottom: 1px solid #f20056;
-	border-top: 1px solid #f20056;
+	border-bottom: 1px solid #f20000;
+	border-top: 1px solid #f20000;
 	margin: 40px 0 0;
 }
 .rslides {
@@ -275,7 +283,17 @@ body{
 }
 .btn-danger{
 	background-image:none;
-	background-color:#ff0000 !important;
+	background-color:#ff0000;
+}
+.btn-danger:hover{
+	background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+	background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+	background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+	background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+	background-repeat: repeat-x;
+	border-color: #bd362f #bd362f #802420;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
 }
 
 /* index page css */
@@ -351,6 +369,9 @@ body{
 	text-align:center;
 	text-transform:uppercase;
 }
+.search_model h4{
+	color:#ff0000;
+}
 .model_detail_heading{
 	border-bottom: 1px solid #f20056;
 	padding-bottom: 2px;
@@ -366,8 +387,11 @@ body{
 	padding:2%;
 }
 .tour_blog_heading {
-	color: #000000;
+	color: #ff0000;
 	text-transform:uppercase;
+}
+.tour_blog_heading:hover{
+	color:#000;
 }
 .tour_blog_author_name {
 	color: #da4f49;
@@ -402,7 +426,7 @@ body{
 }
 .model_info_topic{
 	font-size:18px;
-	color:#bd362f;
+	color:#ff0000;
 	padding-left:15px;
 }
 .model_info_description{

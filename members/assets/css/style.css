@@ -31,7 +31,7 @@ body{
 	padding: 1% 1% 1% 0;
 }
 .form-search{
-	padding:12%;
+	padding:10% 12%;
 }
 .navbar-inner{
 	padding-left:0;
@@ -82,6 +82,13 @@ body{
 #leftContainer{
 	background:none;
 }
+#rightContainer{
+	padding-left: 30px;
+	padding-top: 10px;
+}
+#advanced_search{
+	
+}
 #searchBar{
 	color: #000000;
     font-weight: bold;
@@ -91,6 +98,7 @@ body{
 }
 #searchBar h4{
 	margin-left: 1%;
+	color:#ff0000;
 }
 .tab{
 	width: 50%;
@@ -100,7 +108,7 @@ body{
 	margin-bottom:1%;
 }
 #mainBar{
-	background-color:#000;
+	background-color:#6A6A6A;
 	color:#FFF;
 	text-align:center;
 	box-shadow:3px 3px 3px 0px grey;
@@ -125,7 +133,7 @@ body{
 	background-color:#FFF;
 }
 .clickMore{
-	background-color: #ff6600;
+	background-color: #ff0000;
 	display:block;
 	cursor:pointer;
 	color:#FFF;
@@ -135,12 +143,13 @@ body{
 	transition: all 0.5s ease 0s;
 }
 #secondaryMainBar{
-	background-color:#000;
+	background-color:#6A6A6A;
 	text-align:center;
 	margin-top: 9%;
 	color:white;
 }
 #secondaryMainBar h4{
+
 }
 .mostPopular{
 	padding:5%;
@@ -235,16 +244,65 @@ body{
 }
 
 /* bootstrap css modification */
+@media (min-width: 1200px){
+	.row-fluid [class*="span3"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span3{
+		width: 24.5%;
+	}
+	.row-fluid [class*="span4"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span4{
+		width: 33%;
+	}
+	#login_section{
+		margin-left: 15%;
+	}
+}
+@media (max-width: 979px) and (min-width: 768px){
+	.row-fluid [class*="span3"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span3{
+		width: 24.5%;
+	}
+	.row-fluid [class*="span4"]{
+		margin-left: 0.5%;
+	}
+	.row-fluid .span4{
+		width: 33%;
+	}
+	#login_section{
+		margin-left: 12%;
+	}
+}
 .btn-danger{
 	background-image:none;
-	background-color:#ff0000 !important;
+	background-color:#ff0000;
 }
+.btn-danger:hover{
+	background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+	background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+	background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+	background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+	background-repeat: repeat-x;
+	border-color: #bd362f #bd362f #802420;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
 
 /* Model page css */
 .center{
 	 float: none;
      margin-left: auto;
      margin-right: auto;
+}
+.center_1st{
+	color:#fff;
+	background-color:#ff0000 !important;
 }
 .blank{
 	background: none;
@@ -254,6 +312,12 @@ body{
 	font-weight: bold;
 	margin-top: 1%;
 	text-transform:uppercase;
+}
+.blank{
+	color:#ff0000;
+}
+.btn_group_outline{
+	margin:20px 0;
 }
 /* advanced search page css */
 .popup_link{
@@ -296,7 +360,10 @@ body{
 	color:#da4f49;
 }
 .blog_heading{
-	color:#000000;
+	color:#ff0000;
+}
+.blog_heading:hover{
+	color:#000;
 }
 .blog_heading:hover{
 	color:#010101;
@@ -332,7 +399,7 @@ body{
 }
 .model_info_topic{
 	font-size:18px;
-	color:#bd362f;
+	color:#ff0000;
 	padding-left:15px;
 }
 .model_info_description{

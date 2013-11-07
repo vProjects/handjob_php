@@ -58,7 +58,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -75,7 +75,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -92,7 +92,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -114,7 +114,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -131,7 +131,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -148,7 +148,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -170,7 +170,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -187,7 +187,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -204,7 +204,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -233,7 +233,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum</h4>
+            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
      </div>    
     <!-- video update portion ends here ---->
@@ -267,7 +267,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -288,7 +288,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -309,7 +309,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -330,7 +330,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -356,7 +356,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -377,7 +377,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -398,7 +398,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -419,7 +419,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -445,7 +445,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -466,7 +466,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -487,7 +487,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -508,7 +508,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -538,7 +538,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum</h4>
+            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
     </div>
     <!-- photo update portion ends here --->
@@ -573,7 +573,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -593,7 +593,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -613,7 +613,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -633,7 +633,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -658,7 +658,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -678,7 +678,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -698,7 +698,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -718,7 +718,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -743,7 +743,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -763,7 +763,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -783,7 +783,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -803,7 +803,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <div class="photo_section_footer">
                 	
                     <div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p> 2013-07-23</p></div>
                     </div>
                     
@@ -832,7 +832,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum</h4>
+            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
      </div>   
     <!-- Model update portion ends here ---->    
@@ -863,7 +863,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -880,7 +880,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -897,7 +897,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -919,7 +919,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -936,7 +936,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -953,7 +953,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -975,7 +975,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -992,7 +992,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -1009,7 +1009,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
                 <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
                 <div class="photo_section_footer">
                 	<div class="row-fluid">
-                    	<div class="pull-left"><p><b>Lorem Ipsum</b></p></div>
+                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
                     	<div class="pull-right"><p>Added: 2013-07-23</p></div>
                     </div>
                     <p>Rating:
@@ -1038,7 +1038,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum</h4>
+            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
      </div>    
     <!-- members favourite portion ends here ---->
