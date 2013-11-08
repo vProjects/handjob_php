@@ -215,5 +215,28 @@
 			}
 				
 		}
+		
+		/*
+		- get the articles from the database
+		- generate the UI for the design
+		- Auth Singh
+		*/
+		function getArticles()
+		{
+			$articles = $this->manageContent->getValue('article_info','*');
+			
+			foreach($articles as $article)
+			{
+				echo '<div class="row-fluid blog_container">
+						<div class="span12">
+							<h4><a href="#" class="blog_heading">'.$article["article_title"].'</a></h4>
+							<p class="blog_author_name"> '.$article["article_author"].'</p>
+							<p>'.$article["article_description"].'</p>
+							<p> Added :'.$article["article_date"].'</p>
+							<p> 2 Comments</p>
+						</div>
+					</div>';
+			}
+		}
 	}
 ?>
