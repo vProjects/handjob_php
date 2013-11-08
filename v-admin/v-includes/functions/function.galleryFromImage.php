@@ -13,6 +13,7 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$foldername = $_POST['foldername'];
+		$gallery_name = $_POST['gallery_name'];
 	}
 	
 	$category_string = "" ;
@@ -77,7 +78,7 @@
 	}
 
 	//insert the values in the database for the gallery
-	$manageData->insertGalleryInfo($outputFolder,$outputPath,$category_string,$model_string,$date,0,0,1);
+	$manageData->insertGalleryInfo($outputFolder,$gallery_name,$outputPath,$category_string,$model_string,$date,0,0,1);
 	
 	//return the name of the folder using get request
 	header('Location: ../../galleryFromImage.php?galleryId='.$outputFolder);

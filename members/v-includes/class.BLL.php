@@ -70,6 +70,52 @@
 			}
 		}
 		
+		
+		/*
+		- get galleries from the database
+		-Auth Singh
+		*/
+		function getGallery()
+		{
+			//get values from the database
+			$gallerys = $this->manageContent->getValue('gallery_info','*');
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($gallerys as $gallery)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%4 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($gallery["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span3 element">
+							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
+							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src=""></a>
+							<p>Added :'.$gallery["date"].'<br />Views: '.$gallery["view"].'</p>';
+					//logic for displaying stars according to the rating		
+					for($i = 0 ; $i < $gallery['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%4 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
+		
+		
 		/*
 		- get model details for a specific model
 		- Auth Singh
@@ -126,6 +172,48 @@
 			</div>';
 		}
 		
-		/**/
+		/*
+		- gallery builder for the UI
+		- Auth Singh
+		*/
+		function getFullGallery($gallery_id)
+		{
+			$galleryPath = "gallery/".$gallery_id."/";
+			//image location will change according to the large,small and medium requests
+			$imageLocation = "gallery/".$gallery_id."/";
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			foreach($filenames as $filename)
+			{
+				if(!is_dir($galleryPath.$filename))
+				{
+					//maintain the row fluid with only four models in a row
+					if($start_point%4 == 0)
+					{
+						echo '<div class="row-fluid">';
+					}
+					//create the UI components
+					echo '<div class="span3 element">
+							<a href="'.$imageLocation.$filename.'" target="_blank">
+								<img class="lazy" data-src="'.$galleryPath."s/".$filename.'" src=""></a>
+							</a>';
+					echo '</div>';
+					
+					if($end_point%4 == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
+				}
+			}
+				
+		}
 	}
 ?>

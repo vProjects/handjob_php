@@ -13,6 +13,10 @@
             </blockquote>
             <div class="form-horizontal">
                 <form action="v-includes/functions/function.galleryFromImage.php" method="post">
+                	<div class="form-control v-form">
+                        <label class="control-label">Gallery Name</label>
+                        <input class="textbox1" type="text" name="gallery_name" placeholder="Gallery Name">
+                    </div>
                     <div class="form-control v-form">
                         <label class="control-label">Folder Name</label>
                         <select class="selectbox1" name="foldername">

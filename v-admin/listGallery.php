@@ -19,6 +19,7 @@
                         <tr>
                             <th>Thumb</th>
                             <th>Gallery Id</th>
+                            <th>Gallery Name</th>
                             <th>Model</th>
                             <th>Category</th>
                             <th>Date</th>

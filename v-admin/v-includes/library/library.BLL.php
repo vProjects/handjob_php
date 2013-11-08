@@ -114,6 +114,7 @@
                         <tr>
 							<td class="span1 model_thumb"><img src="../members/images/gallery_thumb/'.$gallery['gallery_id'].'.JPG"/></td>
                             <td><a href="galleryFromImage.php?galleryId='.$gallery['gallery_id'].'">'.$gallery['gallery_id'].'</a></td>
+							<td>'.$gallery['gallery_name'].'</td>
 							<td>'.$gallery['model'].'</td>
 							<td>'.$gallery['category'].'</td>
                             <td>'.$gallery['date'].'</td>

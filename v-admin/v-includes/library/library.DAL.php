@@ -146,10 +146,10 @@
 		- method to insert into gallery_info table
 		- Auth Singh
 		*/
-		function insertGalleryInfo($galleryId,$path,$category,$model,$date,$view,$rating,$status)
+		function insertGalleryInfo($galleryId,$gallery_name,$path,$category,$model,$date,$view,$rating,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `gallery_info`(`gallery_id`, `path`, `category`, `model`, `date`,  `view`, `rating`,`status`) VALUES (?,?,?,?,?,?,?,?)");
-			$values = array($galleryId,$path,$category,$model,$date,$view,$rating,$status);
+			$query = $this->link->prepare("INSERT INTO `gallery_info`(`gallery_id`,`gallery_name`,`path`, `category`, `model`, `date`,  `view`, `rating`,`status`) VALUES (?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$gallery_name,$path,$category,$model,$date,$view,$rating,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}
