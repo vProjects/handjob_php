@@ -110,10 +110,10 @@
 		- method to insert the value for cron file video conversion
 		- Auth Singh
 		*/
-		function insertCronGallery($inputVideo,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$cron_status)
+		function insertCronGallery($inputVideo,$gallery_name,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$cron_status)
 		{
-			$query = $this->link->prepare("INSERT INTO `cron_gallery`(`input_video`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `snap_input`, `no_snapshot`, `out_snap_path`, `out_snap_filename`, `snap_h`, `snap_w`, `cron_status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($inputVideo,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$cron_status);
+			$query = $this->link->prepare("INSERT INTO `cron_gallery`(`input_video`, `gallery_name`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `snap_input`, `no_snapshot`, `out_snap_path`, `out_snap_filename`, `snap_h`, `snap_w`, `cron_status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($inputVideo,$gallery_name,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$cron_status);
 			$query->execute($values);
 			return $query->rowCount();
 		}
@@ -122,10 +122,10 @@
 		- method to insert the value for cron file
 		- Auth Singh
 		*/
-		function insertCronSilce($outputFilename,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$status)
+		function insertCronSilce($outputFilename,$gallery_name,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `cron_slice`(`vid_name`, `model`, `category`, `input_path`, `output_path`, `vid_duration`, `no_slice`, `output_format`,`resolution_l`, `resolution_m`, `resolution_s`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($outputFilename,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$status);
+			$query = $this->link->prepare("INSERT INTO `cron_slice`(`vid_name`, `gallery_name`, `model`, `category`, `input_path`, `output_path`, `vid_duration`, `no_slice`, `output_format`,`resolution_l`, `resolution_m`, `resolution_s`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($outputFilename,$gallery_name,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}
@@ -134,10 +134,10 @@
 		- method to insert the value for slice_info table
 		- Auth Singh
 		*/
-		function insertSilcedInfo($gallery_id,$path,$model,$category,$date,$view,$rating)
+		function insertSilcedInfo($gallery_id,$movie_name,$path,$model,$category,$date,$view,$rating)
 		{
-			$query = $this->link->prepare("INSERT INTO `sliced_vids`( `gallery_id`, `path`, `model`, `category`, `date`, `view`, `rating`) VALUES (?,?,?,?,?,?,?)");
-			$values = array($gallery_id,$path,$model,$category,$date,$view,$rating);
+			$query = $this->link->prepare("INSERT INTO `sliced_vids`( `gallery_id`,`movie_name`, `path`, `model`, `category`, `date`, `view`, `rating`) VALUES (?,?,?,?,?,?,?,?)");
+			$values = array($gallery_id,$movie_name,$path,$model,$category,$date,$view,$rating);
 			$query->execute($values);
 			return $query->rowCount();
 		}
@@ -158,10 +158,10 @@
 		- method to insert into movie_info table
 		- Auth Singh
 		*/
-		function insertMovieInfo($galleryId,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status)
+		function insertMovieInfo($galleryId,$movie_name,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `movie_info`(`gallery_id`, `category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?)");
-			$values = array($galleryId,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status);
+			$query = $this->link->prepare("INSERT INTO `movie_info`(`gallery_id`, `movie_name`,`category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$movie_name,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}

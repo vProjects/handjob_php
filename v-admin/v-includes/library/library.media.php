@@ -96,6 +96,18 @@
 			return $movieDuration ;
 		}
 		
+		/*
+		- generate thumbnail from the video
+		- using ffmpeg 
+		- time after a tumbnail is captured is 25 sec
+		- @param resolution format example 1200x900 
+		- Auth Singh
+		*/
+		function getThumbs($moviePath,$startTime,$resolution,$output_path,$output_fileName,$outputFormat)
+		{
+			exec("$this->ffmpeg -ss $startTime -i $moviePath -s $resolution -frames:v 1 $output_path".$output_fileName.".".$outputFormat."  2> /home/sites/handjobstop.com/public_html/logs/thumb_log.txt");
+		}
+		
 	}
 
 ?>

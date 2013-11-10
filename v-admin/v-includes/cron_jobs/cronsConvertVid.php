@@ -24,8 +24,8 @@
 			$result = "1";
 			
 			//insert the appropiate values in the gallery table and movies table
-			$manageData->insertGalleryInfo($cronValue['out_filename'],$cronValue['out_snap_path'],$cronValue['category'],$cronValue['model'],$date,0,0,1);
-			$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$date,1);
+			$manageData->insertGalleryInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['out_snap_path'],$cronValue['category'],$cronValue['model'],$date,0,0,1);
+			$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$date,1);
 			
 			//delete the values from cron gallery table
 			$manageData->deleteValue('cron_gallery','id',$cronValue['id']);
@@ -42,17 +42,19 @@
 		{
 			for($i = 0 ; $i < $cronSilceValue['no_slice'] ; $i++ )
 			{
-				$start_time = date('H:i:s', mktime(0, 0,($i * $timeinterval))) ;
+				$start_time = date('H:i:s', mktime(0, 0,($i * $timeinterval)));
 				$end_time = date('H:i:s', mktime(0, 0,(($i+1) * $timeinterval)));
+				//time for capturing thumb
+				$thumb_time = date('H:i:s', mktime(0, 0,($i * $timeinterval)+25));
 				
 				
 				//slice the videos
-				$manageMedia->sliceVideo($cronSilceValue['input_path'],$start_time,$timeinterval,$cronSilceValue['output_path'],$cronSilceValue['output_format'],$cronSilceValue['vid_name']."_".$i,$cronSilceValue['resolution_l'],$cronSilceValue['resolution_m'],$cronSilceValue['resolution_s']);
+				$manageMedia->sliceVideo($cronSilceValue['input_path'],$cronSilceValue['gallery_name'],$start_time,$timeinterval,$cronSilceValue['output_path'],$cronSilceValue['output_format'],$cronSilceValue['vid_name']."_".$i,$cronSilceValue['resolution_l'],$cronSilceValue['resolution_m'],$cronSilceValue['resolution_s'],$thumb_time);
 				
 			}
 			
 			//insert the appropiate values in the gallery table and movies table
-			$manageData->insertSilcedInfo($cronSilceValue['vid_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$date,0,0);
+			$manageData->insertSilcedInfo($cronSilceValue['vid_name'],$cronSilceValue['gallery_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$date,0,0);
 				
 			//delete the values from cron gallery table
 			$manageData->deleteValue('cron_slice','id',$cronSilceValue['id']);

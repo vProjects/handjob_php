@@ -18,6 +18,15 @@
 		*/
 		function convertAll($inputVidForConversion,$outputVideoPath,$outputFilename,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall)
 		{
+			//output path for the thumbnail
+			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/movie_thumb/';
+			//thumb image format
+			$thumbFormat = "JPG";
+			//startTime variable is time after which we take a snap
+			$startTime = "00:00:25";
+			//get thumbnail for the video
+			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"377x250",$outputPathThumb,$outputFilename,$thumbFormat);
+			
 			//convert videos in all the three formats Large
 			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_1,$outputFilename.".".$vidFormat_1,$resolutionLarge);
 			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionLarge);
@@ -40,6 +49,15 @@
 		*/
 		function getSnapsAll($inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_w,$vedio_h)
 		{
+			//output path for the thumbnail
+			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/gallery_thumb/';
+			//thumb image format
+			$thumbFormat = "JPG";
+			//startTime variable is time after which we take a snap
+			$startTime = "00:00:25";
+			//get thumbnail for the video
+			$this->mediaQuery->getThumbs($inputFile,$startTime,"377x250",$outputPathThumb,$outputFilename,$thumbFormat);
+			
 			//resolution for medium images
 			$imageWidthMedium = 1600 ;
 			$imageHeightMedium = 1064 ;
@@ -63,8 +81,16 @@
 		- @param time format hh:mm:ss
 		- Auth Singh
 		*/
-		function sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l,$resolution_m,$resolution_s)
+		function sliceVideo($inputFile,$gallery_name,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l,$resolution_m,$resolution_s,$thumb_time)
 		{
+			//output path for the thumbnail
+			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/movie_thumb/';
+			//thumb image format
+			$thumbFormat = "JPG";
+			//get thumbnail for the video
+			$this->mediaQuery->getThumbs($inputFile,$thumb_time,"377x250",$outputPathThumb,$outputFilename,$thumbFormat);
+			
+			
 			$outputFilename = $outputFilename.".".$outputFormat;
 			//slice the video -->large
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l);

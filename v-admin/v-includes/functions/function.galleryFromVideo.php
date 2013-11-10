@@ -9,6 +9,7 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$filename = $_POST['filename'];
+		$gallery_name = $_POST['gallery_name'];
 		$no_snapshot = $_POST['no_snapshot'];
 		$vedio_h = $_POST['vedio_h'];
 		$vedio_w = $_POST['vedio_w'];
@@ -103,7 +104,7 @@
 	$inputVidForConversion = $_SERVER['DOCUMENT_ROOT']."uploads/videos/".$filename;
 	
 	//insert the values in the cron table for automated execution by crons job
-	$manageData->insertCronGallery($inputVidForConversion,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
+	$manageData->insertCronGallery($inputVidForConversion,$gallery_name,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
 	
 	//check if slicing is required or not
 	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)
@@ -121,7 +122,7 @@
 		$sliced_format = "flv";
 		
 		//insert the values in the cron table for slicing
-		$manageData->insertCronSilce($outputFilename,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
+		$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
 	}
 	
 	//return the name of the folder using get request
