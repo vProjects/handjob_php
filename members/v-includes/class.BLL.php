@@ -238,5 +238,49 @@
 					</div>';
 			}
 		}
+		
+		/*
+		- get videos from the database
+		-Auth Singh
+		*/
+		function getVideos()
+		{
+			//get values from the database
+			$movies = $this->manageContent->getValue('movie_info','*');
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($movies as $movie)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%4 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($movie["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span3 element">
+							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
+							<img class="lazy" data-src="images/gallery_thumb/'.$movie["gallery_id"].'.JPG" src=""></a>
+							<p>Added :'.$movie["date"].'<br />Views: '.$movie["view"].'</p>';
+					//logic for displaying stars according to the rating		
+					for($i = 0 ; $i < $movie['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%4 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
 	}
 ?>

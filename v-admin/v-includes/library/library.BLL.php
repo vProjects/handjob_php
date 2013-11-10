@@ -230,6 +230,64 @@
 			}
 		}
 		
+		/*
+		- get the list of the videos and create UI
+		- using the movie_info table
+		- Auth Singh
+		*/
+		function getVideoList()
+		{
+			$movies = $this->manageContent->getValue('movie_info','*');
+			foreach($movies as $movie)
+			{
+				echo '<tbody>
+                        <tr>
+							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$movie['gallery_id'].'.JPG"/></td>
+                            <td><a href="galleryFromImage.php?galleryId='.$movie['gallery_id'].'">'.$movie['gallery_id'].'</a></td>
+							<td>'.$movie['movie_name'].'</td>
+							<td>'.$movie['model'].'</td>
+							<td>'.$movie['category'].'</td>
+                            <td>'.$movie['date'].'</td>
+                            <td><button class="btn btn-warning" type="button">
+								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+							</td>
+                            <td><button class=" btn btn-danger" type="button">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+							</td>
+                        </tr>
+                    </tbody>';
+			}
+		}
+		
+		/*
+		- get the list of the sliced vids and create UI
+		- using the sliced_vids table
+		- Auth Singh
+		*/
+		function getSlicedVideoList()
+		{
+			$slicedMovies = $this->manageContent->getValue('sliced_vids','*');
+			foreach($slicedMovies as $slicedMovie)
+			{
+				echo '<tbody>
+                        <tr>
+							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
+                            <td><a href="galleryFromImage.php?galleryId='.$slicedMovie['gallery_id'].'">'.$slicedMovie['gallery_id'].'</a></td>
+							<td>'.$slicedMovie['movie_name'].'</td>
+							<td>'.$slicedMovie['model'].'</td>
+							<td>'.$slicedMovie['category'].'</td>
+                            <td>'.$slicedMovie['date'].'</td>
+                            <td><button class="btn btn-warning" type="button">
+								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+							</td>
+                            <td><button class=" btn btn-danger" type="button">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+							</td>
+                        </tr>
+                    </tbody>';
+			}
+		}
+		
 	}
 
 ?>

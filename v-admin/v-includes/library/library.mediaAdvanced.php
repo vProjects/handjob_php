@@ -25,7 +25,7 @@
 			//startTime variable is time after which we take a snap
 			$startTime = "00:00:25";
 			//get thumbnail for the video
-			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"377x250",$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"377x300",$outputPathThumb,$outputFilename,$thumbFormat);
 			
 			//convert videos in all the three formats Large
 			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath,$vidFormat_1,$outputFilename.".".$vidFormat_1,$resolutionLarge);
@@ -56,7 +56,7 @@
 			//startTime variable is time after which we take a snap
 			$startTime = "00:00:25";
 			//get thumbnail for the video
-			$this->mediaQuery->getThumbs($inputFile,$startTime,"377x250",$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->getThumbs($inputFile,$startTime,"250x377",$outputPathThumb,$outputFilename,$thumbFormat);
 			
 			//resolution for medium images
 			$imageWidthMedium = 1600 ;
@@ -88,7 +88,7 @@
 			//thumb image format
 			$thumbFormat = "JPG";
 			//get thumbnail for the video
-			$this->mediaQuery->getThumbs($inputFile,$thumb_time,"377x250",$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->getThumbs($inputFile,$thumb_time,"377x300",$outputPathThumb,$outputFilename,$thumbFormat);
 			
 			
 			$outputFilename = $outputFilename.".".$outputFormat;
