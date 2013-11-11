@@ -50,9 +50,13 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'">'.$model['name'].'</h4>
-							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" alt="vdeo"></a>
+							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
 							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
-					//logic for displaying stars according to the rating		
+					//logic for displaying stars according to the rating
+					if( $model['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}		
 					for($i = 0 ; $i < $model['rating'] ; $i++)
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -95,9 +99,13 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
-							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src=""></a>
+							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$gallery["date"].'<br />Views: '.$gallery["view"].'</p>';
-					//logic for displaying stars according to the rating		
+					//logic for displaying stars according to the rating
+					if( $gallery['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}	
 					for($i = 0 ; $i < $gallery['rating'] ; $i++)
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -262,11 +270,70 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
-							<img class="lazy" data-src="images/gallery_thumb/'.$movie["gallery_id"].'.JPG" src=""></a>
-							<p>Added :'.$movie["date"].'<br />Views: '.$movie["view"].'</p>';
-					//logic for displaying stars according to the rating		
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
+							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
+					//logic for displaying stars according to the rating
+					if( $movie['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
 					for($i = 0 ; $i < $movie['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%4 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
+		
+		/*
+		- get sliced movies of the same movie
+		- Auth Singh
+		*/
+		function getSlicedMovie($movieId)
+		{
+			//get values from the database
+			$slicedMovies = $this->manageContent->getValueWhere("sliced_vids","*","movie_id",$movieId);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			
+			echo '<div class="row-fluid">
+						<div id="searchBar" class="span12 pull-left">
+								<h4>WATCH IN PARTS</h4>
+						</div>
+				   </div>';
+				   
+			foreach($slicedMovies as $slicedMovie)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%4 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				
+				{
+					//create the UI components
+					echo '<div class="span3 element">
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['gallery_id'].'">'.$slicedMovie["movie_name"].'</h4>
+							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["views"].'</p>';
+					//logic for displaying stars according to the rating
+					if( $slicedMovie['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					for($i = 0 ; $i < $slicedMovie['rating'] ; $i++)
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}

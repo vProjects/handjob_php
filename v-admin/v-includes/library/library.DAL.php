@@ -134,10 +134,10 @@
 		- method to insert the value for slice_info table
 		- Auth Singh
 		*/
-		function insertSilcedInfo($gallery_id,$movie_name,$path,$model,$category,$date,$view,$rating)
+		function insertSilcedInfo($gallery_id,$movie_id,$movie_name,$path,$model,$category,$date,$view,$rating)
 		{
-			$query = $this->link->prepare("INSERT INTO `sliced_vids`( `gallery_id`,`movie_name`, `path`, `model`, `category`, `date`, `view`, `rating`) VALUES (?,?,?,?,?,?,?,?)");
-			$values = array($gallery_id,$movie_name,$path,$model,$category,$date,$view,$rating);
+			$query = $this->link->prepare("INSERT INTO `sliced_vids`( `gallery_id`,`movie_id`,`movie_name`, `path`, `model`, `category`, `date`, `view`, `rating`) VALUES (?,?,?,?,?,?,?,?,?)");
+			$values = array($gallery_id,$movie_id,$movie_name,$path,$model,$category,$date,$view,$rating);
 			$query->execute($values);
 			return $query->rowCount();
 		}

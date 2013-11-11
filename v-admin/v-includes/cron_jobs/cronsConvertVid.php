@@ -52,7 +52,7 @@
 				$manageMedia->sliceVideo($cronSilceValue['input_path'],$cronSilceValue['gallery_name'],$start_time,$timeinterval,$cronSilceValue['output_path'],$cronSilceValue['output_format'],$cronSilceValue['vid_name']."_".$i,$cronSilceValue['resolution_l'],$cronSilceValue['resolution_m'],$cronSilceValue['resolution_s'],$thumb_time);
 				
 				//insert the appropiate values in the gallery table and movies table
-				$manageData->insertSilcedInfo($cronSilceValue['vid_name']."_".$i,$cronSilceValue['gallery_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$date,0,0);
+				$manageData->insertSilcedInfo($cronSilceValue['vid_name']."_".$i,$cronSilceValue['vid_name'],$cronSilceValue['gallery_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$date,0,0);
 				
 			}
 				

@@ -5,6 +5,9 @@
 
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
+	
+	//get the value of id from the query string
+	$movie_id = $GLOBALS["_GET"]["movieId"];
 ?>
 
     
@@ -32,126 +35,15 @@
       </div>
        
        
-       <div class="row-fluid">
-            <div id="searchBar" class="span12 pull-left">
-                    <h4>BreadCrumbs</h4>
-            </div>
-       </div>
-      
-		<div class="row-fluid">
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-               
-		</div>
-		<div class="row-fluid">
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                
-		</div>
-		<div class="row-fluid">
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span3 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-		
+     <!-- model detail starts here -->
+        <?php
+			//if the get varriable is set 
+			if(isset($movie_id) && !empty($movie_id))
+			{
+				//get the UI structure of model details
+				$manageData->getSlicedMovie($movie_id);
+			}
+		?>
 		
             
             

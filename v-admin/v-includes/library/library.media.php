@@ -13,7 +13,7 @@
 		
 		function __construct()
 		{
-			//absolute path for the ffmpeg.exe file
+			//absolute path for the ffmpeg module
 			$this->ffmpeg = "/usr/local/bin/ffmpeg";
 		}
 		
@@ -108,6 +108,22 @@
 			exec("$this->ffmpeg -ss $startTime -i $moviePath -s $resolution -frames:v 1 $output_path".$output_fileName.".".$outputFormat."  2> /home/sites/handjobstop.com/public_html/logs/thumb_log.txt");
 		}
 		
+		/*
+		- generate thumb for vids by merging two images
+		- the output image will contain a play sign
+		- Auth Singh
+		*/
+		function mergeImage($image1Path,$image1OutputPath,$image1Filename,$Format)
+		{
+			//path for the play sign
+			$path_play_sym = "/home/sites/handjobstop.com/public_html/members/images/play_sym.png";
+			$thumb = new Imagick($image1Path.$image1Filename.".".$Format);
+			$play_sym = new Imagick($path_play_sym);
+			
+			$thumb->compositeImage($play_sym , Imagick::COMPOSITE_DEFAULT, 0, 0 );
+			
+			$thumb->writeImage($image1OutputPath.$image1Filename.".".$Format);
+		}
 	}
 
 ?>
