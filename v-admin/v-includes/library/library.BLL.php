@@ -61,6 +61,42 @@
 									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
 									<input type="radio" value="'.$filename.'" name="thumb_image"/>
 									Make this Gallery Thumbnail
+									<a href="#"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
+								</label>
+							</div>';
+						echo '';
+					}
+				}
+			}
+			echo '<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
+				</form>';
+		}
+		
+		/*
+		- function to get gallery using galleryId
+		- auth Singh
+		*/
+		function updateMovies($galleryId)
+		{
+			$filenames = scandir("../members/gallery/".$galleryId."/s");
+			$filenames = array_slice($filenames,2);
+			//create a form for selecting gallery thumb
+			echo '<form action="v-includes/functions/function.createThumb.php" method="post">';
+			foreach($filenames as $filename)
+			{
+				if(!empty($filename))
+				{
+					if(!is_dir("../members/gallery/".$galleryId."/s/".$filename))
+					{
+						echo '<div class="span3 gallery_img">
+								<a href="../members/gallery/'.$galleryId.'/'.$filename.'" target="_blank">
+									<img src="../members/gallery/'.$galleryId.'/s/'.$filename.'" />
+								</a>
+								<label class="radio radio_v">
+									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
+									<input type="radio" value="'.$filename.'" name="thumb_image"/>
+									Make this Gallery Thumbnail
+									<a href="#"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
 								</label>
 							</div>';
 						echo '';
@@ -243,7 +279,7 @@
 				echo '<tbody>
                         <tr>
 							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$movie['gallery_id'].'.JPG"/></td>
-                            <td><a href="galleryFromImage.php?galleryId='.$movie['gallery_id'].'">'.$movie['gallery_id'].'</a></td>
+                            <td><a href="updateMovie.php?galleryId='.$movie['gallery_id'].'">'.$movie['gallery_id'].'</a></td>
 							<td>'.$movie['movie_name'].'</td>
 							<td>'.$movie['model'].'</td>
 							<td>'.$movie['category'].'</td>
