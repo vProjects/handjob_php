@@ -14,10 +14,17 @@
     <div id="bodyContainer" class="row-fluid">
        <div class="row-fluid">
        		<div class="btn-group">
-			  <button class="btn btn-large btn-danger">Most Recent</button>
-			  <button class="btn btn-large btn-danger">Most Popular</button>
-			  <button class="btn btn-large btn-danger">Name/Title</button>
+			  <button class="btn btn-large btn-danger">High</button>
+			  <button class="btn btn-large btn-danger">Medium</button>
+			  <button class="btn btn-large btn-danger">Low</button>
 			</div>	
+            <?php
+				if(isset($movie_id) && !empty($movie_id))
+				{
+					//get vid cap link
+					$manageData->getVidCapLink($movie_id);
+				}
+			?>
        </div>
        
        <div class="row-fluid">
@@ -26,9 +33,7 @@
           poster="http://video-js.zencoder.com/oceans-clip.png"
           data-setup="{}">
           
-         <source src="video/oceans-clip.mp4" type='video/mp4' />
-        <source src="video/oceans-clip.webm" type='video/webm' />
-        <source src="video/oceans-clip.ogv" type='video/ogg' />
+         <source src="../uploads/videos/aa.mp4" type='video/flv' />
         <track kind="captions" src="videoplayer/demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
           </video>
           </div>

@@ -327,7 +327,7 @@
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['gallery_id'].'">'.$slicedMovie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["views"].'</p>';
+							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
@@ -347,6 +347,19 @@
 				$start_point++ ;
 				$end_point++ ;
 				
+			}
+		}
+		
+		/*
+		- check if the vid cap is avialable in the vidcaps_info table
+		- Auth Singh 
+		*/
+		function getVidCapLink($movieId)
+		{
+			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
+			if(isset($vidCapGallery) && !empty($vidCapGallery))
+			{
+				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'">Watch Vid Caps</h4></a>';
 			}
 		}
 	}
