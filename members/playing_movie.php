@@ -29,13 +29,32 @@
        
        <div class="row-fluid">
        		<div class="span10 offset1 media" style="height:400px;margin-top:10px;">
-            <video id="example_video_1" class="video-js vjs-default-skin media-object" controls preload="none" width="100%"
-          poster="http://video-js.zencoder.com/oceans-clip.png"
-          data-setup="{}">
+            
+          <!-- new video player added here -->
+            <div id="myplayer">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#myplayer').flash({
+                        'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
+                        'width':'100%',
+                        'height':'300',
+                        'allowfullscreen':'true',
+                        'allowscriptaccess':'always',
+                        'wmode':'transparent',
+                        'flashvars': {
+                            'vdo':'http://www.gdd.ro/flvplayer/examples/video.mp4',
+                            'sound':'50',
+                            'splashscreen':'http://www.gdd.ro/flvplayer/examples/fast-and-furious-1.jpg',
+                            'autoplay':'false',
+                            'clickTAG':'',
+                            'endclipaction':'javascript:endclip();'
+                        }
+                    });
+                });
+            </script>
+            </div>
           
-         <source src="../uploads/videos/aa.mp4" type='video/flv' />
-        <track kind="captions" src="videoplayer/demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
-          </video>
+          <!-- new video player added here -->
           </div>
       </div>
        

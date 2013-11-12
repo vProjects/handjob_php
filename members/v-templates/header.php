@@ -23,11 +23,12 @@
 	
 </script>
 <!-- playing-movie page specific css and js -->
-<link href="videoplayer/video-js.css" rel="stylesheet" type="text/css">
-<script src="videoplayer/video.js"></script>
-<script>
-    videojs.options.flash.swf = "videoplayer/video-js.swf";
-  </script>
+
+<!-- new video player scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.stephenbelanger.com/wp-content/uploads/2010/01/jquery.flash.min_.js"></script>
+<!-- new video player scripts -->
+
 <!-- playing-movie page specific css and js ends here -->
 </head>
 <body>

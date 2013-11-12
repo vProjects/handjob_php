@@ -45,8 +45,21 @@
 
 
 
+<script type="text/javascript">
+function endclip(){
+            $('#myplayer').flash({
+            'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
+            'width':'100%',
+            'height':'300',
+            'wmode':'transparent',
+            'flashvars': {
+                'vdo':'http://www.gdd.ro/flvplayer/examples/AvatarHD.mp4',
+                'autoplay':'true',
+            }
+            }); 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    }
+</script>
 <script type="text/javascript" src="assets/js/jquery.lazy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script type="text/javascript">
@@ -57,5 +70,9 @@ jQuery(document).ready(function() {
     });
 });
 </script>
+
+
 </body>
+
+
 </html>
