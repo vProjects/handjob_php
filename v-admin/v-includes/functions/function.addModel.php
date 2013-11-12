@@ -55,7 +55,6 @@
 	$outputPath = $_SERVER['DOCUMENT_ROOT']."members/images/model_thumb/".$result_upload;
 	//get H-W ration to prevent Image resterization
 	$HWRatio = $manageMedia->getImageAspect($inputPath);
-	$HWRatio;
 	
 	//check whether image is selected or not
 	if(!empty($photo))

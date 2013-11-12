@@ -72,9 +72,12 @@
 	//get the files and then resize and save it in the output folder
 	foreach($filenames as $filename)
 	{
-		$mediaQuery->resizeImage($inputFilePath.$filename,3000,2000,$outputPath.$filename);
-		$mediaQuery->resizeImage($inputFilePath.$filename,1600,1064,$outputPath."m/".$filename);
-		$mediaQuery->resizeImage($inputFilePath.$filename,1024,682,$outputPath."s/".$filename);
+		//get the HW ratio of the image to maintain the aspect ratio
+		$HWRatio = $mediaQuery->getImageAspect($inputFilePath.$filename);
+		
+		$mediaQuery->resizeImage($inputFilePath.$filename,3000,3000*$HWRatio,$outputPath.$filename);
+		$mediaQuery->resizeImage($inputFilePath.$filename,1600,1600*$HWRatio,$outputPath."m/".$filename);
+		$mediaQuery->resizeImage($inputFilePath.$filename,1024,682*$HWRatio,$outputPath."s/".$filename);
 	}
 
 	//insert the values in the database for the gallery
