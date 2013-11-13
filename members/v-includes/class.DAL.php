@@ -53,5 +53,22 @@
 			}
 		}
 		
+		/*
+		- method for getting the value for search model directory
+		- Auth Singh
+		*/
+		function getSearchModelDirectory($table_name,$value,$row_value,$searchKeyword)
+		{
+			$query = $this->link->query("SELECT $value from $table_name where $row_value LIKE '$searchKeyword%'");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
 	}
 ?>

@@ -5,29 +5,21 @@
 
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
+	
+	//get the value of id from the query string
+	$keyword = $GLOBALS["_GET"]["keyword"];
 ?>
 
 <div id="bodyContainer" class="row-fluid">
-    	 <?php
+    	 
+         <?php
 		 	//GET the model searchBar
 			include('v-templates/modelSearchBar.php');
 		 ?>
-         
-         
-       <div class="row-fluid btn_group_outline">
-       		<div class="btn-group">
-			  <button class="btn btn-large btn-danger">Most Recent</button>
-			  <button class="btn btn-large btn-danger">Most Popular</button>
-			  <button class="btn btn-large btn-danger">Name/Title</button>
-			</div>	
-       </div>
       
-
-    	
-    	
 		<?php
 			//get the required models
-			$manageData->getModels();
+			$manageData->searchModelDirectory($keyword);
 		?>
 
 		<div class="row-fluid">

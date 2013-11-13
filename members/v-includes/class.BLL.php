@@ -362,5 +362,53 @@
 				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'">Watch Vid Caps</h4></a>';
 			}
 		}
+		
+		/*
+		- search the database using the search keyword letter to get the
+		- UI of search model directory page
+		- Auth Singh
+		*/
+		function searchModelDirectory($searchKeyword)
+		{
+			$models = $this->manageContent->getSearchModelDirectory("model_info","*","name",$searchKeyword);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($models as $model)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%4 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($model["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span3 element">
+							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'">'.$model['name'].'</h4>
+							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
+					//logic for displaying stars according to the rating
+					if( $model['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}		
+					for($i = 0 ; $i < $model['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%4 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
 	}
 ?>
