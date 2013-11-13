@@ -117,7 +117,7 @@
 		{
 			//path for the play sign
 			$path_play_sym = "/home/sites/handjobstop.com/public_html/members/images/play_sym.png";
-			$thumb = new Imagick($image1Path.$image1Filename.".".$Format);
+			$thumb = new Imagick($image1Path);
 			$play_sym = new Imagick($path_play_sym);
 			
 			$thumb->compositeImage($play_sym , Imagick::COMPOSITE_DEFAULT, 0, 0 );

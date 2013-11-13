@@ -61,7 +61,7 @@
 									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
 									<input type="radio" value="'.$filename.'" name="thumb_image"/>
 									Make this Gallery Thumbnail
-									<a href="#"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
+									<a href="v-includes/functions/function.deleteGalleryImage.php?galleryId='.$galleryId.'&fileName='.$filename.'"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
 								</label>
 							</div>';
 						echo '';
@@ -73,7 +73,7 @@
 		}
 		
 		/*
-		- function to get gallery using galleryId
+		- function to get movie using galleryId
 		- auth Singh
 		*/
 		function updateMovies($galleryId)
@@ -81,7 +81,7 @@
 			$filenames = scandir("../members/gallery/".$galleryId."/s");
 			$filenames = array_slice($filenames,2);
 			//create a form for selecting gallery thumb
-			echo '<form action="v-includes/functions/function.createThumb.php" method="post">';
+			echo '<form action="v-includes/functions/function.createThumbMovie.php" method="post">';
 			foreach($filenames as $filename)
 			{
 				if(!empty($filename))
@@ -96,7 +96,7 @@
 									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
 									<input type="radio" value="'.$filename.'" name="thumb_image"/>
 									Make this Gallery Thumbnail
-									<a href="#"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
+									<a href="v-includes/functions/function.deleteGalleryImage.php?galleryId='.$galleryId.'&fileName='.$filename.'"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
 								</label>
 							</div>';
 						echo '';
@@ -104,6 +104,42 @@
 				}
 			}
 			echo '<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
+				</form>';
+		}
+		
+		/*
+		- function to get sliced movie using galleryId
+		- auth Singh
+		*/
+		function updateSlicedMovies($galleryId,$movieId)
+		{
+			$filenames = scandir("../members/gallery/".$movieId."/s");
+			$filenames = array_slice($filenames,2);
+			//create a form for selecting gallery thumb
+			echo '<form action="v-includes/functions/function.createThumbSliced.php" method="post">';
+			foreach($filenames as $filename)
+			{
+				if(!empty($filename))
+				{
+					if(!is_dir("../members/gallery/".$movieId."/s/".$filename))
+					{
+						echo '<div class="span3 gallery_img">
+								<a href="../members/gallery/'.$movieId.'/'.$filename.'" target="_blank">
+									<img src="../members/gallery/'.$movieId.'/s/'.$filename.'" />
+								</a>
+								<label class="radio radio_v">
+									<input type="hidden" value="'.$movieId.'" name="movie_id"/>
+									<input type="radio" value="'.$filename.'" name="thumb_image"/>
+									Make this Gallery Thumbnail
+									<a href="v-includes/functions/function.deleteGalleryImage.php?galleryId='.$movieId.'&fileName='.$filename.'"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
+								</label>
+							</div>';
+						echo '';
+					}
+				}
+			}
+			echo '<input type="hidden" name="gallery_id" value="'.$galleryId.'"/>
+					<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
 				</form>';
 		}
 		
@@ -308,7 +344,35 @@
 				echo '<tbody>
                         <tr>
 							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
-                            <td><a href="galleryFromImage.php?galleryId='.$slicedMovie['gallery_id'].'">'.$slicedMovie['gallery_id'].'</a></td>
+                            <td><a href="updateSliced.php?galleryId='.$slicedMovie['gallery_id'].'&movieId='.$slicedMovie["movie_id"].'">'.$slicedMovie['gallery_id'].'</a></td>
+							<td>'.$slicedMovie['movie_name'].'</td>
+							<td>'.$slicedMovie['model'].'</td>
+							<td>'.$slicedMovie['category'].'</td>
+                            <td>'.$slicedMovie['date'].'</td>
+                            <td><button class="btn btn-warning" type="button">
+								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+							</td>
+                            <td><button class=" btn btn-danger" type="button">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+							</td>
+                        </tr>
+                    </tbody>';
+			}
+		}
+		
+		/*
+		- get sliced movies for a particular movie
+		- Auth Singh
+		*/
+		function getSlicedVids($movieId)
+		{
+			$slicedMovies = $this->manageContent->getValueWhere("sliced_vids","*","movie_id",$movieId);
+			foreach($slicedMovies as $slicedMovie)
+			{
+				echo '<tbody>
+                        <tr>
+							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
+                            <td><a href="updateSliced.php?galleryId='.$slicedMovie['gallery_id'].'&movieId='.$slicedMovie["movie_id"].'">'.$slicedMovie['gallery_id'].'</a></td>
 							<td>'.$slicedMovie['movie_name'].'</td>
 							<td>'.$slicedMovie['model'].'</td>
 							<td>'.$slicedMovie['category'].'</td>

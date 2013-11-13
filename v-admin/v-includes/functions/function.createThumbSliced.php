@@ -12,12 +12,13 @@
 		//gallery id is also the folder name
 		//gallery id will be the name of the thumb image 
 		$galleryId = $_POST['gallery_id'];
+		$movieId = $_POST['movie_id'];
 	}
 	
 	//get the extension of the file
 	$ext = pathinfo($fileName, PATHINFO_EXTENSION);
 	
-	$inputPath = $_SERVER['DOCUMENT_ROOT']."members/gallery/".$galleryId."/";
+	$inputPath = $_SERVER['DOCUMENT_ROOT']."members/gallery/".$movieId."/";
 	$outputPath = $_SERVER['DOCUMENT_ROOT']."members/images/movie_thumb/";
 	$outputPath_temp = $_SERVER['DOCUMENT_ROOT']."temp/thumbs/";
 	
@@ -28,10 +29,9 @@
 		unlink($outputPath.$galleryId.".JPG");
 	}
 	
-	
 	$mediaQuery->resizeImage($inputPath.$fileName,317,178,$outputPath_temp.$galleryId.".JPG");
 	$mediaQuery->mergeImage($outputPath_temp.$galleryId.".JPG",$outputPath,$galleryId,"JPG");
 	unlink($outputPath_temp.$galleryId.".JPG");
 	
-	header('Location: ../../updateMovie.php');
+	header('Location: ../../updateSliced.php?galleryId='.$galleryId.'&movieId='.$movieId);
 ?>

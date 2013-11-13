@@ -28,9 +28,9 @@
 			//get thumbnail for the video
 			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"317x178",$outputPathThumb_temp,$outputFilename,$thumbFormat);
 			//get the image from the temp file and convert it into thumb with play image
-			$this->mediaQuery->mergeImage($outputPathThumb_temp,$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->mergeImage($outputPathThumb_temp.$outputFilename.".".$thumbFormat,$outputPathThumb,$outputFilename,$thumbFormat);
 			//delete the temp file
-			unlink($outputPathThumb_temp.$outputFilename.$thumbFormat);
+			unlink($outputPathThumb_temp.$outputFilename.".".$thumbFormat);
 			
 			
 			//convert videos in all the three formats Large
@@ -99,7 +99,7 @@
 			$this->mediaQuery->getThumbs($inputFile,$thumb_time,"317x178",$outputPathThumb_temp,$outputFilename,$thumbFormat);
 			
 			//get the image from the temp file and convert it into thumb with play image
-			$this->mediaQuery->mergeImage($outputPathThumb_temp,$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->mergeImage($outputPathThumb_temp.$outputFilename.".".$thumbFormat,$outputPathThumb,$outputFilename,$thumbFormat);
 			//delete the temp file
 			unlink($outputPathThumb_temp.$outputFilename.$thumbFormat);
 			
