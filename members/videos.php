@@ -1,10 +1,19 @@
 <?php
-	$page_title = 'VIDEOS';
+	$page_title = 'MOVIES';
 	//get header
 	include ('v-templates/header.php');
 
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
+	
+	//get the startPoint using the pageNo(p) variable
+	$startPoint = $GLOBALS["_GET"]["p"];
+	//check whether startPoint is set or not if not set it to 0
+	if(isset($startPoint) && !empty($startPoint))
+	{
+		//set it to default page startPoint = 0
+		$startPoint = 0 ;
+	}
 ?>
 
 <div id="bodyContainer" class="row-fluid">
@@ -49,6 +58,11 @@
 				</div>
             </div>
         </div>
+        
+        <?php
+			//get the pagination for the page
+			$manageData->pagination($startPoint);
+		?>
     	
    	</div>
     <!-- body container ends here -->

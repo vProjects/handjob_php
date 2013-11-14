@@ -112,6 +112,7 @@ body{
 	color:#FFF;
 	text-align:center;
 	box-shadow:3px 3px 3px 0px grey;
+    margin-top: 15px;
 }
 .pagination{
 	margin:0;

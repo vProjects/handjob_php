@@ -1,13 +1,17 @@
 <?php
 	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.media.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.zip.php');
 	
 	class manageVideos
 	{
 		private $mediaQuery;
 		
+		private $zipFiles;
+		
 		function __construct()
 		{
 			$this->mediaQuery = new libraryMedia() ;
+			$this->zipFiles = new zip_library();
 			return $this->mediaQuery ;
 		}
 		
@@ -75,12 +79,18 @@
 			
 			//run the method of media library for geting the snapshots
 			$this->mediaQuery->getSnaps($inputFile,$no_snapshot,$vedio_w,$vedio_h,$outputPath,$outputFilename);
-			
+			//create a zip for high res gallery
+			$this->zipFiles->createZip($outputPath,$outputPath,"h.zip");
+			 
 			//get snapshots medium
 			$this->mediaQuery->getSnaps($inputFile,$no_snapshot,$imageWidthMedium,$imageHeightMedium,$outputPath."m/",$outputFilename);
+			//create a zip for med res gallery
+			$this->zipFiles->createZip($outputPath."m/",$outputPath,"m.zip");
 			
 			//get snapshots small
 			$this->mediaQuery->getSnaps($inputFile,$no_snapshot,$imageWidthSmall,$imageHeightSmall,$outputPath."s/",$outputFilename);
+			//create a zip for low res gallery
+			$this->zipFiles->createZip($outputPath."s/",$outputPath,"s.zip");
 		}
 		
 		/*
