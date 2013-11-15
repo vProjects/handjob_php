@@ -2,18 +2,12 @@
 	$page_title = 'MOVIES';
 	//get header
 	include ('v-templates/header.php');
-
+	
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
 	
-	//get the startPoint using the pageNo(p) variable
-	$startPoint = $GLOBALS["_GET"]["p"];
-	//check whether startPoint is set or not if not set it to 0
-	if(isset($startPoint) && !empty($startPoint))
-	{
-		//set it to default page startPoint = 0
-		$startPoint = 0 ;
-	}
+	//include the pagination configuration file
+	include('v-includes/config_pagination.php');
 ?>
 
 <div id="bodyContainer" class="row-fluid">
@@ -34,34 +28,10 @@
 
     	<?php
 			//get the required videos
-			$manageData->getVideos();
-		?>
-    	
+			$manageData->getVideos($startPoint,$limit);
 		
-
-		<div class="row-fluid">
-            <div class="span12 blank">
-				<div class="pagination pagination-small center">
-				  <ul>
-					<li><a href="#">Prev</a></li>
-					<li><a class="btn-danger center_1st" href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">Next</a></li>
-				  </ul>
-				</div>
-            </div>
-        </div>
-        
-        <?php
 			//get the pagination for the page
-			$manageData->pagination($startPoint);
+			$manageData->pagination($startPoint,"videos.php",10,"movie_info");
 		?>
     	
    	</div>

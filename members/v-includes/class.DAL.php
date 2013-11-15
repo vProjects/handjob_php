@@ -36,6 +36,43 @@
 		}
 		
 		/*
+		- function to get the value
+		- auth Singh
+		*/
+		function getValue_limit($table_name,$value,$startPoint,$limit)
+		{
+			$query = $this->link->query("SELECT $value from $table_name LIMIT $startPoint,$limit");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- function to get the row count of a table
+		- auth Singh
+		*/
+		function getTotalRows($table_name)
+		{
+			$query = $this->link->query("SELECT count(*) from $table_name");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		
+		/*
 		- method for getting the values using where clause
 		- auth Singh
 		*/

@@ -30,10 +30,11 @@
 		- get models from the database
 		-Auth Singh
 		*/
-		function getModels()
+		function getModels($startPoint,$limit)
 		{
+			$startPoint = $startPoint*$limit ;
 			//get values from the database
-			$models = $this->manageContent->getValue('model_info','*');
+			$models = $this->manageContent->getValue_limit('model_info','*',$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -79,10 +80,11 @@
 		- get galleries from the database
 		-Auth Singh
 		*/
-		function getGallery()
+		function getGallery($startPoint,$limit)
 		{
+			$startPoint = $startPoint*$limit ;
 			//get values from the database
-			$gallerys = $this->manageContent->getValue('gallery_info','*');
+			$gallerys = $this->manageContent->getValue_limit('gallery_info','*',$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -198,27 +200,33 @@
 			$filenames = array_slice($filenames,2);
 			foreach($filenames as $filename)
 			{
-				if(!is_dir($galleryPath.$filename))
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
 				{
-					//maintain the row fluid with only four models in a row
-					if($start_point%4 == 0)
+					if(!is_dir($galleryPath.$filename))
 					{
-						echo '<div class="row-fluid">';
-					}
-					//create the UI components
-					echo '<div class="span3 element">
-							<a href="'.$imageLocation.$filename.'" target="_blank">
-								<img class="lazy" data-src="'.$galleryPath."s/".$filename.'" src=""></a>
-							</a>';
-					echo '</div>';
-					
-					if($end_point%4 == 0)
-					{
+						//maintain the row fluid with only four models in a row
+						if($start_point%4 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						//create the UI components
+						echo '<div class="span3 element">
+								<a href="'.$imageLocation.$filename.'" target="_blank">
+									<img class="lazy" data-src="'.$galleryPath."s/".$filename.'" src=""></a>
+								</a>';
 						echo '</div>';
+						
+						if($end_point%4 == 0)
+						{
+							echo '</div>';
+						}
+						
+						$start_point++ ;
+						$end_point++ ;
 					}
-					
-					$start_point++ ;
-					$end_point++ ;
 				}
 			}
 				
@@ -229,9 +237,10 @@
 		- generate the UI for the design
 		- Auth Singh
 		*/
-		function getArticles()
+		function getArticles($startPoint,$limit)
 		{
-			$articles = $this->manageContent->getValue('article_info','*');
+			$startPoint = $startPoint*$limit ;
+			$articles = $this->manageContent->getValue_limit('article_info','*',$startPoint,$limit);
 			
 			foreach($articles as $article)
 			{
@@ -251,10 +260,11 @@
 		- get videos from the database
 		-Auth Singh
 		*/
-		function getVideos()
+		function getVideos($startPoint,$limit)
 		{
+			$startPoint = $startPoint*$limit ;
 			//get values from the database
-			$movies = $this->manageContent->getValue('movie_info','*');
+			$movies = $this->manageContent->getValue_limit('movie_info','*',$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -528,8 +538,76 @@
 		- both front startPoint = 0 and startPoint = end present
 		- Auth Singh
 		*/
-		function pagination($startPoint)
+		function pagination($page,$PageUrl,$max_no_index,$tableName)
 		{
+			//limit is the total no of elements to be shown
+			$limit = 8 ;
+			//used in the db for getting o/p
+			$startPoint = $page*$limit ;
+			//total number of rows of the db_table
+			$lastIndex = $this->manageContent->getTotalRows($tableName) ;
+			//echo $lastIndex = $lastIndex[0]['count(*)'];
+			//no of page to be displayed
+			$no_page = $lastIndex[0]['count(*)']/$limit ;
+			//show pagination when there is more than one page is there
+			if($no_page > 1)
+			{
+				$no_page = intval($no_page) + 1;
+				//set no of index to be displayed
+				$no_index = 1 ;
+				
+				//generate the pagination UI
+				echo '<div class="row-fluid">
+						<div class="span12 blank">
+							<div class="pagination pagination-small center">
+							  <ul>';
+				//logic for setting the prev button
+				//condition for escaping the -ve page index when $page = 0
+				if( ($page-1) < 0 )
+				{
+					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'">Prev</a></li>';
+				}
+				else
+				{
+					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit.'">Prev</a></li>';
+				}
+				/*for the indexes*/
+				//index initilization variable
+				if( ( $page + 1 ) >= ( $no_page - $max_no_index + 1))
+				{
+					$inti_i = $no_page - $max_no_index + 1 ;
+				}
+				else
+				{
+					$inti_i = $page + 1 ;
+				}
+				for( $i = $inti_i ; $i <= $no_page ; $i++ )
+				{
+					if( $i > 0 )
+					{
+						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'"';
+						if( $page+1 == $i )
+						{
+							echo 'class="btn-danger center_1st"';
+						}
+						echo'>'.$i.'</a></li>' ;
+						//increment the index no by 1
+						$no_index++ ;
+						if( $no_index > $max_no_index )
+						{
+							break ;
+						}
+					}
+				}
+				//for the next button
+				echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'">Next</a></li>' ;
+				//for the last button
+				echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;
+				echo	 '</ul>
+						</div>
+					</div>
+				</div>';
+			}
 			
 		}
 	}

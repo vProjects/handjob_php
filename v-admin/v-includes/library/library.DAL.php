@@ -155,6 +155,18 @@
 		}
 		
 		/*
+		- method to insert into vidcaps_info table
+		- Auth Singh
+		*/
+		function insertVidCapInfo($galleryId,$gallery_name,$path,$category,$model,$date,$view,$rating,$status)
+		{
+			$query = $this->link->prepare("INSERT INTO `vidcaps_info`(`gallery_id`,`gallery_name`,`path`, `category`, `model`, `date`,  `view`, `rating`,`status`) VALUES (?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$gallery_name,$path,$category,$model,$date,$view,$rating,$status);
+			$query->execute($values);
+			return $query->rowCount();
+		}
+		
+		/*
 		- method to insert into movie_info table
 		- Auth Singh
 		*/
