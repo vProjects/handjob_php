@@ -30,11 +30,21 @@
 		- get models from the database
 		-Auth Singh
 		*/
-		function getModels($startPoint,$limit)
+		function getModels($startPoint,$limit,$type)
 		{
 			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
 			//get values from the database
-			$models = $this->manageContent->getValue_limit('model_info','*',$startPoint,$limit);
+			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -80,11 +90,21 @@
 		- get galleries from the database
 		-Auth Singh
 		*/
-		function getGallery($startPoint,$limit)
+		function getGallery($startPoint,$limit,$type)
 		{
 			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
 			//get values from the database
-			$gallerys = $this->manageContent->getValue_limit('gallery_info','*',$startPoint,$limit);
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -260,11 +280,21 @@
 		- get videos from the database
 		-Auth Singh
 		*/
-		function getVideos($startPoint,$limit)
+		function getVideos($startPoint,$limit,$type)
 		{
 			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
 			//get values from the database
-			$movies = $this->manageContent->getValue_limit('movie_info','*',$startPoint,$limit);
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -369,7 +399,29 @@
 			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
 			if(isset($vidCapGallery) && !empty($vidCapGallery))
 			{
-				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'">Watch Vid Caps</h4></a>';
+				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'"><button class="btn btn-large btn-danger">Vid Caps</button></a>';
+			}
+		}
+		
+		/*
+		- check if there is a zip file is present or not if yes 
+		- provide the download link
+		- Auth Singh 
+		*/
+		function getZipLinks($movieId)
+		{
+			$zipFilePath = "gallery/".$movieId."/";
+			if(file_exists($zipFilePath."h.zip"))
+			{
+				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-large btn-danger">High Zip</button></a>';
+			}
+			if(file_exists($zipFilePath."m.zip"))
+			{
+				echo '<a href="'.$zipFilePath."m.zip".'"><button class="btn btn-large btn-danger">Med Zip</button></a>';
+			}
+			if(file_exists($zipFilePath."s.zip"))
+			{
+				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-large btn-danger">Low Zip</button></a>';
 			}
 		}
 		
@@ -538,7 +590,7 @@
 		- both front startPoint = 0 and startPoint = end present
 		- Auth Singh
 		*/
-		function pagination($page,$PageUrl,$max_no_index,$tableName)
+		function pagination($page,$PageUrl,$max_no_index,$tableName,$type)
 		{
 			//limit is the total no of elements to be shown
 			$limit = 8 ;
@@ -563,11 +615,12 @@
 							  <ul>';
 				//logic for setting the prev button
 				//condition for escaping the -ve page index when $page = 0
-				if( ($page-1) < 0 )
+				
+				if( ($page-1) < 0 && $page != 0 )
 				{
-					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'">Prev</a></li>';
+					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'&type='.$type.'">Prev</a></li>';
 				}
-				else
+				elseif( $page != 0 )
 				{
 					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit.'">Prev</a></li>';
 				}
@@ -585,7 +638,7 @@
 				{
 					if( $i > 0 )
 					{
-						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'"';
+						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'&type='.$type.'"';
 						if( $page+1 == $i )
 						{
 							echo 'class="btn-danger center_1st"';
@@ -599,10 +652,13 @@
 						}
 					}
 				}
-				//for the next button
-				echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'">Next</a></li>' ;
+				if( $page != ( $no_page - 1 ) )
+				{
+					//for the next button
+					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'&type='.$type.'">Next</a></li>' ;
+				}
 				//for the last button
-				echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;
+				//echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;
 				echo	 '</ul>
 						</div>
 					</div>

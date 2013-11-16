@@ -54,6 +54,24 @@
 		}
 		
 		/*
+		- function to get the value sorted
+		- auth Singh
+		*/
+		function getValue_limit_sorted($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
 		- function to get the row count of a table
 		- auth Singh
 		*/

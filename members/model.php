@@ -7,35 +7,27 @@
 	include ('v-templates/navbar.php');
 	
 	
-	//include the pagination configuration file
+	//include the configuration file
 	include('v-includes/config_pagination.php');
+	include('v-includes/config.php');
 	
+	//define the page type for typr nav bar
+	$pageName = "model.php" ;		
 ?>
 
 <div id="bodyContainer" class="row-fluid">
     	 <?php
 		 	//GET the model searchBar
 			include('v-templates/modelSearchBar.php');
-		 ?>
-         
-         
-       <div class="row-fluid btn_group_outline">
-       		<div class="btn-group">
-			  <button class="btn btn-large btn-danger">Most Recent</button>
-			  <button class="btn btn-large btn-danger">Most Popular</button>
-			  <button class="btn btn-large btn-danger">Name/Title</button>
-			</div>	
-       </div>
-      
-
-    	
-    	
-		<?php
+			
+			//GET the model type nav bar
+			include('v-templates/typeNav.php');
+		 
 			//get the required models
-			$manageData->getModels($startPoint,$limit);
+			$manageData->getModels($startPoint,$limit,$type);
 			
 			//get the pagination for the page
-			$manageData->pagination($startPoint,"model.php",10,"model_info");
+			$manageData->pagination($startPoint,"model.php",10,"model_info",$type);
 		?>
 
 
