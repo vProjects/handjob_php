@@ -21,6 +21,19 @@
 			}
 		?>
         
+        <div id="bodyContainer" class="row-fluid">
+           <div class="row-fluid">
+                <div class="btn-group">
+                    <?php
+                        if(isset($gallery_id) && !empty($gallery_id))
+                        {
+                            //get vid cap link
+                            $manageData->getZipLinks($gallery_id);
+                        }
+                    ?>
+                </div>	
+           </div>
+        
 		<?php
 			if(!empty($gallery_id) && isset($gallery_id))
 			{

@@ -260,7 +260,7 @@
 		function getArticles($startPoint,$limit)
 		{
 			$startPoint = $startPoint*$limit ;
-			$articles = $this->manageContent->getValue_limit('article_info','*',$startPoint,$limit);
+			$articles = $this->manageContent->getValue_limit_sorted('article_info','*',"article_date",$startPoint,$limit);
 			
 			foreach($articles as $article)
 			{
@@ -430,9 +430,20 @@
 		- UI of search model directory page
 		- Auth Singh
 		*/
-		function searchModelDirectory($searchKeyword)
+		function searchModelDirectory($searchKeyword,$type,$startPoint,$limit)
 		{
-			$models = $this->manageContent->getSearchModelDirectory("model_info","*","name",$searchKeyword);
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
+			$models = $this->manageContent->getSearchModelDirectory("model_info","*","name",$searchKeyword,$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -590,7 +601,7 @@
 		- both front startPoint = 0 and startPoint = end present
 		- Auth Singh
 		*/
-		function pagination($page,$PageUrl,$max_no_index,$tableName,$type)
+		function pagination($page,$PageUrl,$max_no_index,$tableName,$type,$keyword)
 		{
 			//limit is the total no of elements to be shown
 			$limit = 8 ;
@@ -618,11 +629,21 @@
 				
 				if( ($page-1) < 0 && $page != 0 )
 				{
-					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'&type='.$type.'">Prev</a></li>';
+					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Prev</a></li>';
 				}
 				elseif( $page != 0 )
 				{
-					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit.'">Prev</a></li>';
+					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Prev</a></li>';
 				}
 				/*for the indexes*/
 				//index initilization variable
@@ -638,12 +659,16 @@
 				{
 					if( $i > 0 )
 					{
-						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'&type='.$type.'"';
+						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'&type='.$type;
+						if ( isset($keyword) && !empty($keyword) )
+						{
+							echo '&keyword='.$keyword;
+						}
 						if( $page+1 == $i )
 						{
-							echo 'class="btn-danger center_1st"';
+							echo '" class="btn-danger center_1st';
 						}
-						echo'>'.$i.'</a></li>' ;
+						echo '">'.$i.'</a></li>' ;
 						//increment the index no by 1
 						$no_index++ ;
 						if( $no_index > $max_no_index )
@@ -655,7 +680,12 @@
 				if( $page != ( $no_page - 1 ) )
 				{
 					//for the next button
-					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'&type='.$type.'">Next</a></li>' ;
+					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Next</a></li>' ;
 				}
 				//for the last button
 				//echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;

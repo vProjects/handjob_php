@@ -6,8 +6,6 @@
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
 	
-	//get the value of id from the query string
-	$keyword = $GLOBALS["_GET"]["keyword"];
 	
 	//include the configuration file
 	include('v-includes/config_pagination.php');
@@ -15,6 +13,9 @@
 	
 	//define the page type for typr nav bar
 	$pageName = "searchModelDir.php" ;	
+	
+	//get the value of id from the query string
+	$keyword = $GLOBALS["_GET"]["keyword"];
 ?>
 
 <div id="bodyContainer" class="row-fluid">
@@ -27,10 +28,10 @@
 			include('v-templates/typeNav.php');
 		 
 			//get the required models
-			$manageData->searchModelDirectory($keyword);
+			$manageData->searchModelDirectory($keyword,$type,$startPoint,$limit);
 			
 			//get the pagination for the page
-			$manageData->pagination($startPoint,"searchModelDir.php",10,"model_info",$type);
+			$manageData->pagination($startPoint,"searchModelDir.php",10,"model_info",$type,$keyword);
 		?>
 
 		    	

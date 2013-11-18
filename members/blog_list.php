@@ -19,7 +19,7 @@
 				$manageData->getArticles($startPoint,$limit);
 				
 				//get the pagination for the page
-				$manageData->pagination($startPoint,"blog_list.php",10,"article_info");
+				$manageData->pagination($startPoint,"blog_list.php",10,"article_info","recent","");
 			?>
             
         </div>

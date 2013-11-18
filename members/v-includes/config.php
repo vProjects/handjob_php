@@ -21,5 +21,7 @@
 		$type = "recent" ;
 	}
 	
-	/***** config for the pagination starts *****/
+	$keyword = "" ;
+	/***** config ends *****/
+	
 ?>
