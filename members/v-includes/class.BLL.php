@@ -352,7 +352,9 @@
 								<h4>WATCH IN PARTS</h4>
 						</div>
 				   </div>';
-				   
+			
+			$part_no = 1 ;
+			   
 			foreach($slicedMovies as $slicedMovie)
 			{
 				//maintain the row fluid with only four models in a row
@@ -365,7 +367,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'">'.$slicedMovie["movie_name"].'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -386,6 +388,7 @@
 				
 				$start_point++ ;
 				$end_point++ ;
+				$part_no++ ;
 				
 			}
 		}
