@@ -10,6 +10,9 @@
 	$model_id = $GLOBALS["_GET"]["model_id"];
 	
 	$model_name = $GLOBALS["_GET"]["model_name"];
+	
+	//codes for setting the views
+	$manageData->manageViews("model",$model_id);
 ?>
 
 	<div id="bodyContainer" class="row-fluid">   

@@ -143,5 +143,19 @@
 				return $rowcount;
 			}
 		}
+		
+		/*
+		- increment the value by 1
+		- basically used for getting views
+		- Auth Singh
+		*/
+		function incrementByOne($table_name,$update_column,$column_name,$column_value)
+		{
+			$query = $this->link->prepare("UPDATE $table_name SET `$update_column`= (`$update_column`+1) WHERE `$column_name` = '$column_value'");
+			$query->execute();
+			$count = $query->rowCount();
+			return $count;
+		}
+		
 	}
 ?>

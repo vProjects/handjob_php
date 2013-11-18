@@ -365,7 +365,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['gallery_id'].'">'.$slicedMovie["movie_name"].'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'">'.$slicedMovie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -696,5 +696,29 @@
 			}
 			
 		}
+		
+		/*
+		- update the views according to the hits
+		- Auth Singh
+		*/
+		function manageViews($pageName,$inputValue)
+		{
+			//views for models
+			if( $pageName == "model" )
+			{
+				$result = $this->manageContent->incrementByOne("model_info","views","id",$inputValue);
+			}
+			//views for model
+			if( $pageName == "gallery" )
+			{
+				$this->manageContent->incrementByOne("gallery_info","view","gallery_id",$inputValue);
+			}
+			//views for model
+			if( $pageName == "movie" )
+			{
+				$this->manageContent->incrementByOne("movie_info","views","gallery_id",$inputValue);
+			}
+		}
+		
 	}
 ?>

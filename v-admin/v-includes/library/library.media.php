@@ -72,7 +72,7 @@
 		}
 		
 		/*
-		- method to take the image and retutn width/height for aspect 
+		- method to take the image and retutn height/width for aspect 
 		- ratio calculation
 		- @param absolute path of both input
 		- Auth Singh

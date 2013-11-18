@@ -2,12 +2,16 @@
 	//include the media library
 	include('../library/library.media.php');
 	include("../library/library.DAL.php");
+	include("../library/library.zip.php");
 	
 	//create an object for the data access layer
 	$manageData = new manageContent_DAL();
 	
 	//create an object of medial library
 	$mediaQuery = new libraryMedia();
+	
+	//create the object for the zip files
+	$zipFiles = new zip_library();
 	
 	//get the value from the post request
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -75,10 +79,24 @@
 		//get the HW ratio of the image to maintain the aspect ratio
 		$HWRatio = $mediaQuery->getImageAspect($inputFilePath.$filename);
 		
-		$mediaQuery->resizeImage($inputFilePath.$filename,3000,3000*$HWRatio,$outputPath.$filename);
-		$mediaQuery->resizeImage($inputFilePath.$filename,1600,1600*$HWRatio,$outputPath."m/".$filename);
-		$mediaQuery->resizeImage($inputFilePath.$filename,1024,682*$HWRatio,$outputPath."s/".$filename);
+		if( $HWRatio < 1 )
+		{
+			$mediaQuery->resizeImage($inputFilePath.$filename,3000,3000*$HWRatio,$outputPath.$filename);
+			$mediaQuery->resizeImage($inputFilePath.$filename,1600,1600*$HWRatio,$outputPath."m/".$filename);
+			$mediaQuery->resizeImage($inputFilePath.$filename,1024,682*$HWRatio,$outputPath."s/".$filename);
+		}
+		else
+		{
+			$mediaQuery->resizeImage($inputFilePath.$filename,2000,2000*$HWRatio,$outputPath.$filename);
+			$mediaQuery->resizeImage($inputFilePath.$filename,1064,1064*$HWRatio,$outputPath."m/".$filename);
+			$mediaQuery->resizeImage($inputFilePath.$filename,682,682*$HWRatio,$outputPath."s/".$filename);
+		}
 	}
+	
+	//create the zip files
+	$zipFiles->createZip($outputPath,$outputPath,"h.zip");
+	$zipFiles->createZip($outputPath."m/",$outputPath,"m.zip");
+	$zipFiles->createZip($outputPath."s/",$outputPath,"s.zip");
 
 	//insert the values in the database for the gallery
 	$manageData->insertGalleryInfo($outputFolder,$gallery_name,$outputPath,$category_string,$model_string,$date,0,0,1);

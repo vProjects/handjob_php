@@ -8,6 +8,10 @@
 	
 	//get the value of id from the query string
 	$movie_id = $GLOBALS["_GET"]["movieId"];
+	
+	//codes for setting the views
+	$manageData->manageViews("movie",$movie_id);
+
 ?>
 
     

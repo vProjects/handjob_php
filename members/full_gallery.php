@@ -8,6 +8,9 @@
 	$gallery_id = $GLOBALS["_GET"]["galleryId"];
 	$model_id = $GLOBALS["_GET"]["model_id"];
 	
+	//codes for setting the views
+	$manageData->manageViews("gallery",$gallery_id);
+	
 ?>
 
 <div id="bodyContainer" class="row-fluid">
