@@ -45,6 +45,7 @@
 			}
 			//get values from the database
 			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,$startPoint,$limit);
+			
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -354,7 +355,7 @@
 						}
 						//create the UI components
 						echo '<div class="span3 element">
-								<a href="'.$imageLocation.$filename.'" target="_blank">
+								<a href="showImage.php?galleryId='.$gallery_id.'">
 									<img class="lazy" data-src="'.$galleryPath."s/".$filename.'" src=""></a>
 								</a>';
 						echo '</div>';
@@ -1046,5 +1047,34 @@
                 </div>' ;
 		}
 		
+		/*
+		- get file names for the Images
+		- for the image slider
+		- @param galleryId
+		- Auth Singh
+		*/
+		function getFilenamesImages($gallery_id)
+		{
+			$galleryPath = "gallery/".$gallery_id."/";
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			echo '<ul style="display:none;">' ;
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						echo '<li>'.$galleryPath.$filename.'</li>';
+					}
+				}
+			}
+			echo '</ul>' ;
+		}
 	}
 ?>

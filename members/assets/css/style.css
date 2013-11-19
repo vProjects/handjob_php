@@ -421,7 +421,32 @@ body{
 .show_full_image{
 	margin:0 auto;
 }
+.slider_wrapper{
+	display: inline;
+	position: relative;
+	right: 0;
+	top: 50%;
+	z-index: 100;
+}
+.slider_container{
+	position:relative;
+	margin-left:0;
+}
 .left-arrow{
+	display: inline-block;
+	left: 3px;
+	position: absolute;
+	top: 50%;
+	z-index: 100;
+	border:none;
+	cursor:pointer;
 }
 .right-arrow{
+	display: inline;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	z-index: 100;
+	border:none;
+	cursor:pointer;
 }

@@ -8,9 +8,6 @@
 	$gallery_id = $GLOBALS["_GET"]["galleryId"];
 	$model_id = $GLOBALS["_GET"]["model_id"];
 	
-	//codes for setting the views
-	$manageData->manageViews("gallery",$gallery_id);
-	
 ?>
 
     <div id="bodyContainer" class="row-fluid">     
@@ -18,22 +15,27 @@
             if(!empty($gallery_id) && isset($gallery_id))
             {
                 //get the required model gallerys
-                $manageData->getFullGallery($gallery_id);
+                $manageData->getFilenamesImages($gallery_id);
             }
         ?>
-        <div class="row-fluid">
-        	<div class="span12 element show_full_image">
-            	<div class="span1 left-arrow">
-                	<img class="lazy" src="images/left-arrow.png" style="display: inline;">
+       <div class="row-fluid">
+        	
+            <div class="span12 slider_wrapper">	
+                 <div class="left-arrow" style="display: inline-block;">
+                    <img class="lazy" src="images/left-arrow.png" style="display: inline-block;border:none;">
                 </div>
-                <div class="span8">
-    	        	<img class="lazy" src="gallery/52821dc023e5c/s/100_3120.JPG" style="display: inline;">
+                <div class="slider_container">
+    	        	<img class="lazy" src="gallery/52821dc023e5c/s/100_3119.JPG" style="display: inline;width:100%;">
+    	        </div>
+    	        <div class="right-arrow" style="display: inline-block;">
+    	        	<img class="lazy" src="images/right-arrow.png" style="display: inline-block;border:none;">
                 </div>
-                <div class="span1 right-arrow">
-                	<img class="lazy" src="images/right-arrow.png" style="display: inline;">
-                </div>
-            </div>
+             </div>  
+            
         </div>
+  
+        
+        
         
         
     </div>
