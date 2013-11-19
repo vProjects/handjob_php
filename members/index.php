@@ -53,72 +53,22 @@
 
                 <div class="row-fluid">
                     <div id="mainBar" class="span12">
-                            <h4>Latest Video Updates</h4>
+                            <h4>Latest Movies Updates</h4>
                     </div>
                 </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/video.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
+                
+                <?php
+					//get the latest movies
+					$manageData->getVideosHome(0,6,"recent");
+				?>
+                
                 <div class="row-fluid">
                     <div class="span12">
+                    	<a href="videos.php">
                             <div class="span4 pull-right clickMore">
                                 <h4>Click Here For More >></h4>
                             </div>
+                        </a>
                     </div> <!-- Latest Video updates ends here -->
                 </div>
                 
@@ -127,69 +77,17 @@
                             <h4>Latest Photo Updates</h4>
                     </div>
                 </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img src="images/image.jpg" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
+                <?php
+					//get the latest movies
+					$manageData->getGalleryHome(0,6,"recent");
+				?>
                 <div class="row-fluid">
                     <div class="span12">
-                        <div class="span4 pull-right clickMore">
-                            <h4>Click Here For More >></h4>
-                        </div>
+                    	<a href="photos.php">
+                            <div class="span4 pull-right clickMore">
+                                <h4>Click Here For More >></h4>
+                            </div>
+                        </a>
                     </div> <!-- Latest Photo updates ends here -->
                 </div>
                 
@@ -199,69 +97,17 @@
                             <h4>Latest Model Updates</h4>
                     </div>
                 </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/image.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
+                <?php
+					//get the latest movies
+					$manageData->getModelsHome(0,6,"recent");
+				?>
                 <div class="row-fluid">
                     <div class="span12">
-                        <div class="span4 pull-right clickMore">
-                            <h4>Click Here For More >></h4>
-                        </div>
+                    	<a href="model.php">
+                            <div class="span4 pull-right clickMore">
+                                <h4>Click Here For More >></h4>
+                            </div>
+                        </a>
                     </div> <!-- Latest Model updates ends here -->
                 </div>
 				
@@ -346,46 +192,10 @@
                     </div>
                 </div>
                 <div class="popularmodels">
-                    <div class="row-fluid">
-                        <div class="mostPopular span12">
-						
-                            <img onmouseover="showDetails('description')"  id= "mp" class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-						
-                            <h5>LEENA HAZE</h5>
-							
-                        </div>
-                    </div>
-					<div id="description" style="display:none;">asdfasdf</div>
-                    <div class="row-fluid">
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                    </div>
+                	<?php
+						//get the models
+						$manageData->getRightSidebar_model();
+					?>
                 </div>
                 
                 
@@ -410,59 +220,20 @@
                             <h4>Most Viewed Update</h4>
                     </div>
                 </div>
-                <div class="row-fluid social">
-                	<ul>
-                    	<h5> Most Viewed Movies</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Photos</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Models</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                </div>
-
-
+                <?php
+					//get the most viewed right side bar
+					$manageData->getMostViewed_sidebar();
+				?>
+                
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">
                             <h4>Most Popular Update</h4>
                     </div>
                 </div>
-                <div class="row-fluid social">
-                	<ul>
-                    	<h5> Most Viewed Movies</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Photos</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Models</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                </div>
+                <?php
+					//get the most viewed right side bar
+					$manageData->getMostPopular_sidebar();
+				?>
                 <!--social box starts here---twiter-->
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">

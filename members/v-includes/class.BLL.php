@@ -28,7 +28,7 @@
 		
 		/*
 		- get models from the database
-		-Auth Singh
+		- Auth Singh
 		*/
 		function getModels($startPoint,$limit,$type)
 		{
@@ -85,6 +85,66 @@
 			}
 		}
 		
+		
+		/*
+		- get models from the database
+		- for home page
+		- Auth Singh
+		*/
+		function getModelsHome($startPoint,$limit,$type)
+		{
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
+			//get values from the database
+			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,$startPoint,$limit);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($models as $model)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%3 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($model["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span4 element">
+							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
+							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
+					//logic for displaying stars according to the rating
+					if( $model['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}		
+					for($i = 0 ; $i < $model['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%3 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
 		
 		/*
 		- get galleries from the database
@@ -145,6 +205,66 @@
 			}
 		}
 		
+		
+		/*
+		- get galleries from the database
+		- for home page
+		- Auth Singh
+		*/
+		function getGalleryHome($startPoint,$limit,$type)
+		{
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
+			//get values from the database
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',$sortBy,$startPoint,$limit);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($gallerys as $gallery)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%3 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($gallery["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span4 element">
+							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
+							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<p>Added :'.$gallery["date"].'<br />Views: '.$gallery["view"].'</p>';
+					//logic for displaying stars according to the rating
+					if( $gallery['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}	
+					for($i = 0 ; $i < $gallery['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%3 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
 		
 		/*
 		- get model details for a specific model
@@ -325,6 +445,66 @@
 					echo '</div>';
 				}
 				if($end_point%4 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
+		
+		/*
+		- get videos from the database
+		- for home page
+		- Auth Singh
+		*/
+		function getVideosHome($startPoint,$limit,$type)
+		{
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
+			//get values from the database
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',$sortBy,$startPoint,$limit);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($movies as $movie)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%3 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($movie["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span4 element">
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
+							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
+					//logic for displaying stars according to the rating
+					if( $movie['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					for($i = 0 ; $i < $movie['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo '</div>';
+				}
+				if($end_point%3== 0)
 				{
 					echo '</div>';
 				}
@@ -721,6 +901,149 @@
 			{
 				$this->manageContent->incrementByOne("movie_info","views","gallery_id",$inputValue);
 			}
+		}
+		
+		/*
+		- UI generator for the home page 
+		- right sidebar
+		- Auth Singh
+		*/
+		function getRightSidebar_model()
+		{
+			//for the recent
+			$sortBy = "rating";
+			//get values from the database
+			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,0,7);
+			
+			//for the large pic
+			echo '<div class="row-fluid">
+                        <div class="mostPopular span12">
+							<a href="model_detail.php?model_id='.$models[0]["id"].'&model_name='.$models[0]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[0]["name"].'</h5>
+							</a>
+                        </div>
+                    </div>' ;
+					
+			//for the smaller pics		
+			echo '<div class="row-fluid">
+                        <div class="mostPopular span6">
+							<a href="model_detail.php?model_id='.$models[1]["id"].'&model_name='.$models[1]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[1]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[1]["name"].'</h5>
+							</a>
+                        </div>
+                        <div class="mostPopular span6">
+							<a href="model_detail.php?model_id='.$models[2]["id"].'&model_name='.$models[2]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[2]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[2]["name"].'</h5>
+							</a>
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="mostPopular span6">
+							<a href="model_detail.php?model_id='.$models[3]["id"].'&model_name='.$models[3]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[3]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[3]["name"].'</h5>
+							</a>
+                        </div>
+                        <div class="mostPopular span6">
+							<a href="model_detail.php?model_id='.$models[4]["id"].'&model_name='.$models[4]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[4]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[4]["name"].'</h5>
+							</a>	
+                        </div>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="mostPopular span6">
+							<a href="model_detail.php?model_id='.$models[5]["id"].'&model_name='.$models[5]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[5]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[5]["name"].'</h5>
+							</a>
+                        </div>
+                        <div class="mostPopular span6">
+							<a href="model_detail.php?model_id='.$models[6]["id"].'&model_name='.$models[6]['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$models[6]["image_thumb"].'" src="" alt="most popular model"> 
+								<h5>'.$models[6]["name"].'</h5>
+							</a>
+                        </div>
+                    </div>';		
+			
+			
+		}
+		
+		/*
+		- get the right sidebar most viewed
+		- Auth Singh
+		*/
+		function getMostViewed_sidebar()
+		{
+			//get most viewed from the database
+			$models = $this->manageContent->getValue_limit_sorted('model_info','*',"views",0,4);
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"views",0,4);
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"view",0,4);
+			
+			echo '<div class="row-fluid social">
+                	<ul>
+                    	<h5> Most Viewed Movies</h5>' ;
+			foreach( $movies as $movie )
+			{
+				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["movie_name"].'</a></li>' ;
+			}
+			echo '</ul>
+                	<ul>
+                    	<h5> Most Viewed Photos</h5>' ;
+			foreach( $gallerys as $gallery )
+			{
+				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["gallery_name"].'</a></li>' ;
+			}
+			echo '</ul>
+                	<ul>
+                    	<h5> Most Viewed Models</h5>' ;
+			
+			foreach( $models as $model )
+			{
+				echo '<li><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a></li>' ;
+			}
+			echo '</ul>
+                </div>' ;
+		}
+		
+		/*
+		- get the right sidebar most viewed
+		- Auth Singh
+		*/
+		function getMostPopular_sidebar()
+		{
+			//get most viewed from the database
+			$models = $this->manageContent->getValue_limit_sorted('model_info','*',"rating",0,4);
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"rating",0,4);
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"rating",0,4);
+			
+			echo '<div class="row-fluid social">
+                	<ul>
+                    	<h5> Most Viewed Movies</h5>' ;
+			foreach( $movies as $movie )
+			{
+				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["movie_name"].'</a></li>' ;
+			}
+			echo '</ul>
+                	<ul>
+                    	<h5> Most Viewed Photos</h5>' ;
+			foreach( $gallerys as $gallery )
+			{
+				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["gallery_name"].'</a></li>' ;
+			}
+			echo '</ul>
+                	<ul>
+                    	<h5> Most Viewed Models</h5>' ;
+			
+			foreach( $models as $model )
+			{
+				echo '<li><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a></li>' ;
+			}
+			echo '</ul>
+                </div>' ;
 		}
 		
 	}

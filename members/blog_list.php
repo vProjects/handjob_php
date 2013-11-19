@@ -34,46 +34,10 @@
                     </div>
                 </div>
                 <div class="popularmodels">
-                    <div class="row-fluid">
-                        <div class="mostPopular class12">
-						
-                            <img onmouseover="showDetails('description')"  id= "mp" class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-						
-                            <h5>LEENA HAZE</h5>
-							
-                        </div>
-                    </div>
-					<div id="description" style="display:none;">asdfasdf</div>
-                    <div class="row-fluid">
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                        <div class="mostPopular span6">
-                            <img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                            <h5>LEENA HAZE</h5>
-                        </div>
-                    </div>
+                	<?php
+						//get the models
+						$manageData->getRightSidebar_model();
+					?>
                 </div>
                 
                 
@@ -98,59 +62,20 @@
                             <h4>Most Viewed Update</h4>
                     </div>
                 </div>
-                <div class="row-fluid social">
-                	<ul>
-                    	<h5> Most Viewed Movies</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Photos</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Models</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                </div>
-
-
+                <?php
+					//get the most viewed right side bar
+					$manageData->getMostViewed_sidebar();
+				?>
+                
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">
                             <h4>Most Popular Update</h4>
                     </div>
                 </div>
-                <div class="row-fluid social">
-                	<ul>
-                    	<h5> Most Viewed Movies</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Photos</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                	<ul>
-                    	<h5> Most Viewed Models</h5>
-                    	<li><a href="" class="link">1. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">2. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">3. Lorem Ipsum Ipsum</a></li>
-                        <li><a href="" class="link">4. Lorem Ipsum Ipsum</a></li>
-                    </ul>
-                </div>
+                <?php
+					//get the most viewed right side bar
+					$manageData->getMostPopular_sidebar();
+				?>
                 <!--social box starts here---twiter-->
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">
