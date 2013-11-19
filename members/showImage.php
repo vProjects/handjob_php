@@ -21,24 +21,19 @@
                 $manageData->getFullGallery($gallery_id);
             }
         ?>
-       <div class="row-fluid">
-        	
-            	
-                 <div class="span1" style="display: inline-block;">
-                    <img class="lazy" src="images/left-arrow.png" style="display: inline-block;">
+        <div class="row-fluid">
+        	<div class="span12 element show_full_image">
+            	<div class="span1 left-arrow">
+                	<img class="lazy" src="images/left-arrow.png" style="display: inline;">
                 </div>
-                <div class="span10">
+                <div class="span8">
     	        	<img class="lazy" src="gallery/52821dc023e5c/s/100_3120.JPG" style="display: inline;">
-    	        </div>
-    	        <div class="span1" style="display: inline-block;">
-    	        	<img class="lazy" src="images/right-arrow.png" style="display: inline-block;">
                 </div>
-               
-            
+                <div class="span1 right-arrow">
+                	<img class="lazy" src="images/right-arrow.png" style="display: inline;">
+                </div>
+            </div>
         </div>
-  
-        
-        
         
         
     </div>
