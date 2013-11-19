@@ -60,6 +60,7 @@ function endclip(){
 
     }
 </script>
+<script type="text/javascript" src="assets/js/image_slider.js"></script>
 <script type="text/javascript" src="assets/js/jquery.lazy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script type="text/javascript">

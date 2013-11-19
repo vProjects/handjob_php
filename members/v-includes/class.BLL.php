@@ -1070,7 +1070,7 @@
 				{
 					if(!is_dir($galleryPath.$filename))
 					{
-						echo '<li>'.$galleryPath.$filename.'</li>';
+						echo '<li class="imagelist">'.$galleryPath.$filename.'</li>';
 					}
 				}
 			}
