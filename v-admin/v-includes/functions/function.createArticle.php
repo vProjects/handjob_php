@@ -22,5 +22,5 @@
 		$_SESSION['result'] = "Please fill the form properly.";
 	}
 	
-	//header('Location: ../../createBlog.php');
+	header('Location: ../../createBlog.php');
 ?>

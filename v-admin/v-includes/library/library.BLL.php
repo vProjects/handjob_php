@@ -161,8 +161,10 @@
 							<td>'.$model['weight'].'</td>
                             <td>'.$model['date'].'</td>
 							<td>'.$model['category'].'</td>
-                            <td><button class="btn btn-warning" type="button">
+                            <td><a href="editModel.php?modelId='.$model['id'].'" >
+								<button class="btn btn-warning" type="button">
 								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
 							</td>
                             <td><button class=" btn btn-danger" type="button">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
@@ -388,6 +390,16 @@
 			}
 		}
 		
+		/*
+		- function to get the values for the DAL and
+		- Pass is to UI
+		- Auth Singh
+		*/
+		function getValue_Where($table_name,$value,$row_value,$value_entered)
+		{
+			$fetch_values = $this->manageContent->getValueWhere($table_name,$value,$row_value,$value_entered);
+			return $fetch_values ;
+		}
 	}
 
 ?>

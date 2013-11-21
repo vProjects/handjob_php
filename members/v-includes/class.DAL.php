@@ -59,7 +59,14 @@
 		*/
 		function getValue_limit_sorted($table_name,$value,$sortBy,$startPoint,$limit)
 		{
-			$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" )
+			{
+				$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortBy ASC LIMIT $startPoint,$limit");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			}
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){

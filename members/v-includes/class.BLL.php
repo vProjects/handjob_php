@@ -38,6 +38,11 @@
 			{
 				$sortBy = "rating";
 			}
+			elseif( $type == "name" )
+			{
+				//sort by name
+				$sortBy = "name" ;
+			}
 			else
 			{
 				//for the recent
@@ -158,6 +163,11 @@
 			if( $type == "rated" )
 			{
 				$sortBy = "rating";
+			}
+			elseif( $type == "name" )
+			{
+				//sort by name
+				$sortBy = "gallery_name" ;
 			}
 			else
 			{
@@ -408,6 +418,11 @@
 			if( $type == "rated" )
 			{
 				$sortBy = "rating";
+			}
+			elseif( $type == "name" )
+			{
+				//sort by name
+				$sortBy = "movie_name" ;
 			}
 			else
 			{

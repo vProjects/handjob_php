@@ -13,6 +13,8 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <!--Custom CSS file-->
 <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<link href="css/jquery.Jcrop.min.css" type="text/css" rel="stylesheet" />
 <title>Login | ADMIN</title>
 </head>
 
