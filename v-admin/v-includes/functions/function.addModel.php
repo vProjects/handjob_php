@@ -24,7 +24,6 @@
 		$status = $_POST['status'];
 		$photo = $_FILES['photo']['name'];
 	}
-	echo $model_name.','.$description.','.$age.','.$height.','.$weight.','.$measurement.','.$status.','.$photo;
 	//varriable which will contain the category in string format
 	$category_string = ""; 
 	
@@ -66,7 +65,6 @@
 			
 			echo $model_name.','.$description.','.$age.','.$height.','.$weight.','.$measurement.','.$status.','.$date;
 			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,'ma',$status);
-			echo $result;
 			if($result == 1)
 			{
 				//resize and save images in the location inside the members area

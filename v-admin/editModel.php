@@ -32,7 +32,7 @@
                 </div>
                 
             <div class="form-horizontal">
-            <form action="v-includes/functions/function.addModel.php" method="post" enctype="multipart/form-data">
+            <form action="v-includes/functions/function.editModel.php" method="post" enctype="multipart/form-data">
             	<div class="form-control v-form">
                 	<label class="control-label">Model Name</label>
                     <input type="text" placeholder="Model Name" class="textbox1" name="model_name" value="<?php echo $model_detail[0]['name']; ?>"/>
@@ -77,15 +77,20 @@
                 <div class="form-control v-form">
                 	<label class="control-label">Status</label>
                     <select class="selectbox1" name="status">
-                    	<option <?php if($model_detail[0]['status'] == 1){ echo 'selected="selected"';} ?> value="1">Online</option>
-                        <option <?php if($model_detail[0]['status'] == 0){ echo 'selected="selected"';} ?> value="0">Ofline</option>
+                    	<option <?php if($model_detail[0]['status'] == 1){ echo 'selected="selected"';} ?> value="online">Online</option>
+                        <option <?php if($model_detail[0]['status'] == 0){ echo 'selected="selected"';} ?> value="offline">Offline</option>
                     </select>
                 </div>
-               
+               <div class="form-control v-form">
+                	<label class="control-label">Upload Photo</label>
+                    <input type="file" class="textbox1" name="photo"/>
+                </div>
                 <div class="form-control v-form">
                 <div class="function_result"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></div>
-                	<input type="submit" value="Submit" class="btn btn-large btn-primary btn1" />
+                	<input type="submit" value="Update" class="btn btn-large btn-primary btn1" />
                 </div>
+                <input type="hidden" value="<?php echo $model_detail[0]['image_thumb']; ?>" name="thumb_name"/>
+                <input type="hidden" value="<?php echo $model_detail[0]['id']; ?>" name="id"/>
             </form>
             </div><!--form ends here-->
         </div>

@@ -322,8 +322,10 @@
 							<td>'.$movie['model'].'</td>
 							<td>'.$movie['category'].'</td>
                             <td>'.$movie['date'].'</td>
-                            <td><button class="btn btn-warning" type="button">
-								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+                            <td><a href="editMovies.php?movieId='.$movie['id'].'&type=movie">
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
 							</td>
                             <td><button class=" btn btn-danger" type="button">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
@@ -351,8 +353,10 @@
 							<td>'.$slicedMovie['model'].'</td>
 							<td>'.$slicedMovie['category'].'</td>
                             <td>'.$slicedMovie['date'].'</td>
-                            <td><button class="btn btn-warning" type="button">
-								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+                            <td><a href="editMovies.php?movieId='.$slicedMovie["id"].'&type=sliced">
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
 							</td>
                             <td><button class=" btn btn-danger" type="button">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
@@ -379,8 +383,10 @@
 							<td>'.$slicedMovie['model'].'</td>
 							<td>'.$slicedMovie['category'].'</td>
                             <td>'.$slicedMovie['date'].'</td>
-                            <td><button class="btn btn-warning" type="button">
-								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+                            <td><a href="editMovies.php?movieId='.$slicedMovie["id"].'&type=sliced">
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
 							</td>
                             <td><button class=" btn btn-danger" type="button">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>

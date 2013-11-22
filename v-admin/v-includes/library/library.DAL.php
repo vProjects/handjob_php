@@ -70,7 +70,7 @@
 		*/
 		function updateValueWhere($table_name,$update_column,$update_value,$column_name,$column_value)
 		{
-			$query = $this->link->prepare("UPDATE `admin_info` SET `$update_column`= '$update_value' WHERE `$column_name` = '$column_value'");
+			$query = $this->link->prepare("UPDATE `$table_name` SET `$update_column`= '$update_value' WHERE `$column_name` = '$column_value'");
 			$query->execute();
 			$count = $query->rowCount();
 			return $count;

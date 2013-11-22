@@ -57,7 +57,7 @@
                 	<label class="control-label">Status</label>
                     <select class="selectbox1" name="status">
                     	<option value="1">Online</option>
-                        <option value="0">Ofline</option>
+                        <option value="0">Offline</option>
                     </select>
                 </div>
                 <div class="form-control v-form">
