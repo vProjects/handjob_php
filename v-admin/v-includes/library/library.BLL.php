@@ -192,8 +192,10 @@
 							<td>'.$gallery['model'].'</td>
 							<td>'.$gallery['category'].'</td>
                             <td>'.$gallery['date'].'</td>
-                            <td><button class="btn btn-warning" type="button">
-								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+                            <td><a href="editGallery.php?galleryId='.$gallery['id'].'" >
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
 							</td>
                             <td><button class=" btn btn-danger" type="button">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
