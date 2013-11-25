@@ -29,8 +29,10 @@
                             <td><button class="btn btn-warning" type="button">
 								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
-								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$article['id'].'&type=article" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
 							</td>
                         </tr>
                     </tbody>';
@@ -162,12 +164,14 @@
                             <td>'.$model['date'].'</td>
 							<td>'.$model['category'].'</td>
                             <td><a href="editModel.php?modelId='.$model['id'].'" >
-								<button class="btn btn-warning" type="button">
-								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
-								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$model['id'].'&type=model" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
 							</td>
                         </tr>
                     </tbody>';
@@ -197,8 +201,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
-								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$gallery['id'].'&type=gallery" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
 							</td>
                         </tr>
                     </tbody>';
@@ -229,7 +235,6 @@
 		{
 			$folderNames = scandir("../uploads/images/");
 			$folderNames = array_slice($folderNames,2);
-			print_r($folderNames);
 			foreach($folderNames as $folderName)
 			{
 				if(is_dir("../uploads/images/".$folderName))
@@ -329,8 +334,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
-								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$movie['id'].'&type=movie" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
 							</td>
                         </tr>
                     </tbody>';
@@ -360,8 +367,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
-								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$slicedMovie['id'].'&type=sliced" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
 							</td>
                         </tr>
                     </tbody>';
@@ -407,6 +416,34 @@
 		{
 			$fetch_values = $this->manageContent->getValueWhere($table_name,$value,$row_value,$value_entered);
 			return $fetch_values ;
+		}
+		
+		/*
+		- get uploaded files from the upload/image folder
+		- Auth Singh
+		*/
+		function getUploadedImages($folderName)
+		{
+			$filenames = scandir("../uploads/images/".$folderName."/");
+			$filenames = array_slice($filenames,2);
+			//create a form for selecting gallery thumb
+			foreach($filenames as $filename)
+			{
+				if(!empty($filename))
+				{
+					if(!is_dir("../uploads/images/".$folderName."/".$filename))
+					{
+						echo '<div class="span3 gallery_img">
+								<a href="cropGalleryImage.php?folderName='.$folderName.'&fileName='.$filename.'&save=false">
+									<img src="../uploads/images/'.$folderName.'/'.$filename.'" />
+								</a>
+							</div>';
+						echo '';
+					}
+				}
+			}
+			echo '<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
+				</form>';
 		}
 	}
 

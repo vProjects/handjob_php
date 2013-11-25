@@ -85,6 +85,19 @@
 		}
 		
 		/*
+		- method to take the image and retutn height and width  
+		- return height and width in array
+		- @param absolute path of both input
+		- Auth Singh
+		*/
+		function getImageGeometry($inputFile)
+		{
+			$tempImage = new Imagick($inputFile) ;
+			$imageGeometry = $tempImage->getImageGeometry() ;
+			return $imageGeometry;
+		}
+		
+		/*
 		- method to take the video and return video duration
 		- @param absolute path of input video
 		- Auth Singh

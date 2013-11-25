@@ -16,6 +16,12 @@
 
 <link href="css/jquery.Jcrop.min.css" type="text/css" rel="stylesheet" />
 <title>Login | ADMIN</title>
+<script type="text/javascript">
+	function reloadPage(folderName)
+	{
+		window.location = 'cropUploadImage.php?folderName='+folderName ;
+	}
+</script>
 </head>
 
 <body>

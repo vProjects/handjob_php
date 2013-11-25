@@ -21,6 +21,10 @@
 
 	function updateCoords(c)
 	{
+		var image_h = $("#image_box").height();
+		var image_w = $("#image_box").width();
+		$('#Image_h').val(image_h);
+		$('#Image_w').val(image_w);
 		$('#x').val(c.x);
 		$('#y').val(c.y);
 		$('#w').val(c.w);
