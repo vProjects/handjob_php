@@ -3,6 +3,8 @@
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
+	
+	include('v-includes/library/pagination_config.php');
 ?>
         
         <!--container for content of the website-->
@@ -30,10 +32,14 @@
                     
 					<?php
                         //call the method from BLL to get model list
-                        $manageData->getGalleryList();							
+                        $manageData->getGalleryList($startPoint,$limit);							
                     ?>
                         
                 </table>
+                <?php
+					//get the pagination of the page
+					$manageData->pagination($startPoint,"listGallery.php",10,"gallery_info","date",$keyword);
+				?>
         </div>
     	
     </div><!--body main container ends here-->

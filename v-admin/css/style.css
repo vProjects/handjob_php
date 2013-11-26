@@ -246,3 +246,17 @@ blockquote {
     padding: 12px;
     width: 585px;
 }
+.blank {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}

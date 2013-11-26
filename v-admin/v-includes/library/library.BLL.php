@@ -183,9 +183,11 @@
 		- using the gallery_info table
 		- Auth Singh
 		*/
-		function getGalleryList()
+		function getGalleryList($startPoint,$limit)
 		{
-			$gallerys = $this->manageContent->getValue('gallery_info','*');
+			$startPoint = $startPoint*$limit ;
+			
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit);
 			foreach($gallerys as $gallery)
 			{
 				echo '<tbody>
@@ -316,9 +318,11 @@
 		- using the movie_info table
 		- Auth Singh
 		*/
-		function getVideoList()
+		function getVideoList($startPoint,$limit)
 		{
-			$movies = $this->manageContent->getValue('movie_info','*');
+			$startPoint = $startPoint*$limit ;
+			
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit);
 			foreach($movies as $movie)
 			{
 				echo '<tbody>
@@ -330,7 +334,7 @@
 							<td>'.$movie['category'].'</td>
                             <td>'.$movie['date'].'</td>
                             <td><a href="editMovies.php?movieId='.$movie['id'].'&type=movie">
-									<button class="btn btn-warning" type="button">
+									<button class="btn btn-warning" type="button"><a href="library.BLL.php"></a>
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
@@ -349,9 +353,11 @@
 		- using the sliced_vids table
 		- Auth Singh
 		*/
-		function getSlicedVideoList()
+		function getSlicedVideoList($startPoint,$limit)
 		{
-			$slicedMovies = $this->manageContent->getValue('sliced_vids','*');
+			$startPoint = $startPoint*$limit ;
+			
+			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids','*',"date",$startPoint,$limit);
 			foreach($slicedMovies as $slicedMovie)
 			{
 				echo '<tbody>
@@ -444,6 +450,108 @@
 			}
 			echo '<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
 				</form>';
+		}
+		
+		/*
+		- get the value of the pagination
+		- according to the startPoint also max page display 10
+		- both front startPoint = 0 and startPoint = end present
+		- Auth Singh
+		*/
+		function pagination($page,$PageUrl,$max_no_index,$tableName,$type,$keyword)
+		{
+			//limit is the total no of elements to be shown
+			$limit = 10 ;
+			//used in the db for getting o/p
+			$startPoint = $page*$limit ;
+			//total number of rows of the db_table
+			$lastIndex = $this->manageContent->getTotalRows($tableName) ;
+			//echo $lastIndex = $lastIndex[0]['count(*)'];
+			//no of page to be displayed
+			$no_page = $lastIndex[0]['count(*)']/$limit ;
+			//show pagination when there is more than one page is there
+			if($no_page > 1)
+			{
+				$no_page = intval($no_page) + 1;
+				//set no of index to be displayed
+				$no_index = 1 ;
+				
+				//generate the pagination UI
+				echo '<div class="row-fluid">
+						<div class="span12 blank">
+							<div class="pagination pagination-small center">
+							  <ul>';
+				//logic for setting the prev button
+				//condition for escaping the -ve page index when $page = 0
+				
+				if( ($page-1) < 0 && $page != 0 )
+				{
+					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Prev</a></li>';
+				}
+				elseif( $page != 0 )
+				{
+					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Prev</a></li>';
+				}
+				/*for the indexes*/
+				//index initilization variable
+				if( ( $page + 1 ) >= ( $no_page - $max_no_index + 1))
+				{
+					$inti_i = $no_page - $max_no_index + 1 ;
+				}
+				else
+				{
+					$inti_i = $page + 1 ;
+				}
+				for( $i = $inti_i ; $i <= $no_page ; $i++ )
+				{
+					if( $i > 0 )
+					{
+						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'&type='.$type;
+						if ( isset($keyword) && !empty($keyword) )
+						{
+							echo '&keyword='.$keyword;
+						}
+						if( $page+1 == $i )
+						{
+							echo '" class="btn-danger center_1st';
+						}
+						echo '">'.$i.'</a></li>' ;
+						//increment the index no by 1
+						$no_index++ ;
+						if( $no_index > $max_no_index )
+						{
+							break ;
+						}
+					}
+				}
+				if( $page != ( $no_page - 1 ) )
+				{
+					//for the next button
+					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Next</a></li>' ;
+				}
+				//for the last button
+				//echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;
+				echo	 '</ul>
+						</div>
+					</div>
+				</div>';
+			}
+			
 		}
 	}
 
