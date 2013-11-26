@@ -34,6 +34,10 @@
                         <input class="textbox1" type="text" name="movie_name" placeholder="Movie Name" value="<?php echo $movie_details[0]["movie_name"]; ?>">
                     </div>
                     <div class="form-control v-form">
+                        <label class="control-label">Description</label>
+                        <textarea type="text" placeholder="Description" class="textbox1" name="description"><?php echo $movie_details[0]["description"]; ?></textarea>
+                    </div>
+                    <div class="form-control v-form">
                         <label class="control-label">Model</label>
                         <input type="text" class="textbox1" readonly="readonly" value="<?php echo $movie_details[0]['model']; ?>"/>
                     </div>

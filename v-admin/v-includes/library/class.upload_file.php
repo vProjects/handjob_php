@@ -5,7 +5,7 @@ class FileUpload{
 	/**
 	* global variables declared to check allowed file types, maximum file size and upload paths
 	*/
-	private $allowed_filetypes = array('.jpg','.jpeg','.png','.gif','.txt', '.pdf');
+	private $allowed_filetypes = array('.jpg','.jpeg','.png','.gif','.txt', '.pdf','.JPG');
 	private $max_filesize = 10485760;
 	private $upload_path = '';
 	public $error ='';

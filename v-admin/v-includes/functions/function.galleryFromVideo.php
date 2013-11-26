@@ -10,6 +10,7 @@
 	{
 		$filename = $_POST['filename'];
 		$gallery_name = $_POST['gallery_name'];
+		$description = $_POST['description'];
 		$no_snapshot = $_POST['no_snapshot'];
 		$vedio_h = $_POST['vedio_h'];
 		$vedio_w = $_POST['vedio_w'];
@@ -104,7 +105,7 @@
 	$inputVidForConversion = $_SERVER['DOCUMENT_ROOT']."uploads/videos/".$filename;
 	
 	//insert the values in the cron table for automated execution by crons job
-	$manageData->insertCronGallery($inputVidForConversion,$gallery_name,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
+	$manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
 	
 	//check if slicing is required or not
 	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)

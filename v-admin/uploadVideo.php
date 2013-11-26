@@ -19,6 +19,10 @@
                         <input class="textbox1" type="text" name="gallery_name" placeholder="Gallery Name">
                     </div>
                     <div class="form-control v-form">
+                        <label class="control-label">Description</label>
+                        <textarea type="text" placeholder="Description" class="textbox1" name="description"></textarea>
+                    </div>
+                    <div class="form-control v-form">
                         <label class="control-label">Filename</label>
                         <select class="selectbox1" name="filename">
                     		<option value="">Select One</option>

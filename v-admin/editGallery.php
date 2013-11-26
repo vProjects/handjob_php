@@ -27,6 +27,10 @@
                         <input class="textbox1" type="text" name="gallery_name" placeholder="Gallery Name" value="<?php echo $gallery_details[0]["gallery_name"]; ?>">
                     </div>
                     <div class="form-control v-form">
+                        <label class="control-label">Description</label>
+                        <textarea type="text" placeholder="Description" class="textbox1" name="description"><?php echo $gallery_details[0]["description"]; ?></textarea>
+                    </div>
+                    <div class="form-control v-form">
                         <label class="control-label">Model</label>
                         <input type="text" class="textbox1" readonly="readonly" value="<?php echo $gallery_details[0]['model']; ?>"/>
                     </div>

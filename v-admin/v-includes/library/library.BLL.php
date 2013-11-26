@@ -56,7 +56,7 @@
 					if(!is_dir("../members/gallery/".$galleryId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
-								<a href="../members/gallery/'.$galleryId.'/'.$filename.'" target="_blank">
+								<a href="cropGalleryImageProccessed.php?folderName='.$galleryId.'&save=false&fileName='.$filename.'">
 									<img src="../members/gallery/'.$galleryId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">
@@ -91,7 +91,7 @@
 					if(!is_dir("../members/gallery/".$galleryId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
-								<a href="../members/gallery/'.$galleryId.'/'.$filename.'" target="_blank">
+								<a href="cropMovieImage.php?folderName='.$galleryId.'&fileName='.$filename.'&save=false">
 									<img src="../members/gallery/'.$galleryId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">
@@ -126,7 +126,7 @@
 					if(!is_dir("../members/gallery/".$movieId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
-								<a href="../members/gallery/'.$movieId.'/'.$filename.'" target="_blank">
+								<a href="cropSlicedMovieImage.php?folderName='.$movieId.'&fileName='.$filename.'&save=false&galleryId='.$galleryId.'">
 									<img src="../members/gallery/'.$movieId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">

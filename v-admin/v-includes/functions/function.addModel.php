@@ -64,7 +64,7 @@
 			
 			
 			echo $model_name.','.$description.','.$age.','.$height.','.$weight.','.$measurement.','.$status.','.$date;
-			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,'ma',$status);
+			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$category_string,$result_upload,$date,0,'1',$status);
 			if($result == 1)
 			{
 				//resize and save images in the location inside the members area

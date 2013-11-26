@@ -33,5 +33,5 @@
 	$mediaQuery->mergeImage($outputPath_temp.$galleryId.".JPG",$outputPath,$galleryId,"JPG");
 	unlink($outputPath_temp.$galleryId.".JPG");
 	
-	header('Location: ../../updateMovie.php');
+	header('Location: ../../updateMovie.php?galleryId='.$galleryId);
 ?>

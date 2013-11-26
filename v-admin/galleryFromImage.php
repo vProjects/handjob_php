@@ -28,6 +28,10 @@
                         </select>
                     </div>
                     <div class="form-control v-form">
+                        <label class="control-label">Description</label>
+                        <textarea type="text" placeholder="Description" class="textbox1" name="description"></textarea>
+                    </div>
+                    <div class="form-control v-form">
                         <label class="control-label">Model</label>
                         <select class="selectbox1" multiple="multiple" name="model[]">
                             <?php 

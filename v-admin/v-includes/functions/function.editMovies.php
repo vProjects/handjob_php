@@ -15,6 +15,8 @@
 		
 		//get the thumb name from the input type hidden
 		$type = $_POST['type'];
+		
+		$description = $_POST['description'];
 	}
 	//varriable which will contain the category in string format
 	$category_string = ""; 
@@ -97,6 +99,16 @@
 		}
 	}
 	
+	
+	//update description
+	if( isset($description) && !empty($description))
+	{
+		$result = $manageData->updateValueWhere($table_name,"description",$description,"id",$movie_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
 	
 	header('Location: ../../editMovies.php?movieId='.$movie_id.'&type='.$type);
 ?>
