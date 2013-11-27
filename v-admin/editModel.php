@@ -93,6 +93,52 @@
                 <input type="hidden" value="<?php echo $model_detail[0]['id']; ?>" name="id"/>
             </form>
             </div><!--form ends here-->
+            
+            <!-- get the list of model specific gallery -->
+            <table class="table table-hover">
+            <caption>List Of Model Gallery</caption>
+            <thead>
+                <tr>
+                    <th>Thumb</th>
+                    <th>Gallery Id</th>
+                    <th>Gallery Name</th>
+                    <th>Model</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+                
+			<?php
+                //call the method from BLL to get model list
+                $manageData->getGalleryListByModel(0,100,$model_detail[0]['name']);							
+            ?>
+                    
+            </table>
+            
+            <!-- get the list of model specific movies -->
+            <table class="table table-hover">
+                <caption>List Of Model Movies</caption>
+                <thead>
+                    <tr>
+                        <th>Thumb</th>
+                        <th>Movie Id</th>
+                        <th>Movie Name</th>
+                        <th>Model</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                
+                <?php
+                    //call the method from BLL to get model list
+                    $manageData->getVideoListByModel(0,100,$model_detail[0]['name']);						
+                ?>
+                    
+            </table>
         </div>
     	
     </div><!--body main container ends here-->

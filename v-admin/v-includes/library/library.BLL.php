@@ -149,9 +149,11 @@
 		- function to get all the models
 		- auth Singh
 		*/
-		function getModelList()
+		function getModelList($startPoint,$limit,$keyword)
 		{
-			$models = $this->manageContent->getValue('model_info','*');
+			$startPoint = $startPoint*$limit ;
+			
+			$models = $this->manageContent->getValue_limit_sorted('model_info','*',"date",$startPoint,$limit,"name",$keyword);
 			foreach($models as $model)
 			{
 				echo '<tbody>
@@ -183,11 +185,11 @@
 		- using the gallery_info table
 		- Auth Singh
 		*/
-		function getGalleryList($startPoint,$limit)
+		function getGalleryList($startPoint,$limit,$keyword)
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit);
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit,'gallery_name',$keyword);
 			foreach($gallerys as $gallery)
 			{
 				echo '<tbody>
@@ -210,6 +212,10 @@
 							</td>
                         </tr>
                     </tbody>';
+			}
+			if( $gallerys == "" )
+			{
+				echo '<td>No result found.</td>';
 			}
 		}
 		
@@ -318,11 +324,11 @@
 		- using the movie_info table
 		- Auth Singh
 		*/
-		function getVideoList($startPoint,$limit)
+		function getVideoList($startPoint,$limit,$keyword)
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit);
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit,"movie_name",$keyword);
 			foreach($movies as $movie)
 			{
 				echo '<tbody>
@@ -334,7 +340,7 @@
 							<td>'.$movie['category'].'</td>
                             <td>'.$movie['date'].'</td>
                             <td><a href="editMovies.php?movieId='.$movie['id'].'&type=movie">
-									<button class="btn btn-warning" type="button"><a href="library.BLL.php"></a>
+									<button class="btn btn-warning" type="button">
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
@@ -346,6 +352,11 @@
                         </tr>
                     </tbody>';
 			}
+			
+			if( $movies == "" )
+			{
+				echo '<td>No result found.</td>';
+			}
 		}
 		
 		/*
@@ -353,11 +364,11 @@
 		- using the sliced_vids table
 		- Auth Singh
 		*/
-		function getSlicedVideoList($startPoint,$limit)
+		function getSlicedVideoList($startPoint,$limit,$keyword)
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids','*',"date",$startPoint,$limit);
+			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids','*',"date",$startPoint,$limit,'movie_name',$keyword);
 			foreach($slicedMovies as $slicedMovie)
 			{
 				echo '<tbody>
@@ -552,6 +563,85 @@
 				</div>';
 			}
 			
+		}
+		
+		/*
+		- get the list of the gallery and create UI
+		- using the gallery_info table
+		- Auth Singh
+		*/
+		function getGalleryListByModel($startPoint,$limit,$keyword)
+		{
+			$startPoint = $startPoint*$limit ;
+			
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit,'model',$keyword);
+			foreach($gallerys as $gallery)
+			{
+				echo '<tbody>
+                        <tr>
+							<td class="span1 model_thumb"><img src="../members/images/gallery_thumb/'.$gallery['gallery_id'].'.JPG"/></td>
+                            <td><a href="galleryFromImage.php?galleryId='.$gallery['gallery_id'].'">'.$gallery['gallery_id'].'</a></td>
+							<td>'.$gallery['gallery_name'].'</td>
+							<td>'.$gallery['model'].'</td>
+							<td>'.$gallery['category'].'</td>
+                            <td>'.$gallery['date'].'</td>
+                            <td><a href="editGallery.php?galleryId='.$gallery['id'].'" >
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
+							</td>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$gallery['id'].'&type=gallery" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
+							</td>
+                        </tr>
+                    </tbody>';
+			}
+			if( $gallerys == "" )
+			{
+				echo '<td>No result found.</td>';
+			}
+		}
+		
+		/*
+		- get the list of the videos and create UI
+		- using the movie_info table
+		- Auth Singh
+		*/
+		function getVideoListByModel($startPoint,$limit,$keyword)
+		{
+			$startPoint = $startPoint*$limit ;
+			
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit,"model",$keyword);
+			foreach($movies as $movie)
+			{
+				echo '<tbody>
+                        <tr>
+							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$movie['gallery_id'].'.JPG"/></td>
+                            <td><a href="updateMovie.php?galleryId='.$movie['gallery_id'].'">'.$movie['gallery_id'].'</a></td>
+							<td>'.$movie['movie_name'].'</td>
+							<td>'.$movie['model'].'</td>
+							<td>'.$movie['category'].'</td>
+                            <td>'.$movie['date'].'</td>
+                            <td><a href="editMovies.php?movieId='.$movie['id'].'&type=movie">
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
+							</td>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$movie['id'].'&type=movie" >
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
+							</td>
+                        </tr>
+                    </tbody>';
+			}
+			
+			if( $movies == "" )
+			{
+				echo '<td>No result found.</td>';
+			}
 		}
 	}
 

@@ -207,9 +207,9 @@
 		- function to get the value sorted
 		- auth Singh
 		*/
-		function getValue_limit_sorted($table_name,$value,$sortBy,$startPoint,$limit)
+		function getValue_limit_sorted($table_name,$value,$sortBy,$startPoint,$limit,$search_row,$searchKeyword)
 		{
-			$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			$query = $this->link->query("SELECT $value from $table_name where $search_row LIKE '$searchKeyword%' ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){

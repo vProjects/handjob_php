@@ -42,6 +42,13 @@
 		$('#x2').val(c.x2);
 		$('#y2').val(c.y2);		
 	};
+	
+	function searchPage(pageName,boxId)
+	{
+		var x = document.getElementById(boxId).value ;
+		
+		window.location = pageName+'?keyword='+x ;
+	}
 </script>
 </body>
 </html>
