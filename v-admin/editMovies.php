@@ -32,13 +32,13 @@
             </div>
             
             <div class="form-horizontal">
-                <form action="#" method="post">
+                <form action="v-includes/functions/function.editMovieThumb.php" method="post" enctype="multipart/form-data">
                 	<div class="form-control v-form">
                         <label class="control-label">Upload Image</label>
                         <input style="margin-left: 20px;" type="file" name="movie_thumb" >
-                   	
+                        <input type="hidden" name="id" value="<?php echo $movie_id; ?>" />
                         <input type="hidden" name="type" value="<?php echo $type; ?>" />
-                    	<input type="hidden" name="id" value="<?php echo $movie_id; ?>" />
+                    	<input type="hidden" name="movie_id" value="<?php echo $movie_details[0]['gallery_id']; ?>" />
                 		<input type="submit" value="Update Thumb" class="btn btn-medium btn-warning" />
                 	</div>
                 </form>

@@ -134,8 +134,14 @@
 			$play_sym = new Imagick($path_play_sym);
 			
 			$thumb->compositeImage($play_sym , Imagick::COMPOSITE_DEFAULT, 0, 0 );
-			
-			$thumb->writeImage($image1OutputPath.$image1Filename.".".$Format);
+			if($image1Filename == "" && $Format == "")
+			{
+				$thumb->writeImage($image1OutputPath);
+			}
+			else
+			{
+				$thumb->writeImage($image1OutputPath.$image1Filename.".".$Format);
+			}
 		}
 		
 		/*
@@ -145,7 +151,7 @@
 		*/
 		function convertImageFormat($inputFileName_Path,$outputFileName,$outputFormat)
 		{
-			exec("$this->ffmpeg -f image2 -i $inputFileName_Path $outputFileName".$outputFormat."  2> /home/sites/handjobstop.com/public_html/logs/thumb_log.txt");
+			exec("$this->ffmpeg -f image2 -i $inputFileName_Path -y $outputFileName".$outputFormat."  2> /home/sites/handjobstop.com/public_html/logs/thumb_log.txt");
 		}
 	}
 
