@@ -13,7 +13,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
 <!--Custom CSS file-->
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <link href="css/jquery.Jcrop.min.css" type="text/css" rel="stylesheet" />
 <title>Login | ADMIN</title>
 <script type="text/javascript">

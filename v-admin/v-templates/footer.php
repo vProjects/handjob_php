@@ -10,6 +10,7 @@
 <script src="js/bootstrap.js" type="text/javascript"></script>
 <!-- styles and js to support the crop-->
 <script src="js/jquery.Jcrop.min.js" type="text/javascript" ></script>
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script language="Javascript">
 	$(function(){
 
@@ -49,6 +50,10 @@
 		
 		window.location = pageName+'?keyword='+x ;
 	}
+	 $(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker("option", "dateFormat","yy-mm-dd");
+	});
 </script>
 </body>
 </html>

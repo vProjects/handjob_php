@@ -9,9 +9,6 @@
 	$cronSilceValues = $manageData->getValue('cron_slice','*');
 	//print_r($cronSilceValues);
 	
-	//get the present date for the article insertion
-	$date = date('Y-m-d');
-	
 	foreach($cronValues as $cronValue)
 	{
 		if($cronValue['cron_status'] == 1)
@@ -24,8 +21,9 @@
 			$result = "1";
 			
 			//insert the appropiate values in the gallery table and movies table
-			$manageData->insertVidCapInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['out_snap_path'],$cronValue['category'],$cronValue['model'],$date,0,0,1);
-			$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$date,1);
+			$manageData->insertVidCapInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['out_snap_path'],$cronValue['category'],$cronValue['model'],$cronValue['date'],0,0,1);
+			
+			$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$cronValue['date'],1);
 			
 			//delete the values from cron gallery table
 			$manageData->deleteValue('cron_gallery','id',$cronValue['id']);
@@ -52,7 +50,7 @@
 				$manageMedia->sliceVideo($cronSilceValue['input_path'],$cronSilceValue['gallery_name'],$start_time,$timeinterval,$cronSilceValue['output_path'],$cronSilceValue['output_format'],$cronSilceValue['vid_name']."_".$i,$cronSilceValue['resolution_l'],$cronSilceValue['resolution_m'],$cronSilceValue['resolution_s'],$thumb_time);
 				
 				//insert the appropiate values in the gallery table and movies table
-				$manageData->insertSilcedInfo($cronSilceValue['vid_name']."_".$i,$cronSilceValue['vid_name'],$cronSilceValue['gallery_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$date,0,0);
+				$manageData->insertSilcedInfo($cronSilceValue['vid_name']."_".$i,$cronSilceValue['vid_name'],$cronSilceValue['gallery_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$cronSilceValue['date'],0,0);
 				
 			}
 				

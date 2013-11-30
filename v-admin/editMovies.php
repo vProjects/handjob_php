@@ -21,11 +21,28 @@
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<blockquote>
-                <p>Create Gallery from a video</p>
+                <p>Edit Video Details</p>
                 <small>
-                	<cite title="Source Title">Gallery builder for your website.</cite>
+                	<cite title="Source Title">Edit Video Details for your website.</cite>
                 </small>
             </blockquote>
+            
+        	<div class="image_model" style="width:317px;height:178px;">
+                <img src="../members/images/movie_thumb/<?php echo $movie_details[0]['gallery_id'].".JPG"; ?>" style="height:178px;width:317px;"/>
+            </div>
+            
+            <div class="form-horizontal">
+                <form action="#" method="post">
+                	<div class="form-control v-form">
+                        <label class="control-label">Upload Image</label>
+                        <input style="margin-left: 20px;" type="file" name="movie_thumb" >
+                   	
+                        <input type="hidden" name="type" value="<?php echo $type; ?>" />
+                    	<input type="hidden" name="id" value="<?php echo $movie_id; ?>" />
+                		<input type="submit" value="Update Thumb" class="btn btn-medium btn-warning" />
+                	</div>
+                </form>
+            </div>
             
             <div class="form-horizontal">
                 <form action="v-includes/functions/function.editMovies.php" method="post">
@@ -36,6 +53,10 @@
                     <div class="form-control v-form">
                         <label class="control-label">Description</label>
                         <textarea type="text" placeholder="Description" class="textbox1" name="description"><?php echo $movie_details[0]["description"]; ?></textarea>
+                    </div>
+                    <div class="form-control v-form">
+                        <label class="control-label">Date</label>
+                        <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker"/>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Model</label>

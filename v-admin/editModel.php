@@ -58,6 +58,10 @@
                     <input type="text" placeholder="Measurement" class="textbox1" name="measurement"/>
                 </div>
                 <div class="form-control v-form">
+                	<label class="control-label">Date</label>
+                    <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker"/>
+                </div>
+                <div class="form-control v-form">
                 	<label class="control-label">Category</label>
                     <input type="text" placeholder="Measurement" class="textbox1" readonly="readonly" value="<?php echo $model_detail[0]['category']; ?>"/>
                 </div>

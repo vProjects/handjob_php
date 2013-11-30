@@ -24,6 +24,8 @@
 		$status = $_POST['status'];
 		$photo = $_FILES['photo']['name'];
 		
+		$date = $_POST['date'];
+		
 		//get the model id from the input type hidden
 		$model_id = $_POST['id'];
 		
@@ -72,6 +74,17 @@
 	if( isset($age) && !empty($age))
 	{
 		$result = $manageData->updateValueWhere($table_name,"age",$age,"id",$model_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	
+	//update the date
+	if( isset($date) && !empty($date))
+	{
+		$result = $manageData->updateValueWhere($table_name,"date",$date,"id",$model_id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;

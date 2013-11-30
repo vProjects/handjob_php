@@ -20,6 +20,8 @@
 		//get the thumb name from the input type hidden
 		$type = $_POST['type'];
 		
+		$date = $_POST['date'];
+		
 		$description = $_POST['description'];
 	}
 	//varriable which will contain the category in string format
@@ -62,6 +64,16 @@
 	if( isset($gallery_name) && !empty($gallery_name))
 	{
 		$result = $manageData->updateValueWhere($table_name,"gallery_name",$gallery_name,"id",$gallery_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	//update the date
+	if( isset($date) && !empty($date))
+	{
+		$result = $manageData->updateValueWhere($table_name,"date",$date,"id",$gallery_id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;

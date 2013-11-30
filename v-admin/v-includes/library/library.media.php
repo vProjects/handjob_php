@@ -137,6 +137,16 @@
 			
 			$thumb->writeImage($image1OutputPath.$image1Filename.".".$Format);
 		}
+		
+		/*
+		- convert image using ffmpeg
+		- to a different format
+		- Auth Singh
+		*/
+		function convertImageFormat($inputFileName_Path,$outputFileName,$outputFormat)
+		{
+			exec("$this->ffmpeg -f image2 -i $inputFileName_Path $outputFileName".$outputFormat."  2> /home/sites/handjobstop.com/public_html/logs/thumb_log.txt");
+		}
 	}
 
 ?>

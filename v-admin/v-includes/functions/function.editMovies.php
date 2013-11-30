@@ -16,6 +16,8 @@
 		//get the thumb name from the input type hidden
 		$type = $_POST['type'];
 		
+		$date = $_POST['date'];
+		
 		$description = $_POST['description'];
 	}
 	//varriable which will contain the category in string format
@@ -72,6 +74,16 @@
 	if( isset($movie_name) && !empty($movie_name))
 	{
 		$result = $manageData->updateValueWhere($table_name,"movie_name",$movie_name,"id",$movie_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	//update the date
+	if( isset($date) && !empty($date))
+	{
+		$result = $manageData->updateValueWhere($table_name,"date",$date,"id",$movie_id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;

@@ -33,8 +33,8 @@
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
                     	<li><a href="cropUploadImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Uploaded Images</a></li>
-                        <li><a href="uploadVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Gallery From Videos</a></li>
-                        <li><a href="galleryFromImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Gallery From Images</a></li>
+                        <li><a href="uploadVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Add New Videos</a></li>
+                        <li><a href="galleryFromImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;New Photo Set</a></li>
                         <li><a href="listVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movies</a></li>
                         <li><a href="listSlicedVid.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Sliced Movies</a></li>
                         <li><a href="listGallery.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>

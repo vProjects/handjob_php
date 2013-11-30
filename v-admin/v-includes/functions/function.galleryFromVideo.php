@@ -26,6 +26,8 @@
 		$s_vedio_w = $_POST['s_vedio_w'];
 		
 		$no_slicing = $_POST['no_slicing'];
+		
+		$date = $_POST['date'];
 	}
 	$category_string = "" ;
 	$model_string = "" ;
@@ -58,6 +60,13 @@
 		- it contains a comma
 		*/
 		$model_string = substr($model_string,1);
+	}
+	
+	//check if date isset or not
+	if( !isset($date) && empty($date) )
+	{
+		//set the date to todays date
+		$date = date('Y-m-d');
 	}
 	
 	//create a folder with unique name using unique id
@@ -105,7 +114,7 @@
 	$inputVidForConversion = $_SERVER['DOCUMENT_ROOT']."uploads/videos/".$filename;
 	
 	//insert the values in the cron table for automated execution by crons job
-	$manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,1);	
+	$manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,$date,1);	
 	
 	//check if slicing is required or not
 	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)
@@ -123,7 +132,7 @@
 		$sliced_format = "flv";
 		
 		//insert the values in the cron table for slicing
-		$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,1);
+		$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,1);
 	}
 	
 	//return the name of the folder using get request

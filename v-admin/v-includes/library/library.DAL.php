@@ -36,6 +36,24 @@
 		}
 		
 		/*
+		- function to get the value
+		- auth Singh
+		*/
+		function getValue_sorted_asc($table_name,$value,$sortBy)
+		{
+			$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortBy ASC");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
 		- function to get the sorted value
 		- auth Singh
 		*/
@@ -110,10 +128,10 @@
 		- method to insert the value for cron file video conversion
 		- Auth Singh
 		*/
-		function insertCronGallery($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$cron_status)
+		function insertCronGallery($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$date,$cron_status)
 		{
-			$query = $this->link->prepare("INSERT INTO `cron_gallery`(`input_video`, `gallery_name`, `description`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `snap_input`, `no_snapshot`, `out_snap_path`, `out_snap_filename`, `snap_h`, `snap_w`, `cron_status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$cron_status);
+			$query = $this->link->prepare("INSERT INTO `cron_gallery`(`input_video`, `gallery_name`, `description`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `snap_input`, `no_snapshot`, `out_snap_path`, `out_snap_filename`, `snap_h`, `snap_w`, `date`, `cron_status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$date,$cron_status);
 			$query->execute($values);
 			return $query->rowCount();
 		}
@@ -122,10 +140,10 @@
 		- method to insert the value for cron file
 		- Auth Singh
 		*/
-		function insertCronSilce($outputFilename,$gallery_name,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$status)
+		function insertCronSilce($outputFilename,$gallery_name,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `cron_slice`(`vid_name`, `gallery_name`, `model`, `category`, `input_path`, `output_path`, `vid_duration`, `no_slice`, `output_format`,`resolution_l`, `resolution_m`, `resolution_s`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($outputFilename,$gallery_name,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$status);
+			$query = $this->link->prepare("INSERT INTO `cron_slice`(`vid_name`, `gallery_name`, `model`, `category`, `input_path`, `output_path`, `vid_duration`, `no_slice`, `output_format`,`resolution_l`, `resolution_m`, `resolution_s`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($outputFilename,$gallery_name,$model,$category,$inputPath,$outputPath,$videoDuration,$no_slices,$outputFormat,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}

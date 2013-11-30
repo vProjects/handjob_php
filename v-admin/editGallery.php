@@ -20,6 +20,22 @@
                 </small>
             </blockquote>
             
+            <div class="image_model" style="height:377px;width:250px;">
+                <img src="../members/images/gallery_thumb/<?php echo $gallery_details[0]['gallery_id'].".JPG"; ?>" style="height:377px;width:250px;"/>
+            </div>
+            
+            <div class="form-horizontal">
+                <form action="v-includes/functions/function.editGalleryThumb.php" method="post" enctype="multipart/form-data">
+                	<div class="form-control v-form">
+                        <label class="control-label">Upload Image</label>
+                        <input style="margin-left: 20px;" type="file" name="gallery_thumb" >
+                    	<input type="hidden" name="gallery_id" value="<?php echo $gallery_details[0]['gallery_id']; ?>" />
+                        <input type="hidden" name="id" value="<?php echo $gallery_id; ?>" />
+                		<input type="submit" value="Update Thumb" class="btn btn-medium btn-warning" />
+                	</div>
+                </form>
+            </div>
+            
             <div class="form-horizontal">
                 <form action="v-includes/functions/function.editGallery.php" method="post">
                 	<div class="form-control v-form">
@@ -29,6 +45,10 @@
                     <div class="form-control v-form">
                         <label class="control-label">Description</label>
                         <textarea type="text" placeholder="Description" class="textbox1" name="description"><?php echo $gallery_details[0]["description"]; ?></textarea>
+                    </div>
+                    <div class="form-control v-form">
+                        <label class="control-label">Date</label>
+                        <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Model</label>

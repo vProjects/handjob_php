@@ -299,7 +299,8 @@
 		*/
 		function getCategoryListSelectBox($tableName)
 		{
-			$categorys = $this->manageContent->getValue($tableName,"*");
+			$sortBy = "category" ;
+			$categorys = $this->manageContent->getValue_sorted_asc($tableName,"*",$sortBy);
 			foreach($categorys as $category)
 			{
 				echo '<option value="'.$category['category'].'">'.$category['category'].'</option>';
@@ -312,7 +313,7 @@
 		*/
 		function getModelNames()
 		{
-			$modelNames = $this->manageContent->getValue("model_info","name");
+			$modelNames = $this->manageContent->getValue_sorted_asc("model_info","name","name");
 			foreach($modelNames as $modelName)
 			{
 				echo '<option value="'.$modelName['name'].'">'.$modelName['name'].'</option>';

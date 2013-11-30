@@ -19,6 +19,8 @@
 		$foldername = $_POST['foldername'];
 		$gallery_name = $_POST['gallery_name'];
 		$description = $_POST['description'];
+		
+		$date = $_POST['date'];
 	}
 	
 	$category_string = "" ;
@@ -54,7 +56,12 @@
 		$model_string = substr($model_string,1);
 	}
 	
-	$date = date('Y-m-d');
+	//check if date isset or not
+	if( !isset($date) && empty($date) )
+	{
+		//set the date to todays date
+		$date = date('Y-m-d');
+	}
 	
 	//create a folder with unique name using unique id
 	$outputFolder = uniqid();

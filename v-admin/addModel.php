@@ -25,6 +25,10 @@
                     <textarea type="text" placeholder="Description" class="textbox1" name="description"></textarea>
                 </div>
                 <div class="form-control v-form">
+                    <label class="control-label">Date</label>
+                    <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
+                </div>
+                <div class="form-control v-form">
                 	<label class="control-label">Age</label>
                     <input type="text" placeholder="Age" class="textbox1" name="age"/>
                 </div>
