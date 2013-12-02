@@ -27,11 +27,18 @@
 	//file uploader class in the temp folder
 	$filename_temp = $uploadFile->upload_file($galleryId,'movie_thumb',$outputPath_temp);
 	
-	//convert the file to get the .JPG extension
-	$mediaQuery->convertImageFormat($outputPath_temp.$filename_temp,$outputPath_temp.$galleryId,".JPG");
 	
-	//delete the previous file
-	unlink($outputPath_temp.$filename_temp);
+	$file_info = pathinfo($outputPath_temp.$filename_temp);
+	$ext = $file_info['extension'] ;
+	
+	if( $ext != "JPG")
+	{
+		//convert the file to get the .JPG extension
+		$mediaQuery->convertImageFormat($outputPath_temp.$filename_temp,$outputPath_temp.$galleryId,".JPG");
+		
+		//delete the previous file
+		unlink($outputPath_temp.$filename_temp);
+	}
 	
 	
 	

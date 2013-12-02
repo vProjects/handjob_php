@@ -32,6 +32,7 @@
                 </div>
                 
             <div class="form-horizontal">
+            	<div class="edit_date">Date:<?php echo $model_detail[0]['date']; ?></div>
             <form action="v-includes/functions/function.editModel.php" method="post" enctype="multipart/form-data">
             	<div class="form-control v-form">
                 	<label class="control-label">Model Name</label>

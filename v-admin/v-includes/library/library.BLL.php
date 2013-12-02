@@ -26,13 +26,16 @@
                             <td>'.$article['article_title'].'</td>
 							<td>'.$article['article_author'].'</td>
                             <td>'.$article['article_description'].'</td>
-                            <td><button class="btn btn-warning" type="button">
+                            <td><a href="editArticle.php?id='.$article['id'].'">
+								<button class="btn btn-warning" type="button">
 								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
-							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$article['id'].'&type=article" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 								</a>
+							</td>
+                            <td><button class=" btn btn-danger" type="button" onclick="';
+							 
+				echo "promptBeforeDelete(".$article['id'].",'article')";
+									
+				echo '"><span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -152,7 +155,7 @@
 		function getModelList($startPoint,$limit,$keyword)
 		{
 			$startPoint = $startPoint*$limit ;
-			
+			$type = "model";
 			$models = $this->manageContent->getValue_limit_sorted('model_info','*',"date",$startPoint,$limit,"name",$keyword);
 			foreach($models as $model)
 			{
@@ -170,10 +173,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$model['id'].'&type=model" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+					echo $model['id'].",'".$type."')";
+					echo '">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -205,10 +208,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$gallery['id'].'&type=gallery" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+				echo $gallery['id'].",'gallery'" ;
+				echo ')">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -345,10 +348,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$movie['id'].'&type=movie" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+				echo $movie['id'].",'movie'" ;
+				echo ')">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -385,10 +388,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$slicedMovie['id'].'&type=sliced" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+				echo $slicedMovie['id'].",'sliced'" ;
+				echo ')">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -417,7 +420,9 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+				echo $slicedMovie['id'].",'sliced'" ;
+				echo ')">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>

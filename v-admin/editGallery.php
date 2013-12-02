@@ -37,6 +37,7 @@
             </div>
             
             <div class="form-horizontal">
+            	<div class="edit_date">Date:<?php echo $gallery_details[0]['date']; ?></div>
                 <form action="v-includes/functions/function.editGallery.php" method="post">
                 	<div class="form-control v-form">
                         <label class="control-label">Gallery Name</label>

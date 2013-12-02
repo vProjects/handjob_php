@@ -54,6 +54,19 @@
 		$( "#datepicker" ).datepicker();
 		$( "#datepicker" ).datepicker("option", "dateFormat","yy-mm-dd");
 	});
+	
+	function promptBeforeDelete(id,type)
+	{
+		var answer = confirm("Are you sure you want to delete it?");
+		if(answer)
+		{
+			window.location ="v-includes/functions/function.deleteEntity.php?del_id="+id+"&type="+type ;
+		}
+		else
+		{
+			alert("Thank you.");
+		}
+	}
 </script>
 </body>
 </html>
