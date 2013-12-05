@@ -62,10 +62,6 @@
 		{
 			window.location ="v-includes/functions/function.deleteEntity.php?del_id="+id+"&type="+type ;
 		}
-		else
-		{
-			alert("Thank you.");
-		}
 	}
 </script>
 </body>

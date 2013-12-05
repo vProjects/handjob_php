@@ -8,13 +8,13 @@
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<blockquote>
-                <p>List Model Category</p>
+                <p>List Movies Category</p>
                 <small>
-                	<cite title="Source Title">List of models Categories in your website.</cite>
+                	<cite title="Source Title">List of movies Categories in your website.</cite>
                 </small>
             </blockquote>
                 <table class="table table-hover">
-                    <caption>List Of Models Categories</caption>
+                    <caption>List Of Movie Categories</caption>
                     <thead>
                         <tr>
                             <th>Name</th>

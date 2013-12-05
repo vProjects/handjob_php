@@ -66,9 +66,8 @@ html,body{
 	margin-top: 7px;
 }
 .admin-btn {
-	float: right;
-    margin-right: 30px;
-    margin-top: 19px;
+	float: left;
+    margin: 26px 0 0 20px;
 }
 .btn-custom {
 	background: none repeat scroll 0 0 #156EA8;
@@ -267,4 +266,113 @@ blockquote {
     font-weight: bold;
     margin: 0 0 20px 191px;
     width: 66%;
+}
+.v_inline_form{
+	margin:10px 0 ;
+}
+.v_form_element{
+	margin:0 10px ;
+}
+
+/*codes for the nav bar*/
+
+.navbar-inner {
+  	background-color: #FFFFFF;
+    background-image: none;
+    border: medium none;
+    box-shadow: none;
+    float: right;
+    margin-top: 23px;
+    min-height: 20px;
+    padding-left: 12px;
+    padding-right: 15px;
+}
+
+.navbar {
+	margin-bottom: 20px;
+	overflow: visible;
+	max-width: 980px;
+	margin: 0 auto;
+}
+.dropdown-menu > li > a {
+	min-width: 110px;
+	padding-left: 14px;
+}
+.navbar .btn-navbar {
+	float: right;
+	padding: 7px 10px;
+	margin-right: 5px;
+	margin-left: 5px;
+	color: #ffffff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #ededed;
+	background-image: -moz-linear-gradient(top, #f2f2f2, #e5e5e5);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2b81co), to(#2b81co));
+	background-image: -webkit-linear-gradient(top, #2b81co, #2b81co);
+	background-image: -o-linear-gradient(top, #2b81co, #2b81co);
+	background-image: linear-gradient(to bottom, #0044cc, #0044cc);
+	background-repeat: repeat-x;
+	border-color: #e5e5e5 #e5e5e5 #bfbfbf;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2b81co', endColorstr='#2b81co', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+	-webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
+	-moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
+	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.075);
+}
+
+.btn:hover, .btn:focus {
+	color: #333333;
+	text-decoration: none;
+	background-position: 0 0px;
+	-webkit-transition: background-position 0.1s linear;
+	-moz-transition: background-position 0.1s linear;
+	-o-transition: background-position 0.1s linear;
+	transition: background-position 0.1s linear;
+}
+.dropdown-menu {
+	min-width:90px;
+}
+.nav_v {
+    margin-bottom: 0;
+    margin-left: 0;
+	font-size: 14px;
+}
+.nav_v > li > a {
+    margin-right: 23px;
+    padding: 5px 12px;
+}
+.nav_v li {
+	float:left;
+}
+.nav-collapse .open > .dropdown-menu{
+    background-color: #f2f2f2;
+}
+
+@media (min-width : 979px) {
+.navbar .nav_v {
+	position: relative;
+	left: 0;
+	display: block;
+	float: left;
+	margin: 11px 40px 0 115px;
+	}
+  .navbar .brand {
+	padding-right: 10px;
+	padding-left: 10px;
+	margin: 0px 0 0 -5px;
+	}
+ .navbar-search {
+	position: relative;
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 0;
+	margin-left: 450px;
+	}
+#make-align{
+margin-left: -37px
+}
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+	display: block;    
+	margin-top: -3px;
 }

@@ -192,7 +192,7 @@
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit,'gallery_name',$keyword);
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit,'model',$keyword);
 			foreach($gallerys as $gallery)
 			{
 				echo '<tbody>
@@ -285,10 +285,14 @@
 				echo '<tr>';
 				echo '<td>'.$category['category'].'</td>';
                 echo '<td>'.$category['date'].'</td>';
-				echo '<td><button class="btn btn-warning" type="button">
-						<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+				echo '<td><a href="editCategories.php?type='.$tableName.'&id='.$category["id"].'">
+							<button class="btn btn-warning" type="button">
+							<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+						</a>
 					</td>
-					<td><button class=" btn btn-danger" type="button">
+					<td><button class=" btn btn-danger" type="button"  onclick="promptBeforeDelete(';
+				echo $category['id'].",'".$tableName."'" ;
+				echo ')">
 						<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 					</td></tr/>';
 				
@@ -332,7 +336,7 @@
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit,"movie_name",$keyword);
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit,"model",$keyword);
 			foreach($movies as $movie)
 			{
 				echo '<tbody>
@@ -372,7 +376,7 @@
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids','*',"date",$startPoint,$limit,'movie_name',$keyword);
+			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids','*',"date",$startPoint,$limit,'model',$keyword);
 			foreach($slicedMovies as $slicedMovie)
 			{
 				echo '<tbody>
@@ -596,10 +600,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$gallery['id'].'&type=gallery" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+				echo $gallery['id'].",'gallery'" ;
+				echo ')">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -635,10 +639,10 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?del_id='.$movie['id'].'&type=movie" >
-									<button class=" btn btn-danger" type="button">
-									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
+                            <td><button class=" btn btn-danger" type="button" onclick="promptBeforeDelete(';
+				echo $movie['id'].",'movie'" ;
+				echo ')">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td>
                         </tr>
                     </tbody>';
@@ -648,6 +652,44 @@
 			{
 				echo '<td>No result found.</td>';
 			}
+		}
+		
+		/*
+		- get the UI selectBox for the category page
+		- Auth Singh
+		*/
+		function getSelectCategory($name)
+		{
+			$categorys = $this->manageContent->getValue_sorted_asc("quick_links","*","a_name");
+			//print_r($categorys);
+			echo '<select class="v_form_element" name="'.$name.'">
+                    	<option value="">Select One Page</option>' ;
+			foreach($categorys as $category)
+			{
+				echo '<option value="'.$category["id"].'">'.$category["a_name"].'</option>' ;
+			}
+			echo '</select>' ;
+		}
+		
+		/*
+		- get the UI for the nav of Quick Links
+		- Auth Singh
+		*/
+		function quickNav()
+		{
+			$quickNavs = $this->manageContent->getValue("quick_nav","*");
+			echo ' <div class="btn-group">
+                            <button type="button" class="btn dropdown-toggle btn-custom" data-toggle="dropdown">
+                            	Quick Links&nbsp;&nbsp;<span class="icon-align-justify"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">' ; 
+			foreach( $quickNavs as $quickNav )
+			{
+				echo '<li><a href="'.$quickNav["link"].'"><span class="icon-globe"></span>&nbsp;&nbsp;'.$quickNav["name"].'</a></li>' ;
+			}
+			echo '<li><a href="manageQuickLinks.php"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage Links</a></li>
+                            </ul>
+                        </div>' ;
 		}
 	}
 

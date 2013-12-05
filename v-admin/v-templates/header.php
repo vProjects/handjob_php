@@ -36,20 +36,58 @@
                     <div class="span2">
                         <h3>VPanel</h3>
                     </div>
+                    <div class="span9">
+                        <div class="navbar-inner">
+                            <div class="nav-collapse collapse navbar-responsive-collapse">
+                                <ul class="nav nav_v">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Model<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="addModel.php">Add Model</a></li>
+                                            <li><a href="listModels.php">List Model</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Photos<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="galleryFromImage.php">Add New Photos</a></li>
+                                            <li><a href="listGallery.php">List Gallery</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Videos<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="uploadVideo.php">Add New Video</a></li>
+                                            <li><a href="listVideo.php">List Video</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="createBlog.php">Add Blog</a></li>
+                                            <li><a href="listBlog.php">List Blog</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Admin<b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;My Site</a></li>
+                                            <li><a href="#"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage</a></li>
+                                            <li><a href="admin.php"><span class="icon-wrench"></span>&nbsp;&nbsp;Processes</a></li>
+                                            <li><a href="#"><span class="icon-off"></span>&nbsp;&nbsp;Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div><!-- /.nav-collapse -->
+                        </div><!-- /navbar-inner -->	
+                    </div>
+                    
                     <!--dropdown for admin-->
                     <div class="span2 admin-btn">
                     	<!-- Single button -->
-                        <div class="btn-group">
-                            <button type="button" class="btn dropdown-toggle btn-custom" data-toggle="dropdown">
-                            	Hello Admin&nbsp;&nbsp;<span class="icon-align-justify"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;My Site</a></li>
-                                <li><a href="#"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#"><span class="icon-off"></span>&nbsp;&nbsp;Logout</a></li>
-                            </ul>
-                        </div>
+                        <?php
+							$manageData->quickNav();
+						?>
                     </div><!--dropdown for admin ends here-->
                 </div>
             </div>

@@ -85,6 +85,27 @@
 		$return_page = "listModels.php" ;
 	}
 	
+	//delete the model category
+	if( $type == "model_category" )
+	{
+		$table_name = "model_category" ;
+		//delete the database entry
+		$manageData->deleteValue($table_name,"id",$delete_id);
+		
+		//set the return page
+		$return_page = "modelCategories.php" ;
+	}
+	
+	//delete the movies category
+	if( $type == "movie_category" )
+	{
+		$table_name = "movie_category" ;
+		//delete the database entry
+		$manageData->deleteValue($table_name,"id",$delete_id);
+		
+		//set the return page
+		$return_page = "moviesCategories.php" ;
+	}
 	
 	//set the redirection
 	header('Location: ../../'.$return_page);
