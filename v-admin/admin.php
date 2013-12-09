@@ -7,7 +7,7 @@
         <div class="span9" id="content_container">
         	<div class="span12 admin_container">
             	<blockquote>Running Process</blockquote>
-                <div class="span11 process_div">
+                <div class="span11 process_div" id="process_div">
                 	<p class="green_text">System processes running now...!!</p>
                     <?php
 						$manageData->getCronVaues();

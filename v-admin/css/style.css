@@ -201,9 +201,13 @@ blockquote {
 }
 .process_div{
 	background-color: #000000;
-    border: 2px solid #397C17;
-    margin-top: 16px;
-    min-height: 165px;
+	border: 2px solid #397C17;
+	margin-top: 16px;
+	min-height: 165px;
+	color: #33FF00;
+	height: 250px;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 .green_text{
 	color: #33FF00;

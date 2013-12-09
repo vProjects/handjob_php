@@ -265,10 +265,14 @@
 			foreach($cronGallery as $cronValue)
 			{
 				echo '<p class="green_text">'.$cronValue['input_video'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR CONVERSION</p>';
+				echo '<p class="green_text">No. of convert process = 3</p>';
+				echo '<p class="green_text">No. of snapshot required = '.$cronValue["no_snapshot"].'</p>';
 			}
 			foreach($cronSliced as $cronValueSlice)
 			{
 				echo '<p class="green_text">'.$cronValueSlice['input_path'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR SLICING</p>';
+				$total_slice = 3*$cronValueSlice['no_slice'];
+				echo '<p class="green_text">No. of slice required = '.$total_slice.'</p>';
 			}
 		}
 		

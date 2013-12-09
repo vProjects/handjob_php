@@ -64,5 +64,8 @@
 		}
 	}
 </script>
+
+<!--js for updating the ffmpeg progress -->
+<script src="js/ffmpeg_progress.js" type="text/javascript" ></script>
 </body>
 </html>

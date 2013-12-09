@@ -51,6 +51,10 @@
 			$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_1,$outputFilename.".".$vidFormat_1,$resolutionSmall);
 			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_2,$resolutionSmall);
 			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionSmall);
+			
+			//clear the log file
+			$fh = fopen( '../../../logs/convert_log.txt', 'w+' );
+			fclose($fh);
 		}
 		
 		/*
@@ -91,6 +95,11 @@
 			$this->mediaQuery->getSnaps($inputFile,$no_snapshot,$imageWidthSmall,$imageHeightSmall,$outputPath."s/",$outputFilename);
 			//create a zip for low res gallery
 			$this->zipFiles->createZip($outputPath."s/",$outputPath,"s.zip");
+			
+			//clear the log file
+			$fh = fopen( '../../../logs/snaps_log.txt', 'w+' );
+			fclose($fh);
+
 		}
 		
 		/*
@@ -121,6 +130,10 @@
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."m/",$outputFormat,$outputFilename,$resolution_m);
 			//slice the video -->small
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."s/",$outputFormat,$outputFilename,$resolution_s);
+			
+			//clear the log file
+			$fh = fopen( '../../../logs/slice_log.txt', 'w+' );
+			fclose($fh);
 		}
 	}
 ?>
