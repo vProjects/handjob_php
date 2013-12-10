@@ -36,8 +36,15 @@ function appendText(textString)
 function appendProgressbar(progressBar_id)
 {
 	var x = document.getElementById('process_div') ;
-	x.innerHTML += '<div class="progress span10 progress-striped active" id="' + progressBar_id + '"><div class="bar" style="width: 40%;"></div></div>' ;
+	x.innerHTML += '<div class="progress span10 progress-striped active"><div id="'+progressBar_id+'" class="bar" style="width: 1%;"></div></div>' ;
 	x.scrollTop = x.scrollHeight ;
+}
+
+//function to change the width of the progress bar
+function changeProgress_width(idName_progressBar,width_progressBar)
+{
+	var pb = document.getElementById(idName_progressBar) ;
+	pb.style.width = width_progressBar + "%" ;
 }
 
 //this function replaces the value from the div
@@ -45,6 +52,9 @@ function updateText(updateId,textString)
 {
 	var y = document.getElementById(updateId) ;
 	y.innerHTML = textString ;
+	//scroll till end
+	//var z = document.getElementById('process_div') ;
+	//z.scrollTop = z.scrollHeight ;
 }
 
 //get values from the log file using ajax
@@ -84,6 +94,7 @@ function showProgress_snaps()
 	var x_1 = 1 ;
 	var x_1_timeout = 700 ;
 	var x_1_append = 1 ;
+	var x_1_id = 1 ;
 	
 	//check for the snaps process
 	setInterval(function(){if( typeof data_ajax_snaps !== "undefined" )
@@ -96,22 +107,29 @@ function showProgress_snaps()
 			{
 				//get the progress of extracting the snaps from log3.php
 				appendText("<br/><br/><p>Process of extracting snaps from video......</p>");
-				appendText('Process of getting snaps <div id="value_1_status"></div>');
+				appendText('Process of getting snaps <div id="value_1_status_' + x_1_id +'"></div>');
 				appendText("<p>Duration: " + data_ajax_snaps.duration + "</p>");
-				appendText('<div id="value_1_progress"></div><br/>');
+				appendText('<div id="value_1_progress_' + x_1_id +'"></div><br/>');
+				appendProgressbar('value_1_progressBar_' + x_1_id);
 				x_1++ ;
 			}
-			updateText('value_1_status','Status:' + data_ajax_snaps.status);
-			updateText('value_1_progress','Progress:' + data_ajax_snaps.progress + '%');
+			updateText('value_1_status_' + x_1_id,'Status:' + data_ajax_snaps.status);
+			updateText('value_1_progress_' + x_1_id,'Progress:' + data_ajax_snaps.progress + '%');
+			changeProgress_width('value_1_progressBar_' + x_1_id ,data_ajax_snaps.progress);
+			
 			if( data_ajax_snaps.progress >= 80 )
 			{
-				updateText('value_1_status','Progress: Completed');
-				updateText('value_1_progress','Progress:' + 100 + '%');
+				updateText('value_1_status_' + x_1_id,'Progress: Completed');
+				updateText('value_1_progress_' + x_1_id,'Progress:' + 100 + '%');
+				changeProgress_width('value_1_progressBar_' + x_1_id ,100);
+				
 				if( x_1_append == 1 )
 				{
 					appendText('<p>Process Extracting Snaps ' + process_snaps_no + ' completed</p>');
 					x_1_append++ ;
 					process_snaps_no++ ;
+					x_1 = 1 ;
+					x_1_id++ ;
 				}
 				x_1_timeout = 6000 ;
 			}
@@ -119,17 +137,21 @@ function showProgress_snaps()
 		else
 		{
 			x_1_append = 1 ;
+			
 			if( x_1 == 1 )
 			{
 				//get the progress of extracting the snaps from log3.php
 				appendText("<br/><br/>Process of extracting snaps from video......");
-				appendText('<br/>Process of getting snaps <div id="value_1_status"></div>');
-				appendText('<div id="value_1_progress"></div><br/>');
+				appendText('<br/>Process of getting snaps <div id="value_1_status_' + x_1_id +'"></div>');
+				appendText('<div id="value_1_progress_' + x_1_id +'"></div><br/>');
+				appendProgressbar('value_1_progressBar_' + x_1_id );
 				var x_1_timeout = 700 ;
 				x_1++ ;
 			}
-			updateText('value_1_status','Status: Completed');
-			updateText('value_1_progress','Progress:' + 100 + '%');
+			
+			updateText('value_1_status_' + x_1_id,'Status: Completed');
+			updateText('value_1_progress_' + x_1_id,'Progress:' + 100 + '%');
+			changeProgress_width('value_1_progressBar_' + x_1_id ,100);
 		}
 		
 	}},x_1_timeout);
@@ -145,6 +167,7 @@ function showProgress_conversion()
 	var x_2 = 1 ; 
 	var x_2_timeout = 800 ;
 	var x_2_append = 1 ;
+	var x_2_id = 1 ;
 	
 	//for the conversion process
 	setInterval(function(){if( typeof data_ajax_conversion !== "undefined" )
@@ -156,23 +179,30 @@ function showProgress_conversion()
 			if( x_2 == 1)
 			{
 				appendText("<br/><br/>Process of converting video......");
-				appendText('<br/>Process conversion started <div id="value_2_status"></div>');
+				appendText('<br/>Process conversion started <div id="value_2_status_' + x_2_id +'"></div>');
 				appendText("<p>Duration: " + data_ajax_conversion.duration + "</p>");
-				appendText('<div id="value_2_progress"></div><br/>');
+				appendText('<div id="value_2_progress_' + x_2_id +'"></div><br/>');
+				appendProgressbar('value_2_progressBar_' + x_2_id );
 				x_2++ ;
 			}
 			
-			updateText('value_2_status','Status:' + data_ajax_conversion.status);
-			updateText('value_2_progress','Progress:' + data_ajax_conversion.progress + '%');
+			updateText('value_2_status_' + x_2_id,'Status:' + data_ajax_conversion.status);
+			updateText('value_2_progress_' + x_2_id,'Progress:' + data_ajax_conversion.progress + '%');
+			changeProgress_width('value_2_progressBar_' + x_2_id ,data_ajax_conversion.progress);
+			
 			if( data_ajax_conversion.progress >= 95 )
 			{
-				updateText('value_2_status','Status: Completed');
-				updateText('value_2_progress','Progress:' + 100 + '%');
+				updateText('value_2_status_' + x_2_id,'Status: Completed');
+				updateText('value_2_progress_' + x_2_id,'Progress:' + 100 + '%');
+				changeProgress_width('value_2_progressBar_' + x_2_id,100);
+				
 				if( x_2_append == 1 )
 				{
 					appendText('<p>Process conversion ' + process_convert_no + ' completed</p>');
 					x_2_append++ ;
 					process_convert_no++ ;
+					x_2 = 1 ;
+					x_2_id++ ;
 				}
 				x_2_timeout = 8000 ;
 			}
@@ -180,16 +210,20 @@ function showProgress_conversion()
 		else
 		{
 			x_2_append = 1 ;
+			
 			if( x_2 == 1)
 			{
 				appendText("<br/><br/>Process of converting video......");
-				appendText('<br/>Process conversion started <div id="value_2_status"></div>');
-				appendText('<div id="value_2_progress"></div><br/>');
+				appendText('<br/>Process conversion started <div id="value_2_status_' + x_2_id +'"></div>');
+				appendText('<div id="value_2_progress_' + x_2_id +'"></div><br/>');
+				appendProgressbar('value_2_progressBar_' + x_2_id );
 				var x_2_timeout = 800 ;
 				x_2++ ;
 			}
-			updateText('value_2_status','Status: Completed');
-			updateText('value_2_progress','Progress:' + 100 + '%');
+			
+			updateText('value_2_status_' + x_2_id,'Status: Completed');
+			updateText('value_2_progress_' + x_2_id,'Progress:' + 100 + '%');
+			changeProgress_width('value_2_progressBar_' + x_2_id,100);
 		}
 		
 	}},x_2_timeout);
@@ -209,6 +243,7 @@ function showProgress_slice()
 	var x_3_append = 1 ;
 	var x_3_check_id = 1 ;
 	var x_3_slice_id = 1 ;
+	var x_3_id = 1 ;
 	
 	//for the slice process
 	setInterval(function(){if( typeof data_ajax_slice !== "undefined" )
@@ -220,22 +255,31 @@ function showProgress_slice()
 			if( x_3 == 1)
 			{
 				appendText("<br/><br/>Process of Slicing video......");
-				appendText('<br/>Process slicing started <div id="value_3_status"></div>');
+				appendText('<br/>Process slicing started <div id="value_3_status_' + x_3_id +'"></div>');
 				appendText("<p>Duration: " + data_ajax_slice.duration + "</p>");
-				appendText('<div id="value_3_progress"></div><br/>');
+				appendText('<div id="value_3_progress_' + x_3_id +'"></div><br/>');
+				appendProgressbar('value_3_progressBar_' + x_3_id );
+				
 				x_3++ ;
 			}
-			updateText('value_3_status','Status:' + data_ajax_slice.status);
-			updateText('value_3_progress','Progress:' + data_ajax_slice.progress + '%');
+			
+			updateText('value_3_status_' + x_3_id,'Status:' + data_ajax_slice.status);
+			updateText('value_3_progress_' + x_3_id,'Progress:' + (data_ajax_slice.progress*(no_slice/3)) + '%');
+			changeProgress_width('value_3_progressBar_' + x_3_id , (data_ajax_slice.progress*(no_slice/3)) );
+			
 			if( data_ajax_slice.progress >= slice_percent )
 			{
-				updateText('value_3_status','Status: Completed');
-				updateText('value_3_progress','Progress:' + 100 + '%');
+				updateText('value_3_status_' + x_3_id,'Status: Completed');
+				updateText('value_3_progress_' + x_3_id,'Progress:' + 100 + '%');
+				changeProgress_width('value_3_progressBar_' + x_3_id ,100);
+				
 				if( x_3_append == 1 )
 				{
 					appendText('<p>Process Slice ' + process_slice_no + ' completed</p>');
 					x_3_append++ ;
 					process_slice_no++ ;
+					x_3 = 1 ;
+					x_3_id++ ;
 					//check fot the next id for getting no of slice
 					if( x_3_check_id == no_slice )
 					{
@@ -256,13 +300,16 @@ function showProgress_slice()
 			if( x_3 == 1)
 			{
 				appendText("<br/><br/>Process of Slicing video......");
-				appendText('<br/>Process slicing started <div id="value_3_status"></div>');
-				appendText('<div id="value_3_progress"></div><br/>');
+				appendText('<br/>Process slicing started <div id="value_3_status_' + x_3_id +'"></div>');
+				appendText('<div id="value_3_progress_' + x_3_id +'"></div><br/>');
+				appendProgressbar('value_3_progressBar_' + x_3_id );
 				x_3++ ;
 				x_3_timeout = 800 ;
 			}
-			updateText('value_3_status','Status: Completed');
-			updateText('value_3_progress','Progress:' + 100 + '%');
+			updateText('value_3_status_' + x_3_id,'Status: Completed');
+			updateText('value_3_progress_' + x_3_id,'Progress:' + 100 + '%');
+			changeProgress_width('value_3_progressBar_' + x_3_id ,100);
+			
 		}
 		
 	}},x_3_timeout);
