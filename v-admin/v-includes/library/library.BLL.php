@@ -271,7 +271,7 @@
 			}
 			foreach($cronSliced as $cronValueSlice)
 			{
-				echo '<p class="green_text">'.$cronValueSlice['input_path'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR SLICING</p>';
+				echo '<br/><p class="green_text">'.$cronValueSlice['input_path'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR SLICING</p>';
 				$total_slice = 3*$cronValueSlice['no_slice'];
 				echo '<div class="green_text" style="float: left;margin-top: 4px;">No. of slice required = </div>
 						<div id="no_of_slice_'.$i.'" style="float: left;margin-left: 3px;">'.$total_slice.'</div>';

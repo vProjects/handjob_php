@@ -12,11 +12,17 @@ var data_ajax_snaps ;
 var data_ajax_conversion ;
 var data_ajax_slice ;
 
+var slice_percent ;
+var no_slice ;
 
-//get the no of slices from the page using no_of_slice id
-var no_slice = document.getElementById('no_of_slice_1').innerHTML ;
-var slice_percent = parseInt(100/(parseInt(no_slice)/3)) ;
-slice_percent = slice_percent - 3 ;
+function getNo_slice(id_no_slice)
+{
+	//get the no of slices from the page using no_of_slice id
+	no_slice = document.getElementById(id_no_slice).innerHTML ;
+	no_slice = parseInt(no_slice) ;
+	slice_percent = parseInt(100/(no_slice/3)) ;
+	slice_percent = slice_percent - 3 ;
+}
 
 //this function insert text in the process box
 function appendText(textString)
@@ -84,7 +90,7 @@ function showProgress_snaps()
 	{
 		getLogValue_snaps('v-includes/cron_jobs/log3.php');
 		
-		if( data_ajax_snaps.time != "break" && data_ajax_snaps.progress <= 90 )
+		if( data_ajax_snaps.time != "break" && data_ajax_snaps.progress <= 80 )
 		{
 			if( x_1 == 1 )
 			{
@@ -97,7 +103,7 @@ function showProgress_snaps()
 			}
 			updateText('value_1_status','Status:' + data_ajax_snaps.status);
 			updateText('value_1_progress','Progress:' + data_ajax_snaps.progress + '%');
-			if( data_ajax_snaps.progress >= 90 )
+			if( data_ajax_snaps.progress >= 80 )
 			{
 				updateText('value_1_status','Progress: Completed');
 				updateText('value_1_progress','Progress:' + 100 + '%');
@@ -195,16 +201,21 @@ function showProgress_slice()
 	
 	process_slice_no = 1 ;
 	
+	//get the slice percent
+	getNo_slice('no_of_slice_1') ;
+	
 	var x_3 = 1 ; 
 	var x_3_timeout = 800 ;
 	var x_3_append = 1 ;
+	var x_3_check_id = 1 ;
+	var x_3_slice_id = 1 ;
 	
 	//for the slice process
 	setInterval(function(){if( typeof data_ajax_slice !== "undefined" )
 	{
 		getLogValue_slice('v-includes/cron_jobs/log2.php');
 			
-		if( data_ajax_slice.time != "break" && data_ajax_slice.progress <= slice_percent )
+		if( data_ajax_slice.time != "break" && data_ajax_slice.progress <= (slice_percent+1) )
 		{
 			if( x_3 == 1)
 			{
@@ -225,6 +236,16 @@ function showProgress_slice()
 					appendText('<p>Process Slice ' + process_slice_no + ' completed</p>');
 					x_3_append++ ;
 					process_slice_no++ ;
+					//check fot the next id for getting no of slice
+					if( x_3_check_id == no_slice )
+					{
+						//increment the is for checking the next value
+						x_3_slice_id++ ;
+						//update the id to next value
+						var x_3_idName = 'no_of_slice_' + x_3_slice_id ;
+						getNo_slice(x_3_idName) ;
+					}
+					x_3_check_id++ ;
 				}
 				x_3_timeout = 6000 ;
 			}
@@ -255,10 +276,6 @@ function fireProgress()
 		getLogValue_conversion('v-includes/cron_jobs/log1.php');
 		getLogValue_slice('v-includes/cron_jobs/log2.php');
 		getLogValue_snaps('v-includes/cron_jobs/log3.php');
-		if( process_checker == 3 )
-		{
-			clearInterval( fireProgress_check );
-		}
 	},2000);
 	
 	var fireProgress_snaps = setInterval(function(){
