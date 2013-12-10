@@ -49,7 +49,7 @@
 	else
 	{
 		$time = "break" ;
-		$duration = "0" ;
+		$duration = "Completed" ;
 		$progress = "100" ;
 		$status = "Completed" ;
 		

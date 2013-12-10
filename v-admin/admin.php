@@ -3,6 +3,11 @@
 	//include sidebar
 	include('v-templates/sidebar.php');
 ?>
+<script type="text/javascript">
+	window.onload = function(){
+						fireProgress() ;
+					}
+</script>
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<div class="span12 admin_container">

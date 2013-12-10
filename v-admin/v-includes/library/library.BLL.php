@@ -262,6 +262,7 @@
 		function getCronVaues(){
 			$cronGallery = $this->manageContent->getValue("cron_gallery","*");
 			$cronSliced = $this->manageContent->getValue("cron_slice","*");
+			$i = 1 ;
 			foreach($cronGallery as $cronValue)
 			{
 				echo '<p class="green_text">'.$cronValue['input_video'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR CONVERSION</p>';
@@ -272,7 +273,9 @@
 			{
 				echo '<p class="green_text">'.$cronValueSlice['input_path'].'&nbsp;&nbsp;&nbsp;-------- WAITING FOR SLICING</p>';
 				$total_slice = 3*$cronValueSlice['no_slice'];
-				echo '<p class="green_text">No. of slice required = '.$total_slice.'</p>';
+				echo '<div class="green_text" style="float: left;margin-top: 4px;">No. of slice required = </div>
+						<div id="no_of_slice_'.$i.'" style="float: left;margin-left: 3px;">'.$total_slice.'</div>';
+				$i++ ;
 			}
 		}
 		
