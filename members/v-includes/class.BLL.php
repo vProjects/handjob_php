@@ -283,7 +283,7 @@
 		*/
 		function getModelDetails($model_id)
 		{
-			$modelDetails = $this->manageContent->getValueWhere("model_info","*","id",$model_id);
+			$modelDetails = $this->manageContent->getValue_current("model_info","*","id",$model_id);
 			
 			//these codes creates the UI output
 			echo '<div class="row-fluid">

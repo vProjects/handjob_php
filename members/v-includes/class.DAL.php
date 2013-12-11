@@ -37,6 +37,25 @@
 		
 		/*
 		- function to get the value
+		- till present date
+		- auth Singh
+		*/
+		function getValue_current($table_name,$value)
+		{
+			$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE()");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- function to get the value
 		- auth Singh
 		*/
 		function getValue_limit($table_name,$value,$startPoint,$limit)
