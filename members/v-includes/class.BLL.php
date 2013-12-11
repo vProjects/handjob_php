@@ -49,7 +49,7 @@
 				$sortBy = "date";
 			}
 			//get values from the database
-			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,$startPoint,$limit);
+			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',$sortBy,$startPoint,$limit);
 			
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
@@ -111,7 +111,7 @@
 				$sortBy = "date";
 			}
 			//get values from the database
-			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,$startPoint,$limit);
+			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -175,7 +175,7 @@
 				$sortBy = "date";
 			}
 			//get values from the database
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',$sortBy,$startPoint,$limit);
+			$gallerys = $this->manageContent->getValue_limit_sorted_current('gallery_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -236,7 +236,7 @@
 				$sortBy = "date";
 			}
 			//get values from the database
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',$sortBy,$startPoint,$limit);
+			$gallerys = $this->manageContent->getValue_limit_sorted_current('gallery_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -391,7 +391,7 @@
 		function getArticles($startPoint,$limit)
 		{
 			$startPoint = $startPoint*$limit ;
-			$articles = $this->manageContent->getValue_limit_sorted('article_info','*',"article_date",$startPoint,$limit);
+			$articles = $this->manageContent->getValue_limit_sorted_current_a('article_info','*',"article_date",$startPoint,$limit);
 			
 			foreach($articles as $article)
 			{
@@ -430,7 +430,7 @@
 				$sortBy = "date";
 			}
 			//get values from the database
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',$sortBy,$startPoint,$limit);
+			$movies = $this->manageContent->getValue_limit_sorted_current('movie_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -490,7 +490,7 @@
 				$sortBy = "date";
 			}
 			//get values from the database
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',$sortBy,$startPoint,$limit);
+			$movies = $this->manageContent->getValue_limit_sorted_current('movie_info','*',$sortBy,$startPoint,$limit);
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -806,6 +806,7 @@
 			$limit = 8 ;
 			//used in the db for getting o/p
 			$startPoint = $page*$limit ;
+			//get the search 
 			//total number of rows of the db_table
 			$lastIndex = $this->manageContent->getTotalRows($tableName) ;
 			//echo $lastIndex = $lastIndex[0]['count(*)'];
@@ -929,7 +930,7 @@
 			//for the recent
 			$sortBy = "rating";
 			//get values from the database
-			$models = $this->manageContent->getValue_limit_sorted('model_info','*',$sortBy,0,7);
+			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',$sortBy,0,7);
 			
 			//for the large pic
 			echo '<div class="row-fluid">
@@ -995,9 +996,9 @@
 		function getMostViewed_sidebar()
 		{
 			//get most viewed from the database
-			$models = $this->manageContent->getValue_limit_sorted('model_info','*',"views",0,4);
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"views",0,4);
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"view",0,4);
+			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',"views",0,4);
+			$movies = $this->manageContent->getValue_limit_sorted_current('movie_info','*',"views",0,4);
+			$gallerys = $this->manageContent->getValue_limit_sorted_current('gallery_info','*',"view",0,4);
 			
 			echo '<div class="row-fluid social">
                 	<ul>
@@ -1032,9 +1033,9 @@
 		function getMostPopular_sidebar()
 		{
 			//get most viewed from the database
-			$models = $this->manageContent->getValue_limit_sorted('model_info','*',"rating",0,4);
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"rating",0,4);
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"rating",0,4);
+			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',"rating",0,4);
+			$movies = $this->manageContent->getValue_limit_sorted_current('movie_info','*',"rating",0,4);
+			$gallerys = $this->manageContent->getValue_limit_sorted_current('gallery_info','*',"rating",0,4);
 			
 			echo '<div class="row-fluid social">
                 	<ul>

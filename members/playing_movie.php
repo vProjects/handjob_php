@@ -18,9 +18,9 @@
     <div id="bodyContainer" class="row-fluid">
        <div class="row-fluid">
        		<div class="btn-group">
-                <button class="btn btn-large btn-danger">High</button>
-                <button class="btn btn-large btn-danger">Medium</button>
                 <button class="btn btn-large btn-danger">Low</button>
+                <button class="btn btn-large btn-danger">Medium</button>
+                <button class="btn btn-large btn-danger">High</button>
 				<?php
                     if(isset($movie_id) && !empty($movie_id))
                     {

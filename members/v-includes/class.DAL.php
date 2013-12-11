@@ -79,12 +79,75 @@
 		}
 		
 		/*
+		- function to get the value sorted
+		- and till present date
+		- auth Singh
+		*/
+		function getValue_limit_sorted_current($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" )
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE() ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE() ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			}
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- function to get the value sorted
+		- and till present date for articles
+		- auth Singh
+		*/
+		function getValue_limit_sorted_current_a($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" )
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE `end_date` <= CURDATE() ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE `end_date` <= CURDATE() ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			}
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
 		- function to get the row count of a table
 		- auth Singh
 		*/
-		function getTotalRows($table_name)
+		function getTotalRows($table_name,$searchKeyword)
 		{
-			$query = $this->link->query("SELECT count(*) from $table_name");
+			if( $table_name == "article_info")
+			{
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`end_date` <= CURDATE())");
+			}
+			elseif( $table_name == "model_info")
+			{
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`date` <= CURDATE()) AND (`name` LIKE '%$searchKeyword%')");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`date` <= CURDATE())");
+			}
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){
