@@ -108,7 +108,7 @@
             <div id="collapse6" class="accordion-body collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Submenu</a></li>
+                        <li><a href="managePagination.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Contol Pagination</a></li>
                         <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Submenu</a></li>
                     </ul>
                 </div>

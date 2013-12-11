@@ -26,7 +26,7 @@
 			$manageData->getVideos($startPoint,$limit,$type);
 		
 			//get the pagination for the page
-			$manageData->pagination($startPoint,"videos.php",10,"movie_info",$type);
+			$manageData->pagination($startPoint,"videos.php",10,"movie_info",$type,$keyword,$limit);
 		?>
     	
    	</div>

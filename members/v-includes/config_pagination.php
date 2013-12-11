@@ -4,17 +4,14 @@
 	- BLL library
 	- Auth Singh
 	*/
-
-
+	$limit = "";
+	$limit = $manageData->getLimit_pagination();
 	/***** config for the pagination starts *****/
 	
-	$limit = "";
+	
 	$startPoint = "";
 	if( $GLOBALS["_GET"] > 0 )
 	{ 
-		//pagination limit
-		$limit = $GLOBALS["_GET"]["limit"];
-		
 		//get the startPoint using the pageNo(p) variable
 		$startPoint = $GLOBALS["_GET"]["p"];
 	}

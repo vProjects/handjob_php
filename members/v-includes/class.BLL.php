@@ -800,10 +800,8 @@
 		- both front startPoint = 0 and startPoint = end present
 		- Auth Singh
 		*/
-		function pagination($page,$PageUrl,$max_no_index,$tableName,$type,$keyword)
-		{
-			//limit is the total no of elements to be shown
-			$limit = 8 ;
+		function pagination($page,$PageUrl,$max_no_index,$tableName,$type,$keyword,$limit)
+		{ 
 			//used in the db for getting o/p
 			$startPoint = $page*$limit ;
 			//get the search 
@@ -829,7 +827,7 @@
 				
 				if( ($page-1) < 0 && $page != 0 )
 				{
-					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'&type='.$type;
+					echo '<li><a href="'.$PageUrl.'?p=0&type='.$type;
 					if ( isset($keyword) && !empty($keyword) )
 					{
 						echo '&keyword='.$keyword;
@@ -838,7 +836,7 @@
 				}
 				elseif( $page != 0 )
 				{
-					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit;
+					echo '<li><a href="'.$PageUrl.'?p='.($page-1);
 					if ( isset($keyword) && !empty($keyword) )
 					{
 						echo '&keyword='.$keyword;
@@ -859,7 +857,7 @@
 				{
 					if( $i > 0 )
 					{
-						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'&type='.$type;
+						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&type='.$type;
 						if ( isset($keyword) && !empty($keyword) )
 						{
 							echo '&keyword='.$keyword;
@@ -880,7 +878,7 @@
 				if( $page != ( $no_page - 1 ) )
 				{
 					//for the next button
-					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'&type='.$type;
+					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&type='.$type;
 					if ( isset($keyword) && !empty($keyword) )
 					{
 						echo '&keyword='.$keyword;
@@ -1091,6 +1089,17 @@
 				}
 			}
 			echo '</ul>' ;
+		}
+		
+		/*
+		- function to get the limit value for pagination
+		- table pagination_into
+		- Auth Singh
+		*/
+		function getLimit_pagination()
+		{
+			$limit = $this->manageContent->getValue("pagination_info","*");
+			return $limit[0]["limit"] ;
 		}
 	}
 ?>

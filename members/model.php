@@ -27,7 +27,7 @@
 			$manageData->getModels($startPoint,$limit,$type);
 			
 			//get the pagination for the page
-			$manageData->pagination($startPoint,"model.php",10,"model_info",$type);
+			$manageData->pagination($startPoint,"model.php",10,"model_info",$type,$keyword,$limit);
 		?>
 
 

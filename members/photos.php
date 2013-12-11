@@ -26,7 +26,7 @@
 			$manageData->getGallery($startPoint,$limit,$type);
 			
 			//get the pagination for the page
-			$manageData->pagination($startPoint,"photos.php",10,"gallery_info",$type);
+			$manageData->pagination($startPoint,"photos.php",10,"gallery_info",$type,$keyword,$limit);
 		?>
     	
     
