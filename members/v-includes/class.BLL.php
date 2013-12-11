@@ -56,14 +56,14 @@
 			$end_point = 1;
 			foreach($models as $model)
 			{
-				//maintain the row fluid with only four models in a row
-				if($start_point%4 == 0)
-				{
-					echo '<div class="row-fluid">';
-				}
 				//for models whose status is online
 				if($model["status"] == 1)
 				{
+					//maintain the row fluid with only four models in a row
+					if($start_point%4 == 0)
+					{
+						echo '<div class="row-fluid">';
+					}
 					//create the UI components
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
@@ -79,14 +79,15 @@
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					echo '</div>';
+					
+					if($end_point%4 == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
 				}
-				if($end_point%4 == 0)
-				{
-					echo '</div>';
-				}
-				
-				$start_point++ ;
-				$end_point++ ;
 				
 			}
 		}
@@ -117,38 +118,40 @@
 			$end_point = 1;
 			foreach($models as $model)
 			{
-				//maintain the row fluid with only four models in a row
-				if($start_point%3 == 0)
-				{
-					echo '<div class="row-fluid">';
-				}
-				//for models whose status is online
 				if($model["status"] == 1)
 				{
-					//create the UI components
-					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
-							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
-							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
-					//logic for displaying stars according to the rating
-					if( $model['rating'] == 0 )
+					//maintain the row fluid with only four models in a row
+					if($start_point%3 == 0)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-					}		
-					for($i = 0 ; $i < $model['rating'] ; $i++)
-					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<div class="row-fluid">';
 					}
-					echo '</div>';
+					//for models whose status is online
+					
+					{
+						//create the UI components
+						echo '<div class="span4 element">
+								<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
+								<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+								<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
+						//logic for displaying stars according to the rating
+						if( $model['rating'] == 0 )
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}		
+						for($i = 0 ; $i < $model['rating'] ; $i++)
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						echo '</div>';
+					}
+					if($end_point%3 == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
 				}
-				if($end_point%3 == 0)
-				{
-					echo '</div>';
-				}
-				
-				$start_point++ ;
-				$end_point++ ;
-				
 			}
 		}
 		
@@ -283,8 +286,7 @@
 		*/
 		function getModelDetails($model_id)
 		{
-			$modelDetails = $this->manageContent->getValue_current("model_info","*","id",$model_id);
-			
+			$modelDetails = $this->manageContent->getValueWhere("model_info","*","id",$model_id);
 			//these codes creates the UI output
 			echo '<div class="row-fluid">
 					<h3 class="site_heading red_text">'.$modelDetails[0]["name"].'</h3>

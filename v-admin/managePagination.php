@@ -25,6 +25,10 @@
                         <option value="16">4 Rows</option>
                         <option value="20">5 Rows</option>
                         <option value="24">6 Rows</option>
+                        <option value="28">7 Rows</option>
+                        <option value="32">8 Rows</option>
+                        <option value="36">9 Rows</option>
+                        <option value="40">10 Rows</option>
                     </select>
                 </div>
                 <div class="form-control v-form">

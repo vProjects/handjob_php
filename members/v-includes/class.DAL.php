@@ -106,11 +106,11 @@
 		{
 			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" )
 			{
-				$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE() ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
+				$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
 			}
 			else
 			{
-				$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE() ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+				$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
 			}
 			$query->execute();
 			$rowcount = $query->rowCount();
