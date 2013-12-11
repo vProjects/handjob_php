@@ -446,7 +446,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
@@ -506,7 +506,7 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
@@ -563,7 +563,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -1100,6 +1100,38 @@
 		{
 			$limit = $this->manageContent->getValue("pagination_info","*");
 			return $limit[0]["limit"] ;
+		}
+		
+		/*
+		- movie nav for the quality of video
+		- Auth Singh
+		*/
+		function getQuality_movie($movie_id,$gallery_id,$type)
+		{
+			echo '<a href="playing_movie.php?movieId='.$movie_id.'&gallery_id='.$gallery_id.'&type=low"><button class="btn btn-large btn-danger ';
+			
+			if( $type == "low" )
+			{
+				echo 'active' ;
+			}
+			
+			echo '">Low</button></a>
+                <a href="playing_movie.php?movieId='.$movie_id.'&gallery_id='.$gallery_id.'&type=medium"><button class="btn btn-large btn-danger ';
+				
+			if( $type == "medium" )
+			{
+				echo 'active' ;
+			}
+			
+			echo '">Medium</button></a>
+                <a href="playing_movie.php?movieId='.$movie_id.'&gallery_id='.$gallery_id.'&type=high"><button class="btn btn-large btn-danger ';
+				
+			if( $type == "high" )
+			{
+				echo 'active' ;
+			}
+			
+			echo '">High</button></a>' ;
 		}
 	}
 ?>
