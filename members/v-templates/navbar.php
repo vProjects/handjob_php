@@ -20,7 +20,7 @@
                               <li <?php if($page_title == 'MODELS'){echo 'class="active"';}?>><a href="model.php">Models</a></li>
                               <li <?php if($page_title == 'BLOGS'){echo 'class="active"';}?>><a href="blog_list.php">Blog</a></li>
                               <li><a href="#">Friends</a></li>
-                              <li><a href="#" class="nav_logout">Logout</a></li>
+                              <li><a href="logout.php" class="nav_logout">Logout</a></li>
                         </ul>
                     </div>
                 </div>

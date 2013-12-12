@@ -43,12 +43,12 @@ html,body{
 	min-width: 960px;
 }
 .form-signin {
-	max-width: 365px;
-	background-color: #FFF;
-	padding: 15px 15px 55px 15px;
-	margin: 65px auto;
-	background-color: #156ea8;
-	color: #fff;
+	background-color: #156EA8;
+    color: #FFFFFF;
+    height: 148px;
+    margin: 65px auto;
+    max-width: 365px;
+    padding: 15px 15px 55px;
 }
 .form-control{
 	width:94%;

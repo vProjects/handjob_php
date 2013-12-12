@@ -1,5 +1,11 @@
 <?php
 	session_start();
+	//check whether the admin is loggein or not
+	if( !isset($_SESSION["login_flag"]) && empty($_SESSION["login_flag"]) && $_SESSION["login_flag"] != "v_pass_@1234" )
+	{
+		//redirect to login page
+		header('Location: index.php');
+	}
 	include('v-includes/library/library.BLL.php');
 	//create an object to access the methods of the BLL layer
 	$manageData =  new manageContent_BLL();
@@ -74,7 +80,7 @@
                                             <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;My Site</a></li>
                                             <li><a href="#"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage</a></li>
                                             <li><a href="admin.php"><span class="icon-wrench"></span>&nbsp;&nbsp;Processes</a></li>
-                                            <li><a href="#"><span class="icon-off"></span>&nbsp;&nbsp;Logout</a></li>
+                                            <li><a href="logout.php"><span class="icon-off"></span>&nbsp;&nbsp;Logout</a></li>
                                         </ul>
                                     </li>
                                 </ul>

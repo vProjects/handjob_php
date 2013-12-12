@@ -64,80 +64,21 @@
 			</div>	
        </div>
        
+       <!-- container for video player-->
        <div class="row-fluid">
        		<div class="span10 offset1 media" style="max-height:500px;height:100%; margin-top:10px;">
-            
-          <!-- new video player added here -->
-            <div id="myplayer">
-            <script type="text/javascript">
-                $(document).ready(function(){
-					var browserWidth = $(document).width();
-					var video_link = 'http://www.handjobstop.com/members/<?php echo $movie_path; ?>' ;
-					var video_thumb = 'http://www.gdd.ro/flvplayer/examples/fast-and-furious-1.jpg' ;
-					var click_tag = '';
-					if ( browserWidth >  1024 )
-					{
-						$('#myplayer').flash({
-							'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
-							'width':'100%',
-							'height':'500',
-							'allowfullscreen':'true',
-							'allowscriptaccess':'always',
-							'wmode':'transparent',
-							'flashvars': {
-								'vdo':video_link,
-								'sound':'50',
-								'splashscreen':video_thumb,
-								'autoplay':'false',
-								'clickTAG': click_tag,
-								'endclipaction':''
-							}
-						});
-					}
-					if ( browserWidth <=  1024 && browserWidth >  640 )
-					{
-						$('#myplayer').flash({
-							'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
-							'width':'100%',
-							'height':'400',
-							'allowfullscreen':'true',
-							'allowscriptaccess':'always',
-							'wmode':'transparent',
-							'flashvars': {
-								'vdo': video_link,
-								'sound':'50',
-								'splashscreen':video_thumb,
-								'autoplay':'false',
-								'clickTAG':click_tag,
-								'endclipaction':''
-							}
-						});
-					}
-					if ( browserWidth <=  640 )
-					{
-						$('#myplayer').flash({
-							'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
-							'width':'100%',
-							'height':'230',
-							'allowfullscreen':'true',
-							'allowscriptaccess':'always',
-							'wmode':'transparent',
-							'flashvars': {
-								'vdo':video_link,
-								'sound':'50',
-								'splashscreen':video_thumb,
-								'autoplay':'false',
-								'clickTAG':click_tag,
-								'endclipaction':''
-							}
-						});
-					}
-                });
-            </script>
+            	<!--videoplayer-->
+                <video width="640" height="360" id="player2" poster="../media/echo-hereweare.jpg" controls="controls" preload="none">
+                    <!-- Fallback flash player for no-HTML5 browsers with JavaScript turned off -->
+                    <object width="640" height="360" type="application/x-shockwave-flash" data="media_player/flashmediaelement.swf"> 		
+                        <param name="movie" value="media_player/flashmediaelement.swf" /> 
+                        <param name="flashvars" value="controls=true&amp;file=<?php echo $movie_path; ?>" /> 		
+                        <!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
+                        <img src="../media/echo-hereweare.jpg" width="640" height="360" alt="Here we are" 
+                            title="No video playback capabilities" />
+                    </object>
+                </video><!-- video player ends here-->
             </div>
-          
-          <!-- new video player added here -->
-          </div>
       </div>
        
        
