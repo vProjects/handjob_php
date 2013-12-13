@@ -6,55 +6,22 @@
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
 	
-	$gallery_id = "" ;
+	//get the value of id from the query string
+	$movie_id = $GLOBALS["_GET"]["movieId"];
 	
-	if( $GLOBALS["_GET"] > 0 )
-	{
-		//get the value of id from the query string
-		$movie_id = $GLOBALS["_GET"]["movieId"];
-		
-		$gallery_id = $GLOBALS["_GET"]["gallery_id"] ;
-		$type = $GLOBALS["_GET"]["type"] ;
-	}
-	
-	//get the movie file path according to the type 
-	if( $type == "high" )
-	{
-		$quality = "/" ;
-	}
-	elseif( $type == "medium" )
-	{
-		$quality = "/m/" ;
-	}
-	else
-	{
-		$quality = "/s/" ;
-	}
-	
-	//set the movie path
-	if( isset($gallery_id) && !empty($gallery_id) && ($gallery_id != 0) )
-	{
-		$movie_path = "sliced/".$movie_id.$quality.$gallery_id.".flv" ;
-	}
-	else
-	{
-		$movie_path = "videos/".$movie_id.$quality.$movie_id.".flv" ;
-	}
-	
-		
 	//codes for setting the views
 	$manageData->manageViews("movie",$movie_id);
+
 ?>
 
     
     <div id="bodyContainer" class="row-fluid">
        <div class="row-fluid">
        		<div class="btn-group">
-                
+                <button class="btn btn-large btn-danger">High</button>
+                <button class="btn btn-large btn-danger">Medium</button>
+                <button class="btn btn-large btn-danger">Low</button>
 				<?php
-					//get the movie quality nav bar
-					$manageData->getQuality_movie($movie_id,$gallery_id,$type);
-					
                     if(isset($movie_id) && !empty($movie_id))
                     {
                         //get vid cap link
@@ -64,21 +31,35 @@
 			</div>	
        </div>
        
-       <!-- container for video player-->
        <div class="row-fluid">
-       		<div class="span10 offset1 media" style="max-height:500px;height:100%; margin-top:10px;">
-            	<!--videoplayer-->
-                <video width="640" height="360" id="player2" poster="../media/echo-hereweare.jpg" controls="controls" preload="none">
-                    <!-- Fallback flash player for no-HTML5 browsers with JavaScript turned off -->
-                    <object width="640" height="360" type="application/x-shockwave-flash" data="media_player/flashmediaelement.swf"> 		
-                        <param name="movie" value="media_player/flashmediaelement.swf" /> 
-                        <param name="flashvars" value="controls=true&amp;file=<?php echo $movie_path; ?>" /> 		
-                        <!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
-                        <img src="../media/echo-hereweare.jpg" width="640" height="360" alt="Here we are" 
-                            title="No video playback capabilities" />
-                    </object>
-                </video><!-- video player ends here-->
+       		<div class="span10 offset1 media" style="height:400px;margin-top:10px;">
+            
+          <!-- new video player added here -->
+            <div id="myplayer">
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#myplayer').flash({
+                        'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
+                        'width':'100%',
+                        'height':'300',
+                        'allowfullscreen':'true',
+                        'allowscriptaccess':'always',
+                        'wmode':'transparent',
+                        'flashvars': {
+                            'vdo':'http://www.gdd.ro/flvplayer/examples/video.mp4',
+                            'sound':'50',
+                            'splashscreen':'http://www.gdd.ro/flvplayer/examples/fast-and-furious-1.jpg',
+                            'autoplay':'false',
+                            'clickTAG':'',
+                            'endclipaction':'javascript:endclip();'
+                        }
+                    });
+                });
+            </script>
             </div>
+          
+          <!-- new video player added here -->
+          </div>
       </div>
        
        
@@ -91,7 +72,30 @@
 				$manageData->getSlicedMovie($movie_id);
 			}
 		?>
-		  
+		
+            
+            
+            
+ 
+		<div class="row-fluid">
+            <div class="span12 blank">
+				<div class="pagination pagination-small center">
+				  <ul>
+					<li><a href="#">Prev</a></li>
+					<li><a class="btn-danger" href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">6</a></li>
+					<li><a href="#">7</a></li>
+					<li><a href="#">8</a></li>
+					<li><a href="#">9</a></li>
+					<li><a href="#">Next</a></li>
+				  </ul>
+				</div>
+            </div>
+        </div>
  	
    	</div>
     <!-- body container ends here -->
