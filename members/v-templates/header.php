@@ -35,8 +35,8 @@
 <!-- new video player scripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<script src="media_player/mediaelement-and-player.min.js"></script>
-<link rel="stylesheet" href="media_player/mediaelementplayer.css" />
+<code><script src="media_player/mediaelement-and-player.min.js"></script>
+<link rel="stylesheet" href="media_player/mediaelementplayer.css" /></code>
 <!-- new video player scripts -->
 
 <!-- playing-movie page specific css and js ends here -->
