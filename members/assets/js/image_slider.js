@@ -5,25 +5,28 @@
 
 
 $( document ).ready(function() {
-    i=0;
+    i=1;
     $('.left-arrow').click(function(){
-        if(i<0){
-            alert('first Image');
+        if(i<1){
+            
             i++;
-            alert(i);
         }
+       
         var newimage = $('#bodyContainer ul li')[i].innerHTML;
-        $('.slider_container img').attr('src' ,newimage)
-        var newimg = $('.slider_container img').attr('src');
-        i--;
+        $('.slider_container img').attr('src' ,newimage);
+        if(i== 1){
+           
+        }
+        else
+            i--;
     });
     
     $('.right-arrow').click(function(){
-        alert(i);
+        
         var newimage = $('#bodyContainer ul li')[i].innerHTML;
-        $('.slider_container img').attr('src' ,newimage)
-        var newimg = $('.slider_container img').attr('src');
-        i++;        
+        $('.slider_container img').attr('src' ,newimage);
+        i++; 
+            
     });
     
 });
