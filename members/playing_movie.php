@@ -33,29 +33,9 @@
        
        <div class="row-fluid">
        		<div class="span10 offset1 media" style="height:400px;margin-top:10px;">
-            
-          <!-- new video player added here -->
+            <!-- new video player added here -->
             <div id="myplayer">
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('#myplayer').flash({
-                        'src':'http://www.gdd.ro/gdd/flvplayer/gddflvplayer.swf',
-                        'width':'100%',
-                        'height':'300',
-                        'allowfullscreen':'true',
-                        'allowscriptaccess':'always',
-                        'wmode':'transparent',
-                        'flashvars': {
-                            'vdo':'http://www.gdd.ro/flvplayer/examples/video.mp4',
-                            'sound':'50',
-                            'splashscreen':'http://www.gdd.ro/flvplayer/examples/fast-and-furious-1.jpg',
-                            'autoplay':'false',
-                            'clickTAG':'',
-                            'endclipaction':'javascript:endclip();'
-                        }
-                    });
-                });
-            </script>
+                <video id="h264" src="http://www.w3schools.com/html/movie.mp4" poster="http://handjobstop.com/members/images/movie_thumb/52a9ae35299c1.JPG"></video>
             </div>
           
           <!-- new video player added here -->

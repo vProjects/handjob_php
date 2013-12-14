@@ -34,9 +34,34 @@
 
 <!-- new video player scripts -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- new video player scripts -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-<code><script src="media_player/mediaelement-and-player.min.js"></script>
-<link rel="stylesheet" href="media_player/mediaelementplayer.css" /></code>
+    <!-- Include jQuery and jQuery UI -->
+    
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+    <!-- Many more themes to chose from... go to http://jqueryui.com/themeroller! -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/dark-hive/jquery-ui.css">
+    
+    <script type="text/javascript" src="bin/minplayer.compressed.js"></script>
+
+    <!-- Include the template CSS and JS files. -->
+    <link rel="stylesheet" href="templates/default/css/minplayer_default.css">
+    <script type="text/javascript" src="templates/default/js/minplayer.playLoader.default.js"></script>
+    <script type="text/javascript" src="templates/default/js/minplayer.controller.default.js"></script>
+    <script type="text/javascript" src="templates/default/js/minplayer.default.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+        $("#h264").minplayer({
+          width: '50%',
+          height: 'auto'
+        });
+       });
+    </script>
+<!-- new video player scripts -->
+
 <!-- new video player scripts -->
 
 <!-- playing-movie page specific css and js ends here -->
