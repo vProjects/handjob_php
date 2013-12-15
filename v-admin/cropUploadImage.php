@@ -1,4 +1,8 @@
 <?php
+	//set the variables of the accordion and page title
+	$page_title = "Crop Uploaded" ;
+	$accord_cat = "manage_media" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

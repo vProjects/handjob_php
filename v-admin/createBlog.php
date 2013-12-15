@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Create Blog";
+	//set the variables of the accordion and page title
+	$page_title = "Create Blog" ;
+	$accord_cat = "blog" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

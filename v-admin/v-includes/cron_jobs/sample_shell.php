@@ -28,5 +28,6 @@
 	
 	$fh = fopen( '../../../logs/convert_log.txt', 'w+' );
 	fclose($fh);
+	
 
 ?>

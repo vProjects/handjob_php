@@ -65,7 +65,7 @@
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label" style="color:#fff;">Category</label>
-                        <select class="selectbox1" multiple="multiple" name="model[]">
+                        <select class="selectbox1" style="height:150px;" multiple="multiple" name="model[]">
                             <?php 
 								//get the list of the model categories
 								$manageData->getModelNames();
@@ -78,7 +78,7 @@
                 </div>
                 <div class="form-control v-form">
                 	<label class="control-label" style="color:#fff;">Category</label>
-                    <select class="selectbox1" multiple="multiple" name="category[]">
+                    <select class="selectbox1" style="height:150px;" multiple="multiple" name="category[]">
                     	<?php 
 								echo '<option value="">-------Movie Category------</option>';
 								//get the list of the movie categories

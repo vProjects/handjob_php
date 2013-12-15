@@ -1,4 +1,8 @@
 <?php
+	//set the variables of the accordion and page title
+	$page_title = "Add Photos" ;
+	$accord_cat = "manage_media" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
@@ -37,7 +41,7 @@
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Model</label>
-                        <select class="selectbox1" multiple="multiple" name="model[]">
+                        <select class="selectbox1" style="height:150px;" multiple="multiple" name="model[]">
                             <?php 
 								//get the list of the model categories
 								$manageData->getModelNames();
@@ -46,7 +50,7 @@
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Category</label>
-                        <select class="selectbox1" multiple="multiple" name="category[]">
+                        <select class="selectbox1" style="height:150px;" multiple="multiple" name="category[]">
                             <?php 
 								echo '<option value="">--------------------------------Movie Category--------------------------------</option>';
 								//get the list of the movie categories

@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Model List";
+	//set the variables of the accordion and page title
+	$page_title = "List Model" ;
+	$accord_cat = "dashboard" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

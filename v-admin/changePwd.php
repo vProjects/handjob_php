@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Change Password";
+	//set the variables of the accordion and page title
+	$page_title = "Change Password" ;
+	$accord_cat = "admin" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

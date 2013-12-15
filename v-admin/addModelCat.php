@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Add Model Category";
+	//set the variables of the accordion and page title
+	$page_title = "Add Model Category" ;
+	$accord_cat = "manage_category" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

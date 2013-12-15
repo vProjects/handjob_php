@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Add Movie Category";
+	//set the variables of the accordion and page title
+	$page_title = "Add Movie Category" ;
+	$accord_cat = "manage_category" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

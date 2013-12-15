@@ -8,12 +8,12 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Dashboard
                 </a>
             </div>
-            <div id="collapseOne" class="accordion-body collapse">
+            <div id="collapseOne" class="accordion-body <?php if($accord_cat == "dashboard"){echo "in";}?> collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="listMembers.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Members</a></li>
-                        <li><a href="addModel.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Add Model</a></li>
-                        <li><a href="listModels.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Model</a></li>
+                        <li><a <?php if( $page_title == "List Members" ){ echo 'class="v_active"'; }?> href="listMembers.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Members</a></li>
+                        <li><a <?php if( $page_title == "Add Model" ){ echo 'class="v_active"'; }?> href="addModel.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Add Model</a></li>
+                        <li><a <?php if( $page_title == "List Model" ){ echo 'class="v_active"'; }?> href="listModels.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Model</a></li>
                         <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Header Banner</a></li>
                         <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Friends</a></li>
                     </ul>
@@ -29,15 +29,15 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Media
                 </a>
             </div>
-            <div id="collapseTwo" class="accordion-body collapse">
+            <div id="collapseTwo" class="accordion-body  <?php if($accord_cat == "manage_media"){echo "in";}?>  collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                    	<li><a href="cropUploadImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Uploaded Images</a></li>
-                        <li><a href="uploadVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Add New Videos</a></li>
-                        <li><a href="galleryFromImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;New Photo Set</a></li>
-                        <li><a href="listVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movies</a></li>
-                        <li><a href="listSlicedVid.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Sliced Movies</a></li>
-                        <li><a href="listGallery.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>
+                    	<li><a href="cropUploadImage.php" <?php if( $page_title == "Crop Uploaded" ){ echo 'class="v_active"'; }?>><span class="icon-hand-right"></span>&nbsp;&nbsp;Uploaded Images</a></li>
+                        <li><a <?php if( $page_title == "Add Video" ){ echo 'class="v_active"'; }?> href="uploadVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Add New Videos</a></li>
+                        <li><a <?php if( $page_title == "Add Photos" ){ echo 'class="v_active"'; }?> href="galleryFromImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;New Photo Set</a></li>
+                        <li><a <?php if( $page_title == "List Video" ){ echo 'class="v_active"'; }?> href="listVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movies</a></li>
+                        <li><a <?php if( $page_title == "List Sliced" ){ echo 'class="v_active"'; }?> href="listSlicedVid.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Sliced Movies</a></li>
+                        <li><a <?php if( $page_title == "List Gallery" ){ echo 'class="v_active"'; }?> href="listGallery.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,13 +51,13 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Category
                 </a>
             </div>
-            <div id="collapseOn" class="accordion-body collapse">
+            <div id="collapseOn" class="accordion-body <?php if($accord_cat == "manage_category"){echo "in";}?> collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="addMovieCat.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Movie Category</a></li>
-                        <li><a href="addModelCat.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Model Category</a></li>
-                        <li><a href="moviesCategories.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movie Category</a></li>
-                        <li><a href="modelCategories.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Model Category</a></li>
+                        <li><a <?php if( $page_title == "Add Movie Category" ){ echo 'class="v_active"'; }?> href="addMovieCat.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Movie Category</a></li>
+                        <li><a <?php if( $page_title == "Add Model Category" ){ echo 'class="v_active"'; }?> href="addModelCat.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Model Category</a></li>
+                        <li><a <?php if( $page_title == "List Movie Category" ){ echo 'class="v_active"'; }?> href="moviesCategories.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movie Category</a></li>
+                        <li><a <?php if( $page_title == "List Model Category" ){ echo 'class="v_active"'; }?> href="modelCategories.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Model Category</a></li>
                     </ul>
                 </div>
             </div>
@@ -71,11 +71,11 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Blog
                 </a>
             </div>
-            <div id="collapse4" class="accordion-body collapse">
+            <div id="collapse4" class="accordion-body <?php if($accord_cat == "blog"){echo "in";}?> collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="createBlog.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Blog</a></li>
-                        <li><a href="listBlog.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Blog</a></li>
+                        <li><a <?php if( $page_title == "Create Blog" ){ echo 'class="v_active"'; }?> href="createBlog.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Blog</a></li>
+                        <li><a <?php if( $page_title == "List Blog" ){ echo 'class="v_active"'; }?> href="listBlog.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -88,10 +88,10 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Admin Control
                 </a>
             </div>
-            <div id="collapse5" class="accordion-body collapse">
+            <div id="collapse5" class="accordion-body <?php if($accord_cat == "admin"){echo "in";}?> collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="changePwd.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Change Password</a></li>
+                        <li><a <?php if( $page_title == "Change Password" ){ echo 'class="v_active"'; }?> href="changePwd.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Change Password</a></li>
                         <li><a href="phpi.php" target="_blank"><span class="icon-hand-right"></span>&nbsp;&nbsp;phpinfo()</a></li>
                     </ul>
                 </div>
@@ -105,10 +105,10 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Content
                 </a>
             </div>
-            <div id="collapse6" class="accordion-body collapse">
+            <div id="collapse6" class="accordion-body <?php if($accord_cat == "content"){echo "in";}?> collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="managePagination.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Contol Pagination</a></li>
+                        <li><a <?php if( $page_title == "Paginations" ){ echo 'class="v_active"'; }?> href="managePagination.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Contol Pagination</a></li>
                         <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Submenu</a></li>
                     </ul>
                 </div>
@@ -122,10 +122,10 @@
                 <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Social
                 </a>
             </div>
-            <div id="collapse7" class="accordion-body collapse">
+            <div id="collapse7" class="accordion-body <?php if($accord_cat == "social"){echo "in";}?> collapse">
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
-                        <li><a href="socialLinks.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Social Link</a></li>
+                        <li><a <?php if( $page_title == "Social Links" ){ echo 'class="v_active"'; }?> href="socialLinks.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Social Link</a></li>
                     </ul>
                 </div>
             </div>

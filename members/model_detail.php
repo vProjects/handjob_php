@@ -29,18 +29,7 @@
 				//get the UI structure of model details
 				$manageData->getModelDetails($model_id);
 			}
-		?>
-        
-        <!-- model detail ends here -->        
-        <div class="row-fluid btn_group_outline">
-       		<div class="btn-group">
-			  <button class="btn btn-large btn-danger">Most Recent</button>
-			  <button class="btn btn-large btn-danger">Most Popular</button>
-			</div>	
-       </div>
-       
-       
-        <?php
+			
 			if(isset($model_name) && !empty($model_name))
 			{
 				//get the model movies
@@ -50,26 +39,6 @@
 			}
 		?>
         
-       
-		<div class="row-fluid">
-            <div class="span12 blank">
-				<div class="pagination pagination-small center">
-				  <ul>
-					<li><a href="#">Prev</a></li>
-					<li><a class="btn-danger center_1st" href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">Next</a></li>
-				  </ul>
-				</div>
-            </div>
-        </div>
 	</div>
     <!-- body container ends here -->
 

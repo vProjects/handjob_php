@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Add Model";
+	//set the variables of the accordion and page title
+	$page_title = "Paginations" ;
+	$accord_cat = "content" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');

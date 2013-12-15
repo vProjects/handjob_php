@@ -21,7 +21,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <link href="css/jquery.Jcrop.min.css" type="text/css" rel="stylesheet" />
-<title>Login | ADMIN</title>
+<title>VPANEL | <?php if(isset($page_title) && !empty($page_title)){ echo $page_title; }?></title>
 <script type="text/javascript">
 	function reloadPage(folderName)
 	{
@@ -77,6 +77,8 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Admin<b class="caret"></b></a>
                                         <ul class="dropdown-menu">
+                                            <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;Tour VPANEL</a></li>
+                                            <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;MEMBERS VAPNEL</a></li>
                                             <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;My Site</a></li>
                                             <li><a href="#"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage</a></li>
                                             <li><a href="admin.php"><span class="icon-wrench"></span>&nbsp;&nbsp;Processes</a></li>

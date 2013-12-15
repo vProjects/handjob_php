@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Add Model";
+	//set the variables of the accordion and page title
+	$page_title = "Add Model" ;
+	$accord_cat = "dashboard" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
@@ -46,7 +49,7 @@
                 </div>
                 <div class="form-control v-form">
                 	<label class="control-label">Category</label>
-                    <select class="selectbox1" multiple="multiple" name="category[]">
+                    <select class="selectbox1" style="height:150px;" multiple="multiple" name="category[]">
                     	<?php 
 								echo '<option value="">--------------------------------Movie Category--------------------------------</option>';
 								//get the list of the movie categories
