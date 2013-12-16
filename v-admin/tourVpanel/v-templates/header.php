@@ -10,7 +10,7 @@
 	//create an object to access the methods of the BLL layer
 	$manageData =  new manageContent_BLL();
 	
-	$vpanel_area = "MEMBERS" ;
+	$vpanel_area = "TOURS" ;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -45,9 +45,9 @@
                         <h3>VPanel</h3>
                     </div>
                     <div class="span2">
-                        <h5 style="color:#F00;">Members</h5>
+                        <h5 style="color:#F00;">Tour</h5>
                     </div>
-                    <div class="span9">
+                    <div class="span8">
                         <div class="navbar-inner">
                             <div class="nav-collapse collapse navbar-responsive-collapse">
                                 <ul class="nav nav_v">
@@ -82,8 +82,8 @@
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hello Admin<b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="tourVpanel/admin.php"><span class="icon-globe"></span>&nbsp;&nbsp;Tour VPANEL</a></li>
-                                            <li><a href="admin.php"><span class="icon-globe"></span>&nbsp;&nbsp;MEMBERS VAPNEL</a></li>
+                                            <li><a href="admin.php"><span class="icon-globe"></span>&nbsp;&nbsp;Tour VPANEL</a></li>
+                                            <li><a href="../admin.php"><span class="icon-globe"></span>&nbsp;&nbsp;MEMBERS VAPNEL</a></li>
                                             <li><a href="#"><span class="icon-globe"></span>&nbsp;&nbsp;My Site</a></li>
                                             <li><a href="#"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage</a></li>
                                             <li><a href="admin.php"><span class="icon-wrench"></span>&nbsp;&nbsp;Processes</a></li>
