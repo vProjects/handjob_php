@@ -4,7 +4,7 @@
 	//create an object of DAL object
 	$manageData = new manageContent_DAL();
 	
-	$table_name = "article_info" ;
+	$table_name = "article_info_tour" ;
 	
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{

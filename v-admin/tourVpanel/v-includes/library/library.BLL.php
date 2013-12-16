@@ -18,7 +18,7 @@
 		*/
 		function getArticleList()
 		{
-			$articles = $this->manageContent->getValue_latest('article_info','*','article_date');
+			$articles = $this->manageContent->getValue_latest('article_info_tour','*','article_date');
 			foreach($articles as $article)
 			{
 				echo '<tbody>
@@ -48,7 +48,7 @@
 		*/
 		function getGallery($galleryId)
 		{
-			$filenames = scandir("../members/gallery/".$galleryId."/s");
+			$filenames = scandir("../../gallery/".$galleryId."/s");
 			$filenames = array_slice($filenames,2);
 			//create a form for selecting gallery thumb
 			echo '<form action="v-includes/functions/function.createThumb.php" method="post">';
@@ -56,11 +56,11 @@
 			{
 				if(!empty($filename))
 				{
-					if(!is_dir("../members/gallery/".$galleryId."/s/".$filename))
+					if(!is_dir("../../gallery/".$galleryId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
 								<a href="cropGalleryImageProccessed.php?folderName='.$galleryId.'&save=false&fileName='.$filename.'">
-									<img src="../members/gallery/'.$galleryId.'/s/'.$filename.'" />
+									<img src="../../gallery/'.$galleryId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">
 									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
@@ -83,7 +83,7 @@
 		*/
 		function updateMovies($galleryId)
 		{
-			$filenames = scandir("../members/gallery/".$galleryId."/s");
+			$filenames = scandir("../../gallery/".$galleryId."/s");
 			$filenames = array_slice($filenames,2);
 			//create a form for selecting gallery thumb
 			echo '<form action="v-includes/functions/function.createThumbMovie.php" method="post">';
@@ -91,11 +91,11 @@
 			{
 				if(!empty($filename))
 				{
-					if(!is_dir("../members/gallery/".$galleryId."/s/".$filename))
+					if(!is_dir("../../gallery/".$galleryId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
 								<a href="cropMovieImage.php?folderName='.$galleryId.'&fileName='.$filename.'&save=false">
-									<img src="../members/gallery/'.$galleryId.'/s/'.$filename.'" />
+									<img src="../../gallery/'.$galleryId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">
 									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
@@ -118,7 +118,7 @@
 		*/
 		function updateSlicedMovies($galleryId,$movieId)
 		{
-			$filenames = scandir("../members/gallery/".$movieId."/s");
+			$filenames = scandir("../../gallery/".$movieId."/s");
 			$filenames = array_slice($filenames,2);
 			//create a form for selecting gallery thumb
 			echo '<form action="v-includes/functions/function.createThumbSliced.php" method="post">';
@@ -126,11 +126,11 @@
 			{
 				if(!empty($filename))
 				{
-					if(!is_dir("../members/gallery/".$movieId."/s/".$filename))
+					if(!is_dir("../../gallery/".$movieId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
 								<a href="cropSlicedMovieImage.php?folderName='.$movieId.'&fileName='.$filename.'&save=false&galleryId='.$galleryId.'">
-									<img src="../members/gallery/'.$movieId.'/s/'.$filename.'" />
+									<img src="../../gallery/'.$movieId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">
 									<input type="hidden" value="'.$movieId.'" name="movie_id"/>
@@ -192,12 +192,12 @@
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info','*',"date",$startPoint,$limit,'model',$keyword);
+			$gallerys = $this->manageContent->getValue_limit_sorted('gallery_info_tour','*',"date",$startPoint,$limit,'model',$keyword);
 			foreach($gallerys as $gallery)
 			{
 				echo '<tbody>
                         <tr>
-							<td class="span1 model_thumb"><img src="../members/images/gallery_thumb/'.$gallery['gallery_id'].'.JPG"/></td>
+							<td class="span1 model_thumb"><img src="../../images/gallery_thumb/'.$gallery['gallery_id'].'.JPG"/></td>
                             <td><a href="galleryFromImage.php?galleryId='.$gallery['gallery_id'].'">'.$gallery['gallery_id'].'</a></td>
 							<td>'.$gallery['gallery_name'].'</td>
 							<td>'.$gallery['model'].'</td>
@@ -229,7 +229,7 @@
 		*/
 		function getFiles($uploadFolder)
 		{
-			$filenames = scandir("../uploads/".$uploadFolder);
+			$filenames = scandir("../../uploads/tour/".$uploadFolder);
 			$filenames = array_slice($filenames,2);
 			foreach($filenames as $filename)
 			{
@@ -244,11 +244,11 @@
 		*/
 		function getFolders()
 		{
-			$folderNames = scandir("../uploads/images/");
+			$folderNames = scandir("../../uploads/tour/images/");
 			$folderNames = array_slice($folderNames,2);
 			foreach($folderNames as $folderName)
 			{
-				if(is_dir("../uploads/images/".$folderName))
+				if(is_dir("../../uploads/tour/images/".$folderName))
 				{
 					echo '<option value="'.$folderName.'">'.$folderName.'</option>';
 				}
@@ -260,8 +260,8 @@
 		-Auth Singh
 		*/
 		function getCronVaues(){
-			$cronGallery = $this->manageContent->getValue("cron_gallery","*");
-			$cronSliced = $this->manageContent->getValue("cron_slice","*");
+			$cronGallery = $this->manageContent->getValue("cron_gallery_tour","*");
+			$cronSliced = $this->manageContent->getValue("cron_slice_tour","*");
 			$i = 1 ;
 			foreach($cronGallery as $cronValue)
 			{
@@ -343,12 +343,12 @@
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$movies = $this->manageContent->getValue_limit_sorted('movie_info','*',"date",$startPoint,$limit,"model",$keyword);
+			$movies = $this->manageContent->getValue_limit_sorted('movie_info_tour','*',"date",$startPoint,$limit,"model",$keyword);
 			foreach($movies as $movie)
 			{
 				echo '<tbody>
                         <tr>
-							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$movie['gallery_id'].'.JPG"/></td>
+							<td class="span1 model_thumb"><img src="../../images/movie_thumb/'.$movie['gallery_id'].'.JPG"/></td>
                             <td><a href="updateMovie.php?galleryId='.$movie['gallery_id'].'">'.$movie['gallery_id'].'</a></td>
 							<td>'.$movie['movie_name'].'</td>
 							<td>'.$movie['model'].'</td>
@@ -383,12 +383,12 @@
 		{
 			$startPoint = $startPoint*$limit ;
 			
-			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids','*',"date",$startPoint,$limit,'model',$keyword);
+			$slicedMovies = $this->manageContent->getValue_limit_sorted('sliced_vids_tour','*',"date",$startPoint,$limit,'model',$keyword);
 			foreach($slicedMovies as $slicedMovie)
 			{
 				echo '<tbody>
                         <tr>
-							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
+							<td class="span1 model_thumb"><img src="../../images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
                             <td><a href="updateSliced.php?galleryId='.$slicedMovie['gallery_id'].'&movieId='.$slicedMovie["movie_id"].'">'.$slicedMovie['gallery_id'].'</a></td>
 							<td>'.$slicedMovie['movie_name'].'</td>
 							<td>'.$slicedMovie['model'].'</td>
@@ -415,12 +415,12 @@
 		*/
 		function getSlicedVids($movieId)
 		{
-			$slicedMovies = $this->manageContent->getValueWhere("sliced_vids","*","movie_id",$movieId);
+			$slicedMovies = $this->manageContent->getValueWhere("sliced_vids_tour","*","movie_id",$movieId);
 			foreach($slicedMovies as $slicedMovie)
 			{
 				echo '<tbody>
                         <tr>
-							<td class="span1 model_thumb"><img src="../members/images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
+							<td class="span1 model_thumb"><img src="../../images/movie_thumb/'.$slicedMovie['gallery_id'].'.JPG"/></td>
                             <td><a href="updateSliced.php?galleryId='.$slicedMovie['gallery_id'].'&movieId='.$slicedMovie["movie_id"].'">'.$slicedMovie['gallery_id'].'</a></td>
 							<td>'.$slicedMovie['movie_name'].'</td>
 							<td>'.$slicedMovie['model'].'</td>
@@ -458,26 +458,25 @@
 		*/
 		function getUploadedImages($folderName)
 		{
-			$filenames = scandir("../uploads/images/".$folderName."/");
+			$filenames = scandir("../../uploads/tour/images/".$folderName."/");
 			$filenames = array_slice($filenames,2);
 			//create a form for selecting gallery thumb
 			foreach($filenames as $filename)
 			{
 				if(!empty($filename))
 				{
-					if(!is_dir("../uploads/images/".$folderName."/".$filename))
+					if(!is_dir("../../uploads/tour/images/".$folderName."/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
 								<a href="cropGalleryImage.php?folderName='.$folderName.'&fileName='.$filename.'&save=false">
-									<img src="../uploads/images/'.$folderName.'/'.$filename.'" />
+									<img src="../../uploads/tour/images/'.$folderName.'/'.$filename.'" />
 								</a>
 							</div>';
 						echo '';
 					}
 				}
 			}
-			echo '<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
-				</form>';
+			echo '</form>';
 		}
 		
 		/*

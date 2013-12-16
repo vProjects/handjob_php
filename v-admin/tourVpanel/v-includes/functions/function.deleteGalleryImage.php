@@ -5,7 +5,7 @@
 		$fileName = $_GET["fileName"];
 	}
 	
-	$filePath = $_SERVER['DOCUMENT_ROOT']."members/gallery/".$galleryId."/";
+	$filePath = $_SERVER['DOCUMENT_ROOT']."gallery/".$galleryId."/";
 	
 	//delete all three large medium and small	
 	unlink($filePath."s/".$fileName);	

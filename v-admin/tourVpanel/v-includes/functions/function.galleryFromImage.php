@@ -65,16 +65,16 @@
 	
 	//create a folder with unique name using unique id
 	$outputFolder = uniqid();
-	mkdir("../../../members/gallery/".$outputFolder,0777,true);
+	mkdir("../../../../gallery/".$outputFolder,0777,true);
 	//create directory for small and medium images
-	mkdir("../../../members/gallery/".$outputFolder."/m",0777,true);
-	mkdir("../../../members/gallery/".$outputFolder."/s",0777,true);
+	mkdir("../../../../gallery/".$outputFolder."/m",0777,true);
+	mkdir("../../../../gallery/".$outputFolder."/s",0777,true);
 	
 	//store the gallery images in the newly created gallery folder
-	$outputPath = $_SERVER['DOCUMENT_ROOT']."members/gallery/".$outputFolder."/";
+	$outputPath = $_SERVER['DOCUMENT_ROOT']."gallery/".$outputFolder."/";
 	
 	//take the default path for input images from folder
-	$inputFilePath = $_SERVER['DOCUMENT_ROOT']."uploads/images/".$foldername."/";
+	$inputFilePath = $_SERVER['DOCUMENT_ROOT']."uploads/tour/images/".$foldername."/";
 	
 	//grab the image file from the folder
 	$filenames = scandir($inputFilePath);

@@ -62,12 +62,12 @@
 	if( $type == "movie" )
 	{
 		//table name for the page
-		$table_name = "movie_info";
+		$table_name = "movie_info_tour";
 	}
 	elseif( $type == "sliced" )
 	{
 		//table name for the page
-		$table_name = "sliced_vids";
+		$table_name = "sliced_vids_tour";
 	}
 	
 	//update the name

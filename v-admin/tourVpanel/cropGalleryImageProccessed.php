@@ -32,7 +32,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1" style="max-width:500px;width:100%;" id="image_box">
-                    <img src="../members/gallery/<?php echo $folderName."/".$filename ;?>" id="cropbox"/>
+                    <img src="../../gallery/<?php echo $folderName."/".$filename ;?>" id="cropbox"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropGalleryImageProccessed.php" method="post" class="form_image_crop">
@@ -54,7 +54,7 @@
 				if( $save_status == "answer" ){
 			?>
             	<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
-                    <img src="../temp/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
+                    <img src="../../temp/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
                     <a href="cropGalleryImageProccessed.php?fileName=<?php echo $filename; ?>&save=true&folderName=<?php echo $folderName; ?>" >
                         <button class="btn btn-warning" type="button" style="left: 30%;position: relative;">
                         <span class="icon-pencil"></span>&nbsp;&nbsp;SAVE MODEL IMAGE</button>
@@ -65,10 +65,10 @@
 				//if save status is true then save the image
 				if( $save_status == "true")
 				{
-					$src = '../temp/'.$filename;
-					$dst_h = "../members/gallery/".$folderName."/".$filename ;
-					$dst_m = "../members/gallery/".$folderName."/m/".$filename ;
-					$dst_s = "../members/gallery/".$folderName."/s/".$filename ;
+					$src = '../../temp/'.$filename;
+					$dst_h = "../../gallery/".$folderName."/".$filename ;
+					$dst_m = "../../gallery/".$folderName."/m/".$filename ;
+					$dst_s = "../../gallery/".$folderName."/s/".$filename ;
 					
 					$img_r = imagecreatefromjpeg($src);
 					
@@ -82,7 +82,7 @@
 					imagejpeg($img_r,$dst_m,100);
 					imagejpeg($img_r,$dst_s,100);
 					
-					unlink("../temp/".$filename);	
+					unlink("../../temp/".$filename);	
 					
 					echo '<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
                     		<img src="'.$dst_h.'" style="width:100%;max-width:500px;"/>

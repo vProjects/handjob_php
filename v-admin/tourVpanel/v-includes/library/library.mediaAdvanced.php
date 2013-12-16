@@ -1,6 +1,6 @@
 <?php
-	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.media.php');
-	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.zip.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/tourVpanel/v-includes/library/library.media.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/tourVpanel/v-includes/library/library.zip.php');
 	
 	class manageVideos
 	{
@@ -24,7 +24,7 @@
 		{
 			//output path for the thumbnail
 			$outputPathThumb_temp =  '/home/sites/handjobstop.com/public_html/temp/thumbs/';
-			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/movie_thumb/';
+			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/images/movie_thumb/';
 			//thumb image format
 			$thumbFormat = "JPG";
 			//startTime variable is time after which we take a snap
@@ -53,7 +53,7 @@
 			//$this->mediaQuery->convertVideo($inputVidForConversion,$outputVideoPath."s/",$vidFormat_2,$outputFilename.".".$vidFormat_3,$resolutionSmall);
 			
 			//clear the log file
-			$fh = fopen( '../../../logs/convert_log.txt', 'w+' );
+			$fh = fopen( '../../../../logs/convert_tour_log.txt', 'w+' );
 			fclose($fh);
 		}
 		
@@ -64,7 +64,7 @@
 		function getSnapsAll($inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_w,$vedio_h)
 		{
 			//output path for the thumbnail
-			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/gallery_thumb/';
+			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/images/gallery_thumb/';
 			//thumb image format
 			$thumbFormat = "JPG";
 			//startTime variable is time after which we take a snap
@@ -95,11 +95,6 @@
 			$this->mediaQuery->getSnaps($inputFile,$no_snapshot,$imageWidthSmall,$imageHeightSmall,$outputPath."s/",$outputFilename);
 			//create a zip for low res gallery
 			$this->zipFiles->createZip($outputPath."s/",$outputPath,"s.zip");
-			
-			//clear the log file
-			$fh = fopen( '../../../logs/snaps_log.txt', 'w+' );
-			fclose($fh);
-
 		}
 		
 		/*
@@ -111,7 +106,7 @@
 		{
 			//output path for the thumbnail
 			$outputPathThumb_temp =  '/home/sites/handjobstop.com/public_html/temp/thumbs/';
-			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/movie_thumb/';
+			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/images/movie_thumb/';
 			//thumb image format
 			$thumbFormat = "JPG";
 			//get thumbnail for the video
@@ -131,9 +126,6 @@
 			//slice the video -->small
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."s/",$outputFormat,$outputFilename,$resolution_s);
 			
-			//clear the log file
-			$fh = fopen( '../../../logs/slice_log.txt', 'w+' );
-			fclose($fh);
 		}
 	}
 ?>

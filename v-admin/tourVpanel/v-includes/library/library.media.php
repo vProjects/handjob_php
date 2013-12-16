@@ -32,7 +32,7 @@
 			$frameRate = ($no_snapshots)/$movieDuration ;
 			//$frameRate = round($frameRate,2);
 			$resolution = $video_h."x".$video_w;
-			exec("$this->ffmpeg -ss 00:00:20 -i $moviePath -r $frameRate -s $resolution -f image2 $output_path".$output_fileName."%05d.jpg "." 2> /home/sites/handjobstop.com/public_html/logs/snaps_log.txt");
+			exec("$this->ffmpeg -ss 00:00:20 -i $moviePath -r $frameRate -s $resolution -f image2 $output_path".$output_fileName."%05d.jpg "." 2> /home/sites/handjobstop.com/public_html/logs/snaps_tour_log.txt");
 		}
 		
 		/*
@@ -42,7 +42,7 @@
 		*/
 		function convertVideo($inputFile,$outPath,$outputFormat,$outputFilename,$resolution)
 		{
-			exec("$this->ffmpeg -i $inputFile -c:v libx264 -c:a copy -s $resolution -f $outputFormat $outPath".$outputFilename." 2> /home/sites/handjobstop.com/public_html/logs/convert_log.txt");
+			exec("$this->ffmpeg -i $inputFile -c:v libx264 -c:a copy -s $resolution -f $outputFormat $outPath".$outputFilename." 2> /home/sites/handjobstop.com/public_html/logs/convert_tour_log.txt");
 			return "1";
 		}
 		
@@ -54,7 +54,7 @@
 		*/
 		function sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution)
 		{
-			exec("$this->ffmpeg -ss $startTime -i $inputFile -c:v libx264 -c:a copy -s $resolution -async 1 -t $interval $outPath".$outputFilename." 2> /home/sites/handjobstop.com/public_html/logs/slice_log.txt");
+			exec("$this->ffmpeg -ss $startTime -i $inputFile -c:v libx264 -c:a copy -s $resolution -async 1 -t $interval $outPath".$outputFilename." 2> /home/sites/handjobstop.com/public_html/logs/slice_tour_log.txt");
 		}
 		
 		/*

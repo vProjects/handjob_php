@@ -1,4 +1,8 @@
 <?php
+	//set the variables of the accordion and page title
+	$page_title = "Movie" ;
+	$accord_cat = "manage_media" ;
+	
 	$pageTitle = "Add Model";
 	include('v-templates/header.php');
 	//include sidebar
@@ -32,7 +36,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div style="max-width:500px;float:left;" id="image_box">
-                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
+                    <img src="../../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropMovieThumb.php" method="post" class="form_image_crop">
@@ -55,7 +59,7 @@
 				if( $save_status == "answer" ){
 			?>
             	<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
-                    <img src="../temp/thumbs/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
+                    <img src="../../temp/thumbs/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
                     <a href="cropMovieThumb.php?filename=<?php echo $filename; ?>&type=<?php echo $type; ?>&save=true&id=<?php echo $id; ?>" >
                         <button class="btn btn-warning" type="button" style="left: 30%;position: relative;">
                         <span class="icon-pencil"></span>&nbsp;&nbsp;SAVE MODEL IMAGE</button>
@@ -66,8 +70,8 @@
 				//if save status is true then save the image
 				if( $save_status == "true")
 				{
-					$src = '../temp/thumbs/'.$filename;
-					$dst = "../members/images/movie_thumb/".$filename ;
+					$src = '../../temp/thumbs/'.$filename;
+					$dst = "../../images/movie_thumb/".$filename ;
 					
 					$img_r = imagecreatefromjpeg($src);
 					

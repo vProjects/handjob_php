@@ -17,8 +17,8 @@
 	//get the extension of the file
 	$ext = pathinfo($fileName, PATHINFO_EXTENSION);
 	
-	$inputPath = $_SERVER['DOCUMENT_ROOT']."members/gallery/".$galleryId."/";
-	$outputPath = $_SERVER['DOCUMENT_ROOT']."members/images/gallery_thumb/";
+	$inputPath = $_SERVER['DOCUMENT_ROOT']."gallery/".$galleryId."/";
+	$outputPath = $_SERVER['DOCUMENT_ROOT']."images/gallery_thumb/";
 	
 	$mediaQuery->resizeImage($inputPath.$fileName,250,377,$outputPath.$galleryId.".JPG");
 	

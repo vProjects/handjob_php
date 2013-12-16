@@ -1,5 +1,8 @@
 <?php
-	$pageTitle = "Create Blog";
+	//set the variables of the accordion and page title
+	$page_title = "List Blog" ;
+	$accord_cat = "blog" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
@@ -11,7 +14,7 @@
 		$article_id = $GLOBALS["_GET"]["id"];
 	}
 	
-	$article_detail = $manageData->getValue_Where("article_info","*","id",$article_id);
+	$article_detail = $manageData->getValue_Where("article_info_tour","*","id",$article_id);
 ?>
 
         

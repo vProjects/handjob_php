@@ -35,7 +35,7 @@
        		<div class="span10 offset1 media" style="height:400px;margin-top:10px;">
             <!-- new video player added here -->
             <div id="myplayer">
-                <video id="h264" src="http://www.w3schools.com/html/movie.mp4" poster="http://handjobstop.com/members/images/movie_thumb/52a9ae35299c1.JPG"></video>
+                <video id="h264" src="http://handjobstop.com/members/videos/oceans-clip.mp4" poster="http://handjobstop.com/members/images/movie_thumb/52a9ae35299c1.JPG"  style="height:400px;margin-top:10px;"></video>
             </div>
           
           <!-- new video player added here -->

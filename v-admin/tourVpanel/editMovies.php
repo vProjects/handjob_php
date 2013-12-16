@@ -1,4 +1,8 @@
 <?php
+	//set the variables of the accordion and page title
+	$page_title = "Movie" ;
+	$accord_cat = "manage_media" ;
+	
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
@@ -11,11 +15,11 @@
 	}
 	if( $type == "movie" )
 	{
-		$movie_details = $manageData->getValue_Where("movie_info","*","id",$movie_id);
+		$movie_details = $manageData->getValue_Where("movie_info_tour","*","id",$movie_id);
 	}
 	elseif( $type == "sliced" )
 	{
-		$movie_details = $manageData->getValue_Where("sliced_vids","*","id",$movie_id);
+		$movie_details = $manageData->getValue_Where("sliced_vids_tour","*","id",$movie_id);
 	}
 ?>
         <!--container for content of the website-->
@@ -28,7 +32,7 @@
             </blockquote>
             
         	<div class="image_model" style="width:317px;height:178px;">
-                <img src="../members/images/movie_thumb/<?php echo $movie_details[0]['gallery_id'].".JPG"; ?>" style="height:178px;width:317px;"/>
+                <img src="../../images/movie_thumb/<?php echo $movie_details[0]['gallery_id'].".JPG"; ?>" style="height:178px;width:317px;"/>
             </div>
             
             <div class="form-horizontal">

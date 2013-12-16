@@ -32,7 +32,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1" style="max-width:500px;width:100%;" id="image_box">
-                    <img src="../uploads/images/<?php echo $folderName."/".$filename ;?>" id="cropbox"/>
+                    <img src="../../uploads/tour/images/<?php echo $folderName."/".$filename ;?>" id="cropbox"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropGallery.php" method="post" class="form_image_crop">
@@ -54,7 +54,7 @@
 				if( $save_status == "answer" ){
 			?>
             	<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
-                    <img src="../temp/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
+                    <img src="../../temp/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
                     <a href="cropGalleryImage.php?fileName=<?php echo $filename; ?>&save=true&folderName=<?php echo $folderName; ?>" >
                         <button class="btn btn-warning" type="button" style="left: 30%;position: relative;">
                         <span class="icon-pencil"></span>&nbsp;&nbsp;SAVE MODEL IMAGE</button>
@@ -65,8 +65,8 @@
 				//if save status is true then save the image
 				if( $save_status == "true")
 				{
-					$src = '../temp/'.$filename;
-					$dst = "../uploads/images/".$folderName."/".$filename ;
+					$src = '../../temp/'.$filename;
+					$dst = "../../uploads/tour/images/".$folderName."/".$filename ;
 					
 					$img_r = imagecreatefromjpeg($src);
 					
@@ -75,7 +75,7 @@
 						unlink($dst);
 					}
 					imagejpeg($img_r,$dst,100);
-					unlink("../temp/".$filename);	
+					unlink("../../temp/".$filename);	
 					echo '<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
                     		<img src="'.$dst.'" style="width:100%;max-width:500px;"/>
 						

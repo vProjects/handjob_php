@@ -4,7 +4,7 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
 		$filename = $_POST['filename'] ;
-		$inputPath = "../../../temp/thumbs/".$filename ;
+		$inputPath = "../../../../temp/thumbs/".$filename ;
 		
 		//height and width of the input image
 		$getImageHW = $mediaQuery->getImageGeometry($inputPath);
@@ -24,7 +24,7 @@
 	  
 		header('Content-type: image/jpeg');
 		
-		imagejpeg($dst_r,"../../../temp/thumbs/".$filename,$jpeg_quality);
+		imagejpeg($dst_r,"../../../../temp/thumbs/".$filename,$jpeg_quality);
 		
 		$mediaQuery->resizeImage($inputPath,317,178,$inputPath);
 		$mediaQuery->mergeImage($inputPath,$inputPath,"","");

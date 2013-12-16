@@ -8,7 +8,7 @@
 	$result = "";
 	
 	//table name 
-	$table_name = "gallery_info" ;
+	$table_name = "gallery_info_tour" ;
 	
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{

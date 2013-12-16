@@ -55,7 +55,7 @@
 					if($keyword == "" )
 					{
 						//get the pagination of the page
-						$manageData->pagination($startPoint,"listSlicedVid.php",10,"sliced_vids","date",$keyword);
+						$manageData->pagination($startPoint,"listSlicedVid.php",10,"sliced_vids_tour","date",$keyword);
 					}
 				?>
         </div>

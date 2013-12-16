@@ -31,7 +31,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1" style="max-width:500px;" id="image_box">
-                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
+                    <img src="../../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropGalleryThumb.php" method="post" class="form_image_crop">
@@ -53,7 +53,7 @@
 				if( $save_status == "answer" ){
 			?>
             	<div class="image_model" style="max-width:500px;height:100%;">
-                    <img src="../temp/thumbs/<?php echo $filename; ?>" style="max-width:500px;"/>
+                    <img src="../../temp/thumbs/<?php echo $filename; ?>" style="max-width:500px;"/>
                     <a href="cropGalleryThumb.php?filename=<?php echo $filename; ?>&save=true&id=<?php echo $id; ?>" >
                         <button class="btn btn-warning" type="button" style="left: 10%;position: relative;">
                         <span class="icon-pencil"></span>&nbsp;&nbsp;SAVE MODEL IMAGE</button>
@@ -64,8 +64,8 @@
 				//if save status is true then save the image
 				if( $save_status == "true")
 				{
-					$src = '../temp/thumbs/'.$filename;
-					$dst = "../members/images/gallery_thumb/".$filename ;
+					$src = '../../temp/thumbs/'.$filename;
+					$dst = "../../images/gallery_thumb/".$filename ;
 					
 					$img_r = imagecreatefromjpeg($src);
 					

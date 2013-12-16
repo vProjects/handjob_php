@@ -55,7 +55,7 @@
 					if( $keyword == "" )
 					{
 						//get the pagination of the page
-						$manageData->pagination($startPoint,"listGallery.php",10,"gallery_info","date",$keyword);
+						$manageData->pagination($startPoint,"listGallery.php",10,"gallery_info_tour","date",$keyword);
 					}
 				?>
         </div>

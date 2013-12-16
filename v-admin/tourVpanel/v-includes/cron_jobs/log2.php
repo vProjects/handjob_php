@@ -1,5 +1,5 @@
 <?php
-	$content = @file_get_contents('../../../logs/slice_log.txt');
+	$content = @file_get_contents('../../../../logs/slice_tour_log.txt');
 
 	if($content){
 		//get duration of source

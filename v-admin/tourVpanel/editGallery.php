@@ -12,7 +12,7 @@
 		//get the model id 
 		$gallery_id = $GLOBALS["_GET"]["galleryId"];
 		
-		$gallery_details = $manageData->getValue_Where("gallery_info","*","id",$gallery_id);
+		$gallery_details = $manageData->getValue_Where("gallery_info_tour","*","id",$gallery_id);
 	}
 ?>
         <!--container for content of the website-->
@@ -25,7 +25,7 @@
             </blockquote>
             
             <div class="image_model" style="height:377px;width:250px;">
-                <img src="../members/images/gallery_thumb/<?php echo $gallery_details[0]['gallery_id'].".JPG"; ?>" style="height:377px;width:250px;"/>
+                <img src="../../images/gallery_thumb/<?php echo $gallery_details[0]['gallery_id'].".JPG"; ?>" style="height:377px;width:250px;"/>
             </div>
             
             <div class="form-horizontal">

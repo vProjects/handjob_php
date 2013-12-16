@@ -1,13 +1,13 @@
 <?php
 	#!/usr/local/bin/php
-	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.mediaAdvanced.php');
-	require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.DAL.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/tourVpanel/v-includes/library/library.mediaAdvanced.php');
+	require_once('/home/sites/handjobstop.com/public_html/v-admin/tourVpanel/v-includes/library/library.DAL.php');
 	
 	$manageMedia = new manageVideos();
 	$manageData = new manageContent_DAL();
 	
-	$cronValues = $manageData->getValue('cron_gallery','*');
-	$cronSilceValues = $manageData->getValue('cron_slice','*');
+	$cronValues = $manageData->getValue('cron_gallery_tour','*');
+	$cronSilceValues = $manageData->getValue('cron_slice_tour','*');
 	//print_r($cronSilceValues);
 	
 	foreach($cronValues as $cronValue)
@@ -15,7 +15,7 @@
 		if($cronValue['cron_status'] == 1)
 		{
 			//update the cron_status to 0 => don't execute
-			$changeCron_status_1 = $manageData->updateValueWhere('cron_gallery','cron_status',0,'id',$cronValue['id']) ;
+			$changeCron_status_1 = $manageData->updateValueWhere('cron_gallery_tour','cron_status',0,'id',$cronValue['id']) ;
 			//if the status of the cron has been changed then only exeute it
 			if( $changeCron_status_1 == 1 )
 			{
@@ -31,8 +31,13 @@
 				
 				$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$cronValue['date'],1);
 				
+				
+				//clear the log file
+				$fh = fopen( '../../../logs/snaps_tour_log.txt', 'w+' );
+				fclose($fh);
+				
 				//delete the values from cron gallery table
-				$manageData->deleteValue('cron_gallery','id',$cronValue['id']);
+				$manageData->deleteValue('cron_gallery_tour','id',$cronValue['id']);
 			}
 		}
 	}
@@ -46,7 +51,7 @@
 		if($cronSilceValue['status'] == 1)
 		{
 			//update the cron_status to 0 => don't execute
-			$changeCron_status = $manageData->updateValueWhere('cron_slice','status',0,'id',$cronSilceValue['id']) ;
+			$changeCron_status = $manageData->updateValueWhere('cron_slice_tour','status',0,'id',$cronSilceValue['id']) ;
 			//if the status of the cron has been changed then only exeute it
 			if( $changeCron_status == 1 )
 			{
@@ -65,9 +70,14 @@
 					$manageData->insertSilcedInfo($cronSilceValue['vid_name']."_".$i,$cronSilceValue['vid_name'],$cronSilceValue['gallery_name'],$cronSilceValue['output_path'],$cronSilceValue['model'],$cronSilceValue['category'],$cronSilceValue['date'],0,0);
 					
 				}
+				
+				
+				//clear the log file
+				$fh1 = fopen( '../../../logs/slice_tour_log.txt', 'w+' );
+				fclose($fh1);	
 					
 				//delete the values from cron gallery table
-				$manageData->deleteValue('cron_slice','id',$cronSilceValue['id']);
+				$manageData->deleteValue('cron_slice_tour','id',$cronSilceValue['id']);
 				//once done exit
 				exit();
 			}
