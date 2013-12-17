@@ -365,10 +365,11 @@
 					}
 					//for models whose status is online
 					echo '<div class="span3 section_element">
+						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'">
 							<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div></a>
 									<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 								</div> 
 								<p>Rating:';
@@ -584,6 +585,75 @@
 						$end_point++ ;
 					}
 				}
+			}
+		}
+		
+		/*
+		- method to get the full gallery images
+		- create the full UI
+		- Auth Singh
+		*/
+		function getGalleryFull($gallery_id)
+		{
+			$galleryPath = "gallery/".$gallery_id."/";
+			//image location will change according to the large,small and medium requests
+			$imageLocation = "gallery/".$gallery_id."/";
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						//maintain the row fluid with only four models in a row
+						if($start_point%4 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						//create the UI components
+						echo '<div class="span3 section_element_image">
+									<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="vdeo">
+								</div>' ;
+						if($end_point%4 == 0)
+						{
+							echo '</div>';
+						}
+						
+						$start_point++ ;
+						$end_point++ ;
+					}
+				}
+			}
+		}
+		
+		/*
+		- check if there is a zip file is present or not if yes 
+		- provide the download link
+		- Auth Singh 
+		*/
+		function getZipLinks($galler_id)
+		{
+			$zipFilePath = "gallery/".$galler_id."/";
+			if(file_exists($zipFilePath."h.zip"))
+			{
+				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-danger">High Zip</button></a>';
+			}
+			if(file_exists($zipFilePath."m.zip"))
+			{
+				echo '<a href="'.$zipFilePath."m.zip".'"><button class="btn btn-danger">Med Zip</button></a>';
+			}
+			if(file_exists($zipFilePath."s.zip"))
+			{
+				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-danger">Low Zip</button></a>';
 			}
 		}
 	}

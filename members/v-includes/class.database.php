@@ -3,8 +3,8 @@
 	class dbConnection{
 		protected $db_conn;
 		public $db_name = "handjobstop" ;
-		public $db_username = "root" ;
-		public $db_password = "root" ;
+		public $db_username = "handjobstop" ;
+		public $db_password = "nuh7Brah" ;
 		public $db_host = "localhost" ;
 		
 		function connect(){

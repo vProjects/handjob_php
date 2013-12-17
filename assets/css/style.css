@@ -449,4 +449,9 @@ body{
 .btn{
 	border-radius:0px ;
 }
-
+.section_element_image {
+    background-color: #FFFFFF;
+    box-shadow: 3px 3px 7px #808080;
+    margin-top: 1%;
+    padding: 8px 5px;
+}
