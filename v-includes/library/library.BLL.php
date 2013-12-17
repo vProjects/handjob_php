@@ -116,6 +116,83 @@
 		}
 		
 		/*
+		- method to get the models for the model page
+		- creates the full UI
+		- Auth Singh
+		*/
+		function searchModelDirectory($startPoint,$limit,$type,$searchKeyword)
+		{
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			elseif( $type == "name" )
+			{
+				//sort by name
+				$sortBy = "name" ;
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
+			//get values from the database
+			$models = $this->manageContent->getSearchModelDirectory("model_info","*","name",$searchKeyword,$sortBy,$startPoint,$limit);
+			
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($models as $model)
+			{
+				//for models whose status is online
+				if($model["status"] == 1)
+				{
+					//maintain the row fluid with only four models in a row
+					if($start_point%4 == 0)
+					{
+						echo '<div class="row-fluid">';
+					}
+					//create the UI components
+					echo '<div class="span3 section_element">
+            				<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
+							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="vdeo">	
+							<div class="photo_section_footer">
+								<div class="row-fluid">
+									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
+									<div class="pull-right"><p>'.$model["date"].'</p></div>
+								</div>
+								<p>Rating:';
+								
+								//logic for displaying stars according to the rating
+								if( $model['rating'] == 0 )
+								{
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								}		
+								for($i = 0 ; $i < $model['rating'] ; $i++)
+								{
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								}
+								
+								echo '</p>
+								<p>Views: '.$model["views"].'</p>
+							</div>
+						</div>' ;
+						
+					if($end_point%4 == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
+				}
+				
+			}
+		}
+		
+		/*
 		- method to get the models for the home page
 		- Creates the full UI
 		- Auth Singh
@@ -315,6 +392,197 @@
 					
 					$start_point++ ;
 					$end_point++ ;
+				}
+			}
+		}
+		
+		/*
+		- method to get the model details
+		- @param model_id
+		-Auth Singh
+		*/
+		function getModel_Details($model_id)
+		{
+			$modelDetails = $this->manageContent->getValueWhere('model_info','*','id',$model_id);
+			
+			//create the UI using the details from the database
+			echo '<div class="row-fluid">
+					<h3>'.$modelDetails[0]["name"].'</h3>
+				</div>
+				<!-- model detail starts here -->
+				<div class="row-fluid model_detail">
+					<div class="span3">
+						<img src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+					</div>
+					<div class="span8">
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Age:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["age"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Height:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["height"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Weight:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["weight"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Measurement:</div>
+							<div class="span8 model_info_description">24/36/24</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Category:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["category"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Description:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["description"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Rating:</div>
+							<div class="span8 model_info_description">';
+			if( $modelDetails[0]["rating"] == 0 )
+			{
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
+			}
+			else
+			{
+				for( $i = 0 ; $i < $modelDetails[0]["rating"] ; $i++ )
+				{
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
+				}
+			}
+			echo			'</div>
+						</div>
+					</div>
+				</div>' ;
+		}
+		
+		/*
+		- method to get movies by model name
+		- @param model_name
+		- Auth Singh
+		*/
+		function getMoviesByModel($modelName)
+		{
+			$ModelMovies = $this->manageContent->getSearchValue("movie_info_tour","*","model",$modelName);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+				
+			if($ModelMovies != 0)
+			{
+				echo '<div class="row-fluid photo_update">
+						<div class="span12">
+								<h3 class="site_heading"> Model Movies</h3>
+						 	</div>
+						 </div>';
+						 
+						 
+				foreach($ModelMovies as $movie)
+				{
+					//for models whose status is online
+					if($movie["status"] == 1)
+					{
+						//maintain the row fluid with only four models in a row
+						if($start_point%3 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						echo '<div class="span4 section_element">
+							<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
+							<div class="photo_section_footer">
+								<div class="row-fluid">
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div>
+									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
+								</div>
+								<p>Rating:';
+						//logic for displaying stars according to the rating
+						if( $movie['rating'] == 0 )
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						for($i = 0 ; $i < $movie['rating'] ; $i++)
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						echo	'</p><p>Movie- 0min 0sec</p>
+									<p>Views: '.$movie["views"].'</p>
+								</div>
+							</div>' ;
+
+						
+						
+						if($end_point%3 == 0)
+						{
+							echo '</div>';
+						}
+						
+						$start_point++ ;
+						$end_point++ ;
+					}
+				}
+			}
+		}
+		
+		/*
+		- method to get gallery by model name
+		- @param model_name
+		- Auth Singh
+		*/
+		function getGalleryByModel($modelName)
+		{
+			$gallerys = $this->manageContent->getSearchValue("gallery_info_tour","*","model",$modelName);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			if( $gallerys != 0 )
+			{
+				echo '<div class="row-fluid photo_update">
+						<div class="span12">
+								<h3 class="site_heading"> Model Gallery</h3>
+							</div>
+						 </div>';
+				foreach($gallerys as $gallery)
+				{
+					if($gallery["status"] == 1)
+					{
+						//maintain the row fluid with only four models in a row
+						if($start_point%4 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						//for models whose status is online
+						echo '<div class="span3 section_element">
+								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
+								<div class="photo_section_footer">
+									<div class="row-fluid">
+										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div>
+										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
+									</div> 
+									<p>Rating:';
+						
+						//logic for displaying stars according to the rating
+						if( $gallery['rating'] == 0 )
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}	
+						for($i = 0 ; $i < $gallery['rating'] ; $i++)
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						echo '</p><p>Views:'.$gallery["view"].'</p>
+								</div>
+							</div>' ;
+						if($end_point%4 == 0)
+						{
+							echo '</div>';
+						}
+						
+						$start_point++ ;
+						$end_point++ ;
+					}
 				}
 			}
 		}

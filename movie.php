@@ -5,51 +5,32 @@
 
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
+	
+	//variable for the type of search
+	$type = "" ;
+	if( $GLOBALS["_GET"] > 0 )
+	{
+		$type = $GLOBALS["_GET"]["type"];
+	}
+	if( !isset( $type ) || empty( $type ) )
+	{
+		$type = "recent" ;
+	}
 ?>
 
 <!-- site description part starts here --->
 <div class="container">
-	<div class="row-fluid">
-    	<div class="span12 search_model">
-        	<h4>Model Directory</h4>
-            <div class="pagination pagination-small center">
-              <ul>
-                <li><a  class="btn-danger center_1st" href="#">A</a></li>
-                <li><a href="#">B</a></li>
-                <li><a href="#">C</a></li>
-                <li><a href="#">D</a></li>
-                <li><a href="#">E</a></li>
-                <li><a href="#">F</a></li>
-                <li><a href="#">G</a></li>
-                <li><a href="#">H</a></li>
-                <li><a href="#">I</a></li>
-                <li><a href="#">J</a></li>
-                <li><a href="#">K</a></li>
-                <li><a href="#">L</a></li>
-                <li><a href="#">M</a></li>
-                <li><a href="#">N</a></li>
-                <li><a href="#">O</a></li>
-                <li><a href="#">P</a></li>
-                <li><a href="#">Q</a></li>
-                <li><a href="#">R</a></li>
-                <li><a href="#">S</a></li>
-                <li><a href="#">T</a></li>
-                <li><a href="#">U</a></li>
-                <li><a href="#">V</a></li>
-                <li><a href="#">W</a></li>
-                <li><a href="#">X</a></li>
-                <li><a href="#">Y</a></li>
-                <li><a href="#">Z</a></li>
-              </ul>
-            </div>
-        </div>
-    </div>
+	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+	?>
     <div class="row-fluid model_detail_heading">
-    	<div class="btn-group">
-            <div class="btn btn-danger">Most Recent</div>
-            <div class="btn btn-danger">Top Rated</div>
-            <div class="btn btn-danger">A-Z</div>
-        </div>
+    	<?php
+			//set the pageName for the type navbar
+			$pageName = "movie.php" ;
+			//include the type navbar
+			include('v-templates/typeNavbar.php') ;
+		?>
         <div class="pagination pagination-small pageno_nav pull-right">
             <ul>
                 <li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
@@ -66,7 +47,7 @@
     <!--- movies starts here --->
     <?php 
 		//get the movies for the page
-		$manageData->getMovies(0,9,'date') ;
+		$manageData->getMovies(0,9,$type) ;
 	?>
     
         <div class="row-fluid">
