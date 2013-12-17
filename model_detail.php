@@ -2,9 +2,7 @@
 	$page_title = 'Models';
 	//include header section
 	include 'v-templates/header.php';
-?>
 
-<?php
 	//include navbar section
 	include 'v-templates/navbar.php';
 ?>
