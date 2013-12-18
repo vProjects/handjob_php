@@ -23,6 +23,7 @@
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 <link href="css/jquery.Jcrop.min.css" type="text/css" rel="stylesheet" />
+<script src="ckeditor/ckeditor.js"></script>
 <title>VPANEL | <?php if(isset($page_title) && !empty($page_title)){ echo $page_title; }?></title>
 <script type="text/javascript">
 	function reloadPage(folderName)

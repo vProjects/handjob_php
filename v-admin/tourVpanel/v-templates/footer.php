@@ -67,5 +67,8 @@
 
 <!--js for updating the ffmpeg progress -->
 <script src="js/ffmpeg_progress.js" type="text/javascript" ></script>
+<script>
+CKEDITOR.replace('editor1', { filebrowserBrowseUrl: 'ss/index.html'});
+</script>
 </body>
 </html>

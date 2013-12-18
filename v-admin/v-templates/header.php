@@ -30,6 +30,8 @@
 		window.location = 'cropUploadImage.php?folderName='+folderName ;
 	}
 </script>
+<script src="ckeditor/ckeditor.js"></script>
+
 </head>
 
 <body>

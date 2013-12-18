@@ -34,8 +34,8 @@
                     <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                 </div>
                 <div class="form-control v-form">
-                	<label class="control-label">Blog Content</label>
-                    <textarea type="text" placeholder="Content" class="textbox1" name="article_description"></textarea>
+                	<label class="control-label">Blog Content</label><br><br>
+                    <textarea type="text" id="editor1" placeholder="Content" class="textbox1" name="article_description"></textarea>
                 </div>
                 <div class="form-control v-form">
                 	<div class="function_result"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></div>
