@@ -52,10 +52,6 @@
 				$manageData->getSlicedMovie($movie_id);
 			}
 		?>
-		
-            
-            
-            
  
 		<div class="row-fluid">
             <div class="span12 blank">

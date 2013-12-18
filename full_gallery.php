@@ -8,15 +8,24 @@
 	
 	//variable for the type of search
 	$gallery_id = "" ;
+	$model = "" ;
 	if( $GLOBALS["_GET"] > 0 )
 	{
-		$gallery_id = $GLOBALS["_GET"]["gallery_id"];
+		$gallery_id = $GLOBALS["_GET"]["gallery_id"] ;
+		$model = $GLOBALS["_GET"]["model"] ;
 	}
 ?>
 
 <!-- site description part starts here --->
 <div class="container">
-
+	<?php
+		//get the model details if the model name is set
+		if( isset($model) && !empty($model) )
+		{
+			//create the UI using the BLL method
+			$manageData->getModel_Details_byName($model) ;
+		}
+	?>
     <div class="row-fluid">
         <div class="row-fluid model_detail_heading">
             <div class="btn-group">

@@ -293,10 +293,11 @@
 						echo '<div class="row-fluid">';
 					}
 					echo '<div class="span4 section_element">
+							<a href="playing_movie.php?movie_id='.$movie["gallery_id"].'&gallery_id=0">
 							<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Rating:';
@@ -322,6 +323,70 @@
 					$start_point++ ;
 					$end_point++ ;
 				}
+				
+			}
+		}
+		
+		/*
+		- get sliced movies of the same movie
+		- Auth Singh
+		*/
+		function getSlicedMovie($movieId)
+		{
+			//get values from the database
+			$slicedMovies = $this->manageContent->getValueWhere("sliced_vids_tour","*","movie_id",$movieId);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			
+			echo '<div class="row-fluid">
+						<div id="searchBar" class="span12 pull-left">
+								<h4>WATCH IN PARTS</h4>
+						</div>
+				   </div>';
+			
+			$part_no = 1 ;
+			   
+			foreach($slicedMovies as $slicedMovie)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%3 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				
+				//for models whose status is online
+				echo '<div class="span4 section_element">
+							<a href="playing_movie.php?movie_id='.$movieId.'&gallery_id='.$slicedMovie["gallery_id"].'">
+							<img class="lazy img_update" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" src="" alt="vdeo">
+							<div class="photo_section_footer">
+								<div class="row-fluid">
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$slicedMovie["movie_name"]." Part ".$part_no.'</b></p></div></a>
+									<div class="pull-right"><p>Added: '.$slicedMovie["date"].'</p></div>
+								</div>
+								<p>Rating:';
+					//logic for displaying stars according to the rating
+					if( $slicedMovie['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					for($i = 0 ; $i < $slicedMovie['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+					echo	'</p><p>Movie- 0min 0sec</p>
+								<p>Views: '.$slicedMovie["views"].'</p>
+							</div>
+						</div>' ;
+						
+				if($end_point%3 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				$part_no++ ;
 				
 			}
 		}
@@ -365,7 +430,7 @@
 					}
 					//for models whose status is online
 					echo '<div class="span3 section_element">
-						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'">
+						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
 							<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
 								<div class="row-fluid">
@@ -407,13 +472,15 @@
 			$modelDetails = $this->manageContent->getValueWhere('model_info','*','id',$model_id);
 			
 			//create the UI using the details from the database
-			echo '<div class="row-fluid">
-					<h3>'.$modelDetails[0]["name"].'</h3>
-				</div>
-				<!-- model detail starts here -->
+			echo '<!-- model detail starts here -->
 				<div class="row-fluid model_detail">
+					<div class="row-fluid">
+						<div class="span12">
+							<h3>'.$modelDetails[0]["name"].'</h3>
+						</div>
+					</div>
 					<div class="span3">
-						<img src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+						<img class="model_image_details" src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
 					</div>
 					<div class="span8">
 						<div class="row-fluid model_detail_part">
@@ -459,6 +526,72 @@
 					</div>
 				</div>' ;
 		}
+		
+		/*
+		- method to get the model details
+		- @param model_id
+		-Auth Singh
+		*/
+		function getModel_Details_byName($model)
+		{
+			$modelDetails = $this->manageContent->getValueWhere('model_info','*','name',$model);
+			
+			//create the UI using the details from the database
+			echo '<!-- model detail starts here -->
+				<div class="row-fluid model_detail">
+					<div class="row-fluid">
+						<div class="span12">
+							<h3>'.$modelDetails[0]["name"].'</h3>
+						</div>
+					</div>
+					<div class="span3">
+						<img class="model_image_details" src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+					</div>
+					<div class="span8">
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Age:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["age"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Height:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["height"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Weight:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["weight"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Measurement:</div>
+							<div class="span8 model_info_description">24/36/24</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Category:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["category"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Description:</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["description"].'</div>
+						</div>
+						<div class="row-fluid model_detail_part">
+							<div class="span3 model_info_topic">Rating:</div>
+							<div class="span8 model_info_description">';
+			if( $modelDetails[0]["rating"] == 0 )
+			{
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
+			}
+			else
+			{
+				for( $i = 0 ; $i < $modelDetails[0]["rating"] ; $i++ )
+				{
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
+				}
+			}
+			echo			'</div>
+						</div>
+					</div>
+				</div>' ;
+		}
+		
 		
 		/*
 		- method to get movies by model name

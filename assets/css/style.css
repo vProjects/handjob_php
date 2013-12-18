@@ -422,7 +422,21 @@ body{
 
 /* model detail page css */
 .model_detail{
-	margin:20px 0;
+	-moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #FF0000;
+    border-image: none;
+    border-style: solid;
+    border-width: 1px 1px 4px;
+    margin: 20px 0;
+    padding: 7px 0 7px 7px;
+    width: 98%;
+}
+.model_image_details {
+	border: 1px solid #FF0000;
 }
 .model_info_topic{
 	font-size:18px;
