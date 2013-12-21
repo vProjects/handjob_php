@@ -10,7 +10,7 @@
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<blockquote>
-                <p>Create Gallery from a Images</p>
+                <p>Add a new photo set.</p>
                 <small>
                 	<cite title="Source Title">Gallery builder for your website.</cite>
                 </small>

@@ -2,16 +2,26 @@
 	$page_title = 'Tour';
 	//include header section
 	include 'v-templates/header.php';
-?>
 
-<?php
 	//include navbar section
 	include 'v-templates/navbar.php';
-?>
 
-<?php
 	//include slider section
 	include 'v-templates/slider.php';
+	
+	//get the type of the files displayed
+	//intialize the variables
+	$type_m = "0" ;
+	$type_p = "0" ;
+	$type_mo = "0" ;
+	//get values
+	if( $GLOBALS["_GET"] )
+	{
+		$type_m = $GLOBALS["_GET"]["type_m"] ;
+		$type_p = $GLOBALS["_GET"]["type_p"] ;
+		$type_mo = $GLOBALS["_GET"]["type_mo"] ;
+	}
+	
 ?>
 
 <!-- site description part starts here --->
@@ -34,14 +44,33 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
     <!-- video update portion starts here ---->
     <div class="row-fluid photo_update">
     	<h3 class="site_heading"> Latest Movies Updates</h3>
-        
+        <div class="row-fluid photo_update_outline">
+        	<div class="btn-group">
+            	<a href="tour.php?type_m=recent&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Most Recent</div></a>
+                <a href="tour.php?type_m=rated&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Top Rated</div></a>
+                <a href="tour.php?type_m=name&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">A-Z</div></a>
+            </div>
+            <div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">&lt; Previous</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
          <!--- movies starts here --->
 		<?php 
             //get the movies for the page
-            $manageData->getMovies(0,9,'date') ;
+            $manageData->getMovies(0,9,$type_m) ;
         ?>
         
-        
+        <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">&lt; Previous</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="row-fluid end_caption">
             <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
@@ -50,13 +79,32 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
     <!-- photo update portion starts here --->
     <div class="row-fluid photo_update">
     	<h3 class="site_heading"> Latest Photos Updates</h3>
-        
+        <div class="row-fluid photo_update_outline">
+        	<div class="btn-group">
+            	<a href="tour.php?type_p=recent&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Most Recent</div></a>
+                <a href="tour.php?type_p=rated&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Top Rated</div></a>
+                <a href="tour.php?type_p=name&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">A-Z</div></a>
+            </div>
+            <div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">&lt; Previous</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
         <!--- gallery starts here --->
 		<?php 
             //get the photo gallery for the page
-            $manageData->getGallery(0,8,'date') ;
+            $manageData->getGallery(0,8,$type_p) ;
         ?>
-       
+       <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">&lt; Previous</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="row-fluid end_caption">
             <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
@@ -66,11 +114,31 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
     <!-- Model update portion starts here ---->
     <div class="row-fluid photo_update">
     	<h3 class="site_heading"> Latest Models Updates</h3>
+        <div class="row-fluid photo_update_outline">
+        	<div class="btn-group">
+            	<a href="tour.php?type_mo=recent&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger">Most Recent</div></a>
+                <a href="tour.php?type_mo=rated&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger">Top Rated</div></a>
+                <a href="tour.php?type_mo=name&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger">A-Z</div></a>
+            </div>
+            <div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">&lt; Previous</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
         <?php
 			//get the models for home
-			$manageData->getModelsHome(0,12,'date') ;
+			$manageData->getModelsHome(0,12,$type_mo) ;
 		?>
-       
+       <div class="row-fluid">
+        	<div class="pagination pagination-small pageno_nav pull-right">
+            	<ul>
+                	<li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">&lt; Previous</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
+                </ul>
+            </div>
+        </div>
         <div class="row-fluid end_caption">
             <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
         </div>
@@ -90,11 +158,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
-                	<li><a class="btn-danger" href="#">1</a></li>
-                    <li><a class="btn-danger" href="#">2</a></li>
-                    <li><a class="btn-danger" href="#">3</a></li>
-                    <li><a class="btn-danger" href="#">4</a></li>
-                    <li><a class="btn-danger" href="#">5</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>
@@ -270,11 +333,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                 	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
-                	<li><a class="btn-danger" href="#">1</a></li>
-                    <li><a class="btn-danger" href="#">2</a></li>
-                    <li><a class="btn-danger" href="#">3</a></li>
-                    <li><a class="btn-danger" href="#">4</a></li>
-                    <li><a class="btn-danger" href="#">5</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
                 </ul>
             </div>

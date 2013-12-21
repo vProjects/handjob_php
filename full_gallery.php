@@ -30,8 +30,9 @@
         <div class="row-fluid model_detail_heading">
             <div class="btn-group">
                 <?php
+					//removed as not needed so can be added later by removing comment
 					//get the zip tabs
-					$manageData->getZipLinks($gallery_id) ;
+					//$manageData->getZipLinks($gallery_id) ;
 				?>
             </div>
         </div>
@@ -40,7 +41,7 @@
     <!--- gallery starts here --->
     <?php 
 		//get the photo gallery for the page
-		$manageData->getGalleryFull($gallery_id) ;
+		$manageData->getGalleryFull($gallery_id,$model) ;
 	?>
     
      </div>    

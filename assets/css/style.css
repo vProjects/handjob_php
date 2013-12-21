@@ -469,3 +469,34 @@ body{
     margin-top: 1%;
     padding: 8px 5px;
 }
+.right-arrow {
+    border: medium none;
+    cursor: pointer;
+    display: inline;
+    position: absolute;
+    right: 0;
+    top: 42%;
+    z-index: 100;
+}
+.left-arrow {
+    border: medium none;
+    cursor: pointer;
+    display: inline-block;
+    left: 3px;
+    position: absolute;
+    top: 42%;
+    z-index: 100;
+}
+
+.slider_container {
+    margin-left: 0;
+    position: relative;
+}
+.slider_wrapper {
+    display: inline;
+    position: relative;
+    right: 0;
+    top: 50%;
+    z-index: 100;
+	border: 1px solid #FF0000;
+}

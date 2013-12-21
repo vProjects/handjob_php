@@ -22,7 +22,7 @@
 		function getArticles($startPoint,$limit)
 		{
 			$startPoint = $startPoint*$limit ;
-			$articles = $this->manageContent->getValue_limit_sorted_current_a('article_info_tour','*',"article_date",$startPoint,$limit);
+			$articles = $this->manageContent->getValue_limit_sorted_current_a('article_info','*',"article_date",$startPoint,$limit);
 			
 			foreach($articles as $article)
 			{
@@ -197,8 +197,23 @@
 		- Creates the full UI
 		- Auth Singh
 		*/
-		function getModelsHome($startPoint,$limit,$sortBy)
+		function getModelsHome($startPoint,$limit,$type)
 		{
+			//check the type and fetch the data accordingly
+			if( $type == "rated" )
+			{
+				$sortBy = "rating";
+			}
+			elseif( $type == "name" )
+			{
+				//sort by name
+				$sortBy = "name" ;
+			}
+			else
+			{
+				//for the recent
+				$sortBy = "date";
+			}
 			//get values from the database
 			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',$sortBy,$startPoint,$limit);
 			
@@ -726,7 +741,7 @@
 		- create the full UI
 		- Auth Singh
 		*/
-		function getGalleryFull($gallery_id)
+		function getGalleryFull($gallery_id,$model)
 		{
 			$galleryPath = "gallery/".$gallery_id."/";
 			//image location will change according to the large,small and medium requests
@@ -754,8 +769,10 @@
 						}
 						//create the UI components
 						echo '<div class="span3 section_element_image">
+								<a href="showImage.php?type=low&gallery_id='.$gallery_id.'&model='.$model.'&filename='.$filename.'">
 									<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="vdeo">
-								</div>' ;
+								</a>
+							</div>' ;
 						if($end_point%4 == 0)
 						{
 							echo '</div>';
@@ -788,6 +805,52 @@
 			{
 				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-danger">Low Zip</button></a>';
 			}
+		}
+		
+		/*
+		- get the files for the image slider
+		- @param gallery_id
+		- retuns an array in which first elements contains a json object of filename
+		- second element contains total no. of elements of the array
+		- Auth Singh
+		*/
+		function getSliderImage($gallery_id)
+		{
+			//image location will change according to the large,small and medium requests
+			$galleryPath = "gallery/".$gallery_id."/s/";
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			
+			//index of array starts from 0
+			$index_no = 0 ;
+			$filename_array = "" ;
+			
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						//create the array elements
+						$filename_array[$index_no] = $filename ;
+						//increase the index no
+						$index_no++ ;
+					}
+				}
+			}
+			
+			//convert the filename array into an json object
+			$filename_array = json_encode($filename_array) ;
+			
+			$filename_array_return[0] = $filename_array ;
+			$filename_array_return[1] = $index_no ;
+			
+			return $filename_array_return ;
 		}
 	}
 ?>
