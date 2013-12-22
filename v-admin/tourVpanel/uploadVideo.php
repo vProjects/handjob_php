@@ -31,7 +31,7 @@
                         <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                     </div>
                     <div class="form-control v-form">
-                        <label class="control-label">Filename</label>
+                        <label class="control-label">Video</label>
                         <select class="selectbox1" name="filename">
                     		<option value="">Select One</option>
                         	<?php
@@ -39,19 +39,14 @@
 							?>
                         </select>
                     </div>
-                    <div class="form-control v-form row">
-                        <div class="form-control v-form1 span6">
-                            <label class="control-label">Snapshot Width</label>
-                            <input type="text" placeholder="" class="textbox2" name="vedio_w" value="3000"/>
-                        </div>
-                        <div class="form-control v-form1 span6">
-                            <label class="control-label">Snapshot Height</label>
-                            <input type="text" placeholder="" class="textbox2" name="vedio_h" value="2000"/>
-                        </div>
-                        <div class="form-control v-form1 span6">
-                            <label class="control-label">Snapshots Required</label>
-                            <input type="text" placeholder="" class="textbox2" name="no_snapshot"/>
-                        </div>
+                    <div class="form-control v-form">
+                        <label class="control-label">Sample Image</label>
+                        <select class="selectbox1" name="sample_image">
+                    		<option value="">Select One</option>
+                        	<?php
+								$manageData->getFolders_VideoSampleImage() ;
+							?>
+                        </select>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Model</label>
@@ -105,12 +100,9 @@
                             <input type="text" placeholder="" class="textbox2" name="s_vedio_h" value="320"/>
                         </div>
                     </div>
-                    <div class="form-control v-form">
-                        <label class="control-label">No. of Slicing</label>
-                        <input type="text" placeholder="Measurement" class="textbox1" name="no_slicing"/>
-                    </div>
+                   
                     <div class="function_result"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></div>
-                	<input type="submit" value="Create Gallery" class="btn btn-large btn-warning btn_l" />
+                	<input type="submit" value="Process Video" class="btn btn-large btn-warning btn_l" />
                 </form>
             </div>
             

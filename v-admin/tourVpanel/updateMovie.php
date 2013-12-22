@@ -6,39 +6,11 @@
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<blockquote>
-                <p>Update Movies</p>
+                <p>Sample Movies Images</p>
                 <small>
-                	<cite title="Source Title">Update Movies of your website.</cite>
+                	<cite title="Source Title">Update Sample Movies Images of your website.</cite>
                 </small>
             </blockquote>
-            
-            <!--get the sliced vids for the movie-->
-            <table class="table table-hover">
-                    <caption>List Of Sliced Movie</caption>
-                    <thead>
-                        <tr>
-                            <th>Thumb</th>
-                            <th>Movie Id</th>
-                            <th>Movie Name</th>
-                            <th>Model</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    
-					<?php
-						if(!empty($GLOBALS['_GET']['galleryId']))
-						{
-							//get the gallery id which contains the folder name of gallery images
-							$galleryId = $GLOBALS['_GET']['galleryId'];
-							$manageData->getSlicedVids($galleryId);
-						}
-                    
-                	?>
-                        
-                </table>
             
             <!--create a gallery if galleryId is set-->
             <div class="row">
@@ -46,7 +18,7 @@
                 <?php
                     if(!empty($GLOBALS['_GET']['galleryId']))
                     {
-						echo '<h2>Your Gallery(Gallery ID:'.$GLOBALS['_GET']['galleryId'].')</h2>';
+						echo '<h2>Your Sample Images(Movie ID:'.$GLOBALS['_GET']['galleryId'].')</h2>';
                         //get the gallery id which contains the folder name of gallery images
                         $galleryId = $GLOBALS['_GET']['galleryId'];
 						$manageData->updateMovies($galleryId);

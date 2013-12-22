@@ -11,30 +11,45 @@
 	$model = "" ;
 	$type = "low" ;
 	$filename_get = "" ;
+	$mode = "" ;
 	if( $GLOBALS["_GET"] > 0 )
 	{
 		$gallery_id = $GLOBALS["_GET"]["gallery_id"] ;
 		$model = $GLOBALS["_GET"]["model"] ;
 		$type = $GLOBALS["_GET"]["type"] ;
 		$filename_get = $GLOBALS["_GET"]["filename"] ;
+		$mode = $GLOBALS["_GET"]["mode"] ;
 	}
 	
+	//parent folder of the image source
+	$parent_folder = "" ;
+	//check the mode
+	if( $mode == "movie" )
+	{
+		$parent_folder = "videos_sample_image" ;
+	}
+	else
+	{
+		$parent_folder = "gallery" ;
+	}
+	
+	
 	//get the filename array using the BLL
-	$filename = $manageData->getSliderImage($gallery_id) ;
+	$filename = $manageData->getSliderImage($gallery_id,$parent_folder) ;
 	
 	$gallery_path = "" ;
 	
 	if( $type == "high" )
 	{
-		$gallery_path = "gallery/".$gallery_id."/" ;
+		$gallery_path = $parent_folder."/".$gallery_id."/" ;
 	}
 	elseif( $type == "medium" )
 	{
-		$gallery_path = "gallery/".$gallery_id."/m/" ;
+		$gallery_path = $parent_folder."/".$gallery_id."/m/" ;
 	}
 	else
 	{
-		$gallery_path = "gallery/".$gallery_id."/s/" ;
+		$gallery_path = $parent_folder."/".$gallery_id."/s/" ;
 	}
 ?>
 
@@ -51,9 +66,9 @@
     <div class="row-fluid">
         <div class="row-fluid model_detail_heading">
             <div class="btn-group pull-left">
-                <div onClick="redirectIt('low')" class="btn btn-danger">Small</div>
-                <div onClick="redirectIt('medium')" class="btn btn-danger">Medium</div>
-                <div onClick="redirectIt('high')" class="btn btn-danger">Large</div>
+                <div onClick="redirectIt('low','<?php echo $mode ; ?>')" class="btn btn-danger">Small</div>
+                <div onClick="redirectIt('medium','<?php echo $mode ; ?>')" class="btn btn-danger">Medium</div>
+                <div onClick="redirectIt('high','<?php echo $mode ; ?>')" class="btn btn-danger">Large</div>
             </div>
             <div class="btn-group pull-right">
                 <div class="btn btn-danger" onClick="firstClick()">First</div>
@@ -214,9 +229,9 @@
 		
 	}
 	
-	function redirectIt(type)
+	function redirectIt(type,mode)
 	{
-		window.location = 'showImage.php?type='+type+'&gallery_id=<?php echo $gallery_id."&model=".$model."&filename=" ?>'+filename[index];
+		window.location = 'showImage.php?mode='+mode+'&type='+type+'&gallery_id=<?php echo $gallery_id."&model=".$model."&filename=" ?>'+filename[index];
 	}
 	
 	function lastClick()

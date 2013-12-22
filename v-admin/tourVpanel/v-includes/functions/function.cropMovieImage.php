@@ -5,7 +5,7 @@
 	{
 		$filename = $_POST['filename'] ;
 		$folderName = $_POST['foldername'] ;
-		$inputPath = "../../../members/gallery/".$folderName."/".$filename ;
+		$inputPath = "../../../../videos_sample_image/".$folderName."/".$filename ;
 		
 		//height and width of the input image
 		$getImageHW = $mediaQuery->getImageGeometry($inputPath);
@@ -25,7 +25,7 @@
 	  
 		header('Content-type: image/jpeg');
 		
-		imagejpeg($dst_r,"../../../temp/".$filename,$jpeg_quality);
+		imagejpeg($dst_r,"../../../../temp/".$filename,$jpeg_quality);
 		
 	  
 		header('Location: ../../cropMovieImage.php?fileName='.$filename.'&save=answer&folderName='.$folderName);

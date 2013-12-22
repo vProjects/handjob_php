@@ -52,7 +52,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">&lt; Previous</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
                 </ul>
             </div>
@@ -66,7 +65,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         <div class="row-fluid">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">&lt; Previous</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
                 </ul>
             </div>
@@ -87,7 +85,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">&lt; Previous</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
                 </ul>
             </div>
@@ -100,7 +97,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
        <div class="row-fluid">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">&lt; Previous</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
                 </ul>
             </div>
@@ -122,7 +118,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">&lt; Previous</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
                 </ul>
             </div>
@@ -134,7 +129,6 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
        <div class="row-fluid">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">&lt; Previous</a></li>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
                 </ul>
             </div>
@@ -148,7 +142,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
     
     <!-- members favourite portion starts here ---->
     <div class="row-fluid photo_update">
-    	<h3 class="site_heading"> Members Favourite</h3>
+    	<h3 class="site_heading"> Members Favorite</h3>
         <div class="row-fluid photo_update_outline">
         	<div class="btn-group">
             	<div class="btn btn-danger">Most Recent</div>

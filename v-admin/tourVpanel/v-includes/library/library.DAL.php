@@ -128,11 +128,12 @@
 		- method to insert the value for cron file video conversion
 		- Auth Singh
 		*/
-		function insertCronGallery($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$date,$cron_status)
+		function insertCronGallery($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$sample_input,$sample_output,$date,$cron_status)
 		{
-			$query = $this->link->prepare("INSERT INTO `cron_gallery_tour`(`input_video`, `gallery_name`, `description`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `snap_input`, `no_snapshot`, `out_snap_path`, `out_snap_filename`, `snap_h`, `snap_w`, `date`, `cron_status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$inputFile_snap,$no_snapshot,$snapOut_path,$snap_out_filename,$snap_h,$snap_w,$date,$cron_status);
-			$query->execute($values);
+			$query = $this->link->prepare("INSERT INTO `cron_gallery_tour`(`input_video`, `gallery_name`, `description`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `sample_input`, `sample_output`, `date`, `cron_status`) VALUES"." ('".$inputVideo."','".$gallery_name."','".$description."','".$outputVidPath."','".$outFilename."','".$model."','".$category."','".$vidFormat_1."','".$vidFormat_2."','".$vidFormat_3."','".$resolution_l."','".$resolution_m."','".$resolution_s."','".$sample_input."','".$sample_output."','".$date."','".$cron_status."')") ;
+			//$values = array($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$sample_input,$sample_output,$date,$cron_status);
+			
+			$query->execute();
 			return $query->rowCount();
 		}
 		

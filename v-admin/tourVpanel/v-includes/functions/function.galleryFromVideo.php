@@ -8,13 +8,13 @@
 	//get the value from the post request
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
+		//sample video folder
 		$filename = $_POST['filename'];
+		
 		$gallery_name = $_POST['gallery_name'];
 		$description = $_POST['description'];
-		$no_snapshot = $_POST['no_snapshot'];
-		$vedio_h = $_POST['vedio_h'];
-		$vedio_w = $_POST['vedio_w'];
-		$model_name = $_POST['model'];
+		//samle image folder
+		$sample_image = $_POST['sample_image'];
 		
 		$l_vedio_h = $_POST['l_vedio_h'];
 		$l_vedio_w = $_POST['l_vedio_w'];
@@ -24,8 +24,6 @@
 		
 		$s_vedio_h = $_POST['s_vedio_h'];
 		$s_vedio_w = $_POST['s_vedio_w'];
-		
-		$no_slicing = $_POST['no_slicing'];
 		
 		$date = $_POST['date'];
 	}
@@ -71,25 +69,16 @@
 	
 	//create a folder with unique name using unique id
 	$outputFolder = uniqid();
-	
-	mkdir("../../../../gallery/".$outputFolder,0777,true);
+	$outputFilename = $outputFolder ;
 	
 	//take the default path for input file
-	$inputFile = $_SERVER['DOCUMENT_ROOT']."uploads/tour/videos/".$filename;
-	
-	//store the gallery images in the newly created gallery folder
-	$outputPath = $_SERVER['DOCUMENT_ROOT']."gallery/".$outputFolder."/";
-	
-	$outputFilename = $outputFolder;
-	
-	//create the output folder for small pics
-	mkdir("../../../../gallery/".$outputFolder."/m",0777,true);
-	
-	//create the output folder for medium pics
-	mkdir("../../../../gallery/".$outputFolder."/s",0777,true);
-	
+	$inputVidForConversion = $_SERVER['DOCUMENT_ROOT']."uploads/tour/videos/".$filename;
+
+	//input file for the sample video images
+	$input_sample_video_image =  $_SERVER['DOCUMENT_ROOT']."uploads/tour/video_sample_image/".$sample_image."/" ;
+		
 	//get movie duration
-	$movieDuration = $mediaQuery->getVideoLength($inputFile);
+	$movieDuration = $mediaQuery->getVideoLength($inputVidForConversion);
 	
 	//create the output folder for videos
 	mkdir("../../../../videos/".$outputFolder,0777,true);
@@ -98,8 +87,16 @@
 	//create the output folder for videos small
 	mkdir("../../../../videos/".$outputFolder."/s",0777,true);
 	
+	//create the folders for sample video images
+	mkdir("../../../../videos_sample_image/".$outputFolder,0777,true);
+	//create the folders for sample video images medium
+	mkdir("../../../../videos_sample_image/".$outputFolder."/m",0777,true);
+	//create the folders for sample video images small
+	mkdir("../../../../videos_sample_image/".$outputFolder."/s",0777,true);
+	
 	//output path for video processing
 	$outputVideoPath = $_SERVER['DOCUMENT_ROOT']."videos/".$outputFolder."/";
+	$outputVideo_sample_image = $_SERVER['DOCUMENT_ROOT']."videos_sample_image/".$outputFolder."/";
 			
 	//required vid formats
 	$vidFormat_1 = "flv";
@@ -111,29 +108,8 @@
 	$resolutionMedium = $m_vedio_w."x".$m_vedio_h ;
 	$resolutionSmall = $s_vedio_w."x".$s_vedio_h ;
 	
-	$inputVidForConversion = $_SERVER['DOCUMENT_ROOT']."uploads/tour/videos/".$filename;
-	
 	//insert the values in the cron table for automated execution by crons job
-	$manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$inputFile,$no_snapshot,$outputPath,$outputFilename,$vedio_h,$vedio_w,$date,1);	
-	
-	//check if slicing is required or not
-	if(!empty($no_slicing) && isset($no_slicing) && $no_slicing != 0)
-	{
-		//create a directtory for the sliced videos
-		mkdir("../../../../sliced/".$outputFolder,0777,true);
-		//create a directtory for the sliced videos for medium and small resolution
-		mkdir("../../../../sliced/".$outputFolder."/m",0777,true);
-		mkdir("../../../../sliced/".$outputFolder."/s",0777,true);
-		
-		//path for the sliced videos
-		$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."sliced/".$outputFolder."/";
-		
-		//sliced video format
-		$sliced_format = "flv";
-		
-		//insert the values in the cron table for slicing
-		$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,1);
-	}
+	$result = $manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$input_sample_video_image,$outputVideo_sample_image,$date,1);	
 	
 	//return the name of the folder using get request
 	header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);

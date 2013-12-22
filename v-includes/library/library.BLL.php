@@ -769,7 +769,7 @@
 						}
 						//create the UI components
 						echo '<div class="span3 section_element_image">
-								<a href="showImage.php?type=low&gallery_id='.$gallery_id.'&model='.$model.'&filename='.$filename.'">
+								<a href="showImage.php?mode=galley&type=low&gallery_id='.$gallery_id.'&model='.$model.'&filename='.$filename.'">
 									<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="vdeo">
 								</a>
 							</div>' ;
@@ -780,6 +780,65 @@
 						
 						$start_point++ ;
 						$end_point++ ;
+					}
+				}
+			}
+		}
+		
+		/*
+		- method to get the full sapmle images of vids
+		- create the full UI
+		- Auth Singh
+		*/
+		function getSamplVideoImage($gallery_id)
+		{
+			//get the model name for the video
+			$model  = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$gallery_id) ;
+			$galleryPath = "videos_sample_image/".$gallery_id."/";
+			//image location will change according to the large,small and medium requests
+			$imageLocation = "videos_sample_image/".$gallery_id."/";
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			if( $filenames != "" )
+			{
+				echo '<div class="row-fluid">
+						<div id="searchBar" class="span12 pull-left">
+								<h4>Sample Video Images</h4>
+						</div>
+				   </div>';
+				foreach($filenames as $filename)
+				{
+					//to remove the zip files from the UI
+					$ext = pathinfo($galleryPath.$filename);
+					
+					if( $ext["extension"] != "zip")
+					{
+						if(!is_dir($galleryPath.$filename))
+						{
+							//maintain the row fluid with only four models in a row
+							if($start_point%4 == 0)
+							{
+								echo '<div class="row-fluid">';
+							}
+							//create the UI components
+							echo '<div class="span3 section_element_image">
+									<a href="showImage.php?mode=movie&type=low&gallery_id='.$gallery_id.'&model='.$model[0]["model"].'&filename='.$filename.'">
+										<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="vdeo">
+									</a>
+								</div>' ;
+							if($end_point%4 == 0)
+							{
+								echo '</div>';
+							}
+							
+							$start_point++ ;
+							$end_point++ ;
+						}
 					}
 				}
 			}
@@ -814,10 +873,10 @@
 		- second element contains total no. of elements of the array
 		- Auth Singh
 		*/
-		function getSliderImage($gallery_id)
+		function getSliderImage($gallery_id,$parent_folder)
 		{
 			//image location will change according to the large,small and medium requests
-			$galleryPath = "gallery/".$gallery_id."/s/";
+			$galleryPath = $parent_folder."/".$gallery_id."/s/";
 			
 			//get fileNames from the gallery folder
 			$filenames = scandir($galleryPath);

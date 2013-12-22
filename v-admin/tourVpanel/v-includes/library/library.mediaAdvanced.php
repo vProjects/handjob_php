@@ -127,5 +127,35 @@
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."s/",$outputFormat,$outputFilename,$resolution_s);
 			
 		}
+		
+		/*
+		- method to convert the images to get the output
+		- as processed sample images
+		- Auth Singh
+		*/
+		function convertImages($inputFilePath,$outputPath)
+		{
+			//grab the image file from the folder
+			$filenames = scandir($inputFilePath);
+			$filenames = array_slice($filenames,2);
+			//get the files and then resize and save it in the output folder
+			foreach($filenames as $filename)
+			{
+				//get the HW ratio of the image to maintain the aspect ratio
+				$HWRatio = $this->mediaQuery->getImageAspect($inputFilePath.$filename) ;
+				if( $HWRatio < 1 )
+				{
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,3000,3000*$HWRatio,$outputPath.$filename);
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,1600,1600*$HWRatio,$outputPath."m/".$filename);
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,1024,682*$HWRatio,$outputPath."s/".$filename);
+				}
+				else
+				{
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,2000,2000*$HWRatio,$outputPath.$filename);
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,1064,1064*$HWRatio,$outputPath."m/".$filename);
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,682,682*$HWRatio,$outputPath."s/".$filename);
+				}
+			}
+		}
 	}
 ?>

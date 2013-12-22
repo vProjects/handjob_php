@@ -36,8 +36,8 @@
 		//if the get varriable is set 
 		if(isset($movie_id) && !empty($movie_id))
 		{
-			//get the UI structure of model details
-			$manageData->getSlicedMovie($movie_id);
+			//get the UI structure of sample video image
+			$manageData->getSamplVideoImage($movie_id);
 		}
 	?>
     <!--get the sliced videos-->

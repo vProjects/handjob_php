@@ -83,33 +83,27 @@
 		*/
 		function updateMovies($galleryId)
 		{
-			$filenames = scandir("../../gallery/".$galleryId."/s");
+			$filenames = scandir("../../videos_sample_image/".$galleryId."/s");
 			$filenames = array_slice($filenames,2);
-			//create a form for selecting gallery thumb
-			echo '<form action="v-includes/functions/function.createThumbMovie.php" method="post">';
+			
 			foreach($filenames as $filename)
 			{
 				if(!empty($filename))
 				{
-					if(!is_dir("../../gallery/".$galleryId."/s/".$filename))
+					if(!is_dir("../../videos_sample_image/".$galleryId."/s/".$filename))
 					{
 						echo '<div class="span3 gallery_img">
 								<a href="cropMovieImage.php?folderName='.$galleryId.'&fileName='.$filename.'&save=false">
-									<img src="../../gallery/'.$galleryId.'/s/'.$filename.'" />
+									<img src="../../videos_sample_image/'.$galleryId.'/s/'.$filename.'" />
 								</a>
 								<label class="radio radio_v">
-									<input type="hidden" value="'.$galleryId.'" name="gallery_id"/>
-									<input type="radio" value="'.$filename.'" name="thumb_image"/>
-									Make this Gallery Thumbnail
-									<a href="v-includes/functions/function.deleteGalleryImage.php?galleryId='.$galleryId.'&fileName='.$filename.'"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
+									<a href="v-includes/functions/function.deleteSampleVidImage.php?galleryId='.$galleryId.'&fileName='.$filename.'"><span style="color:red;float:right;"><i class="icon-trash"></i>Delete</span></a>
 								</label>
 							</div>';
 						echo '';
 					}
 				}
 			}
-			echo '<input type="submit" value="Create Thumb" class="btn btn-large btn-warning btn_2"/>
-				</form>';
 		}
 		
 		/*
@@ -245,6 +239,24 @@
 		function getFolders()
 		{
 			$folderNames = scandir("../../uploads/tour/images/");
+			$folderNames = array_slice($folderNames,2);
+			foreach($folderNames as $folderName)
+			{
+				if(is_dir("../../uploads/tour/images/".$folderName))
+				{
+					echo '<option value="'.$folderName.'">'.$folderName.'</option>';
+				}
+			}
+		}
+		
+		/*
+		- get folders names from the uploads/images directory 
+		- for creating image gallery
+		- Auth Singh 
+		*/
+		function getFolders_VideoSampleImage()
+		{
+			$folderNames = scandir("../../uploads/tour/video_sample_image/");
 			$folderNames = array_slice($folderNames,2);
 			foreach($folderNames as $folderName)
 			{

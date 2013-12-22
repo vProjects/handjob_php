@@ -23,24 +23,6 @@
             </div>
         </div><!--2nd accordion menu starts here-->
         
-        
-        <!--4rth accordion menu starts here-->
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse4">
-                <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Blog
-                </a>
-            </div>
-            <div id="collapse4" class="accordion-body <?php if($accord_cat == "blog"){echo "in";}?> collapse">
-                <div class="accordion-inner">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a <?php if( $page_title == "Create Blog" ){ echo 'class="v_active"'; }?> href="createBlog.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Create Blog</a></li>
-                        <li><a <?php if( $page_title == "List Blog" ){ echo 'class="v_active"'; }?> href="listBlog.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Blog</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div><!--4rth accordion menu starts here-->
-        
         <!--6th accordion menu starts here-->
         <div class="accordion-group">
             <div class="accordion-heading">
