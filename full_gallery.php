@@ -14,6 +14,10 @@
 		$gallery_id = $GLOBALS["_GET"]["gallery_id"] ;
 		$model = $GLOBALS["_GET"]["model"] ;
 	}
+	
+	
+	//codes for setting the views
+	$manageData->manageViews("gallery",$gallery_id);
 ?>
 
 <!-- site description part starts here --->

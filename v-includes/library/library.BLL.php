@@ -911,5 +911,29 @@
 			
 			return $filename_array_return ;
 		}
+		
+		
+		/*
+		- update the views according to the hits
+		- Auth Singh
+		*/
+		function manageViews($pageName,$inputValue)
+		{
+			//views for models
+			if( $pageName == "model" )
+			{
+				$result = $this->manageContent->incrementByOne("model_info","views","id",$inputValue);
+			}
+			//views for model
+			if( $pageName == "gallery" )
+			{
+				$this->manageContent->incrementByOne("gallery_info_tour","view","gallery_id",$inputValue);
+			}
+			//views for model
+			if( $pageName == "movie" )
+			{
+				$this->manageContent->incrementByOne("movie_info_tour","views","gallery_id",$inputValue);
+			}
+		}
 	}
 ?>

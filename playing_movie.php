@@ -15,6 +15,9 @@
 		$movie_id = $GLOBALS["_GET"]["movie_id"];
 		$gallery_id = $GLOBALS["_GET"]["gallery_id"];
 	}
+	
+	//codes for setting the views
+	$manageData->manageViews("movie",$movie_id);
 ?>
 
 <!-- site description part starts here --->
