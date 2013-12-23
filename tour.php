@@ -124,7 +124,7 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
         </div>
         <?php
 			//get the models for home
-			$manageData->getModelsHome(0,12,$type_mo) ;
+			$manageData->getModelsHome(0,8,$type_mo) ;
 		?>
        <div class="row-fluid">
         	<div class="pagination pagination-small pageno_nav pull-right">
@@ -144,190 +144,32 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
     <div class="row-fluid photo_update">
     	<h3 class="site_heading"> Members Favorite</h3>
         <div class="row-fluid photo_update_outline">
-        	<div class="btn-group">
-            	<div class="btn btn-danger">Most Recent</div>
-                <div class="btn btn-danger">Top Rated</div>
-                <div class="btn btn-danger">A-Z</div>
-            </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
-        <!--- photo row1 starts here --->
-        <div class="row-fluid">
-        	<div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-            <div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-            <div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-         </div>
-        <!--- photo row1 ends here --->
+        <?php
+			//generate an alternate number for the members favorite
+			$alternate = rand(1,2) ;
+			if( $alternate%2 == 0 ) 
+			{
+				//get the random members favourite movie
+				$manageData->membersFavourite(0,9,'movie') ;			
+			}
+			else
+			{
+				//get the random members favourite photos
+				$manageData->membersFavourite(0,8,'photo') ;
+			}
+		?>
         
-         <!--- photo row2 starts here --->
-        <div class="row-fluid">
-        	<div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-            <div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-            <div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-         </div>
-        <!--- photo row2 ends here --->
-        
-         <!--- photo row3 starts here --->
-        <div class="row-fluid">
-        	<div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-            <div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-            <div class="span4 section_element">
-                <img class="lazy img_update" data-src="images/videos.jpg" src="" alt="vdeo">
-                <div class="photo_section_footer">
-                	<div class="row-fluid">
-                    	<div class="pull-left"><p class="photo_section_heading"><b>Lorem Ipsum</b></p></div>
-                    	<div class="pull-right"><p>Added: 2013-07-23</p></div>
-                    </div>
-                    <p>Rating:
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    <img class="lazy" data-src="images/star-on.png" src="" alt="star"></p>
-                    <p>Movie- 0min 0sec</p>
-                    <p>Views: 100</p>
-                </div>
-            </div>
-         </div>
         <!--- photo row3 ends here --->
         <div class="row-fluid">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                	<li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>

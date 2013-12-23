@@ -61,6 +61,13 @@
 							?>
                         </select>
                     </div>
+                    <div class="form-control v-form">
+                        <label class="control-label">Status</label>
+                        <select class="selectbox1" name="status">
+                            <option value="1">Online</option>
+                            <option value="0">Offline</option>
+                        </select>
+                    </div>
                     <div class="function_result"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></div>
                 	<input type="submit" value="Create Gallery" class="btn btn-large btn-warning btn_l" />
                 </form>

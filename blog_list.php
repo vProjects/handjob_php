@@ -5,40 +5,36 @@
 	
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
+	//include the config file for the pagination
+	include('v-includes/config_pagination.php') ;
+	
+	//variable for the type of search
+	$type = "" ;
+	$keyword = "" ;;
 ?>
 
 <!-- site description part starts here --->
 <div class="container">
 	<div class="row-fluid model_detail_heading">
-    	<div class="pagination pagination-small pageno_nav pull-right">
-        	 <ul>
-                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
-                <li><a class="btn-danger" href="#">1</a></li>
-                <li><a class="btn-danger" href="#">2</a></li>
-                <li><a class="btn-danger" href="#">3</a></li>
-                <li><a class="btn-danger" href="#">4</a></li>
-                <li><a class="btn-danger" href="#">5</a></li>
-                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
-            </ul>
-        </div>
+    	<?php
+			//get the pagination for the page
+			$manageData->pagination($startPoint,"blog_list.php",10,"article_info","recent","",$limit);
+		?>
     </div>
     
 	<?php
 		//get the articles
-		$manageData->getArticles(0,10);
+		$manageData->getArticles($startPoint,$limit);
 	?>
     
     <div class="row-fluid">
-        <div class="pagination pagination-small pageno_nav pull-right">
-            <ul>
-                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">&lt; Previous</a></li>
-                <li><a class="btn-danger" href="#">1</a></li>
-                <li><a class="btn-danger" href="#">2</a></li>
-                <li><a class="btn-danger" href="#">3</a></li>
-                <li><a class="btn-danger" href="#">4</a></li>
-                <li><a class="btn-danger" href="#">5</a></li>
-                <li class="pageno_nav_viewall"><a class="btn-danger" href="#">Next &gt;</a></li>
-            </ul>
+        <div class="row-fluid">
+        	<div class="span12">
+            	<?php
+					//get the pagination for the page
+					$manageData->pagination($startPoint,"blog_list.php",10,"article_info","recent","",$limit);
+				?>
+            </div>
         </div>
     </div>
     <div class="row-fluid end_caption">

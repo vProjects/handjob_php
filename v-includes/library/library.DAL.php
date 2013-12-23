@@ -123,6 +123,27 @@
 			}
 		}
 		
+		
+		/*
+		- function to get the value sorted
+		- and till present date
+		- auth Singh
+		*/
+		function getValue_limit_sorted_random($table_name,$value,$startPoint,$limit)
+		{
+			$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY RAND() ASC LIMIT $startPoint,$limit ");
+			
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
 		/*
 		- search by single keyword
 		- Auth Singh
@@ -171,6 +192,36 @@
 			$count = $query->rowCount();
 			return $count;
 		}
+		
+		/*
+		- function to get the row count of a table
+		- auth Singh
+		*/
+		function getTotalRows($table_name,$searchKeyword)
+		{
+			if( $table_name == "article_info")
+			{
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`end_date` <= CURDATE())");
+			}
+			elseif( $table_name == "model_info")
+			{
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`date` <= CURDATE()) AND (`name` LIKE '%$searchKeyword%')");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`date` <= CURDATE())");
+			}
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
 	}
 
 ?>

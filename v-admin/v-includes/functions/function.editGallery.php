@@ -21,7 +21,7 @@
 		$type = $_POST['type'];
 		
 		$date = $_POST['date'];
-		
+		$status = $_POST['status'];
 		$description = $_POST['description'];
 	}
 	//varriable which will contain the category in string format
@@ -95,6 +95,24 @@
 	if( isset($category_string) && !empty($category_string))
 	{
 		$result = $manageData->updateValueWhere($table_name,"category",$category_string,"id",$gallery_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	//update status
+	if( isset($status) && !empty($status))
+	{
+		if( $status == "offline")
+		{
+			$status = 0 ;
+		}
+		else
+		{
+			$status = 1 ;
+		}
+		$result = $manageData->updateValueWhere($table_name,"status",$status,"id",$gallery_id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;

@@ -84,6 +84,13 @@
 								$manageData->getCategoryListSelectBox("model_category");
 							?>
                     </select>
+                </div>                    
+                <div class="form-control v-form">
+                    <label class="control-label">Status</label>
+                    <select class="selectbox1" name="status">
+                        <option <?php if($gallery_details[0]['status'] == 1){ echo 'selected="selected"';} ?> value="online">Online</option>
+                        <option <?php if($gallery_details[0]['status'] == 0){ echo 'selected="selected"';} ?> value="offline">Offline</option>
+                    </select>
                 </div>
                     <div class="function_result"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></div>
                     <input type="hidden" name="type" value="gallery" />

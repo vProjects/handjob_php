@@ -13,8 +13,9 @@
 	//check and update $limit
 	if( isset($limit) && !empty($limit) )
 	{
-		$result = $manageData->updateValueWhere("pagination_info","limit",$limit,"id",1);
-		
+		$result = $manageData->updateValueWhere("pagination_info_tour","limit",$limit,"page","other");
+		$limit = ($limit/4)*3 ;
+		$result = $manageData->updateValueWhere("pagination_info_tour","limit",$limit,"page","movie");
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;

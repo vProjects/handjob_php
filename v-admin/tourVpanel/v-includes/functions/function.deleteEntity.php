@@ -19,7 +19,7 @@
 	//delete the gallery
 	if( $type == "gallery" )
 	{
-		$table_name = "gallery_info" ;
+		$table_name = "gallery_info_tour" ;
 		
 		//delete the gallery files
 		$gallery_id = $manageData->getValueWhere($table_name,"gallery_id","id",$delete_id);
@@ -34,7 +34,7 @@
 	//delete the movies
 	if( $type == "movie" )
 	{
-		$table_name = "movie_info" ;
+		$table_name = "movie_info_tour" ;
 		
 		//delete the gallery files
 		$gallery_id = $manageData->getValueWhere($table_name,"gallery_id","id",$delete_id);
@@ -50,7 +50,7 @@
 	
 	if( $type == "sliced" )
 	{
-		echo $table_name = "sliced_vids" ;		
+		echo $table_name = "sliced_vids_tour" ;		
 		
 		//delete the entry from the database
 		$manageData->deleteValue($table_name,"id",$delete_id);
