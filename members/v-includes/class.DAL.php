@@ -246,5 +246,28 @@
 			return $count;
 		}
 		
+		/*
+		- method for inserting the rating
+		- auth Singh
+		*/
+		function insertRating($table_name,$member,$rating)
+		{
+			$query = $this->link->prepare("INSERT INTO `$table_name`( `unit_id`, `member_id`) VALUES (?,?)");
+			$values = array($rating,$member);
+			$query->execute($values);
+		}
+		
+		
+		/*
+		- method for updating the values using where clause
+		- auth Singh
+		*/
+		function updateValueWhere($table_name,$update_column,$update_value,$column_name,$column_value)
+		{
+			$query = $this->link->prepare("UPDATE `$table_name` SET `$update_column`= '$update_value' WHERE `$column_name` = '$column_value'");
+			$query->execute();
+			$count = $query->rowCount();
+			return $count;
+		}
 	}
 ?>

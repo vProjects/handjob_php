@@ -80,7 +80,15 @@
                   <button type="submit" class="btn btn-danger">Search</button>
                   <!-- Button to trigger modal -->
                   <a href="advance_search.php" class="popup_link">Advanced Search</a>
-                </form>
+                  <div class="row-fluid">
+                	<div class="span6 username">
+                    	<?php 
+							//get the username from the login session variable
+							echo 'Hello! <a href="#">'.$_SESSION["user"].'</a>' ;
+						?>
+                    </div>
+                  </div>
+                </form> 
             </div>  <!-- will contain the search bar -->	
         </div>
                     

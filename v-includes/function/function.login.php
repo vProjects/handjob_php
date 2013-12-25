@@ -22,6 +22,8 @@
 		{
 			//set the loged in credentials
 			$_SESSION["login_flag"] = "v_pass_@1234_members" ;
+			//set the username in the session variable
+			$_SESSION["user"] = $username ;
 			//send the user to admin.php
 			header('Location: ../../members/index.php');
 		}

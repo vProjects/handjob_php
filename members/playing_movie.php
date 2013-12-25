@@ -8,6 +8,7 @@
 	
 	//get the value of id from the query string
 	$movie_id = $GLOBALS["_GET"]["movieId"];
+	$gallery_id = $GLOBALS["_GET"]["gallery_id"];
 	
 	//codes for setting the views
 	$manageData->manageViews("movie",$movie_id);
@@ -52,30 +53,21 @@
 				$manageData->getSlicedMovie($movie_id);
 			}
 		?>
- 
-		<div class="row-fluid">
-            <div class="span12 blank">
-				<div class="pagination pagination-small center">
-				  <ul>
-					<li><a href="#">Prev</a></li>
-					<li><a class="btn-danger" href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">5</a></li>
-					<li><a href="#">6</a></li>
-					<li><a href="#">7</a></li>
-					<li><a href="#">8</a></li>
-					<li><a href="#">9</a></li>
-					<li><a href="#">Next</a></li>
-				  </ul>
-				</div>
-            </div>
-        </div>
- 	
    	</div>
     <!-- body container ends here -->
-   
+   <div class="row-fluid">
+        <div class="span12">
+            <div class="offset3 span6">
+                Rate Me:
+                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/js_function_v.js" type="text/javascript"></script>
      
 <?php
 	//include footer
