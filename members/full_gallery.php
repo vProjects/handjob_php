@@ -48,16 +48,16 @@
    	</div>
     <!-- body container ends here -->
     <div class="row-fluid">
-        <div class="span12">
-            <div class="offset3 span6">
-                Rate Me:
-                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-                <img class="lazy" data-src="images/star-on.png" src="" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-            </div>
-        </div>
+	        <div class="span12">
+	            <div class="offset3 span6 rating">
+	                Rate Me:
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	            </div>
+	        </div>
     </div>
     
     
