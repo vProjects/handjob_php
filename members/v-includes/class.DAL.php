@@ -269,5 +269,33 @@
 			$count = $query->rowCount();
 			return $count;
 		}
+		
+		/*
+		- method to enter the comments in the database
+		- @table name is also variable so can be used for all comments
+		- Auth Singh
+		*/
+		function insertComment($tableName,$id,$member,$comment,$like,$dislike)
+		{		
+			$query = $this->link->prepare("INSERT INTO `$tableName` ( `unit_id`, `member`, `comment`, `comment_like`, `comment_dislike`) VALUES (?,?,?,?,?)");
+			$values = array($id,$member,$comment,$like,$dislike);
+			$query->execute($values);
+			$count = $query->rowCount();
+			return $count;
+		}
+		
+		/*
+		- method to enter the like and dislike in the database
+		- @table name is also variable so can be used for all comments
+		- Auth Singh
+		*/
+		function insertLikes($tableName,$id,$member,$like_dislike)
+		{		
+			$query = $this->link->prepare("INSERT INTO `$tableName` (`unit_id`, `member_id`, `type`) VALUES (?,?,?)");
+			$values = array($id,$member,$like_dislike);
+			$query->execute($values);
+			$count = $query->rowCount();
+			return $count;
+		}
 	}
 ?>

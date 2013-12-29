@@ -109,6 +109,8 @@
         <!-- rightcontainer ends here---->
     </div>
     
+    <script src="assets/js/js_function_v.js" type="text/javascript"></script>
+    
 <?php
 	//include footer
 	include ('v-templates/footer.php');

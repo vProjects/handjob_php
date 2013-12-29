@@ -51,57 +51,57 @@
 	        <div class="span12">
 	            <div class="offset3 span6 rating">
 	                Rate Me:
-	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
-	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
 	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
 	            </div>
 	        </div>
     </div>
     
     
     <div class="row-fluid comment_box">
-    	<div class="alert">
-		  <button type="button" class="close" data-dismiss="alert">&times;</button>
-		  <strong>Success !!</strong> You have successfully submitted the commemnt
-		</div>
-    	<div class="row-fluid comments">	
-	    	<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
-	    	<div class="span10">
-	    		<p>This is going to be a comment and this will be very good since it takes a very less time to comment on this system This is going to be a comment and this will be very good since it takes a very less time to comment on this system</p>
-	    		<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">2</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">10</span> </p>
-	    	</div>
-    	</div>
-    	<div class="row-fluid comments">	
-	    	<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
-	    	<div class="span10">
-	    		<p>This is going to be a comment and this will be very good since it takes a very less time to comment on this system This is going to be a comment and this will be very good since it takes a very less time to comment on this system</p>
-	    		<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">2</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">10</span> </p>
-	    	</div>
-    	</div>
-    	<div class="row-fluid comments">	
-	    	<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
-	    	<div class="span10">
-	    		<p>This is going to be a comment and this will be very good since it takes a very less time to comment on this system This is going to be a comment and this will be very good since it takes a very less time to comment on this system</p>
-	    		<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">2</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">10</span> </p>
-	    	</div>
-    	</div>
+    	
+		<?php 
+			//print the status of the comment submission
+			if( isset($_SESSION['result']) && !empty($_SESSION['result']))
+			{
+				echo '<div class="alert">
+						<button type="button" class="close" data-dismiss="alert">&times;</button>' ;
+				echo $_SESSION['result'] ;
+				unset($_SESSION['result']) ;
+				echo '</div>' ;
+			}
+			
+			//get the comments for the post
+			$manageData->getComments("gallery",$gallery_id,0) ;
+        ?>
+        <div class="row-fluid">
+            <div class="span12">
+                <h4>Comment Here:</h4>
+            </div>
+        </div> 
     	<div class="row-fluid">	
 	    	<div class="span12">
-	    		<form class="form-horizontal">
+	    		<form class="form-horizontal" action="functions/function.comment.php" method="post">
 		    		<div class="control-group">
 		    			<div class="controls">
-			    			<textarea rows="4" style="width: 50%"></textarea>
+			    			<textarea rows="4" style="width: 50%" name="comment"></textarea>
 			    		</div>
 			    		<div class="controls">
-			    			<input type="button" class="btn" value="Submit">
+                        	<input type="hidden" value="<?php echo $gallery_id ; ?>" name="id" />
+                            <input type="hidden" value="gallery" name="type" />
+                            <input type="hidden" value="<?php echo $_SESSION['user'] ;?>" name="member" />
+			    			<input type="submit" class="btn" value="Submit">
 			    		</div>			    		
 		    		</div>
 	    		</form>
 	    	</div>
     	</div>
     </div>
+    
+    
     <script src="assets/js/js_function_v.js" type="text/javascript"></script>
     
     

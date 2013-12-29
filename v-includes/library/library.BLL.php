@@ -32,9 +32,22 @@
 							<p class="tour_blog_author_name"> '.$article["article_author"].'</p>
 							<p>'.$article["article_description"].'</p>
 							<p>Added- '.$article["article_date"].'</p>
-							<p>2 Comments</p>
-						</div>
-					</div>' ;
+							<p> Rating : ' ;
+				//get the ratings for the blog
+				if( $article['rating'] == 0 )
+				{
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				}		
+				for($i = 0 ; $i < $article['rating'] ; $i++)
+				{
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				}			
+				echo		'<p> Comments</p>';
+				
+				//get the comments for the blog
+				$this->getComments("article",$article["id"],0) ;
+					
+				echo '</div></div>' ;
 			}
 		}
 		
@@ -1162,6 +1175,67 @@
 					}
 				}
 		
+			}
+		}
+		
+		
+		/*
+		- get the comments for the respective entity
+		- create the comment UI
+		- Auth Singh
+		*/
+		function getComments($type,$id,$isSliced)
+		{
+			//initialize table name variable
+			$table_name = "" ;
+			
+			//check for the type for setting the table for the comments
+			if( $type == "gallery" )
+			{
+				//table name for the gallery comment
+				$table_name = "gallery_comment" ;
+			}
+			if( $type == "movie" )
+			{
+				//table name for the movie comment
+				$table_name = "movie_comment" ;
+			}
+			if( $type == "model" )
+			{
+				//table name for the model comment
+				$table_name = "model_comment" ;
+			}
+			
+			//for the special case of gallery 
+			if( $isSliced != 0 )
+			{
+				//because is sliced contains the sliced movie id
+				$id = $isSliced ;
+			}
+			//get the comments for the articles
+			if( $type == "article" )
+			{
+				//table name for the article comment
+				$table_name = "article_comment" ;
+			}
+			
+			//get the data from the database
+			$comments = $this->manageContent->getValueWhere($table_name,"*","unit_id",$id) ;
+			
+			foreach( $comments as $comment )
+			{
+				echo '<div class="row-fluid">
+						<div class="span12">
+							<h4>'.$comment["member"].'</h4>
+						</div>
+					</div>
+					<div class="row-fluid comments">
+						<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
+						<div class="span10">
+							<p>'.$comment["comment"].'</p>
+							<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>
+						</div>
+					</div>' ;
 			}
 		}
 	}

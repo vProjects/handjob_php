@@ -1,4 +1,5 @@
 <?php
+	session_start() ;
 	//include the DAL library to use the model layer methods
 	include('class.DAL.php');
 	
@@ -399,13 +400,77 @@
 			{
 				echo '<div class="row-fluid blog_container">
 						<div class="span12">
-							<h4><a href="#" class="blog_heading">'.$article["article_title"].'</a></h4>
+							<h4>'.$article["article_title"].'</h4>
 							<p class="blog_author_name"> '.$article["article_author"].'</p>
 							<p>'.$article["article_description"].'</p>
 							<p> Added :'.$article["article_date"].'</p>
-							<p> 2 Comments</p>
+							<p> Rating : ' ;
+							//get the ratings for the blog
+							if( $article['rating'] == 0 )
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}		
+							for($i = 0 ; $i < $article['rating'] ; $i++)
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}			
+				echo		'<p> Comments</p>
+						</div>';
+					
+				//get the comments for the blog
+				$this->getComments("article",$article["id"],0) ;
+				
+				//comment box
+				echo '<div class="row-fluid">	
+						<div class="span12">
+							<form class="form-horizontal" action="functions/function.comment.php" method="post">
+								<div class="control-group">
+									<div class="controls">
+										<textarea rows="4" style="width: 50%" name="comment"></textarea>
+									</div>
+									<div class="controls">
+										<input type="hidden" value="'.$article["id"].'" name="id" />
+										<input type="hidden" value="article" name="type" />
+										<input type="hidden" value="';
+				echo $_SESSION['user'].'" name="member" />
+										<input type="submit" class="btn" value="Submit">
+									</div>			    		
+								</div>
+							</form>
 						</div>
-					</div>';
+					</div>' ;
+					
+				//get the rating box for the article
+				echo '<div class="row-fluid">
+						<div class="span12">
+							<div class="offset2 span7 rating">
+								Rate Me:' ;
+				//get the stars for the rating box
+				//1
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//2
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//3
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//4
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//5
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				
+				echo '</div>
+					</div>
+				</div>' ;	
+				echo '</div>' ;
 			}
 		}
 		
@@ -1134,6 +1199,75 @@
 			}
 			
 			echo '">High</button></a>' ;
+		}
+		
+		/*
+		- get the comments for the respective entity
+		- create the comment UI
+		- Auth Singh
+		*/
+		function getComments($type,$id,$isSliced)
+		{
+			//initialize table name variable
+			$table_name = "" ;
+			
+			//check for the type for setting the table for the comments
+			if( $type == "gallery" )
+			{
+				//table name for the gallery comment
+				$table_name = "gallery_comment" ;
+			}
+			if( $type == "movie" )
+			{
+				//table name for the movie comment
+				$table_name = "movie_comment" ;
+			}
+			if( $type == "model" )
+			{
+				//table name for the model comment
+				$table_name = "model_comment" ;
+			}
+			
+			//for the special case of gallery 
+			if( $isSliced != 0 )
+			{
+				//because is sliced contains the sliced movie id
+				$id = $isSliced ;
+			}
+			//get the comments for the articles
+			if( $type == "article" )
+			{
+				//table name for the article comment
+				$table_name = "article_comment" ;
+			}
+			
+			//get the data from the database
+			$comments = $this->manageContent->getValueWhere($table_name,"*","unit_id",$id) ;
+			
+			foreach( $comments as $comment )
+			{
+				echo '<div class="row-fluid">
+						<div class="span12">
+							<h4>'.$comment["member"].'</h4>
+						</div>
+					</div>
+					<div class="row-fluid comments">
+						<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
+						<div class="span10">
+							<p>'.$comment["comment"].'</p>
+							<p><i class="icon-glass"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>
+						</div>
+					</div>' ;
+			}
+		}
+		
+		/*
+		- method for getting the complete blog
+		- create the full blog UI
+		- Auth Singh
+		*/
+		function full_blog()
+		{
 		}
 	}
 ?>
