@@ -450,12 +450,16 @@
 			foreach($gallerys as $gallery)
 			{
 				if($gallery["status"] == 1)
-					{
+				{
+					//get the total number of images
+					$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+					
 					//maintain the row fluid with only four models in a row
 					if($start_point%4 == 0)
 					{
 						echo '<div class="row-fluid">';
 					}
+					
 					//for models whose status is online
 					echo '<div class="span3 section_element">
 						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
@@ -477,6 +481,7 @@
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					echo '</p><p>Views:'.$gallery["view"].'</p>
+						  <p>Photos :'.$total_no_images.'</p>
 							</div>
 						</div>' ;
 					if($end_point%4 == 0)
@@ -1136,7 +1141,10 @@
 				foreach($gallerys as $gallery)
 				{
 					if($gallery["status"] == 1)
-						{
+					{
+						//get the total no of images
+						$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+						
 						//maintain the row fluid with only four models in a row
 						if($start_point%4 == 0)
 						{
@@ -1163,6 +1171,7 @@
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
 						echo '</p><p>Views:'.$gallery["view"].'</p>
+							  <p>Photos :'.$total_no_images.'</p>
 								</div>
 							</div>' ;
 						if($end_point%4 == 0)
@@ -1237,6 +1246,40 @@
 						</div>
 					</div>' ;
 			}
+		}
+		
+		
+		/*
+		- method for getting the no of images
+		- retutn the integer value of no. of images
+		- Auth Singh
+		*/
+		function total_no_images($gallery_id)
+		{
+			$galleryPath = "gallery/".$gallery_id."/";
+			
+			//variable to calculate the total no of images
+			$total_images = 0 ;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						//increase the value by one
+						$total_images++ ;
+					}
+				}
+			}
+			
+			return $total_images ;				
 		}
 	}
 ?>

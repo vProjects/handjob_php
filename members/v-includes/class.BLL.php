@@ -1,5 +1,4 @@
 <?php
-	session_start() ;
 	//include the DAL library to use the model layer methods
 	include('class.DAL.php');
 	
@@ -185,6 +184,9 @@
 			$end_point = 1;
 			foreach($gallerys as $gallery)
 			{
+				//get the total no of images for each gallery
+				$total_no_images = $this->total_no_images($gallery['gallery_id']) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%4 == 0)
 				{
@@ -197,7 +199,7 @@
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$gallery["date"].'<br />Views: '.$gallery["view"].'</p>';
+							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
@@ -246,6 +248,9 @@
 			$end_point = 1;
 			foreach($gallerys as $gallery)
 			{
+				//get the total no of images
+				$total_images = $this->total_no_images($gallery['gallery_id']) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%3 == 0)
 				{
@@ -258,7 +263,7 @@
 					echo '<div class="span4 element">
 							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$gallery["date"].'<br />Views: '.$gallery["view"].'</p>';
+							<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
@@ -503,6 +508,9 @@
 			$end_point = 1;
 			foreach($movies as $movie)
 			{
+				//get the videos durtion
+				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%4 == 0)
 				{
@@ -515,7 +523,7 @@
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
+							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
@@ -563,6 +571,9 @@
 			$end_point = 1;
 			foreach($movies as $movie)
 			{
+				//get the videos durtion
+				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%3 == 0)
 				{
@@ -575,7 +586,7 @@
 					echo '<div class="span4 element">
 							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
+							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
@@ -620,6 +631,12 @@
 			   
 			foreach($slicedMovies as $slicedMovie)
 			{
+				//get the format from the respective movie table
+				$format = $this->manageContent->getValueWhere("movie_info","vid_format_1","gallery_id",$slicedMovie['movie_id']);
+				
+				//get the videos durtion
+				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/sliced/".$slicedMovie['movie_id']."/".$slicedMovie['gallery_id'].".".$format[0]["vid_format_1"]) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%4 == 0)
 				{
@@ -632,7 +649,7 @@
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$slicedMovie["date"].'<br />Views: '.$slicedMovie["view"].'</p>';
+							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
@@ -1262,12 +1279,50 @@
 		}
 		
 		/*
-		- method for getting the complete blog
-		- create the full blog UI
+		- method for getting the no of images
+		- retutn the integer value of no. of images
 		- Auth Singh
 		*/
-		function full_blog()
+		function total_no_images($gallery_id)
 		{
+			$galleryPath = "gallery/".$gallery_id."/";
+			
+			//variable to calculate the total no of images
+			$total_images = 0 ;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						//increase the value by one
+						$total_images++ ;
+					}
+				}
+			}
+			
+			return $total_images ;				
+		}
+		
+		
+		/*
+		- method to take the video and return video duration
+		- @param absolute path of input video
+		- Auth Singh
+		*/
+		function getVideoLength($inputVideo)
+		{
+			$movie = new ffmpeg_movie($inputVideo,0) ;
+			$movieDuration = $movie->getDuration() ;
+			$movieDuration = date('H:i:s', mktime(0, 0,$movieDuration));
+			return $movieDuration ;
 		}
 	}
 ?>
