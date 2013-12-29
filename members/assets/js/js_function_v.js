@@ -65,7 +65,7 @@ function status(varible_l_d,id_input,username,type)
 			},function(data){
 				result = data ;
 				alert(data) ;
-				allow = 0 ;
+				allow = 0 ; 
 			});
 		}
 	}

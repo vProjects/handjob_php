@@ -50,7 +50,7 @@
 					$manageData->insertLikes("like_comment_model",$id,$user,"dislike") ;
 					//increase the dislike counter by one
 					$manageData->incrementByOne("model_comment","comment_dislike","id",$id) ;
-					echo "Thankyou ".$user." for disliking the comment." ;
+					echo "Thankyou ".$user." for expressing your view on the comment." ;
 				}
 			}
 			else
@@ -90,7 +90,7 @@
 					$manageData->insertLikes("like_gallery_comment",$id,$user,"like") ;
 					//increase the like counter by one
 					$manageData->incrementByOne("gallery_comment","comment_like","id",$id) ;
-					echo "Thankyou ".$user." for liking the comment." ;
+					echo "Thankyou ".$user." for expressing your view on the comment." ;
 				}
 				else
 				{
@@ -138,7 +138,7 @@
 					$manageData->insertLikes("like_movie_comment",$id,$user,"like") ;
 					//increase the like counter by one
 					$manageData->incrementByOne("movie_comment","comment_like","id",$id) ;
-					echo "Thankyou ".$user." for liking the comment." ;
+					echo "Thankyou ".$user." for expressing your view on the comment." ;
 				}
 				else
 				{
@@ -195,7 +195,7 @@
 					$manageData->insertLikes("like_article_comment",$id,$user,"dislike") ;
 					//increase the dislike counter by one
 					$manageData->incrementByOne("article_comment","comment_dislike","id",$id) ;
-					echo "Thankyou ".$user." for disliking the comment." ;
+					echo "Thankyou ".$user." for expressing your view on the comment." ;
 				}
 			}
 			else
