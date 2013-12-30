@@ -187,6 +187,13 @@
 				//get the total no of images for each gallery
 				$total_no_images = $this->total_no_images($gallery['gallery_id']) ;
 				
+				//get the model for particular gallery
+				$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery['gallery_id']) ;
+				$model_name = $model_name[0]["model"] ;
+				
+				//get the single model name
+				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+
 				//maintain the row fluid with only four models in a row
 				if($start_point%4 == 0)
 				{
@@ -197,7 +204,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
+							<h4 class="red_text"><a href="full_gallery.php?index=10&model='.$model_name.'&galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -293,52 +300,59 @@
 		function getModelDetails($model_id)
 		{
 			$modelDetails = $this->manageContent->getValueWhere("model_info","*","id",$model_id);
-			//these codes creates the UI output
-			echo '<div class="row-fluid">
-					<h3 class="site_heading red_text">'.$modelDetails[0]["name"].'</h3>
-				  </div>
-				  <div class="row-fluid model_detail">
-					<div class="span3">
-						<img src="images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+			if( $modelDetails == 0 )
+			{
+				$modelDetails = $this->manageContent->getValueWhere("model_info","*","name",$model_id);
+			}
+			if( $modelDetails != 0 )
+			{
+				//these codes creates the UI output
+				echo '<div class="row-fluid">
+						<h3 class="site_heading red_text">'.$modelDetails[0]["name"].'</h3>
+					  </div>
+					  <div class="row-fluid model_detail">
+						<div class="span3">
+							<img src="images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+						</div>
+						<div class="span8">
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Age:</div>
+								<div class="span8 model_info_description">'.$modelDetails[0]["age"].'</div>
+							</div>
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Height:</div>
+								<div class="span8 model_info_description">'.$modelDetails[0]["height"].'</div>
+							</div>
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Weight:</div>
+								<div class="span8 model_info_description">'.$modelDetails[0]["weight"].'</div>
+							</div>
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Measurement:</div>
+								<div class="span8 model_info_description">24/36/24</div>
+							</div>
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Category:</div>
+								<div class="span8 model_info_description">'.$modelDetails[0]["category"].'</div>
+							</div>
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Description:</div>
+								<div class="span8 model_info_description">'.$modelDetails[0]["description"].'</div>
+							</div>
+							<div class="row-fluid model_detail_part">
+								<div class="span3 model_info_topic">Rating:</div>
+								<div class="span8 model_info_description">';
+								
+					for($i = 0 ;$i < $modelDetails[0]["rating"] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
+								
+					echo	'</div>
+						</div>
 					</div>
-					<div class="span8">
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Age:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["age"].'</div>
-						</div>
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Height:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["height"].'</div>
-						</div>
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Weight:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["weight"].'</div>
-						</div>
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Measurement:</div>
-							<div class="span8 model_info_description">24/36/24</div>
-						</div>
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Category:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["category"].'</div>
-						</div>
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Description:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["description"].'</div>
-						</div>
-						<div class="row-fluid model_detail_part">
-							<div class="span3 model_info_topic">Rating:</div>
-							<div class="span8 model_info_description">';
-							
-				for($i = 0 ;$i < $modelDetails[0]["rating"] ; $i++)
-				{
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-				}
-							
-				echo	'</div>
-					</div>
-				</div>
-			</div>';
+				</div>';
+			}
 		}
 		
 		/*
@@ -350,6 +364,10 @@
 			$galleryPath = "gallery/".$gallery_id."/";
 			//image location will change according to the large,small and medium requests
 			$imageLocation = "gallery/".$gallery_id."/";
+			
+			//get the gallery details from the database
+			$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery_id) ;
+			
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -373,7 +391,7 @@
 						}
 						//create the UI components
 						echo '<div class="span3 element">
-								<a href="showImage.php?galleryId='.$gallery_id.'">
+								<a href="showImage.php?mode=gallery&type=low&model='.$model_name[0]["model"].'&galleryId='.$gallery_id.'&filename='.$filename.'">
 									<img class="lazy" data-src="'.$galleryPath."s/".$filename.'" src=""></a>
 								</a>';
 						echo '</div>';
@@ -787,6 +805,9 @@
 					</div>';
 				foreach($ModelMovies as $movie)
 				{
+					//get the videos durtion
+					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie["vid_format_1"]) ;
+					
 					//maintain the row fluid with only four models in a row
 					if($start_point%4 == 0)
 					{
@@ -799,7 +820,7 @@
 						echo '<div class="span3 element">
 								<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
 								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-								<p>Added :'.$movie["date"].'<br />Views: '.$movie["views"].'</p>';
+								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
 						{
@@ -842,6 +863,9 @@
 					</div>';
 				foreach($modelGallerys as $gallery)
 				{
+					//get the total no of images
+					$total_images = $this->total_no_images($gallery['gallery_id']) ;
+				
 					//maintain the row fluid with only four models in a row
 					if($start_point%4 == 0)
 					{
@@ -854,7 +878,7 @@
 						echo '<div class="span3 element">
 								<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'">'.$gallery["gallery_name"].'</h4>
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-								<p>Added :'.$gallery["date"].'<br />Views: '.$gallery["view"].'</p>';
+								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
@@ -1323,6 +1347,53 @@
 			$movieDuration = $movie->getDuration() ;
 			$movieDuration = date('H:i:s', mktime(0, 0,$movieDuration));
 			return $movieDuration ;
+		}
+		
+		
+		/*
+		- get the files for the image slider
+		- @param gallery_id
+		- retuns an array in which first elements contains a json object of filename
+		- second element contains total no. of elements of the array
+		- Auth Singh
+		*/
+		function getSliderImage($gallery_id,$parent_folder)
+		{
+			//image location will change according to the large,small and medium requests
+			$galleryPath = "gallery/".$gallery_id."/s/";
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			
+			//index of array starts from 0
+			$index_no = 0 ;
+			$filename_array = "" ;
+			
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						//create the array elements
+						$filename_array[$index_no] = $filename ;
+						//increase the index no
+						$index_no++ ;
+					}
+				}
+			}
+			
+			//convert the filename array into an json object
+			$filename_array = json_encode($filename_array) ;
+			
+			$filename_array_return[0] = $filename_array ;
+			$filename_array_return[1] = $index_no ;
+			
+			return $filename_array_return ;
 		}
 	}
 ?>

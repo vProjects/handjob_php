@@ -314,7 +314,10 @@
 			{
 				//for models whose status is online
 				if($movie["status"] == 1)
-					{
+				{
+					//get the videos durtion
+					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+				
 					//maintain the row fluid with only four models in a row
 					if($start_point%3 == 0)
 					{
@@ -338,7 +341,7 @@
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
-					echo	'</p><p>Movie- 0min 0sec</p>
+					echo	'</p><p>Movie- '.$videoDuration.'</p>
 								<p>Views: '.$movie["views"].'</p>
 							</div>
 						</div>' ;
@@ -652,6 +655,9 @@
 					//for models whose status is online
 					if($movie["status"] == 1)
 					{
+						//get the videos durtion
+						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+						
 						//maintain the row fluid with only four models in a row
 						if($start_point%3 == 0)
 						{
@@ -674,7 +680,7 @@
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						echo	'</p><p>Movie- 0min 0sec</p>
+						echo	'</p><p>Movie- '.$videoDuration.'</p>
 									<p>Views: '.$movie["views"].'</p>
 								</div>
 							</div>' ;
@@ -715,6 +721,9 @@
 				{
 					if($gallery["status"] == 1)
 					{
+						//get the total no of images
+						$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+						
 						//maintain the row fluid with only four models in a row
 						if($start_point%4 == 0)
 						{
@@ -740,6 +749,7 @@
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
 						echo '</p><p>Views:'.$gallery["view"].'</p>
+								<p>Photos:'.$total_no_images.'</p>
 								</div>
 							</div>' ;
 						if($end_point%4 == 0)
@@ -1090,7 +1100,10 @@
 				{
 					//for models whose status is online
 					if($movie["status"] == 1)
-						{
+					{
+						//get the videos durtion
+						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+					
 						//maintain the row fluid with only four models in a row
 						if($start_point%3 == 0)
 						{
@@ -1114,7 +1127,7 @@
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						echo	'</p><p>Movie- 0min 0sec</p>
+						echo	'</p><p>Movie- '.$videoDuration.'</p>
 									<p>Views: '.$movie["views"].'</p>
 								</div>
 							</div>' ;
@@ -1280,6 +1293,20 @@
 			}
 			
 			return $total_images ;				
+		}
+		
+		
+		/*
+		- method to take the video and return video duration
+		- @param absolute path of input video
+		- Auth Singh
+		*/
+		function getVideoLength($inputVideo)
+		{
+			$movie = new ffmpeg_movie($inputVideo,0) ;
+			$movieDuration = $movie->getDuration() ;
+			$movieDuration = date('H:i:s', mktime(0, 0,$movieDuration));
+			return $movieDuration ;
 		}
 	}
 ?>

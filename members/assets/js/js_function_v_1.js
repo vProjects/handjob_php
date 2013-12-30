@@ -77,27 +77,19 @@ function status(varible_l_d,id_input,username,type)
  */ 
 
 $( document ).ready(function() {
-	  $('.rating .rateme').mouseenter(function(){
+	  $('.rateme').mouseenter(function(){
 	  	
 	  	//new image to be replaced
 	  	var newSrc = 'http://handjobstop.com/members/images/red-star.png';
 	  	
 	  	//current selected element
-	  	var currentIndex = $('.rateme').index(this);
-	  	
-	  	/*
-	  	 * calculation of the starting poing of the loop
-	  	 */
-	  	var basic = Math.floor(currentIndex/5);
-	  	loopStartPoint = basic*4+basic ;
-	  	
-	  	
+	  	var currentIndex = $(this).index();
 	  	
 	  	//image src of the slected element
 	  	var currentSrc = $(this).attr('src');
 	  	
 	  	
-	  	for(var i=loopStartPoint; i<=currentIndex; i++){
+	  	for(var i=0; i<=currentIndex; i++){
 	  		var element = $('.rateme')[i];
 	  		element.src = newSrc;
 	  	}
@@ -108,25 +100,19 @@ $( document ).ready(function() {
 	  
 	  
 	  
-	  $('.rating .rateme').mouseleave(function(){
+	  $('.rateme').mouseleave(function(){
 	  	
 	  	//new image to be replaced
 	  	var newSrc = 'http://handjobstop.com/members/images/white-star.png';
 	  	
 	  	//current selected element
-	  	var currentIndex = $('.rateme').index(this);
-	  	
-	  	/*
-	  	 * calculation of the starting poing of the loop
-	  	 */
-	  	var basic = Math.floor(currentIndex/5);
-	  	loopStartPoint = basic*4+basic ;
+	  	var currentIndex = $(this).index();
 	  	
 	  	//image src of the slected element
 	  	var currentSrc = $(this).attr('src');
 	  	
 	  	
-	  	for(var i=loopStartPoint; i<=currentIndex; i++){
+	  	for(var i=0; i<=currentIndex; i++){
 	  		var element = $('.rateme')[i];
 	  		element.src = newSrc;
 	  	}

@@ -5,8 +5,12 @@
 
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
-	$gallery_id = $GLOBALS["_GET"]["galleryId"];
-	$model_id = $GLOBALS["_GET"]["model_id"];
+	if( $GLOBALS["_GET"] > 0 )
+	{
+		$gallery_id = $GLOBALS["_GET"]["galleryId"];
+		$model_id = $GLOBALS["_GET"]["model"];
+		$index = $GLOBALS["_GET"]["index"]; 
+	}
 	
 	//codes for setting the views
 	$manageData->manageViews("gallery",$gallery_id);
