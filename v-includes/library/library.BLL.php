@@ -1308,5 +1308,25 @@
 			$movieDuration = date('H:i:s', mktime(0, 0,$movieDuration));
 			return $movieDuration ;
 		}
+		
+		
+		/*
+		- method to get the contents
+		- @param content name
+		- Auth Singh
+		*/
+		function getContent($topic)
+		{
+			//retrive the contents
+			$content = $this->manageContent->getValueWhere("content_tour","content","topic",$topic) ;
+			if( $topic == "about_handjob" )
+			{
+				echo $content[0]["content"] ;
+			}
+			else
+			{
+				echo '<a href="join.php"><h4>"'.$content[0]["content"].'"</h4></a>' ;
+			}
+		}
 	}
 ?>

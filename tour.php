@@ -29,10 +29,10 @@
 	<div class="row-fluid site_description">
     	<div class="span12">
         	<h3 class="site_heading">About Handjobstop</h3>
-            <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica.</p>
-            <p> Reprehenderit butcher
-retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.
-</p>
+            <?php 
+				//get the about_handjob content
+				$manageData->getContent("about_handjob") ;
+			?>
         </div>
        <!--<div class="span3 site_login_button">
         	<div class="btn-group-vertical">
@@ -70,7 +70,10 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
+            <?php 
+				//get the about_handjob content
+				$manageData->getContent("movie_update") ;
+			?>
         </div>
      </div>    
     <!-- video update portion ends here ---->
@@ -102,7 +105,10 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
+            <?php 
+				//get the about_handjob content
+				$manageData->getContent("photo_update") ;
+			?>
         </div>
     </div>
     <!-- photo update portion ends here --->
@@ -134,7 +140,10 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
+            <?php 
+				//get the about_handjob content
+				$manageData->getContent("model_update") ;
+			?>
         </div>
      </div>   
     <!-- Model update portion ends here ---->    
@@ -174,7 +183,10 @@ retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry ric
             </div>
         </div>
         <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
+            <?php 
+				//get the about_handjob content
+				$manageData->getContent("about_handjob") ;
+			?>
         </div>
      </div>    
     <!-- members favourite portion ends here ---->

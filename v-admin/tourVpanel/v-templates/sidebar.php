@@ -34,6 +34,7 @@
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
                         <li><a <?php if( $page_title == "Paginations" ){ echo 'class="v_active"'; }?> href="managePagination.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Contol Pagination</a></li>
+                        <li><a <?php if( $page_title == "Tour Content" ){ echo 'class="v_active"'; }?> href="manageConentHome.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Manage Text</a></li>
                         <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Submenu</a></li>
                     </ul>
                 </div>
