@@ -111,77 +111,21 @@
                     </div> <!-- Latest Model updates ends here -->
                 </div>
 				
+                <?php
+					//generate an alternate number for the members favorite
+					$alternate = rand(1,2) ;
+					if( $alternate%2 == 0 ) 
+					{
+						//get the random members favourite movie
+						$manageData->membersFavourite(0,9,'movie',3) ;			
+					}
+					else
+					{
+						//get the random members favourite photos
+						$manageData->membersFavourite(0,9,'photo',3) ;
+					}
+				?>
                 
-                <div class="row-fluid">  
-                    <div id="mainBar" class="span12">
-                        <h4>More Updates for you</h4>
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/moreupdates.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/moreupdates.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/moreupdates.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-                <div class="row-fluid">
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/moreupdates.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/moreupdates.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                    <div class="span4 element">
-                        <h4>Kattie Gold behind the scene tease.</h4>
-                        <h5>0 min 0 sec</h5>
-                        <img class="lazy" data-src="images/moreupdates.jpg" src="" alt="vdeo">
-                        <p>Added 2013-07-23<br />Views: 90</p>
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                        <img class="lazy" data-src="images/star-on.png" src="" alt="star">
-                    </div>
-                </div>
-                <div class="row-fluid">
-                <div class="span12">
-                        <div class="span4 pull-right clickMore">
-                            <h4>Click Here For More >></h4>
-                        </div>
-                    </div> <!-- More updates for you ends here -->
-                </div>
             
             </div>
             <!-- right container starts from here -->

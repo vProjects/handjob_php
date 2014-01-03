@@ -204,7 +204,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="full_gallery.php?index=10&model='.$model_name.'&galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
+							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -258,6 +258,13 @@
 				//get the total no of images
 				$total_images = $this->total_no_images($gallery['gallery_id']) ;
 				
+				//get the model for particular gallery
+				$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery['gallery_id']) ;
+				$model_name = $model_name[0]["model"] ;
+				
+				//get the single model name
+				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%3 == 0)
 				{
@@ -268,7 +275,7 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'">'.$gallery["gallery_name"].'</h4>
+							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -359,7 +366,7 @@
 		- gallery builder for the UI
 		- Auth Singh
 		*/
-		function getFullGallery($gallery_id)
+		function getFullGallery($gallery_id,$page,$elements)
 		{
 			$galleryPath = "gallery/".$gallery_id."/";
 			//image location will change according to the large,small and medium requests
@@ -375,6 +382,7 @@
 			//get fileNames from the gallery folder
 			$filenames = scandir($galleryPath);
 			$filenames = array_slice($filenames,2);
+			$filenames = array_slice($filenames,$page,$elements) ;
 			foreach($filenames as $filename)
 			{
 				//to remove the zip files from the UI
@@ -407,6 +415,44 @@
 				}
 			}
 				
+		}
+		
+		
+		/*
+		- get the total number of pics for a gallery
+		- returns int value of num of images
+		- Auth Singh
+		*/
+		function getNumberOfGalleryImages($gallery_id)
+		{
+			$galleryPath = "gallery/".$gallery_id."/";
+			//image location will change according to the large,small and medium requests
+			$imageLocation = "gallery/".$gallery_id."/";
+			
+			//get the gallery details from the database
+			$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery_id) ;
+			
+			//these variables determines the start and the end point for printing row fluid
+			$no_of_images = 0;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2) ;
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						$no_of_images++ ;
+					}
+				}
+			}
+			
+			return $no_of_images ;				
 		}
 		
 		/*
@@ -529,6 +575,13 @@
 				//get the videos durtion
 				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
 				
+				//get the model for particular gallery
+				$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
+				$model_name = $model_name[0]["model"] ;
+				
+				//get the single model name
+				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%4 == 0)
 				{
@@ -539,7 +592,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
@@ -592,6 +645,13 @@
 				//get the videos durtion
 				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
 				
+				//get the model for particular gallery
+				$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
+				$model_name = $model_name[0]["model"] ;
+				
+				//get the single model name
+				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+				
 				//maintain the row fluid with only four models in a row
 				if($start_point%3 == 0)
 				{
@@ -602,7 +662,7 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
@@ -652,6 +712,13 @@
 				//get the format from the respective movie table
 				$format = $this->manageContent->getValueWhere("movie_info","vid_format_1","gallery_id",$slicedMovie['movie_id']);
 				
+				//get the model for particular gallery
+				$model_name = $this->manageContent->getValueWhere("sliced_vids","model","gallery_id",$slicedMovie['gallery_id']) ;
+				$model_name = $model_name[0]["model"] ;
+				
+				//get the single model name
+				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+				
 				//get the videos durtion
 				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/sliced/".$slicedMovie['movie_id']."/".$slicedMovie['gallery_id'].".".$format[0]["vid_format_1"]) ;
 				
@@ -665,7 +732,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -700,7 +767,7 @@
 			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
 			if(isset($vidCapGallery) && !empty($vidCapGallery))
 			{
-				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'"><button class="btn btn-large btn-danger">Vid Caps</button></a>';
+				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=20"><button class="btn btn-large btn-danger">Vid Caps</button></a>';
 			}
 		}
 		
@@ -808,6 +875,13 @@
 					//get the videos durtion
 					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie["vid_format_1"]) ;
 					
+					//get the model for particular gallery
+					$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
+					$model_name = $model_name[0]["model"] ;
+					
+					//get the single model name
+					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+					
 					//maintain the row fluid with only four models in a row
 					if($start_point%4 == 0)
 					{
@@ -818,7 +892,7 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="playing_movie.php?movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
 								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
@@ -865,7 +939,14 @@
 				{
 					//get the total no of images
 					$total_images = $this->total_no_images($gallery['gallery_id']) ;
-				
+					
+					//get the model for particular gallery
+					$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery['gallery_id']) ;
+					$model_name = $model_name[0]["model"] ;
+					
+					//get the single model name
+					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+					
 					//maintain the row fluid with only four models in a row
 					if($start_point%4 == 0)
 					{
@@ -876,7 +957,7 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'">'.$gallery["gallery_name"].'</h4>
+								<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
@@ -1395,6 +1476,142 @@
 			
 			return $filename_array_return ;
 		}
+		
+		
+		/*
+		- codes for getting members favorite
+		- generates complete UI
+		- Auth Singh
+		*/
+		function membersFavourite($startPoint,$limit,$output_type,$no_rows)
+		{
+			//control span
+			if( $no_rows == 3 )
+			{
+				$span = 4 ;
+			}
+			else
+			{
+				$span = 3 ;
+			}
+			//create the UI for the header
+			echo '<div class="row-fluid">
+						<div id="mainBar" class="span12">
+								<h4>Members Favorite</h4>
+						</div>
+					</div>';
+			
+			//generate if the output is movie
+			if( $output_type == "movie" )
+			{
+				//get values from the database
+				$movies = $this->manageContent->getValue_limit_sorted_random('movie_info','*',$startPoint,$limit);
+				//these variables determines the start and the end point for printing row fluid
+				$start_point = 0;
+				$end_point = 1;
+				foreach($movies as $movie)
+				{
+					//get the videos durtion
+					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
+					
+					//get the model for particular gallery
+					$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
+					$model_name = $model_name[0]["model"] ;
+					
+					//get the single model name
+					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+					
+					//maintain the row fluid with only four models in a row
+					if($start_point%$no_rows == 0)
+					{
+						echo '<div class="row-fluid">';
+					}
+					//for models whose status is online
+					if($movie["status"] == 1)
+					{
+						//create the UI components
+						echo '<div class="span'.$span.' element">
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
+								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
+						//logic for displaying stars according to the rating
+						if( $movie['rating'] == 0 )
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						for($i = 0 ; $i < $movie['rating'] ; $i++)
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						echo '</div>';
+					}
+					if($end_point%$no_rows == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
+				}
+			}
+			//generate if output is photos
+			else
+			{
+				//get values from the database
+				$gallerys = $this->manageContent->getValue_limit_sorted_random('gallery_info','*',$startPoint,$limit);
+				//these variables determines the start and the end point for printing row fluid
+				$start_point = 0;
+				$end_point = 1;
+				foreach($gallerys as $gallery)
+				{
+					//get the total no of images for each gallery
+					$total_no_images = $this->total_no_images($gallery['gallery_id']) ;
+					
+					//get the model for particular gallery
+					$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery['gallery_id']) ;
+					$model_name = $model_name[0]["model"] ;
+					
+					//get the single model name
+					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+	
+					//maintain the row fluid with only four models in a row
+					if($start_point%$no_rows == 0)
+					{
+						echo '<div class="row-fluid">';
+					}
+					//for models whose status is online
+					if($gallery["status"] == 1)
+					{
+						//create the UI components
+						echo '<div class="span'.$span.' element">
+								<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
+								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+								<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
+						//logic for displaying stars according to the rating
+						if( $gallery['rating'] == 0 )
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}	
+						for($i = 0 ; $i < $gallery['rating'] ; $i++)
+						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						}
+						echo '</div>';
+					}
+					if($end_point%$no_rows == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
+					
+				
+					}
+		
+			}
+		}
+		
 		
 	}
 ?>

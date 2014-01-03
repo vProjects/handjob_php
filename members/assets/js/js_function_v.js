@@ -72,6 +72,16 @@ function status(varible_l_d,id_input,username,type)
 }
 
 /*
+- codes for full gallery page to control
+- the nbumber of images
+- Auth Singh
+*/
+function controlImages(noElements,url_sent)
+{
+	window.location = 'full_gallery.php?'+url_sent+'&element='+noElements ;
+}
+
+/*
  * Jquery codes
  * Author: Vasu Naman
  */ 

@@ -9,6 +9,7 @@
 	//get the value of id from the query string
 	$movie_id = $GLOBALS["_GET"]["movieId"];
 	$gallery_id = $GLOBALS["_GET"]["gallery_id"];
+	$model_id = $GLOBALS["_GET"]["model"];
 	
 	//codes for setting the views
 	$manageData->manageViews("movie",$movie_id);
@@ -17,6 +18,14 @@
 
     
     <div id="bodyContainer" class="row-fluid">
+    	<?php
+			//if the get varriable is set 
+			if(isset($model_id) && !empty($model_id))
+			{
+				//get the UI structure of model details
+				$manageData->getModelDetails($model_id);
+			}
+		?>
        <div class="row-fluid">
        		<div class="btn-group">
                 <button class="btn btn-large btn-danger">High</button>
@@ -108,6 +117,20 @@
 	    	</div>
     	</div>
     </div><!-- comment box ends here -->
+    <?php
+		//generate an alternate number for the members favorite
+		$alternate = rand(1,2) ;
+		if( $alternate%2 == 0 ) 
+		{
+			//get the random members favourite movie
+			$manageData->membersFavourite(0,12,'movie',4) ;			
+		}
+		else
+		{
+			//get the random members favourite photos
+			$manageData->membersFavourite(0,12,'photo',4) ;
+		}
+	?>
     
     
     <script src="assets/js/js_function_v.js" type="text/javascript"></script>

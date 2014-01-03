@@ -123,7 +123,20 @@
 		}
 		?>
   
-        
+         <?php
+			//generate an alternate number for the members favorite
+			$alternate = rand(1,2) ;
+			if( $alternate%2 == 0 ) 
+			{
+				//get the random members favourite movie
+				$manageData->membersFavourite(0,12,'movie',4) ;			
+			}
+			else
+			{
+				//get the random members favourite photos
+				$manageData->membersFavourite(0,12,'photo',4) ;
+			}
+		?>
         
         
         

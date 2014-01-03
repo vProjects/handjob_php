@@ -9,12 +9,39 @@
 	{
 		$gallery_id = $GLOBALS["_GET"]["galleryId"];
 		$model_id = $GLOBALS["_GET"]["model"];
-		$index = $GLOBALS["_GET"]["index"]; 
+		$index = $GLOBALS["_GET"]["index"];
+		$elements = $GLOBALS["_GET"]["element"] ;
+		$page = $GLOBALS["_GET"]["page"] ;
 	}
 	
 	//codes for setting the views
 	$manageData->manageViews("gallery",$gallery_id);
 	
+	//get the number of images for a particular gallery
+	$no_of_images = $manageData->getNumberOfGalleryImages($gallery_id) ;
+	
+	//variable to manipulate $elements_1
+	$manipulate_element_1 = $page ;
+	
+	//check the value of page for minimum and maximum value
+	if( ($page+$elements) > $no_of_images )
+	{
+		$page = $no_of_images - $elements ;
+		$elements_1 = $no_of_images - $manipulate_element_1 ;
+	}
+	if( $elements > $no_of_images )
+	{
+		$page = 0 ;
+		$elements = $elements_1 = $no_of_images ;
+	}
+	else
+	{
+		$elements_1 = $elements ;
+	}
+	if( $page < 0 )
+	{
+		$page = 0 ;
+	}
 ?>
 
 <div id="bodyContainer" class="row-fluid">
@@ -39,13 +66,32 @@
                         }
                     ?>
                 </div>	
+                <div class="span2 pull-right">
+                	<div class="btn-group">
+                    	<button class="btn btn-danger" onclick="prevImage()">Prev</button>
+                        <button class="btn btn-danger"><?php echo ($elements+$page)."/".$no_of_images ; ?></button>
+                        <button class="btn btn-danger" onclick="nextImage()">Next</button>
+                    </div>
+                </div>
+                <!--the select box for no of images -->
+                <div class="span4 pull-right">
+                	<select onchange="controlImages(this.value,'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=".$page ; ?>')" class="pull-right" style="width:100px;">
+                    	<option value="">Select</option>
+                    	<option value="10">10</option>
+                    	<option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="60">60</option>
+                        <option value="80">80</option>
+                    </select>
+                </div>
            </div>
         
 		<?php
 			if(!empty($gallery_id) && isset($gallery_id))
 			{
 				//get the required model gallerys
-				$manageData->getFullGallery($gallery_id);
+				$manageData->getFullGallery($gallery_id,$page,$elements_1 );
 			}
 		?>
     	
@@ -104,8 +150,41 @@
 	    	</div>
     	</div>
     </div>
+     <?php
+		//generate an alternate number for the members favorite
+		$alternate = rand(1,2) ;
+		if( $alternate%2 == 0 ) 
+		{
+			//get the random members favourite movie
+			$manageData->membersFavourite(0,12,'movie',4) ;			
+		}
+		else
+		{
+			//get the random members favourite photos
+			$manageData->membersFavourite(0,12,'photo',4) ;
+		}
+	?>
     
-    
+    <script type="text/javascript">
+		var page_v = <?php echo $page ; ?> ;
+		var total_elements = <?php echo $no_of_images ; ?> ;
+		var elements_v = <?php echo $elements ; ?> ;
+    	function nextImage()
+		{
+			if( page_v+elements_v < total_elements )
+			{
+				page_v = page_v+elements_v ;
+			}
+			//reload the page
+			window.location = 'full_gallery.php?'+'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=" ; ?>'+page_v+'&element='+elements_v  ;
+		}
+		function prevImage()
+		{
+			page_v = page_v-elements_v ;
+			//reload the page
+			window.location = 'full_gallery.php?'+'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=" ; ?>'+page_v+'&element='+elements_v  ;
+		}
+    </script>
     <script src="assets/js/js_function_v.js" type="text/javascript"></script>
     
     
