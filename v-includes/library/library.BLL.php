@@ -317,6 +317,13 @@
 				{
 					//get the videos durtion
 					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+					
+					//get the model for particular gallery
+					$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
+					$model_name = $model_name[0]["model"] ;
+					
+					//get the single model name
+					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 				
 					//maintain the row fluid with only four models in a row
 					if($start_point%3 == 0)
@@ -324,7 +331,7 @@
 						echo '<div class="row-fluid">';
 					}
 					echo '<div class="span4 section_element">
-							<a href="playing_movie.php?movie_id='.$movie["gallery_id"].'&gallery_id=0">
+							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0">
 							<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
 								<div class="row-fluid">
@@ -505,8 +512,11 @@
 		*/
 		function getModel_Details($model_id)
 		{
-			$modelDetails = $this->manageContent->getValueWhere('model_info','*','id',$model_id);
-			
+			$modelDetails = $this->manageContent->getValueWhere("model_info","*","id",$model_id);
+			if( $modelDetails == 0 )
+			{
+				$modelDetails = $this->manageContent->getValueWhere("model_info","*","name",$model_id);
+			}
 			//create the UI using the details from the database
 			echo '<!-- model detail starts here -->
 				<div class="row-fluid model_detail">
@@ -658,16 +668,24 @@
 						//get the videos durtion
 						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
 						
+						//get the model for particular gallery
+						$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
+						$model_name = $model_name[0]["model"] ;
+						
+						//get the single model name
+						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+						
 						//maintain the row fluid with only four models in a row
 						if($start_point%3 == 0)
 						{
 							echo '<div class="row-fluid">';
 						}
 						echo '<div class="span4 section_element">
+							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0">
 							<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Rating:';
@@ -723,7 +741,14 @@
 					{
 						//get the total no of images
 						$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
-						
+				
+						//get the model for particular gallery
+						$model_name = $this->manageContent->getValueWhere("gallery_info_tour","model","gallery_id",$gallery['gallery_id']) ;
+						$model_name = $model_name[0]["model"] ;
+					
+						//get the single model name
+						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+				
 						//maintain the row fluid with only four models in a row
 						if($start_point%4 == 0)
 						{
@@ -731,10 +756,11 @@
 						}
 						//for models whose status is online
 						echo '<div class="span3 section_element">
+							<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$model_name.'">
 								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 								<div class="photo_section_footer">
 									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div>
+										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div></a>
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div> 
 									<p>Rating:';
@@ -1103,14 +1129,21 @@
 					{
 						//get the videos durtion
 						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
-					
+						
+						//get the model for particular gallery
+						$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
+						$model_name = $model_name[0]["model"] ;
+						
+						//get the single model name
+						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+						
 						//maintain the row fluid with only four models in a row
 						if($start_point%3 == 0)
 						{
 							echo '<div class="row-fluid">';
 						}
 						echo '<div class="span4 section_element">
-								<a href="playing_movie.php?movie_id='.$movie["gallery_id"].'&gallery_id=0">
+								<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0">
 								<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
 								<div class="photo_section_footer">
 									<div class="row-fluid">

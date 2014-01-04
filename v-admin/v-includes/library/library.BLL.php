@@ -489,7 +489,7 @@
 		function pagination($page,$PageUrl,$max_no_index,$tableName,$type,$keyword)
 		{
 			//limit is the total no of elements to be shown
-			$limit = 10 ;
+			$limit = 15 ;
 			//used in the db for getting o/p
 			$startPoint = $page*$limit ;
 			//total number of rows of the db_table
@@ -697,6 +697,17 @@
 			echo '<li><a href="manageQuickLinks.php"><span class="icon-wrench"></span>&nbsp;&nbsp;Manage Links</a></li>
                             </ul>
                         </div>' ;
+		}
+		
+		/*
+		- get the total number of elements 
+		- @param table name
+		- Auth Singh
+		*/
+		function getTotalElements($tableName)
+		{
+			$total_elements = $this->manageContent->getTotalRows($tableName) ;
+			return $total_elements[0]['count(*)'] ;
 		}
 	}
 

@@ -6,6 +6,10 @@
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
+	
+	include('v-includes/library/pagination_config.php');
+	
+	$total_elements = $manageData->getTotalElements("article_info") ;
 ?>
         
         <!--container for content of the website-->
@@ -16,6 +20,13 @@
                 	<cite title="Source Title">List of blogs of your website.</cite>
                 </small>
             </blockquote>
+            <div class="span4">
+            	<h4>Tolal Elements: <?php echo $total_elements ; ?></h4>
+            </div>
+				<?php
+                    //get the pagination of the page
+                    $manageData->pagination($startPoint,"listBlog.php",10,"article_info","date",$keyword);
+                ?>
                 <table class="table table-hover">
                     <caption>List Of Blogs</caption>
                     <thead>
@@ -32,6 +43,10 @@
 						$manageData->getArticleList(); 
 					?>
                 </table>
+                <?php
+                    //get the pagination of the page
+                    $manageData->pagination($startPoint,"listBlog.php",10,"article_info","date",$keyword);
+                ?>
         </div>
     	
     </div><!--body main container ends here-->

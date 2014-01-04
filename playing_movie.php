@@ -14,6 +14,7 @@
 		//get the value of id from the query string
 		$movie_id = $GLOBALS["_GET"]["movie_id"];
 		$gallery_id = $GLOBALS["_GET"]["gallery_id"];
+		$model_id = $GLOBALS["_GET"]["model_id"] ;
 	}
 	
 	//codes for setting the views
@@ -22,6 +23,14 @@
 
 <!-- site description part starts here --->
 <div class="container">
+	<?php
+		//get the models details if id isset
+		if( isset($model_id) && !empty($model_id) )
+		{
+			//get the UI for model details from BLL
+			$manageData->getModel_Details($model_id) ;
+		}
+	?>
     <div class="row-fluid model_detail_heading">
     	<div class="btn-group">
             <a href="#"><button class="btn <?php //if( $type=='recent'){ echo 'active' ;}?> btn-danger">Low</button></a>
@@ -46,7 +55,9 @@
     <!--get the sliced videos-->
      <!-- members favourite portion starts here ---->
         <div class="row-fluid photo_update">
-            <h3 class="site_heading"> Members Favorite</h3>
+        	<div class="span12">
+            	<h3 class="site_heading"> Members Favorite</h3>
+            </div>
             <div class="row-fluid photo_update_outline">
                 <div class="pagination pagination-small pageno_nav pull-right">
                     <ul>

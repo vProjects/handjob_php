@@ -33,7 +33,7 @@
 	if(!isset($limit) || empty($limit))
 	{
 		//set it to default page limit
-		$limit = 10 ;
+		$limit = 15 ;
 	}
 	
 	//check whether startPoint is set or not if not set it to 0
