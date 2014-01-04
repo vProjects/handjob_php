@@ -244,6 +244,13 @@ body{
 	color: #DA4F49;
 }
 
+/* added by dipanjan */
+.show_image_container{
+	padding:10px 0px;
+	overflow:scroll;
+	overflow-y:hidden;
+}
+
 /* bootstrap css modification */
 @media (min-width: 1200px){
 	.row-fluid [class*="span3"]{
