@@ -25,7 +25,7 @@
 		$table_name = "gallery_comment" ;
 		
 		//return path
-		$returnPath = "full_gallery.php?galleryId=".$id ;
+		$returnPath = "full_gallery.php?index=10&galleryId=".$id."&page=".$_POST["page"]."&element=".$_POST["element"]."&model=".$_POST["model"] ;
 	}
 	if( $type == "movie" )
 	{

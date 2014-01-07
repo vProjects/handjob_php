@@ -92,7 +92,12 @@
                     </div>
                 </div>
                 <div class="row-fluid end_caption">
-                    <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
+                    <div class="row-fluid end_caption">
+						<?php 
+                            //get the about_handjob content
+                            $manageData->getContent("photo_update") ;
+                        ?>
+                    </div>
                 </div>
                 
             </div>

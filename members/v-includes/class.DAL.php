@@ -197,13 +197,32 @@
 			}
 		}
 		
+		
+		/*
+		- method for getting the values using where clause
+		- auth Singh
+		*/
+		function getValueWhere_latest($table_name,$value,$row_value,$value_entered,$sortBy)
+		{
+			$query = $this->link->query("SELECT $value from $table_name where $row_value='$value_entered' ORDER BY $sortBy DESC");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
 		/*
 		- method for getting the value for search model directory
 		- Auth Singh
 		*/
 		function getSearchModelDirectory($table_name,$value,$row_value,$searchKeyword,$sortBy,$startPoint,$limit)
 		{
-			$query = $this->link->query("SELECT $value from $table_name where $row_value LIKE '$searchKeyword%' ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			$query = $ts->link->query("SELECT $value from $table_name where $row_value LIKE '$searchKeyword%hi' ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){

@@ -77,12 +77,12 @@
                 <div class="span4 pull-right">
                 	<select onchange="controlImages(this.value,'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=".$page ; ?>')" class="pull-right" style="width:100px;">
                     	<option value="">Select</option>
-                    	<option value="10">10</option>
-                    	<option value="20">20</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="60">60</option>
-                        <option value="80">80</option>
+                    	<option <?php if($elements == 10){ echo 'selected="seclected"';} ?> value="10">10</option>
+                    	<option <?php if($elements == 20){ echo 'selected="seclected"';} ?> value="20">20</option>
+                        <option <?php if($elements == 30){ echo 'selected="seclected"';} ?> value="30">30</option>
+                        <option <?php if($elements == 40){ echo 'selected="seclected"';} ?> value="40">40</option>
+                        <option <?php if($elements == 60){ echo 'selected="seclected"';} ?> value="60">60</option>
+                        <option <?php if($elements == 80){ echo 'selected="seclected"';} ?> value="80">80</option>
                     </select>
                 </div>
            </div>
@@ -95,6 +95,40 @@
 			}
 		?>
     	
+        <div class="row-fluid">
+               <div class="span12">
+               		<div class="row-fluid">
+                    	<div class="span6 btn-group for_margin">
+							<?php
+                                if(isset($gallery_id) && !empty($gallery_id))
+                                {
+                                    //get vid cap link
+                                    $manageData->getZipLinks($gallery_id);
+                                }
+                            ?>
+                        </div>	
+                        <div class="span2 pull-right for_margin">
+                            <div class="btn-group">
+                                <button class="btn btn-danger" onclick="prevImage()">Prev</button>
+                                <button class="btn btn-danger"><?php echo ($elements+$page)."/".$no_of_images ; ?></button>
+                                <button class="btn btn-danger" onclick="nextImage()">Next</button>
+                            </div>
+                        </div>
+                        <!--the select box for no of images -->
+                        <div class="span2 pull-right for_margin">
+                            <select onchange="controlImages(this.value,'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=".$page ; ?>')" class="pull-right" style="width:100px;">
+                                <option value="">Select</option>
+                                <option <?php if($elements == 10){ echo 'selected="seclected"';} ?> value="10">10</option>
+                                <option <?php if($elements == 20){ echo 'selected="seclected"';} ?> value="20">20</option>
+                                <option <?php if($elements == 30){ echo 'selected="seclected"';} ?> value="30">30</option>
+                                <option <?php if($elements == 40){ echo 'selected="seclected"';} ?> value="40">40</option>
+                                <option <?php if($elements == 60){ echo 'selected="seclected"';} ?> value="60">60</option>
+                                <option <?php if($elements == 80){ echo 'selected="seclected"';} ?> value="80">80</option>
+                            </select>
+                        </div>
+                    </div>
+               </div>     
+           </div>
    	</div>
     <!-- body container ends here -->
     <div class="row-fluid">
@@ -142,6 +176,9 @@
 			    		<div class="controls">
                         	<input type="hidden" value="<?php echo $gallery_id ; ?>" name="id" />
                             <input type="hidden" value="gallery" name="type" />
+                            <input type="hidden" value="<?php echo $page; ?>" name="page" />
+                            <input type="hidden" value="<?php echo $elements; ?>" name="element" />
+                            <input type="hidden" value="<?php echo $model_id; ?>" name="model" />
                             <input type="hidden" value="<?php echo $_SESSION['user'] ;?>" name="member" />
 			    			<input type="submit" class="btn" value="Submit">
 			    		</div>			    		

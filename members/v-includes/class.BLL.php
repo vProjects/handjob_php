@@ -204,7 +204,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
+							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -275,7 +275,7 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
+							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 							<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
@@ -319,7 +319,9 @@
 					  </div>
 					  <div class="row-fluid model_detail">
 						<div class="span3">
-							<img src="images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+							<a href="model_detail.php?model_id='.$model_id.'&model_name='.$modelDetails[0]["name"].'">
+								<img src="images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+							</a>
 						</div>
 						<div class="span8">
 							<div class="row-fluid model_detail_part">
@@ -957,7 +959,7 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
+								<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
 								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
@@ -1363,8 +1365,10 @@
 				$table_name = "article_comment" ;
 			}
 			
+			$sortBy = "id" ;
+			
 			//get the data from the database
-			$comments = $this->manageContent->getValueWhere($table_name,"*","unit_id",$id) ;
+			$comments = $this->manageContent->getValueWhere_latest($table_name,"*","unit_id",$id,$sortBy) ;
 			
 			foreach( $comments as $comment )
 			{
