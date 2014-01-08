@@ -84,22 +84,6 @@
                 ?>
                 
                 <!--- photo row3 ends here --->
-                <div class="row-fluid">
-                    <div class="pagination pagination-small pageno_nav pull-right">
-                        <ul>
-                            <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row-fluid end_caption">
-                    <div class="row-fluid end_caption">
-						<?php 
-                            //get the about_handjob content
-                            $manageData->getContent("photo_update") ;
-                        ?>
-                    </div>
-                </div>
-                
             </div>
          </div>   
          <!-- members favourite portion ends here ---->

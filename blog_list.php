@@ -37,9 +37,6 @@
             </div>
         </div>
     </div>
-    <div class="row-fluid end_caption">
-        <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
-    </div>
 </div>
 <!-- site description part ends here --->
 

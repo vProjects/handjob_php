@@ -6,7 +6,6 @@
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
 	
-	
 	//include the configuration file
 	include('v-includes/config_pagination.php');
 	include('v-includes/config.php');

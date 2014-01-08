@@ -77,12 +77,29 @@
                 <div class="span4 pull-right">
                 	<select onchange="controlImages(this.value,'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=".$page ; ?>')" class="pull-right" style="width:100px;">
                     	<option value="">Select</option>
-                    	<option <?php if($elements == 10){ echo 'selected="seclected"';} ?> value="10">10</option>
-                    	<option <?php if($elements == 20){ echo 'selected="seclected"';} ?> value="20">20</option>
-                        <option <?php if($elements == 30){ echo 'selected="seclected"';} ?> value="30">30</option>
-                        <option <?php if($elements == 40){ echo 'selected="seclected"';} ?> value="40">40</option>
-                        <option <?php if($elements == 60){ echo 'selected="seclected"';} ?> value="60">60</option>
-                        <option <?php if($elements == 80){ echo 'selected="seclected"';} ?> value="80">80</option>
+                        <?php
+							//generate the full selectbox
+							$i = 10 ;
+							for( $i = 10 ; $i < $no_of_images ; )
+							{
+								echo '<option' ;
+								if ( $elements == $i )
+								{
+									echo ' selected="selected"' ;
+								}
+								echo ' value="'.$i.'">'.$i.'</option>' ;								
+							
+								$i = 2*$i ;
+							}
+							
+							//print the last element 
+							echo '<option' ;
+							if ( $elements == $no_of_images )
+							{
+								echo ' selected="selected"' ;
+							}
+							echo ' value="'.$no_of_images.'">Full</option>' ;	
+						?>
                     </select>
                 </div>
            </div>
@@ -118,12 +135,29 @@
                         <div class="span2 pull-right for_margin">
                             <select onchange="controlImages(this.value,'<?php echo "index=".$index."&model=".$model_id."&galleryId=".$gallery_id."&page=".$page ; ?>')" class="pull-right" style="width:100px;">
                                 <option value="">Select</option>
-                                <option <?php if($elements == 10){ echo 'selected="seclected"';} ?> value="10">10</option>
-                                <option <?php if($elements == 20){ echo 'selected="seclected"';} ?> value="20">20</option>
-                                <option <?php if($elements == 30){ echo 'selected="seclected"';} ?> value="30">30</option>
-                                <option <?php if($elements == 40){ echo 'selected="seclected"';} ?> value="40">40</option>
-                                <option <?php if($elements == 60){ echo 'selected="seclected"';} ?> value="60">60</option>
-                                <option <?php if($elements == 80){ echo 'selected="seclected"';} ?> value="80">80</option>
+                                <?php
+									//generate the full selectbox
+									$i = 10 ;
+									for( $i = 10 ; $i < $no_of_images ; )
+									{
+										echo '<option' ;
+										if ( $elements == $i )
+										{
+											echo ' selected="selected"' ;
+										}
+										echo ' value="'.$i.'">'.$i.'</option>' ;								
+									
+										$i = 2*$i ;
+									}
+									
+									//print the last element 
+									echo '<option' ;
+									if ( $elements == $no_of_images )
+									{
+										echo ' selected="selected"' ;
+									}
+									echo ' value="'.$no_of_images.'">Full</option>' ;	
+								?>
                             </select>
                         </div>
                     </div>

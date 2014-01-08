@@ -1176,11 +1176,16 @@
 					
 				}
 				
-				//get the text for bottom
-				echo '<div class="row-fluid end_caption">' ;
-				//get the about_handjob content
-				$this->getContent("movie_update") ;
-				echo '</div>' ;
+				echo '<div class="row-fluid">
+						<div class="pagination pagination-small pageno_nav pull-right">
+							<ul>
+								<li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row-fluid end_caption">' ;
+				$this->getContent("movie_update");
+				echo '</div>' ;	
 			}
 			//generate if output is photos
 			else
@@ -1235,11 +1240,16 @@
 						$end_point++ ;
 					}
 				}
-				//get the text for bottom
-				echo '<div class="row-fluid end_caption"><div class="row-fluid end_caption">' ;
-				//get the about_handjob content
-				$this->getContent("photo_update") ;
-				echo '</div></div>' ;
+				echo '<div class="row-fluid">
+						<div class="pagination pagination-small pageno_nav pull-right">
+							<ul>
+								<li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row-fluid end_caption">' ;
+				$this->getContent("photo_update");
+				echo '</div>' ;			
 			}
 		}
 		

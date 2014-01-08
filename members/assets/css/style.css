@@ -247,8 +247,6 @@ body{
 /* added by dipanjan */
 .show_image_container{
 	padding:10px 0px;
-	overflow:scroll;
-	overflow-y:hidden;
 }
 
 /* bootstrap css modification */

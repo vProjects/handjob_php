@@ -769,7 +769,7 @@
 			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
 			if(isset($vidCapGallery) && !empty($vidCapGallery))
 			{
-				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=20"><button class="btn btn-large btn-danger">Vid Caps</button></a>';
+				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-large btn-danger">Vid Caps</button></a>';
 			}
 		}
 		

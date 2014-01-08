@@ -82,16 +82,6 @@
             ?>
             
             <!--- photo row3 ends here --->
-            <div class="row-fluid">
-                <div class="pagination pagination-small pageno_nav pull-right">
-                    <ul>
-                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row-fluid end_caption">
-                <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
-            </div>
          </div>    
         <!-- members favourite portion ends here ---->
      </div>    
