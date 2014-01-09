@@ -248,6 +248,13 @@ body{
 .show_image_container{
 	padding:10px 0px;
 }
+.movie_description_heading{
+	margin-top:25px;
+	color:#ff0000;
+}
+.movie_description{
+	padding: 10px;
+}
 
 /* bootstrap css modification */
 @media (min-width: 1200px){
