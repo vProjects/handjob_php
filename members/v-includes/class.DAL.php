@@ -222,7 +222,7 @@
 		*/
 		function getSearchModelDirectory($table_name,$value,$row_value,$searchKeyword,$sortBy,$startPoint,$limit)
 		{
-			$query = $ts->link->query("SELECT $value from $table_name where $row_value LIKE '$searchKeyword%' ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			$query = $this->link->query("SELECT $value from $table_name where $row_value LIKE '$searchKeyword%' ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){
