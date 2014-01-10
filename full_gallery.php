@@ -29,6 +29,8 @@
 			//create the UI using the BLL method
 			$manageData->getModel_Details_byName($model) ;
 		}
+		 //get the description
+		$manageData->getDescription($gallery_id,"gallery") ;
 	?>
     <div class="row-fluid">
         <div class="row-fluid model_detail_heading">

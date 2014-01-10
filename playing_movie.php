@@ -30,6 +30,9 @@
 			//get the UI for model details from BLL
 			$manageData->getModel_Details($model_id) ;
 		}
+		
+		//get the description
+		$manageData->getDescription($movie_id,"movie") ;
 	?>
     <div class="row-fluid model_detail_heading">
     	<div class="btn-group">
