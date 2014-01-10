@@ -46,11 +46,21 @@
        </div>
        
        <div class="row-fluid">
-       		<div class="span10 offset1 media" style="height:400px;margin-top:10px;">
-            <!-- new video player added here -->
-            <div id="myplayer">
-                <video id="h264" src="http://handjobstop.com/members/videos/oceans-clip.mp4" poster="http://handjobstop.com/members/images/movie_thumb/52a9ae35299c1.JPG"  style="height:400px;margin-top:10px;"></video>
-            </div>
+			<video class="mejs-ted" width="640" height="360" src="media/echo-hereweare.mp4" type="video/mp4" 
+				id="player1" poster="media/echo-hereweare.jpg" 
+				controls="controls" preload="none">
+			</video>
+
+				
+		<script>
+			$('audio,video').mediaelementplayer({
+				success: function(player, node) {
+					$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+				}
+			});
+			
+			</script>
+		
           
           <!-- new video player added here -->
           </div>
