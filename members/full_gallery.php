@@ -53,6 +53,8 @@
 				//get the UI structure of model details
 				$manageData->getModelDetails($model_id);
 			}
+			 //get the description
+            $manageData->getDescription($gallery_id,"gallery") ;
 		?>
         
         <div id="bodyContainer" class="row-fluid">

@@ -25,7 +25,11 @@
 				//get the UI structure of model details
 				$manageData->getModelDetails($model_id);
 			}
-		?>
+			
+            //get the description
+            $manageData->getDescription($movie_id,"movie") ;
+        ?>
+       
        <div class="row-fluid">
        		<div class="btn-group">
                 <button class="btn btn-large btn-danger">High</button>
@@ -38,14 +42,6 @@
                         $manageData->getVidCapLink($movie_id);
                     }
                 ?>
-			</div>	
-       </div>
-       
-       <!-- added by dipanjan for description part -->
-       <div class="row-fluid">
-       		<div class="span12">
-            	<h3 class="movie_description_heading">Movie Description</h3>
-                <p class="movie_description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>	
        </div>
        

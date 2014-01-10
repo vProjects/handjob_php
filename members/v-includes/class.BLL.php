@@ -1616,6 +1616,37 @@
 			}
 		}
 		
-		
+		/*
+		- get the description
+		- create full UI of the description for the field
+		- Auth Singh
+		*/
+		function getDescription($field_id,$type)
+		{
+			//get the table name according to the page
+			if( $type == "movie" )
+			{
+				$table_name = "movie_info" ;
+				$field_where = "gallery_id" ;
+			}
+			if( $type == "gallery" )
+			{
+				$table_name = "gallery_info" ;
+				$field_where = "gallery_id" ;
+			}
+			
+			$description = $this->manageContent->getValueWhere($table_name,"description",$field_where,$field_id) ;
+			
+			if( $description != 0 )
+			{
+				//create full UI
+				echo '<div class="row-fluid">
+						<div class="span12">
+							<h3 class="movie_description_heading">Movie Description</h3>
+							<p class="movie_description">'.$description[0]["description"].'</p>
+							</div>	
+					   </div>' ;
+			}
+		}
 	}
 ?>
