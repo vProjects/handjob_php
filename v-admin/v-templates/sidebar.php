@@ -131,5 +131,24 @@
             </div>
         </div><!--7th accordion menu starts here-->
         
+        <!--8th accordion menu starts here-->
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse8">
+                <span class="icon-list-alt"></span>&nbsp;&nbsp;Manage Comments
+                </a>
+            </div>
+            <div id="collapse8" class="accordion-body <?php if($accord_cat == "comment"){echo "in";}?> collapse">
+                <div class="accordion-inner">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a <?php if( $page_title == "Model Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Model"><span class="icon-hand-right"></span>&nbsp;&nbsp;Model Comments</a></li>
+                        <li><a <?php if( $page_title == "Photos Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Photos"><span class="icon-hand-right"></span>&nbsp;&nbsp;Photos Comments</a></li>
+                        <li><a <?php if( $page_title == "Movies Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Movies"><span class="icon-hand-right"></span>&nbsp;&nbsp;Movies Comments</a></li>
+                        <li><a <?php if( $page_title == "Article Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Article"><span class="icon-hand-right"></span>&nbsp;&nbsp;Article Comments</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--8th accordion menu starts here-->
+        
     </div>
 </div><!--sidebar ends here-->

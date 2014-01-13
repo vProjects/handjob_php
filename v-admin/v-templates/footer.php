@@ -64,7 +64,8 @@
 		}
 	}
 </script>
-
+<!--js Auth Anand -->
+<script src="js/v_function.js" type="text/javascript" ></script>
 <!--js for updating the ffmpeg progress -->
 <script src="js/ffmpeg_progress.js" type="text/javascript" ></script>
 <script>

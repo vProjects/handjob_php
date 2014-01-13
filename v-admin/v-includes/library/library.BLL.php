@@ -709,6 +709,186 @@
 			$total_elements = $this->manageContent->getTotalRows($tableName) ;
 			return $total_elements[0]['count(*)'] ;
 		}
+		
+		/*
+		- get the comments
+		- create the UI for the comments
+		- Auth Singh
+		*/
+		function getComments($type,$startPoint,$limit)
+		{
+			if( $type == "Movies" )
+			{
+				$table_name = "movie_info" ;
+				$comment_table = "movie_comment" ;
+				$where_field = "gallery_id" ;
+				$name_field = "movie_name" ;
+				$thumb_path = "../members/images/movie_thumb/" ;
+			}
+			if( $type == "Photos" )
+			{
+				$table_name = "gallery_info" ;
+				$comment_table = "gallery_comment" ;
+				$where_field = "gallery_id" ;
+				$name_field = "gallery_name" ;
+				$thumb_path = "../members/images/gallery_thumb/" ;
+			}
+			if( $type == "Article" )
+			{
+				$table_name = "article_info" ;
+				$comment_table = "article_comment" ;
+				$where_field = "id" ;
+				$name_field = "article_title" ;
+				$thumb_path = "" ;
+			}
+			if( $type == "Model" )
+			{
+				$table_name = "model_info" ;
+				$comment_table = "model_comment" ;
+				$where_field = "id" ;
+				$name_field = "name" ;
+				$thumb_path = "../members/images/model_thumb/" ;
+			}
+			if( $type == "Sliced" )
+			{
+				$table_name = "sliced_vids" ;
+				$comment_table = "movie_comment" ;
+				$where_field = "gallery_id" ;
+				$name_field = "movie_name" ;
+				$thumb_path = "../members/images/movie_thumb/" ;
+			}
+			$startPoint = $startPoint*$limit ;
+			$comments = $this->manageContent->getValue_sorted_desc_comments($comment_table,"*","id",$startPoint,$limit) ;
+			
+			foreach( $comments as $comment )
+			{
+				$values = $this->manageContent->getValueWhere($table_name,"*",$where_field,$comment['unit_id']) ;
+				
+				echo '<tbody><tr>';
+				if( $thumb_path != "" && $type != "Model" )
+				{
+					echo '<td class="span1 model_thumb"><img src="'.$thumb_path.$comment['unit_id'].".JPG".'" /></td>' ;
+				}
+				elseif( $thumb_path != "" && $type == "Model" )
+				{
+					echo '<td class="span1 model_thumb"><img src="'.$thumb_path.$values[0]["image_thumb"].'" /></td>' ;
+				}
+				else
+				{
+					echo '<td class="span1 model_thumb">Not Applicable</td>' ;
+				}
+				echo '<td>'.$comment['unit_id'].'</td>
+						<td>'.$values[0][$name_field].'</td>
+						<td>'.$comment['member'].'</td>
+						<td>'.$comment['comment'].'</td>
+						<td><button class=" btn btn-danger" type="button" onClick="deleteComment('."'".$type."','".$comment['id']."'".')">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+							</td></tr></tbody>' ;
+			}
+		}
+		
+		
+		/*
+		- get the value of the pagination
+		- according to the startPoint also max page display 10
+		- both front startPoint = 0 and startPoint = end present
+		- Auth Singh
+		*/
+		function pagination_comment($page,$PageUrl,$max_no_index,$tableName,$type,$keyword)
+		{
+			//limit is the total no of elements to be shown
+			$limit = 15 ;
+			//used in the db for getting o/p
+			$startPoint = $page*$limit ;
+			//total number of rows of the db_table
+			$lastIndex = $this->manageContent->getTotalRows($tableName) ;
+			//echo $lastIndex[0]['count(*)'];
+			//no of page to be displayed
+			$no_page = $lastIndex[0]['count(*)']/$limit ;
+			//show pagination when there is more than one page is there
+			if($no_page > 1)
+			{
+				$no_page = intval($no_page) + 1;
+				//set no of index to be displayed
+				$no_index = 1 ;
+				
+				//generate the pagination UI
+				echo '<div class="row-fluid">
+						<div class="span12 blank">
+							<div class="pagination pagination-small center">
+							  <ul>';
+				//logic for setting the prev button
+				//condition for escaping the -ve page index when $page = 0
+				
+				if( ($page-1) < 0 && $page != 0 )
+				{
+					echo '<li><a href="'.$PageUrl.'?p=0&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Prev</a></li>';
+				}
+				elseif( $page != 0 )
+				{
+					echo '<li><a href="'.$PageUrl.'?p='.($page-1).'&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Prev</a></li>';
+				}
+				/*for the indexes*/
+				//index initilization variable
+				if( ( $page + 1 ) >= ( $no_page - $max_no_index + 1))
+				{
+					$inti_i = $no_page - $max_no_index + 1 ;
+				}
+				else
+				{
+					$inti_i = $page + 1 ;
+				}
+				for( $i = $inti_i ; $i <= $no_page ; $i++ )
+				{
+					if( $i > 0 )
+					{
+						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&limit='.$limit.'&type='.$type;
+						if ( isset($keyword) && !empty($keyword) )
+						{
+							echo '&keyword='.$keyword;
+						}
+						if( $page+1 == $i )
+						{
+							echo '" class="btn-danger center_1st';
+						}
+						echo '">'.$i.'</a></li>' ;
+						//increment the index no by 1
+						$no_index++ ;
+						if( $no_index > $max_no_index )
+						{
+							break ;
+						}
+					}
+				}
+				if( $page != ( $no_page - 1 ) )
+				{
+					//for the next button
+					echo '<li><a href="'.$PageUrl.'?p='.($page + 1).'&limit='.$limit.'&type='.$type;
+					if ( isset($keyword) && !empty($keyword) )
+					{
+						echo '&keyword='.$keyword;
+					}
+					echo '">Next</a></li>' ;
+				}
+				//for the last button
+				//echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;
+				echo	 '</ul>
+						</div>
+					</div>
+				</div>';
+			}
+			
+		}
 	}
 
 ?>
