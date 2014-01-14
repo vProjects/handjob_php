@@ -23,7 +23,7 @@
       // Slideshow 1
       $(".rslides").responsiveSlides({
         speed: 1000,
-        maxwidth: 1400
+        maxwidth: 100%
       });
 
     });

@@ -526,7 +526,9 @@
 						</div>
 					</div>
 					<div class="span3">
-						<img class="model_image_details" src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+						<a href="model_detail.php?model_id='.$modelDetails[0]["id"].'&model_name='.$modelDetails[0]["name"].'">
+							<img class="model_image_details" src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+					    </a>
 					</div>
 					<div class="span8">
 						<div class="row-fluid model_detail_part">
@@ -591,7 +593,9 @@
 						</div>
 					</div>
 					<div class="span3">
-						<img class="model_image_details" src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+						<a href="model_detail.php?model_id='.$modelDetails[0]["id"].'&model_name='.$modelDetails[0]["name"].'">
+							<img class="model_image_details" src="members/images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+					    </a>
 					</div>
 					<div class="span8">
 						<div class="row-fluid model_detail_part">
@@ -1051,7 +1055,7 @@
 				{
 					if( $i > 0 )
 					{
-						echo '<li><a href="'.$PageUrl.'?p='.($i-1).'&type='.$type;
+						echo '<li><a class="btn-danger center_1st" href="'.$PageUrl.'?p='.($i-1).'&type='.$type;
 						if ( isset($keyword) && !empty($keyword) )
 						{
 							echo '&keyword='.$keyword;
@@ -1176,7 +1180,7 @@
 					
 				}
 				
-				echo '<div class="row-fluid">
+				echo '<div class="row-fluid bottom-next">
 						<div class="pagination pagination-small pageno_nav pull-right">
 							<ul>
 								<li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>

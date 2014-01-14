@@ -62,7 +62,7 @@
             $manageData->getMovies(0,9,$type_m) ;
         ?>
         
-        <div class="row-fluid">
+        <div class="row-fluid bottom-next">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
@@ -97,7 +97,7 @@
             //get the photo gallery for the page
             $manageData->getGallery(0,8,$type_p) ;
         ?>
-       <div class="row-fluid">
+       <div class="row-fluid bottom-next">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
@@ -132,7 +132,7 @@
 			//get the models for home
 			$manageData->getModelsHome(0,8,$type_mo) ;
 		?>
-       <div class="row-fluid">
+       <div class="row-fluid bottom-next">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
                     <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
@@ -174,20 +174,8 @@
 			}
 		?>
         
-        <!--- photo row3 ends here --->
-        <div class="row-fluid">
-        	<div class="pagination pagination-small pageno_nav pull-right">
-            	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row-fluid end_caption">
-            <?php 
-				//get the about_handjob content
-				$manageData->getContent("about_handjob") ;
-			?>
-        </div>
+        
+        
      </div>    
     <!-- members favourite portion ends here ---->
 </div>

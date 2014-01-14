@@ -54,9 +54,6 @@
 				?>
             </div>
         </div>
-        <div class="row-fluid end_caption">
-            <h4>Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h4>
-        </div>
         <!-- members favourite portion starts here ---->
         <div class="row-fluid photo_update">
             <div class="span12">

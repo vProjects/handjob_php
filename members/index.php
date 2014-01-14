@@ -185,12 +185,10 @@
                     </div>
                 </div>
                 <div class="row-fluid social">
-                	<ul>
-                    	<li class="twitter"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                        <li class="twitter"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                        <li class="twitter"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                        <li class="twitter"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                    </ul>
+                	<a class="twitter-timeline" href="https://twitter.com/namantweets" data-widget-id="422881942036443136">Tweets by @namantweets</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
                 </div><!--social box ends here---twiter-->
                 
 				<!--social box starts here---facebook-->

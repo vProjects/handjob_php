@@ -27,6 +27,9 @@ body{
 	color:#000;
 	font-size:14px;
 }
+.container {
+	min-width: 90%;
+}
 .header{
 	height:auto;
 }
@@ -207,6 +210,11 @@ body{
 }
 .end_caption h4{
 	margin:5px 0 0;
+	color: #ff0000;
+	cursor: pointer;
+}
+.end_caption h4:hover {
+	color: #bd362f;
 }
 .end_caption_border{
 	height:2px;
@@ -245,6 +253,12 @@ body{
   width: 100%;
   border: 0;
   max-height:400px;
+}
+.bottom-next {
+	margin-top: 10px;
+}
+a:hover, a:focus {
+	text-decoration: none;
 }
 /* bootstrap css modification */
 @media (min-width: 1200px){
