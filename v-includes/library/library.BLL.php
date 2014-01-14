@@ -533,31 +533,31 @@
 					<div class="span8">
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Age:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["age"].'</div>
+							<div class="span3 model_info_description">'.$modelDetails[0]["age"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Height:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["height"].'</div>
+							<div class="span3 model_info_description">'.$modelDetails[0]["height"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Weight:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["weight"].'</div>
+							<div class="span3 model_info_description">'.$modelDetails[0]["weight"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Measurement:</div>
-							<div class="span8 model_info_description">24/36/24</div>
+							<div class="span3 model_info_description">24/36/24</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Category:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["category"].'</div>
+							<div class="span3 model_info_description">'.$modelDetails[0]["category"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Description:</div>
-							<div class="span8 model_info_description">'.$modelDetails[0]["description"].'</div>
+							<div class="span3 model_info_description">'.$modelDetails[0]["description"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Rating:</div>
-							<div class="span8 model_info_description">';
+							<div class="span3 model_info_description">';
 			if( $modelDetails[0]["rating"] == 0 )
 			{
 				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
