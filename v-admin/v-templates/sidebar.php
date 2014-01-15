@@ -109,7 +109,8 @@
                 <div class="accordion-inner">
                     <ul class="nav nav-pills nav-stacked">
                         <li><a <?php if( $page_title == "Paginations" ){ echo 'class="v_active"'; }?> href="managePagination.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Contol Pagination</a></li>
-                        <li><a href="#"><span class="icon-hand-right"></span>&nbsp;&nbsp;Submenu</a></li>
+                        <li><a <?php if( $page_title == "Manage Friends" ){ echo 'class="v_active"'; }?> href="manageFriends.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;Add Friends</a></li>
+                        <li><a <?php if( $page_title == "List Friends" ){ echo 'class="v_active"'; }?> href="listFriends.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Friends</a></li>
                     </ul>
                 </div>
             </div>

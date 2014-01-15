@@ -46,8 +46,8 @@
        </div>
        
        <div class="row-fluid">
-			<video class="mejs-ted" width="640" height="360" src="media/echo-hereweare.mp4" type="video/mp4" 
-				id="player1" poster="media/echo-hereweare.jpg" 
+			<video class="mejs-ted" width="640" height="360" src="videos/52d6639a31b48/m/52d6639a31b48.mp4" type="video/mp4" 
+				id="player1" poster="images/movie_thumb/52d6639a31b48.JPG" 
 				controls="controls" preload="none">
 			</video>
 

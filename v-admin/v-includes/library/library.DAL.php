@@ -293,6 +293,19 @@
 				return $rowcount;
 			}
 		}
+		
+		/*
+		- method to insert the friends detils to the website
+		- auth Singh
+		*/
+		function insertFriends($name,$link,$friend_thumb,$date,$status)
+		{
+			$query = $this->link->prepare("INSERT INTO `friends`(`name`, `link`, `friend_thumb`, `date`, `status`) VALUES (?,?,?,?,?)");
+			$values = array($name,$link,$friend_thumb,$date,$status);
+			$query->execute($values);
+			return $query->rowCount();
+		}
+		
 	}
 
 ?>

@@ -102,7 +102,7 @@
 	$outputVideoPath = $_SERVER['DOCUMENT_ROOT']."members/videos/".$outputFolder."/";
 			
 	//required vid formats
-	$vidFormat_1 = "flv";
+	$vidFormat_1 = "mp4";
 	$vidFormat_2 = "";
 	$vidFormat_3 = "";
 	

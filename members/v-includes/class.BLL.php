@@ -1626,11 +1626,13 @@
 			//get the table name according to the page
 			if( $type == "movie" )
 			{
+				$title = "Movie" ;
 				$table_name = "movie_info" ;
 				$field_where = "gallery_id" ;
 			}
 			if( $type == "gallery" )
 			{
+				$title = "Gallery" ;
 				$table_name = "gallery_info" ;
 				$field_where = "gallery_id" ;
 			}
@@ -1642,7 +1644,7 @@
 				//create full UI
 				echo '<div class="row-fluid">
 						<div class="span12">
-							<h3 class="movie_description_heading">Movie Description</h3>
+							<h3 class="movie_description_heading">'.$title.' Description</h3>
 							<p class="movie_description">'.$description[0]["description"].'</p>
 							</div>	
 					   </div>' ;

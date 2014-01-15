@@ -889,6 +889,38 @@
 			}
 			
 		}
+		
+		/*
+		- method to create the UI for the friends list
+		- creates full UI
+		- Auth Singh
+		*/
+		function getFriendsList()
+		{
+			//get the values from the database
+			$friends = $this->manageContent->getValue('friends','*') ;
+			
+			//create the UI
+			foreach( $friends as $friend )
+			{
+				echo '<tbody>
+                        <tr>
+							<td class="span1 model_thumb"><img src="../members/images/friend_thumb/'.$friend['friend_thumb'].'"/></td>
+                            <td>'.$friend['name'].'</td>
+							<td><a href="'.$friend['link'].'" target="_blank">'.$friend['link'].'</a></td>
+							<td>'.$friend['date'].'</td>
+							<td><a href="editFriend.php?id='.$friend['id'].'">
+									<button class="btn btn-warning" type="button">
+									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
+								</a>
+							</td>
+                            <td><button class=" btn btn-danger" type="button">
+								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+							</td>
+                        </tr>
+                    </tbody>';
+			}
+		}
 	}
 
 ?>
