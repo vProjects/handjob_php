@@ -4,44 +4,38 @@
 	include('v-templates/header.php');
 	//include sidebar
 	include('v-templates/sidebar.php');
-	
-	$folderName = "" ;
-	$filename = "" ;
+	$id = "" ;
 	$save_status = "";
-	
+	$filename = "" ;
 	if( $GLOBALS["_GET"] > 0 )
 	{ 
 		//get the save status 
 		$save_status = $GLOBALS["_GET"]["save"];
 		$filename = $GLOBALS["_GET"]["filename"];
+		//get the model id 
 		$id = $GLOBALS["_GET"]["id"];
-		$type = $GLOBALS["_GET"]["type"];
 	}
 ?>
-
         <!--container for content of the website-->
         <div class="span9" id="content_container">
         	<blockquote>
-                <p>Edit a Movie Thumb</p>
+                <p>Edit a Friend</p>
                 <small>
-                	<cite title="Source Title">Edit movie to your website.</cite>
+                	<cite title="Source Title">Edit Friend to your website.</cite>
                 </small>
             </blockquote>
-            <div class="crop_container" style="width:90%;background:none;height:100%;">
+            <div class="crop_container">
             <?php 
 				//if the save get is not set the create the page for croping
 				if( $save_status == "false" ){
 			?>
-                <div style="max-width:500px;float:left;" id="image_box">
-                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
+                <div class="image_model_1">
+                    <img src="../members/images/friend_thumb/<?php echo $filename; ?>" style="height:377px;width:250px;" id="cropbox"/>
                      
                 </div>
-                <form action="v-includes/functions/function.cropMovieThumb.php" method="post" class="form_image_crop">
-                	<input type="hidden" name="filename" value="<?php echo $filename; ?>"/>
+                <form action="v-includes/functions/function.cropFriend.php" method="post" class="form_image_crop">
+                	<input type="hidden" name="filename" value="<?php echo $filename ; ?>"/>
                     <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                    <input type="hidden" name="type" value="<?php echo $type; ?>"/>
-                    <input type="hidden" name="Image_h" id="Image_h"/>
-                    <input type="hidden" name="Image_w" id="Image_w"/>
                     <label>X1 <input type="text" size="4" id="x" name="x" /></label>
                     <label>Y1 <input type="text" size="4" id="y" name="y" /></label>
                     <label>X2 <input type="text" size="4" id="x2" name="x2" /></label>
@@ -55,10 +49,10 @@
 				//else create UI for saving the cropped image
 				if( $save_status == "answer" ){
 			?>
-            	<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
-                    <img src="../temp/thumbs/<?php echo $filename; ?>" style="width:100%;max-width:500px;"/>
-                    <a href="cropMovieThumb.php?filename=<?php echo $filename; ?>&type=<?php echo $type; ?>&save=true&id=<?php echo $id; ?>" >
-                        <button class="btn btn-warning" type="button" style="left: 30%;position: relative;">
+            	<div class="image_model">
+                    <img src="../temp/<?php echo $filename; ?>" style="height:377px;width:250px;"/>
+                    <a href="cropFriend.php?filename=<?php echo $filename; ?>&save=true&id=<?php echo $id; ?>" >
+                        <button class="btn btn-warning" type="button" style="margin:4px 28px;">
                         <span class="icon-pencil"></span>&nbsp;&nbsp;SAVE MODEL IMAGE</button>
                     </a>
                 </div>
@@ -67,22 +61,21 @@
 				//if save status is true then save the image
 				if( $save_status == "true")
 				{
-					$src = '../temp/thumbs/'.$filename;
-					$dst = "../members/images/movie_thumb/".$filename ;
-					
+					$src = '../temp/'.$filename;
+					$dst = "../members/images/friend_thumb/".$filename ;
+					move_uploaded_file( $src , $dst );
 					$img_r = imagecreatefromjpeg($src);
-					
 					if(file_exists($dst) && file_exists($src))
 					{
 						unlink($dst);
 					}
-					imagejpeg($img_r,$dst,100);
-					unlink($src);	
-					echo '<div class="image_model" style="width:100%;max-width:500px;float:left;height:100%;">
-                    		<img src="'.$dst.'" style="width:100%;max-width:500px;"/>
+					imagejpeg($img_r,"../members/images/friend_thumb/".$filename,100);
+					unlink("../temp/".$filename);	
+					echo '<div class="image_model">
+                    		<img src="'.$dst.'" style="height:377px;width:250px;"/>
 						
-							<a href="editMovies.php?movieId='.$id.'&type='.$type.'" >
-								<button class="btn btn-warning" type="button" style="left: 30%;position: relative;">
+							<a href="editFriend.php?id='.$id.'" >
+								<button class="btn btn-warning" type="button" style="margin:4px 28px;">
 								<span class="icon-pencil"></span>&nbsp;&nbsp;&nbsp;&nbsp;RETURN TO MAIN</button>
 							</a>
 						</div>' ;

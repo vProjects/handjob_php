@@ -1650,5 +1650,88 @@
 					   </div>' ;
 			}
 		}
+		
+		/*
+		- method of getting the friend list of the page
+		- create the full UI
+		- Auth Singh
+		*/
+		function getFriends($startPoint,$limit)
+		{
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			
+			//for the recent
+			$sortBy = "date";
+				
+			//get values from the database
+			$friends = $this->manageContent->getValue_limit_sorted_current('friends','*',$sortBy,$startPoint,$limit);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($friends as $friend)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%4 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//for models whose status is online
+				if($friend["status"] == 1)
+				{
+					//create the UI components
+					echo '<div class="span3 element">
+							<h4 class="red_text"><a href="'.$friend['link'].'" target="_blank">'.$friend['name'].'</h4>
+							<img class="lazy" data-src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" src=""></a></div>';
+							
+				}
+				if($end_point%4 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
+		
+		/*
+		- method to get the suggested sites
+		- create the full UI
+		- Auth Singh
+		*/
+		function getSuggested_sites()
+		{
+			//output is the id of the friends table
+			$sites = $this->manageContent->getValue("suggested_info","*") ;
+			echo '<div class="row-fluid popularmodels">' ;
+			$start_point = 0 ;
+			$end_point = 1 ;
+			foreach( $sites as $site )
+			{
+				//get the values from the table
+				$site_info = $this->manageContent->getValueWhere("friends","*","id",$site['suggested_site_id']) ;
+				if($start_point%2 == 0)
+				{
+					echo '<div class="row-fluid">';
+				}
+				//create single sugested site with the links
+				echo '<div class="mostPopular span6">
+						<a href="'.$site_info[0]['link'].'">
+                    		<img class="lazy" data-src="images/friend_thumb/'.$site_info[0]['friend_thumb'].'" src="" alt="suggested"> 
+                        	<h5>'.$site_info[0]['name'].'</h5>
+						</a>
+                    </div>' ;
+				if($end_point%2 == 0)
+				{
+					echo '</div>';
+				}
+				
+				$start_point++ ;
+				$end_point++ ;
+			}
+			echo '</div>' ;
+		}
 	}
 ?>

@@ -1,5 +1,5 @@
 <?php
-	$page_title = 'Photos';
+	$page_title = 'Friends';
 	//get header
 	include ('v-templates/header.php');
 	
@@ -27,35 +27,18 @@
 		//include the model searchBar
 		//include('v-templates/modelSearchBar.php') ;
 	?>
-    <div class="row-fluid model_detail_heading">
-    	<?php
-			//set the pageName for the type navbar
-			$pageName = "photo.php" ;
-			
-			
-			
-			//get the pagination for the page
-			$manageData->pagination($startPoint,"photo.php",10,"gallery_info_tour",$type,$keyword,$limit);
-		?>
-        
-    </div>
     <!--- gallery starts here --->
     <?php 
 		//get the photo gallery for the page
-		$manageData->getGallery($startPoint,$limit,$type) ;
+		$manageData->getFriends(0,1000) ;
 	?>
    
-        <div class="row-fluid">
-        	<div class="span12">
-            	<?php
-					//get the pagination for the page
-					$manageData->pagination($startPoint,"photo.php",10,"gallery_info_tour",$type,$keyword,$limit);
-				?>
-            </div>
-        </div>
+      
         <!-- members favourite portion starts here ---->
         <div class="row-fluid photo_update">
-            <h3 class="site_heading"> Members Favorite</h3>
+        	<div class="span12">
+            	<h3 class="site_heading"> Members Favorite</h3>
+            </div>
             <div class="row-fluid photo_update_outline">
                 <div class="pagination pagination-small pageno_nav pull-right">
                     <ul>

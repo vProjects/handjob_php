@@ -26,7 +26,7 @@
             	
                 <div class="image_model">
                     <img src="../members/images/friend_thumb/<?php echo $friend_detial[0]['friend_thumb']; ?>" style="height:377px;width:250px;"/>
-                    <a href="cropImage.php?modelId=<?php echo $model_id; ?>&save=false&filename=<?php echo $model_detail[0]['image_thumb']; ?>" >
+                    <a href="cropFriend.php?id=<?php echo $friend_id; ?>&save=false&filename=<?php echo $friend_detial[0]['friend_thumb']; ?>" >
                         <button class="btn btn-warning" type="button" style="margin:4px 28px;">
                         <span class="icon-pencil"></span>&nbsp;&nbsp;CROP MODEL IMAGE</button>
                     </a>

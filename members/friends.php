@@ -1,5 +1,5 @@
 <?php
-	$page_title = 'PHOTOS';
+	$page_title = 'FRIENDS';
 	//get header
 	include ('v-templates/header.php');
 
@@ -16,7 +16,7 @@
 	<h1>Friends Page</h1>
     	 <?php
 		 	//get the required gallery
-			$manageData->getGallery(0,16,'photo');
+			$manageData->getFriends(0,1000);
 			
 			
 			

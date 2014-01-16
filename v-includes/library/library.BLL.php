@@ -1418,5 +1418,53 @@
 					   </div>' ;
 			}
 		}
+		
+		
+		/*
+		- method of getting the friend list of the page
+		- create the full UI
+		- Auth Singh
+		*/
+		function getFriends($startPoint,$limit)
+		{
+			$startPoint = $startPoint*$limit ;
+			//check the type and fetch the data accordingly
+			
+			//for the recent
+			$sortBy = "date";
+				
+			//get values from the database
+			$friends = $this->manageContent->getValue_limit_sorted_current('friends','*',$sortBy,$startPoint,$limit);
+			//these variables determines the start and the end point for printing row fluid
+			$start_point = 0;
+			$end_point = 1;
+			foreach($friends as $friend)
+			{
+				//maintain the row fluid with only four models in a row
+				if($start_point%4 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						//for models whose status is online
+						echo '<div class="span3 section_element">
+							<a href="'.$friend['link'].'" target="_blank">
+								<img class="lazy img_update" src="members/images/friend_thumb/'.$friend["friend_thumb"].'"  alt="vdeo">
+								<div class="photo_section_footer">
+									<div class="row-fluid">
+										<div class="pull-left"><p class="photo_section_heading"><b>'.$friend["name"].'</b></p></div></a>
+									</div> ';
+									
+						echo '</div>
+							</div>' ;
+						if($end_point%4 == 0)
+						{
+							echo '</div>';
+						}
+				
+				$start_point++ ;
+				$end_point++ ;
+				
+			}
+		}
 	}
 ?>

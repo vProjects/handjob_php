@@ -107,6 +107,17 @@
 		$return_page = "moviesCategories.php" ;
 	}
 	
+	//delete the friends
+	if( $type == "friends" )
+	{
+		$table_name = "friends" ;
+		//delete the database entry
+		$manageData->deleteValue($table_name,"id",$delete_id);
+		
+		//set the return page
+		$return_page = "listFriends.php" ;
+	}
+	
 	//set the redirection
 	header('Location: ../../'.$return_page);
 ?>

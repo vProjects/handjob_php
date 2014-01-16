@@ -148,16 +148,10 @@
                             <h4>Suggested Site</h4>
                     </div>
                 </div>
-            	<div class="row-fluid popularmodels">
-                    <div class="mostPopular span6">
-                    	<img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                        <h5>LEENA HAZE</h5>
-                    </div>
-                    <div class="mostPopular span6">
-                    	<img class="lazy" data-src="images/mostPopular.jpg" src="" alt="most popular model"> 
-                        <h5>LEENA HAZE</h5>
-                    </div>
-                </div>
+				<?php
+                    //get the suggested sites
+                    $manageData->getSuggested_sites() ;
+                ?>
                 
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">

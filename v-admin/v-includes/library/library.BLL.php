@@ -914,12 +914,32 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><button class=" btn btn-danger" type="button">
-								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+                            <td><a href="v-includes/functions/function.deleteEntity.php?type=friends&del_id='.$friend['id'].'">
+									<button class=" btn btn-danger" type="button">
+									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
+								</a>
 							</td>
                         </tr>
                     </tbody>';
 			}
+		}
+		
+		
+		/*
+		- get the UI selectBox for the category page
+		- Auth Singh
+		*/
+		function getFriendsSelect($name)
+		{
+			$friends = $this->manageContent->getValue_sorted_asc("friends","*","name");
+			//print_r($categorys);
+			echo '<select class="v_form_element" name="'.$name.'">
+                    	<option value="">Select One Page</option>' ;
+			foreach($friends as $friend)
+			{
+				echo '<option value="'.$friend["id"].'">'.$friend["name"].'</option>' ;
+			}
+			echo '</select>' ;
 		}
 	}
 
