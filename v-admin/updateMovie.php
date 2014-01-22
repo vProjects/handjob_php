@@ -39,7 +39,37 @@
                 	?>
                         
                 </table>
-            
+                
+            <h3>Movie Thumbs</h3>
+            <!-- for gallery multiple thumb nail -->
+            <div class="row thumb_container">
+            	<div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+                <div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+                <div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+                <div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+            </div>
+            <div class="row thumb_container">
+            	<div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+                <div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+                <div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+                <div class="span3">
+                	<img src="http://placehold.it/377x250" />
+                </div>
+            </div>
             <!--create a gallery if galleryId is set-->
             <div class="row">
                 <div class="span12 gallery1">

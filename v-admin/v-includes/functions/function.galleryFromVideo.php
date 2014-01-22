@@ -129,7 +129,7 @@
 		$outputPathSliced = $_SERVER['DOCUMENT_ROOT']."members/sliced/".$outputFolder."/";
 		
 		//sliced video format
-		$sliced_format = "flv";
+		$sliced_format = "mp4";
 		
 		//insert the values in the cron table for slicing
 		$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,1);

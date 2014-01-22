@@ -1718,7 +1718,7 @@
 				}
 				//create single sugested site with the links
 				echo '<div class="mostPopular span6">
-						<a href="'.$site_info[0]['link'].'">
+						<a href="'.$site_info[0]['link'].'" target="_blank">
                     		<img class="lazy" data-src="images/friend_thumb/'.$site_info[0]['friend_thumb'].'" src="" alt="suggested"> 
                         	<h5>'.$site_info[0]['name'].'</h5>
 						</a>
@@ -1732,6 +1732,38 @@
 				$end_point++ ;
 			}
 			echo '</div>' ;
+		}
+		
+		/*
+		- get the rating for the particular element
+		- @param table name
+		- @return rating value
+		- Auth Singh
+		*/
+		function getRating($element_type,$element_id)
+		{
+			if( $element_type == "movie" )
+			{
+				$rating = $this->manageContent->getValueWhere("movie_info","rating","gallery_id",$element_id) ;
+			}
+			if( $element_type == "sliced" )
+			{
+				$rating = $this->manageContent->getValueWhere("sliced_vids","rating","gallery_id",$element_id) ;
+			}
+			if( $element_type == "gallery" )
+			{
+				$rating = $this->manageContent->getValueWhere("gallery_info","rating","gallery_id",$element_id) ;
+			}
+			if( $element_type == "model" )
+			{
+				$rating = $this->manageContent->getValueWhere("model_info","rating","id",$element_id) ;
+				//if returns 0 then check by name
+				if( $rating == 0 )
+				{
+					$rating = $this->manageContent->getValueWhere("model_info","rating","name",$element_id) ;
+				}
+			}
+			return ( intval( $rating[0]['rating'] ) + 1 ) ;
 		}
 	}
 ?>

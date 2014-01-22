@@ -10,10 +10,63 @@
 	$movie_id = $GLOBALS["_GET"]["movieId"];
 	$gallery_id = $GLOBALS["_GET"]["gallery_id"];
 	$model_id = $GLOBALS["_GET"]["model"];
+	$type = $GLOBALS["_GET"]["type"] ;
 	
 	//codes for setting the views
 	$manageData->manageViews("movie",$movie_id);
-
+	
+	//get the rating for the particular movie
+	/*- initialise the variable -*/
+	$enity_rating = "" ;
+	
+	if($gallery_id == 0 )
+	{
+		$enity_rating = $manageData->getRating("movie",$movie_id) ;
+	}
+	else
+	{
+		$enity_rating = $manageData->getRating("sliced",$gallery_id) ;
+	}
+	
+	/*
+	- codes for generating movie_url
+	- Auth Singh
+	*/
+	//codes for the movie_url
+	$video_url = "" ;
+	
+	if( $gallery_id != 0 )
+	{
+		$video_url .= "sliced/" ;
+	}
+	else
+	{
+		$video_url .= "videos/" ;
+	}
+	
+	$video_url .= $movie_id."/" ;
+	
+	//modify accoring to the type
+	if( $type == "medium" )
+	{
+		$video_url .= "m/" ;
+	}
+	elseif( $type != "high" )
+	{
+		$video_url .= "s/" ;
+	}
+	
+	//video link
+	if( $gallery_id != 0 )
+	{
+		$video_url .= $gallery_id.".mp4" ;
+	}
+	else
+	{
+		$video_url .= $movie_id.".mp4" ;
+	}
+	
+	
 ?>
 
     
@@ -32,9 +85,9 @@
        
        <div class="row-fluid">
        		<div class="btn-group">
-                <button class="btn btn-large btn-danger">High</button>
-                <button class="btn btn-large btn-danger">Medium</button>
-                <button class="btn btn-large btn-danger">Low</button>
+                <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=low" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "low" ){ echo "active"; } ?>">Low</button></a>
+                <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=medium" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "medium" ){ echo "active"; } ?>">Medium</button></a>
+                <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=high" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "high" ){ echo "active"; } ?>">High</button></a>
 				<?php
                     if(isset($movie_id) && !empty($movie_id))
                     {
@@ -46,7 +99,7 @@
        </div>
        
        <div class="row-fluid">
-			<video class="mejs-ted" width="640" height="360" src="videos/52d6639a31b48/m/52d6639a31b48.mp4" type="video/mp4" 
+			<video class="mejs-ted" width="640" height="360" src="<?php echo $video_url ; ?>" type="video/mp4" 
 				id="player1" poster="images/movie_thumb/52d6639a31b48.JPG" 
 				controls="controls" preload="none">
 			</video>
@@ -87,6 +140,14 @@
                 <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
                 <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
                 <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                
+                <?php
+					//check the rating to find thats i hot or not
+					if( $enity_rating > 3 )
+					{
+						echo '<img src="images/img_hot.png" alt="rate-me" />' ;
+					}
+				?>
             </div>
         </div>
     </div>

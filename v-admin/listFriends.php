@@ -8,7 +8,7 @@
 	include('v-templates/sidebar.php');
 	
 	//include('v-includes/library/pagination_config.php');
-	
+	include('v-includes/library/pagination_config.php');
 	
 	$total_elements = $manageData->getTotalElements("friends") ;
 ?>
@@ -24,7 +24,13 @@
             <div class="span4">
             	<h4>Tolal Elements: <?php echo $total_elements ; ?></h4>
             </div>
-
+				<?php
+					if($keyword == "")
+					{
+						//get the pagination of the page
+						$manageData->pagination($startPoint,"listFriends.php",10,"friends","date","");
+					}
+				?>
                 <table class="table table-hover">
                     <caption>List Of Models</caption>
                     <thead>
@@ -40,10 +46,18 @@
                     
 					<?php
                         //call the method from BLL to get friends list
-                        $manageData->getFriendsList() ;
+                        $manageData->getFriendsList($startPoint,"15") ;
                     ?>
                         
                 </table>
+                
+                <?php
+					if($keyword == "")
+					{
+						//get the pagination of the page
+						$manageData->pagination($startPoint,"listFriends.php",10,"friends","date","");
+					}
+				?>
         </div>
     	
     </div><!--body main container ends here-->

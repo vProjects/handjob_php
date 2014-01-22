@@ -1,5 +1,5 @@
 <?php
-	$page_title = 'MODELS';
+	$page_title = 'PHOTOS';
 	//get header
 	include ('v-templates/header.php');
 
@@ -42,6 +42,9 @@
 	{
 		$page = 0 ;
 	}
+	
+	//get the rating for the particular movie
+	$enity_rating = $manageData->getRating("gallery",$gallery_id) ;
 ?>
 
 <div id="bodyContainer" class="row-fluid">
@@ -176,6 +179,14 @@
 	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
 	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
 	                <img class="rateme" src="images/white-star.png"  alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $gallery_id ;?>','gallery')">
+                    
+                    <?php
+						//check the rating to find thats i hot or not
+						if( $enity_rating > 3 )
+						{
+							echo '<img src="images/img_hot.png" alt="rate-me" />' ;
+						}
+					?>
 	            </div>
 	        </div>
     </div>

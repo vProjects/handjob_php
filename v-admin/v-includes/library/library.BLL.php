@@ -895,10 +895,11 @@
 		- creates full UI
 		- Auth Singh
 		*/
-		function getFriendsList()
+		function getFriendsList($startpoint,$limit)
 		{
+			$startpoint = $startpoint*$limit ;
 			//get the values from the database
-			$friends = $this->manageContent->getValue('friends','*') ;
+			$friends = $this->manageContent->getValue_sorted_desc_comments('friends','*',"date",$startpoint,$limit) ;
 			
 			//create the UI
 			foreach( $friends as $friend )

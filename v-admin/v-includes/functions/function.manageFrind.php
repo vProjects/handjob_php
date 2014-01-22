@@ -29,15 +29,15 @@
 	
 	$outputFilenameSuffix = uniqid();
 	
-	//move the uploaded file to the temp/thumbs/ folder
-	$result_upload = $uploadFile->upload_file($name.$outputFilenameSuffix,'photo','../../../temp/thumbs/');
+	//move the uploaded file to the friend_thumb older of members area
+	$result_upload = $uploadFile->upload_file($name.$outputFilenameSuffix,'photo','../../../members/images/friend_thumb/');
 	
 	//absolute the path of the input file 
-	$inputPath = "../../../temp/thumbs/".$result_upload ;
+	//$inputPath = "../../../members/images/friend_thumb/".$result_upload ;
 	//absolute output path
-	$outputPath = $_SERVER['DOCUMENT_ROOT']."members/images/friend_thumb/".$result_upload;
+	//$outputPath = $_SERVER['DOCUMENT_ROOT']."members/images/friend_thumb/".$result_upload;
 	//get H-W ration to prevent Image resterization
-	$HWRatio = $manageMedia->getImageAspect($inputPath);
+	//$HWRatio = $manageMedia->getImageAspect($inputPath);
 	
 	//check whether image is selected or not
 	if(!empty($photo))
@@ -49,11 +49,6 @@
 			$result = $manageData->insertFriends($name,$link,$result_upload,$date,1) ;
 			if($result == 1)
 			{
-				//resize and save images in the location inside the members area
-				$manageMedia->resizeImage($inputPath,250,377,$outputPath);
-				
-				//delete the thumb image from the temp folder
-				unlink($inputPath);
 				$result = "Model inserted successfully.";
 			}
 			else
@@ -73,6 +68,6 @@
 	
 	$_SESSION['result'] = $result;
 	
-	header('Location: ../../manageFriends.php');
+	header('Location: ../../cropFriendAdd.php?save=false&filename='.$result_upload);
 	
 ?>
