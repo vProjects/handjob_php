@@ -28,6 +28,6 @@
 		
 		$mediaQuery->resizeImage($inputPath,317,178,$inputPath);
 	  
-		header('Location: ../../cropMovieThumb.php?filename='.$filename.'&type='.$_POST['type'].'&save=answer&id='.$_POST['id']);
+		header('Location: ../../cropMovieThumb1.php?filename='.$filename.'&type='.$_POST['type'].'&save=answer&galleryId='.$_POST['galleryId']);
 	}
 ?>

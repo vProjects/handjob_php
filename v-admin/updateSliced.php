@@ -11,7 +11,10 @@
                 	<cite title="Source Title">Gallery builder for your website.</cite>
                 </small>
             </blockquote>
-            
+            <?php
+				//UI for movie thumbs
+				$manageData->getMovieThumbs($GLOBALS['_GET']['galleryId'],"sliced") ;
+			?> 
             <!--create a gallery if galleryId is set-->
             <div class="row">
                 <div class="span12 gallery1">

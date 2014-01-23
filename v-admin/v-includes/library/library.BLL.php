@@ -942,6 +942,56 @@
 			}
 			echo '</select>' ;
 		}
+		
+		/*
+		- method to get multiple thumbs for a movie
+		- @param movie id
+		- creates full UI
+		- Auth Singh
+		*/
+		function getMovieThumbs($movie_id,$type)
+		{
+			//get the values for the database for the movie name
+			$thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$movie_id) ;
+			$start_point = 0 ;
+			$end_point  = 1 ;
+			//check the multiple thumb exists or not
+			if( $thumbs != 0 )
+			{
+				echo '<h3>Movie Thumbs</h3>' ;
+				//create the UI
+				for( $i = 0 ; $i < 8 ; $i++ )
+				{
+					if( $start_point%4 == 0 )
+					{
+						echo '<div class="row thumb_container">' ;
+					}
+					echo '<div class="span3" style="border:1px solid;">
+							<img src="../../../members/images/movie_thumb/'.$thumbs[0]["thumb_".($i+1)].'" />
+							<div class="form-horizontal">
+								<form action="v-includes/functions/function.editMovieThumb1.php" method="post" enctype="multipart/form-data">
+									<div class="form-control v-form">
+										<label class="control-label">Upload Image</label>
+										<input style="margin-left: 20px;" type="file" name="movie_thumb" >
+										<input type="hidden" name="filename" value="'.$thumbs[0]["thumb_".($i+1)].'" />
+										<input type="hidden" name="type" value="'.$type.'" />
+										<input type="hidden" name="movie_id" value="'.$movie_id.'" />
+										<input type="submit" value="Update Thumb" class="btn btn-medium btn-warning" style="position:relative;left:22%;"/>
+									</div>
+								</form>
+							</div>
+						</div>' ;
+					if( $end_point%4 == 0 )
+					{
+						echo '</div>' ;
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
+				}
+			}
+		}
+		
 	}
 
 ?>

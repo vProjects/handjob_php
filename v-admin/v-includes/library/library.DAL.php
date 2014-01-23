@@ -306,6 +306,17 @@
 			return $query->rowCount();
 		}
 		
+		/*
+		- method to insert the movie_thumbs in the database
+		- Auth Singh
+		*/
+		function insertMovieThumb($movie_id,$thumb_0,$thumb_1,$thumb_2,$thumb_3,$thumb_4,$thumb_5,$thumb_6,$thumb_7)
+		{
+			$query = $this->link->prepare("INSERT INTO `movie_thumbs`(`movie_id`, `thumb_1`, `thumb_2`, `thumb_3`, `thumb_4`, `thumb_5`, `thumb_6`, `thumb_7`, `thumb_8`) VALUES (?,?,?,?,?,?,?,?,?)");
+			$values = array($movie_id,$thumb_0,$thumb_1,$thumb_2,$thumb_3,$thumb_4,$thumb_5,$thumb_6,$thumb_7) ;
+			$query->execute($values);
+			return $query->rowCount();
+		}
 	}
 
 ?>

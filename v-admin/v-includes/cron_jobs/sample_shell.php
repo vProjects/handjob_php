@@ -1,8 +1,8 @@
 <?php
-	/*require_once('/home/sites/handjobstop.com/public_html/v-admin/v-includes/library/library.media.php');
+	require_once('../library/library.DAL.php');
 	
-	$mediaQuery = new libraryMedia() ;
-	$inputVidForConversion = "/home/sites/handjobstop.com/public_html/uploads/videos/aa.mp4";
+	$manageData = new manageContent_DAL();
+	/*$inputVidForConversion = "/home/sites/handjobstop.com/public_html/uploads/videos/aa.mp4";
 	$outputFilename = "output";
 	$thumbFormat = "jpg";
 	//output path for the thumbnail
@@ -25,9 +25,20 @@
 	$thumb->writeImage($path."movie_thumb/527ff8f36db2a.JPG");
 	echo $thumb;
 	echo "done";*/
+	$thumb_array = array() ;
+	for( $i = 0 ; $i < 8 ; $i++ )
+	{
+		//$this->mediaQuery->getThumbs($inputVidForConversion,$snaps_interval*($i+1),"317x178",$outputPathThumb,$outputFilename."_".$i,$thumbFormat);
+		//create array from the names of the thumb for the database the database
+		array_push(
+						$thumb_array ,
+						"anand"."_".$i 
+					) ;
+	}
 	
-	$fh = fopen( '../../../logs/convert_log.txt', 'w+' );
-	fclose($fh);
+	//insert the array into db
+	$manageData->insertMovieThumb("12345", $thumb_array[0], $thumb_array[1], $thumb_array[2], $thumb_array[3], $thumb_array[4], $thumb_array[5], $thumb_array[6], $thumb_array[7]) ;
+	print_r($thumb_array) ;
 	
 
 ?>
