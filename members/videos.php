@@ -15,6 +15,7 @@
 ?>
 
 <div id="bodyContainer" class="row-fluid">
+
     	 <?php
 		 	//GET the model searchBar
 			include('v-templates/modelSearchBar.php');

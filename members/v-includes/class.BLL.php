@@ -594,8 +594,18 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
-							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
+							<div class="hs-wrapper">
+								<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_1.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_2.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_3.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_4.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_5.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_6.JPG" style="width:100%;">
+								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_7.JPG" style="width:100%;">
+							</div>
+							
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
