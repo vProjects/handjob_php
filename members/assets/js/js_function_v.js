@@ -26,8 +26,9 @@ function rate(rating,username,id_input,type)
 - Jquery Ajax with JavaScript
 - Auth Singh
 */
-function status(varible_l_d,id_input,username,type)
+function status(varible_l_d,id_input,username,type,index)
 {
+	
 	//initialize the required variables
 	var allow_like = 0 ;
 	var allow_dislike = 0 ;
@@ -45,6 +46,17 @@ function status(varible_l_d,id_input,username,type)
 				type: type,
 				id : id_input
 			},function(data){
+				if(data == 'You have already provided your views for this comment.'){
+					
+				}
+				else {
+					console.log($('.comments .span10 .badge-success')[parseInt(index)]);
+					console.log($('.comments .span10 .badge-success')[parseInt(index)].innerHTML);
+					
+					var currentDislikes =  $('.comments .span10 .badge-success')[parseInt(index)].innerHTML;
+					currentDislikes = parseInt(currentDislikes);
+					$('.comments .span10 .badge-success')[parseInt(index)].innerHTML = currentDislikes +1 ;
+				}
 				result = data ;
 				alert(data) ;
 				allow = 0 ;
@@ -63,6 +75,15 @@ function status(varible_l_d,id_input,username,type)
 				type: type,
 				id : id_input
 			},function(data){
+				if(data == 'You have already provided your views for this comment.'){
+					
+				}
+				else {
+					console.log($('.comments .span10 .badge-inverse')[parseInt(index)]);
+					var currentDislikes =  $('.comments .span10 .badge-inverse')[parseInt(index)].innerHTML;
+					currentDislikes = parseInt(currentDislikes);
+					$('.comments .span10 .badge-inverse')[parseInt(index)].innerHTML = currentDislikes +1 ;
+				}
 				result = data ;
 				alert(data) ;
 				allow = 0 ; 
