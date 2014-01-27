@@ -577,6 +577,9 @@
 				//get the videos durtion
 				$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
 				
+				//get the movies multiple thumbs
+				$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$movie['gallery_id']) ;
+				
 				//get the model for particular gallery
 				$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
 				$model_name = $model_name[0]["model"] ;
@@ -595,15 +598,31 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
-							<div class="hs-wrapper">
-								<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_1.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_2.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_3.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_4.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_5.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_6.JPG" style="width:100%;">
-								<img src="http://handjobstop.com/members/images/movie_thumb/52e1255047876_7.JPG" style="width:100%;">
+							<div ';
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo 'class="hs-wrapper"';
+					}
+					else
+					{
+						echo 'class="vhs-wrapper"';
+					}
+					echo '>
+								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
+								<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+					//check whether the movie have multiple thumb or not
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					echo '	</a>
 							</div>
 							
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
@@ -661,6 +680,9 @@
 				$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
 				$model_name = $model_name[0]["model"] ;
 				
+				//get the movies multiple thumbs
+				$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$movie['gallery_id']) ;
+				
 				//get the single model name
 				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 				
@@ -674,8 +696,31 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
-							<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4><div ';
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo 'class="hs-wrapper"';
+					}
+					else
+					{
+						echo 'class="vhs-wrapper"';
+					}
+					echo '><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
+						<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src="">';
+					//check whether the movie have multiple thumb or not
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					echo '	</a>
+							</div>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -728,6 +773,9 @@
 				$model_name = $this->manageContent->getValueWhere("sliced_vids","model","gallery_id",$slicedMovie['gallery_id']) ;
 				$model_name = $model_name[0]["model"] ;
 				
+				//get the movies multiple thumbs
+				$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$slicedMovie['gallery_id']) ;
+				
 				//get the single model name
 				$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 				
@@ -744,9 +792,33 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</h4>
-							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
-							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</a></h4>
+							<div ' ;
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo 'class="hs-wrapper"';
+					}
+					else
+					{
+						echo 'class="vhs-wrapper"';
+					}
+					echo '>
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">
+							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src="">';
+					//check whether the movie have multiple thumb or not
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					echo '	</a>
+							</div><p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
@@ -887,6 +959,9 @@
 					//get the videos durtion
 					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie["vid_format_1"]) ;
 					
+					//get the movies multiple thumbs
+					$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$movie['gallery_id']) ;
+				
 					//get the model for particular gallery
 					$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
 					$model_name = $model_name[0]["model"] ;
@@ -904,8 +979,33 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</h4>
-								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</a></h4><div ';
+								
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo 'class="hs-wrapper"';
+					}
+					else
+					{
+						echo 'class="vhs-wrapper"';
+					}
+					echo '>
+								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
+								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src="">';
+					//check whether the movie have multiple thumb or not
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					echo '	</a>
+							</div>
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1376,6 +1476,8 @@
 			}
 			
 			$sortBy = "id" ;
+			//variable for like and dislike
+			$i = 0 ;
 			
 			//get the data from the database
 			$comments = $this->manageContent->getValueWhere_latest($table_name,"*","unit_id",$id,$sortBy) ;
@@ -1391,9 +1493,12 @@
 						<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
 						<div class="span10">
 							<p>'.$comment["comment"].'</p>
-							<p><i class="icon-glass"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>
+							<p><i class="icon-glass"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>
 						</div>
 					</div>' ;
+					
+				//increment the counter
+				$i++ ;
 			}
 		}
 		
@@ -1528,6 +1633,9 @@
 					//get the videos durtion
 					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
 					
+					//get the movies multiple thumbs
+					$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$movie['gallery_id']) ;
+				
 					//get the model for particular gallery
 					$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
 					$model_name = $model_name[0]["model"] ;
@@ -1545,8 +1653,34 @@
 					{
 						//create the UI components
 						echo '<div class="span'.$span.' element">
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</h4>
-								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
+											<div ';
+						if($movie_thumbs != 0 && !empty($movie_thumbs))
+						{
+							echo 'class="hs-wrapper"';
+						}
+						else
+						{
+							echo 'class="vhs-wrapper"';
+						}
+						echo '>
+								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
+								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+						//check whether the movie have multiple thumb or not
+						if($movie_thumbs != 0 && !empty($movie_thumbs))
+						{
+							echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+						}
+						echo '	</a>
+								</div>
+						
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
