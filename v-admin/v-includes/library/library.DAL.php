@@ -153,10 +153,10 @@
 		- method for inserting the model details
 		- auth Singh
 		*/
-		function insertModel($name,$description,$age,$height,$weight,$category,$image,$date,$view,$rating,$status)
+		function insertModel($name,$description,$age,$height,$weight,$measurement,$category,$image,$date,$view,$rating,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `model_info`(`name`, `description`, `age`, `height`, `weight`, `category`, `image_thumb`, `date`, `views`, `rating`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($name,$description,$age,$height,$weight,$category,$image,$date,$view,$rating,$status);
+			$query = $this->link->prepare("INSERT INTO `model_info`(`name`, `description`, `age`, `height`, `weight`, `measurement`, `category`, `image_thumb`, `date`, `views`, `rating`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($name,$description,$age,$height,$weight,$measurement,$category,$image,$date,$view,$rating,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}

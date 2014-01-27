@@ -915,10 +915,9 @@
 									<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
 								</a>
 							</td>
-                            <td><a href="v-includes/functions/function.deleteEntity.php?type=friends&del_id='.$friend['id'].'">
-									<button class=" btn btn-danger" type="button">
+                            <td>
+									<button class=" btn btn-danger" type="button" onclick="delFriends('."'".$friend['id']."'".')">
 									<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
-								</a>
 							</td>
                         </tr>
                     </tbody>';

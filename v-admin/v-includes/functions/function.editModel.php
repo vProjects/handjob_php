@@ -110,6 +110,16 @@
 		}
 	}
 	
+	//update measurement
+	if( isset($measurement) && !empty($measurement))
+	{
+		$result = $manageData->updateValueWhere($table_name,"measurement",$measurement,"id",$model_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
 	//update status
 	if( isset($status) && !empty($status))
 	{

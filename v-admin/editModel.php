@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-control v-form">
                 	<label class="control-label">Measurement</label>
-                    <input type="text" placeholder="Measurement" class="textbox1" name="measurement"/>
+                    <input type="text" value="<?php echo $model_detail[0]['measurement']; ?>" placeholder="Measurement" class="textbox1" name="measurement"/>
                 </div>
                 <div class="form-control v-form">
                 	<label class="control-label">Date</label>

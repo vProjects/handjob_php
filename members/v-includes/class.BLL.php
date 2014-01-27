@@ -338,7 +338,7 @@
 							</div>
 							<div class="row-fluid model_detail_part">
 								<div class="span3 model_info_topic">Measurement:</div>
-								<div class="span8 model_info_description">24/36/24</div>
+								<div class="span8 model_info_description">'.$modelDetails[0]["measurement"].'</div>
 							</div>
 							<div class="row-fluid model_detail_part">
 								<div class="span3 model_info_topic">Category:</div>
