@@ -665,7 +665,7 @@ body{
 @media (min-width: 768px) and (max-width: 1136px) {
 	.hs-wrapper{
 				width: 100%;
-				height: 201px;
+				height: 100px;
 				position: relative;
 				margin: 0 auto;
 				overflow: hidden;
