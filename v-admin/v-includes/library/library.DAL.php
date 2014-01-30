@@ -317,6 +317,33 @@
 			$query->execute($values);
 			return $query->rowCount();
 		}
+		
+		/*
+		- function to get the value sorted
+		- and till present date for articles
+		- auth Singh
+		*/
+		function getValue_limit_sorted_current_a($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" )
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE `end_date` <= CURDATE() ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE `end_date` <= CURDATE() ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			}
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
 	}
 
 ?>

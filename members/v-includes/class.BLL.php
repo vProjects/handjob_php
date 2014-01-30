@@ -613,14 +613,14 @@
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
 					echo '	</a>
 							</div>
@@ -710,14 +710,14 @@
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
 					echo '	</a>
 							</div>
@@ -808,14 +808,14 @@
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
 					echo '	</a>
 							</div><p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
@@ -995,14 +995,14 @@
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
-									<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
 					echo '	</a>
 							</div>
@@ -1108,7 +1108,7 @@
 			//get the search 
 			//total number of rows of the db_table
 			$lastIndex = $this->manageContent->getTotalRows($tableName) ;
-			//echo $lastIndex = $lastIndex[0]['count(*)'];
+			//echo $lastIndex[0]['count(*)'];
 			//no of page to be displayed
 			$no_page = $lastIndex[0]['count(*)']/$limit ;
 			//show pagination when there is more than one page is there
@@ -1669,14 +1669,14 @@
 						//check whether the movie have multiple thumb or not
 						if($movie_thumbs != 0 && !empty($movie_thumbs))
 						{
-							echo		'<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
-										<img src="http://handjobstop.com/members/images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+							echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 						}
 						echo '	</a>
 								</div>

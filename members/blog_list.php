@@ -15,11 +15,14 @@
         <div class="span9" id="leftContainer">
         <!---- blog list starts here --->
         	<?php
+				//get the pagination for the page
+				$manageData->pagination($startPoint,"blog_list.php",10,"article_info","recent","",15);
+				
 				//to get the articles
-				$manageData->getArticles($startPoint,$limit);
+				$manageData->getArticles($startPoint,15);
 				
 				//get the pagination for the page
-				$manageData->pagination($startPoint,"blog_list.php",10,"article_info","recent","");
+				$manageData->pagination($startPoint,"blog_list.php",10,"article_info","recent","",15);
 			?>
             
         </div>

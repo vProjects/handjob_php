@@ -520,11 +520,11 @@ body{
 				top: 0px;
 				left: 0px;
 				position: absolute;
-				-webkit-animation: showMe 1.6s linear infinite 0s forwards;
-				-moz-animation: showMe 1.6s linear infinite 0s forwards;
-				-o-animation: showMe 1.6s linear infinite 0s forwards;
-				-ms-animation: showMe 1.6s linear infinite 0s forwards;
-				animation: showMe 1.6s linear infinite 0s forwards;
+				-webkit-animation: showMe 1.8s linear infinite 0s forwards;
+				-moz-animation: showMe 1.8s linear infinite 0s forwards;
+				-o-animation: showMe 1.8s linear infinite 0s forwards;
+				-ms-animation: showMe 1.8s linear infinite 0s forwards;
+				animation: showMe 1.8s linear infinite 0s forwards;
 				-webkit-animation-play-state: paused;
 				-moz-animation-play-state: paused;
 				-o-animation-play-state: paused;
@@ -589,6 +589,14 @@ body{
 				-ms-animation-delay: 1.4s;
 				animation-delay: 1.4s;
 				z-index: 2;
+			}
+			.hs-wrapper img:nth-child(9){
+			    -webkit-animation-delay: 1.6s;
+				-moz-animation-delay: 1.6s;
+				-o-animation-delay: 1.6s;
+				-ms-animation-delay: 1.6s;
+				animation-delay: 1.6s;
+				z-index: 1;
 			}
 			.hs-wrapper:hover img{
 				-webkit-animation-play-state: running;

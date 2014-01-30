@@ -74,15 +74,15 @@
 					
 					$img_r = imagecreatefromjpeg($src);
 					
-					if(file_exists($dst) && file_exists($src))
+					if(file_exists($src))
 					{
 						unlink($dst_h);
 						unlink($dst_m);
 						unlink($dst_s);
+						//resize and save the images according to the type
+						$manageData->resizeGalleryImage($src,$folderName,$filename) ;
 					}
-					imagejpeg($img_r,$dst_h,100);
-					imagejpeg($img_r,$dst_m,100);
-					imagejpeg($img_r,$dst_s,100);
+					
 					
 					unlink("../temp/".$filename);	
 					

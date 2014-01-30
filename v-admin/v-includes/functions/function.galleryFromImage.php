@@ -93,7 +93,7 @@
 		{
 			$mediaQuery->resizeImage($inputFilePath.$filename,3000,3000*$HWRatio,$outputPath.$filename);
 			$mediaQuery->resizeImage($inputFilePath.$filename,1600,1600*$HWRatio,$outputPath."m/".$filename);
-			$mediaQuery->resizeImage($inputFilePath.$filename,1024,682*$HWRatio,$outputPath."s/".$filename);
+			$mediaQuery->resizeImage($inputFilePath.$filename,1024,1024*$HWRatio,$outputPath."s/".$filename);
 		}
 		else
 		{

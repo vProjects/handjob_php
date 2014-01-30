@@ -40,7 +40,7 @@
                     </thead>
                     <?php 
 						//fetch the article list
-						$manageData->getArticleList(); 
+						$manageData->getArticleList($startPoint,$limit); 
 					?>
                 </table>
                 <?php

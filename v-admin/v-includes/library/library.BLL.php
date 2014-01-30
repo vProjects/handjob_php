@@ -1,14 +1,18 @@
 <?php
 	//include the library for DAL
 	include('library.DAL.php');
+	include('library.media.php') ;
 	
 	class manageContent_BLL
 	{
 		private $manageContent;
+		private $_mediaObject ;
+		
 		//contructor of the class
 		function __construct()
 		{
 			$this->manageContent = new manageContent_DAL();
+			$this->_mediaObject = new libraryMedia() ;
 			return $this->manageContent;
 		}
 		
@@ -16,9 +20,10 @@
 		- function to get the value of article table sorted by date
 		- auth Singh
 		*/
-		function getArticleList()
+		function getArticleList($startPoint,$limit)
 		{
-			$articles = $this->manageContent->getValue_latest('article_info','*','article_date');
+			$startPoint = $startPoint*$limit ;
+			$articles = $this->manageContent->getValue_limit_sorted_current_a('article_info','*','article_date',$startPoint,$limit);
 			foreach($articles as $article)
 			{
 				echo '<tbody>
@@ -988,6 +993,36 @@
 					$start_point++ ;
 					$end_point++ ;
 				}
+			}
+		}
+		
+		/*
+		- method to convert the images to proper sizes 
+		- convert the processed galllery to the required resolution
+		- according to ths small medium and large maintaining the aspect ratio
+		- @param $inputFile which contains the full path
+		- @return null
+		- Auth Singh
+		*/
+		function resizeGalleryImage($inputFile,$folderName,$filename)
+		{
+			//initialize the output path
+			$outputPath = "../members/gallery/".$folderName ;
+			
+			//get the HW ratio of the image to maintain the aspect ratio
+			$HWRatio = $this->_mediaObject->getImageAspect($inputFile);
+			
+			if( $HWRatio < 1 )
+			{
+				$this->_mediaObject->resizeImage($inputFile,3000,3000*$HWRatio,$outputPath."/".$filename);
+				$this->_mediaObject->resizeImage($inputFile,1600,1600*$HWRatio,$outputPath."/m/".$filename);
+				$this->_mediaObject->resizeImage($inputFile,1024,1024*$HWRatio,$outputPath."/s/".$filename);
+			}
+			else
+			{
+				$this->_mediaObject->resizeImage($inputFile,2000,2000*$HWRatio,$outputPath."/".$filename);
+				$this->_mediaObject->resizeImage($inputFile,1064,1064*$HWRatio,$outputPath."/m/".$filename);
+				$this->_mediaObject->resizeImage($inputFile,682,682*$HWRatio,$outputPath."/s/".$filename);
 			}
 		}
 		

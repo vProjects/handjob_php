@@ -43,11 +43,11 @@
 			//get multiple thumbnail for the video
 			for( $i = 0 ; $i < $max_thumb ; $i++ )
 			{
-				$this->mediaQuery->getThumbs($inputVidForConversion,$snaps_interval*($i+1),"317x178",$outputPathThumb,$outputFilename."_".$i,$thumbFormat);
+				$this->mediaQuery->getThumbs($inputVidForConversion,$snaps_interval*($i+1),"317x178",$outputPathThumb,$outputFilename."_v_".$i,$thumbFormat);
 				//create array from the names of the thumb for the database the database
 				array_push(
 								$thumb_array ,
-								$outputFilename."_".$i.".".$thumbFormat 
+								$outputFilename."_v_".$i.".".$thumbFormat 
 							) ;
 			}
 			
