@@ -16,6 +16,9 @@
 	
 	//get the rating for the particular movie
 	$enity_rating = $manageData->getRating("model",$model_id) ;
+	
+	//get total voted people
+	$voted_people = $manageData->getPeopleVoted('model',$model_id) ;
 ?>
 
 	<div id="bodyContainer" class="row-fluid">   
@@ -48,19 +51,31 @@
 	<div class="row-fluid">
         <div class="span12">
             <div class="offset3 span6 rating">
-                Rate Me:
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
-                <?php
-					//check the rating to find thats i hot or not
-					if( $enity_rating > 3 )
-					{
-						echo '<img src="images/img_hot.png" alt="rate-me" />' ;
-					}
-				?>
+            	<div class="row-fluid">
+                	<div class="span7">
+                        Rate Me:
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')">
+                        <?php
+                            //check the rating to find thats i hot or not
+                            if( $enity_rating > 3 )
+                            {
+                                echo '<img src="images/img_hot.png" alt="rate-me" />' ;
+                            }
+                        ?>
+            		</div>
+                    <div class="span3 voted_people">
+                    	<?php
+							if( !empty($voted_people) )
+							{
+								echo "VOTED BY <br/> ( ".$voted_people."MEMBER )" ;
+							}
+						?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

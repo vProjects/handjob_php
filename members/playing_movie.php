@@ -12,19 +12,22 @@
 	$model_id = $GLOBALS["_GET"]["model"];
 	$type = $GLOBALS["_GET"]["type"] ;
 	
-	//codes for setting the views
-	$manageData->manageViews("movie",$movie_id);
 	
-	//get the rating for the particular movie
+	//get the rating and people voted for the particular movie
+	//also set the views for the movies
 	/*- initialise the variable -*/
 	$enity_rating = "" ;
-	
+	$voted_people = $manageData->getPeopleVoted('movie',$movie_id) ;
 	if($gallery_id == 0 )
 	{
-		$enity_rating = $manageData->getRating("movie",$movie_id) ;
+		//codes for setting the views
+		$manageData->manageViews("movie",$movie_id);
+		$enity_rating = $manageData->getRating("movie",$movie_id) ;		
 	}
 	else
 	{
+		//codes for setting the views
+		$manageData->manageViews("sliced",$gallery_id);
 		$enity_rating = $manageData->getRating("sliced",$gallery_id) ;
 	}
 	
@@ -100,7 +103,7 @@
        
        <div class="row-fluid">
 			<video class="mejs-ted" width="640" height="360" src="<?php echo $video_url ; ?>" type="video/mp4" 
-				id="player1" poster="images/movie_thumb/52d6639a31b48.JPG" 
+				id="player1" poster="images/movie_thumb/<?php if($gallery_id == 0){echo $movie_id;}else{echo $gallery_id;} ?>.JPG" 
 				controls="controls" preload="none">
 			</video>
 
@@ -134,20 +137,33 @@
    <div class="row-fluid">
         <div class="span12">
             <div class="offset3 span6 rating">
-                Rate Me:
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
-                <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+            	<div class="row-fluid">
+                	<div class="span7">
+                    	Rate Me:
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                        <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
+                        
+                        <?php
+                            //check the rating to find thats i hot or not
+                            if( $enity_rating > 3 )
+                            {
+                                echo '<img src="images/img_hot.png" alt="rate-me" />' ;
+                            }
+                        ?>
+                    </div>
+                    <div class="span3 voted_people">
+                    	<?php
+							if( !empty($voted_people) )
+							{
+								echo "VOTED BY <br/> ( ".$voted_people."MEMBER )" ;
+							}
+						?>
+                    </div>
+                </div>
                 
-                <?php
-					//check the rating to find thats i hot or not
-					if( $enity_rating > 3 )
-					{
-						echo '<img src="images/img_hot.png" alt="rate-me" />' ;
-					}
-				?>
             </div>
         </div>
     </div>

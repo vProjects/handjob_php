@@ -1207,15 +1207,20 @@
 			{
 				$result = $this->manageContent->incrementByOne("model_info","views","id",$inputValue);
 			}
-			//views for model
+			//views for gallery
 			if( $pageName == "gallery" )
 			{
 				$this->manageContent->incrementByOne("gallery_info","view","gallery_id",$inputValue);
 			}
-			//views for model
+			//views for movie
 			if( $pageName == "movie" )
 			{
 				$this->manageContent->incrementByOne("movie_info","views","gallery_id",$inputValue);
+			}
+			//views for sliced vids
+			if( $pageName == "sliced" )
+			{
+				$this->manageContent->incrementByOne("sliced_vids","view","gallery_id",$inputValue);
 			}
 		}
 		
@@ -1908,6 +1913,30 @@
 				}
 			}
 			return ( intval( $rating[0]['rating'] ) + 1 ) ;
+		}
+		
+		/*
+		- method to get the number of people voted
+		- reurns int
+		- Auth Singh
+		*/
+		function getPeopleVoted($type,$entity_id)
+		{
+			if( $type == "movie" )
+			{
+				$table_name = 'rate_movie' ;
+			}
+			if( $type == "gallery" )
+			{
+				$table_name = 'rate_gallery' ;
+			}
+			if( $type == "model" )
+			{
+				$table_name = 'rate_model' ;
+			}
+			//count the votes
+			$result = $this->manageContent->getTotalRows_vote($table_name,$entity_id) ;
+			return $result[0]['count(*)'] ;
 		}
 	}
 ?>

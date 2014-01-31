@@ -240,7 +240,8 @@
 		*/
 		function getSearchValue($table_name,$value,$row_value,$searchKeyword)
 		{
-			$query = $this->link->query("SELECT $value from $table_name where $row_value LIKE '%$searchKeyword%'");
+			$sortBy = 'date' ;
+			$query = $this->link->query("SELECT $value from $table_name where $row_value LIKE '%$searchKeyword%' ORDER BY $sortBy DESC");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){
@@ -327,6 +328,25 @@
 		{
 			$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY RAND() ASC LIMIT $startPoint,$limit ");
 			
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- get total rows for the rating
+		- the number of people voted for
+		- Auth Singh
+		*/
+		function getTotalRows_vote($table_name,$entity_id)
+		{
+			$query = $this->link->query("SELECT count(*) from $table_name WHERE `unit_id` = '$entity_id'");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){

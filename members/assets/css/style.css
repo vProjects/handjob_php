@@ -679,3 +679,7 @@ body{
 				overflow: hidden;
 			}	
 }
+.voted_people{
+	color:#ffffff ;
+	text-align: center;
+}
