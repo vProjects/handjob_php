@@ -598,7 +598,7 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
-							<div ';
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -608,7 +608,6 @@
 						echo 'class="vhs-wrapper"';
 					}
 					echo '>
-								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
 								<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
@@ -622,8 +621,7 @@
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
-					echo '	</a>
-							</div>
+					echo '	</div></a>
 							
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
@@ -696,7 +694,8 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4><div ';
+							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -705,7 +704,7 @@
 					{
 						echo 'class="vhs-wrapper"';
 					}
-					echo '><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
+					echo '>
 						<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src="">';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
@@ -719,8 +718,7 @@
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
-					echo '	</a>
-							</div>
+					echo '	</div></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -793,7 +791,7 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</a></h4>
-							<div ' ;
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low"><div ' ;
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -803,7 +801,6 @@
 						echo 'class="vhs-wrapper"';
 					}
 					echo '>
-							<a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">
 							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src="">';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
@@ -817,8 +814,8 @@
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
-					echo '	</a>
-							</div><p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
+					echo '	</div></a>
+							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
@@ -979,7 +976,8 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</a></h4><div ';
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</a></h4>
+								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 								
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
@@ -990,7 +988,6 @@
 						echo 'class="vhs-wrapper"';
 					}
 					echo '>
-								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
 								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src="">';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
@@ -1004,8 +1001,8 @@
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 					}
-					echo '	</a>
-							</div>
+					echo '	</div></a>
+							
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1659,7 +1656,7 @@
 						//create the UI components
 						echo '<div class="span'.$span.' element">
 								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
-											<div ';
+											<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 						if($movie_thumbs != 0 && !empty($movie_thumbs))
 						{
 							echo 'class="hs-wrapper"';
@@ -1669,7 +1666,6 @@
 							echo 'class="vhs-wrapper"';
 						}
 						echo '>
-								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">
 								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 						//check whether the movie have multiple thumb or not
 						if($movie_thumbs != 0 && !empty($movie_thumbs))
@@ -1683,8 +1679,8 @@
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
 						}
-						echo '	</a>
-								</div>
+						echo '	</div></a>
+								
 						
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating

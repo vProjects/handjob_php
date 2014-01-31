@@ -1,7 +1,9 @@
 <?php
 	require_once('../library/library.DAL.php');
+	require_once('../library/library.media.php');
 	
 	$manageData = new manageContent_DAL();
+	$mediaQuery = new libraryMedia() ;
 	/*$inputVidForConversion = "/home/sites/handjobstop.com/public_html/uploads/videos/aa.mp4";
 	$outputFilename = "output";
 	$thumbFormat = "jpg";
@@ -25,11 +27,14 @@
 	$thumb->writeImage($path."movie_thumb/527ff8f36db2a.JPG");
 	echo $thumb;
 	echo "done";*/
+	$movie_duration = $mediaQuery->getVideoLength('../../../members/sliced/52e99e57de8de/s/52e99e57de8de_0.mp4') ;
+	$snaps_interval = $movie_duration/(8+1) ;
 	for( $i = 0 ; $i < 8 ; $i++ )
 	{
 		//$this->mediaQuery->getThumbs($inputVidForConversion,$snaps_interval*($i+1),"317x178",$outputPathThumb,$outputFilename."_".$i,$thumbFormat);
 		//create array from the names of the thumb for the database the database
-		
+		$snaps_interval_start = date('H:i:s', mktime(0, 0,($snaps_interval*($i+1))));
+		echo $start_time."<br/>" ;
 	}
 	
 	

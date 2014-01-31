@@ -31,7 +31,7 @@
 	$file_info = pathinfo($outputPath_temp.$filename_temp);
 	$ext = $file_info['extension'] ;
 	
-	if( $ext != "JPG")
+	
 	{
 		//convert the file to get the .JPG extension
 		$mediaQuery->convertImageFormat($outputPath_temp.$filename_temp,$outputPath_temp.$filename,"");

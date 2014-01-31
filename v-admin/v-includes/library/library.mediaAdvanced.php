@@ -39,7 +39,7 @@
 			$movie_duration = $this->mediaQuery->getVideoLength($inputVidForConversion) ;
 			$snaps_interval = $movie_duration/($max_thumb+1) ;
 			//get the main thumb
-			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"317x178",$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"900x507",$outputPathThumb,$outputFilename,$thumbFormat);
 			//get multiple thumbnail for the video
 			for( $i = 0 ; $i < $max_thumb ; $i++ )
 			{
@@ -125,6 +125,8 @@
 		*/
 		function sliceVideo($inputFile,$gallery_name,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l,$resolution_m,$resolution_s,$thumb_time)
 		{
+			//initialize variable
+			$snaps_interval_start = "" ;
 			//array to store the movie thumb name for db
 			$thumb_array = array() ;
 			//max no thumb according to the db
@@ -134,27 +136,10 @@
 			$outputPathThumb =  '/home/sites/handjobstop.com/public_html/members/images/movie_thumb/';
 			//thumb image format
 			$thumbFormat = "JPG";
-			//get the total time of the video
-			$movie_duration = $this->mediaQuery->getVideoLength($inputFile) ;
-			$snaps_interval = $movie_duration/5*($max_thumb+1) ;
+			
 			//get thumbnail for the video
-			$this->mediaQuery->getThumbs($inputFile,$thumb_time,"317x178",$outputPathThumb,$outputFilename,$thumbFormat);
-			
-			//get multiple thumbnail for the video
-			for( $i = 0 ; $i < $max_thumb ; $i++ )
-			{
-				$this->mediaQuery->getThumbs($inputFile,($snaps_interval*($i+1)),"317x178",$outputPathThumb,$outputFilename."_".$i,$thumbFormat);
-				//create array from the names of the thumb for the database the database
-				array_push(
-								$thumb_array ,
-								$outputFilename."_".$i.".".$thumbFormat 
-							) ;
-			}
-			
-			//insert the array into db
-			//output filename is same as the gallery id for sliced movie
-			$result = $this->_manageData->insertMovieThumb($outputFilename, $thumb_array[0], $thumb_array[1], $thumb_array[2], $thumb_array[3], $thumb_array[4], $thumb_array[5], $thumb_array[6], $thumb_array[7]) ;
-			
+			$this->mediaQuery->getThumbs($inputFile,$thumb_time,"900x507",$outputPathThumb,$outputFilename,$thumbFormat);
+			$gallery_id_thumb = $outputFilename ;	
 			$outputFilename = $outputFilename.".".$outputFormat;
 			//slice the video -->large
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath,$outputFormat,$outputFilename,$resolution_l);
@@ -162,6 +147,27 @@
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."m/",$outputFormat,$outputFilename,$resolution_m);
 			//slice the video -->small
 			$this->mediaQuery->sliceVideo($inputFile,$startTime,$interval,$outPath."s/",$outputFormat,$outputFilename,$resolution_s);
+			
+			//get the total time of the video
+			$movie_duration = $this->mediaQuery->getVideoLength($outPath.$outputFilename) ;
+			$snaps_interval = $movie_duration/($max_thumb+1) ;
+			
+			//get multiple thumbnail for the video
+			for( $i = 0 ; $i < $max_thumb ; $i++ )
+			{
+				$snaps_interval_start = date('H:i:s', mktime(0, 0,($snaps_interval*($i+1))));
+				$this->mediaQuery->getThumbs($outPath.$outputFilename,$snaps_interval_start,"317x178",$outputPathThumb,$gallery_id_thumb."_".$i,$thumbFormat);
+				//create array from the names of the thumb for the database the database
+				array_push(
+								$thumb_array ,
+								$gallery_id_thumb."_".$i.".".$thumbFormat 
+							) ;
+			}
+			
+						
+			//insert the array into db
+			//output filename is same as the gallery id for sliced movie
+			$result = $this->_manageData->insertMovieThumb($gallery_id_thumb, $thumb_array[0], $thumb_array[1], $thumb_array[2], $thumb_array[3], $thumb_array[4], $thumb_array[5], $thumb_array[6], $thumb_array[7]) ;
 			
 			//clear the log file
 			$fh = fopen( '../../../logs/slice_log.txt', 'w+' );

@@ -101,8 +101,8 @@
 			</div>	
        </div>
        
-       <div class="row-fluid">
-			<video class="mejs-ted" width="640" height="360" src="<?php echo $video_url ; ?>" type="video/mp4" 
+       <div class="row-fluid v_player">
+			<video class="mejs-ted" width="900" height="507" src="<?php echo $video_url ; ?>" type="video/mp4" 
 				id="player1" poster="images/movie_thumb/<?php if($gallery_id == 0){echo $movie_id;}else{echo $gallery_id;} ?>.JPG" 
 				controls="controls" preload="none">
 			</video>
