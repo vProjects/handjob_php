@@ -32,7 +32,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1" style="max-width:500px;width:100%;" id="image_box">
-                    <img src="../members/gallery/<?php echo $folderName."/".$filename ;?>" id="cropbox"/>
+                    <img src="../members/gallery/<?php echo $folderName."/".$filename ;?>" id="cropbox_movie"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropMovieImage.php" method="post" class="form_image_crop">

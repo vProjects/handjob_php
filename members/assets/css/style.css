@@ -614,11 +614,11 @@ body{
 				background: rgba(0,0,0,1.2);
 				box-shadow: 0 0 0 0 rgba(255,255,255,0.6) inset;
 				pointer-events: none;
-				-webkit-transition: all 0.6s linear;
-				-moz-transition: all 0.6s linear;
-				-o-transition: all 0.6s linear;
-				-ms-transition: all 0.6s linear;
-				transition: all 0.6s linear;
+				-webkit-transition: all 4.5s linear;
+				-moz-transition: all 4.5s linear;
+				-o-transition: all 4.5s linear;
+				-ms-transition: all 4.5s linear;
+				transition: all 4.5s linear;
 			}
 			
 			.hs-wrapper:hover .hs-overlay{
@@ -685,4 +685,15 @@ body{
 }
 .v_player{
 	margin-top:25px ;
+}
+.hide_img img{
+	display:none ;
+}
+.hide_img{
+	overflow-x:hidden ;
+	overflow-y:scroll ;
+	height:200px ;
+}
+.nav {
+	margin-bottom: 4px;
 }

@@ -32,7 +32,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div style="max-width:500px;float:left;" id="image_box">
-                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
+                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox_movie"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropMovieThumb.php" method="post" class="form_image_crop">

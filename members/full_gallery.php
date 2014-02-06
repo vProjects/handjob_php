@@ -197,7 +197,7 @@
 							<?php
                                 if( !empty($voted_people) )
                                 {
-                                    echo "VOTED BY <br/> ( ".$voted_people."MEMBER )" ;
+                                    echo "Rating: ".($enity_rating)."/5 <br/> ( ".$voted_people."Votes )" ;
                                 }
                             ?>
                         </div>
@@ -219,10 +219,7 @@
 				unset($_SESSION['result']) ;
 				echo '</div>' ;
 			}
-			
-			//get the comments for the post
-			$manageData->getComments("gallery",$gallery_id,0) ;
-        ?>
+		?>
         <div class="row-fluid">
             <div class="span12">
                 <h4>Comment Here:</h4>
@@ -248,6 +245,10 @@
 	    		</form>
 	    	</div>
     	</div>
+        <?php	
+			//get the comments for the post
+			$manageData->getComments("gallery",$gallery_id,0) ;
+        ?>
     </div>
      <?php
 		//generate an alternate number for the members favorite

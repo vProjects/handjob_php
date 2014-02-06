@@ -30,7 +30,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1">
-                    <img src="../members/images/friend_thumb/<?php echo $filename; ?>" style="height:377px;width:250px;" id="cropbox"/>
+                    <img src="../members/images/friend_thumb/<?php echo $filename; ?>" style="height:377px;width:250px;" id="cropbox_photo"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropFriend.php" method="post" class="form_image_crop">

@@ -28,7 +28,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1" style="width: auto;" id="image_box">
-                    <img src="../members/images/friend_thumb/<?php echo $filename; ?>" style="max-height:500px;max-width:500px;" id="cropbox"/>
+                    <img src="../members/images/friend_thumb/<?php echo $filename; ?>" style="max-height:500px;max-width:500px;" id="cropbox_photo"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropFriendAdd.php" method="post" class="form_image_crop">

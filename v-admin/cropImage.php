@@ -34,7 +34,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1">
-                    <img src="../members/images/model_thumb/<?php echo $model_detail[0]['image_thumb']; ?>" style="height:377px;width:250px;" id="cropbox"/>
+                    <img src="../members/images/model_thumb/<?php echo $model_detail[0]['image_thumb']; ?>" style="height:377px;width:250px;" id="cropbox_photo"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropModel.php" method="post" class="form_image_crop">

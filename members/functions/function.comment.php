@@ -13,6 +13,8 @@
 		$id = $_POST['id'] ;
 		$member = $_POST['member'] ;
 	}
+	//get the date of insertion
+	$date = date('Y-m-h');
 	
 	$returnPath = "" ;
 	//initialize the table name variable
@@ -69,7 +71,7 @@
 		if( $table_name != "not_set" )
 		{
 			//insert the data into the database for the gallery
-			$value = $manageData->insertComment($table_name,$id,$member,$comment,0,0) ;
+			$value = $manageData->insertComment($table_name,$id,$member,$comment,$returnPath,0,0,$date) ;
 			//set the result or status of the insertion
 			$_SESSION['result'] = "Comment successfully submitted" ;
 		}

@@ -71,7 +71,7 @@
                     	<?php
 							if( !empty($voted_people) )
 							{
-								echo "VOTED BY <br/> ( ".$voted_people."MEMBER )" ;
+								echo "Rating: ".($enity_rating-1)."/5 <br/> ( ".$voted_people."Votes )" ;
 							}
 						?>
                     </div>
@@ -93,8 +93,6 @@
 				echo '</div>' ;
 			}
 			
-			//get the comments for the post
-			$manageData->getComments("model",$model_id,0) ;
         ?>
         <div class="row-fluid">
             <div class="span12">
@@ -119,6 +117,10 @@
 	    		</form>
 	    	</div>
     	</div>
+        <?php
+			//get the comments for the post
+			$manageData->getComments("model",$model_id,0) ;
+		?>
     </div><!-- comment box ends here -->
      <?php
 		//generate an alternate number for the members favorite

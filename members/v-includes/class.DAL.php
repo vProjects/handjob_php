@@ -295,10 +295,10 @@
 		- @table name is also variable so can be used for all comments
 		- Auth Singh
 		*/
-		function insertComment($tableName,$id,$member,$comment,$like,$dislike)
+		function insertComment($tableName,$id,$member,$comment,$page,$like,$dislike,$date)
 		{		
-			$query = $this->link->prepare("INSERT INTO `$tableName` ( `unit_id`, `member`, `comment`, `comment_like`, `comment_dislike`) VALUES (?,?,?,?,?)");
-			$values = array($id,$member,$comment,$like,$dislike);
+			$query = $this->link->prepare("INSERT INTO `$tableName` ( `unit_id`, `member`, `comment`, `page`, `comment_like`, `comment_dislike`, `date`) VALUES (?,?,?,?,?,?,?)");
+			$values = array($id,$member,$comment,$page,$like,$dislike,$date);
 			$query->execute($values);
 			$count = $query->rowCount();
 			return $count;
@@ -347,6 +347,24 @@
 		function getTotalRows_vote($table_name,$entity_id)
 		{
 			$query = $this->link->query("SELECT count(*) from $table_name WHERE `unit_id` = '$entity_id'");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- get all the comments for the application
+		- Auth Singh
+		*/
+		function getAllComments()
+		{
+			$query = $this->link->query("(SELECT * FROM `movie_comment` ORDER BY `id` DESC LIMIT 0,3) UNION ALL (SELECT * FROM `model_comment` ORDER BY `id` DESC LIMIT 0,3) UNION ALL	(SELECT * FROM `gallery_comment` ORDER BY `id` DESC LIMIT 0,3) UNION ALL	(SELECT * FROM `article_comment` ORDER BY `id` DESC LIMIT 0,3)");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){

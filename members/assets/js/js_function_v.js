@@ -16,7 +16,7 @@ function rate(rating,username,id_input,type)
 		},function(data){
 			result = data ;
 			alert(data) ;
-			allow = 0 ;
+			//allow = 0 ;
 		});
 	}
 }

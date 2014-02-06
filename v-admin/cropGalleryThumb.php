@@ -31,7 +31,7 @@
 				if( $save_status == "false" ){
 			?>
                 <div class="image_model_1" style="max-width:500px;" id="image_box">
-                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox"/>
+                    <img src="../temp/thumbs/<?php echo $filename ;?>" id="cropbox_photo"/>
                      
                 </div>
                 <form action="v-includes/functions/function.cropGalleryThumb.php" method="post" class="form_image_crop">

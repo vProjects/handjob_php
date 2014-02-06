@@ -213,7 +213,7 @@
 		//for article
 		if( $type == "article" )
 		{
-			//get the model id
+			//get the article id
 			$article_id = $_REQUEST["id"] ;
 			$user_exists = 0 ;
 			

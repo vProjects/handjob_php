@@ -485,33 +485,9 @@
 							{
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}			
-				echo		'<p> Comments</p>
+				echo		'
 						</div>';
 					
-				//get the comments for the blog
-				$this->getComments("article",$article["id"],0) ;
-				
-				//comment box
-				echo '<div class="row-fluid">	
-						<div class="span12">
-							<form class="form-horizontal" action="functions/function.comment.php" method="post">
-								<div class="control-group">
-									<div class="controls">
-										<textarea rows="4" style="width: 50%" name="comment"></textarea>
-									</div>
-									<div class="controls">
-										<input type="hidden" value="'.$article["id"].'" name="id" />
-										<input type="hidden" value="article" name="type" />
-										<input type="hidden" value="';
-				echo $_SESSION['user'].'" name="member" />
-										<input type="submit" class="btn" value="Submit">
-									</div>			    		
-								</div>
-							</form>
-						</div>
-					</div>' ;
-					
-				//get the rating box for the article
 				echo '<div class="row-fluid">
 						<div class="span12">
 							<div class="offset2 span7 rating">
@@ -540,7 +516,34 @@
 				
 				echo '</div>
 					</div>
-				</div>' ;	
+				</div>' ;
+				
+				//comment box
+				echo '<div class="row-fluid">	
+						<div class="span12">
+							<p> Comments</p>
+							<form class="form-horizontal" action="functions/function.comment.php" method="post">
+								<div class="control-group">
+									<div class="controls">
+										<textarea rows="4" style="width: 50%" name="comment"></textarea>
+									</div>
+									<div class="controls">
+										<input type="hidden" value="'.$article["id"].'" name="id" />
+										<input type="hidden" value="article" name="type" />
+										<input type="hidden" value="';
+				echo $_SESSION['user'].'" name="member" />
+										<input type="submit" class="btn" value="Submit">
+									</div>			    		
+								</div>
+							</form>
+						</div>' ;
+						
+				echo	'</div>' ;
+				
+				//get the comments for the blog
+				$this->getComments("article",$article["id"],0) ;	
+				//get the rating box for the article
+					
 				echo '</div>' ;
 			}
 		}
@@ -607,19 +610,21 @@
 					{
 						echo 'class="vhs-wrapper"';
 					}
-					echo '>
-								<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+					echo '>';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					else{
+						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
 							
@@ -704,19 +709,21 @@
 					{
 						echo 'class="vhs-wrapper"';
 					}
-					echo '>
-						<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src="">';
+					echo '>';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					else{
+						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
@@ -800,19 +807,21 @@
 					{
 						echo 'class="vhs-wrapper"';
 					}
-					echo '>
-							<img class="lazy" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;" src="">';
+					echo '>';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					else{
+						echo '<img src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
 							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
@@ -987,19 +996,21 @@
 					{
 						echo 'class="vhs-wrapper"';
 					}
-					echo '>
-								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;" src="">';
+					echo '>';
 					//check whether the movie have multiple thumb or not
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
-						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
 									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					else{
+						echo '<img src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
 							
@@ -1495,7 +1506,8 @@
 						<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
 						<div class="span10">
 							<p>'.$comment["comment"].'</p>
-							<p><i class="icon-glass"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>
+							<p>'.$comment["date"].'</p>
+							<p><i class="icon-glass"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span></p>
 						</div>
 					</div>' ;
 					
@@ -1665,19 +1677,21 @@
 						{
 							echo 'class="vhs-wrapper"';
 						}
-						echo '>
-								<img class="lazy" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+						echo '>';
 						//check whether the movie have multiple thumb or not
 						if($movie_thumbs != 0 && !empty($movie_thumbs))
 						{
-							echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
-										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+							echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
 										<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+						}
+						else{
+							echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 						}
 						echo '	</div></a>
 								
@@ -1933,6 +1947,56 @@
 			//count the votes
 			$result = $this->manageContent->getTotalRows_vote($table_name,$entity_id) ;
 			return $result[0]['count(*)'] ;
+		}
+		
+		/*
+		- get the comments feed for the index page
+		- create the full and return it
+		- @param no of comments to be shown
+		- Auth Singh
+		*/
+		function getCommentFeed($no_comments)
+		{
+			//take comments from all the comment tables
+			//from model,article,movie and gallery
+			$comments = $this->manageContent->getAllComments() ;
+			shuffle($comments) ;
+			
+			foreach( $comments as $comment )
+			{
+				echo '<div class="row-fluid comments">
+						<div class="span11">
+							<h4>'.$comment["member"].'</h4>
+							<p>'.$comment["comment"].'</p>
+							<p>'.$comment["date"].'</p>
+							<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
+				echo		'<a href="'.$comment["page"].'">Read More</a>';
+				echo	'</div>
+					</div>' ;
+			}
+		}
+		
+		/*
+		- get the article feed for the index page
+		- create the full UI and return it
+		- @param no of article to be shown
+		- Auth Singh
+		*/
+		function getArticleFeed($no_article)
+		{
+			//get the articles for the page
+			$articles = $this->manageContent->getValue_limit_sorted_current_a('article_info','*',"article_date",0,5);
+			foreach($articles as $article)
+			{
+				echo '<div class="row-fluid">
+						<div class="span10">
+							<h4>'.$article["article_title"].'</h4>
+							<p class="blog_author_name"> '.$article["article_author"].'</p>
+							<p>'.$article["article_description"].'</p>
+							<p> Added :'.$article["article_date"].'</p>
+							<a href="blog_list.php">Read More</a>';			
+				echo		'</div></div>';
+			}
 		}
 	}
 ?>
