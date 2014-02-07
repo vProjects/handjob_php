@@ -1998,5 +1998,281 @@
 				echo		'</div></div>';
 			}
 		}
+		
+		/*
+		- get the elements of advanced search
+		- for the blocks of category
+		- create a full UI
+		- Auth Singh
+		*/
+		function getCategory_AdvancedSearch()
+		{
+			$model_categorys = $this->manageContent->getSortedCategory('model_category','*','category') ;
+			$movie_categorys = $this->manageContent->getSortedCategory('movie_category','*','category') ;
+			//if( !empty($model_category) && $model_category != 0 && !empty($movie_category) && $movie_category != 0 )
+			{
+				echo '<div class="row-fluid">
+                		<div class="span10 offset2 form_part">' ;
+				echo '<h5>That match category keyword tags:</h5>' ;
+				
+				echo '<p>Movie Category</p>
+						<div class="control-group">' ;
+				
+				foreach($movie_categorys as $movie_category)
+				{
+					echo '<label class="checkbox inline">
+                            <input type="checkbox" value="'.$movie_category['category'].'" name="movie_category"> '.$movie_category['category'].'
+                          </label>' ;
+				}
+				
+				echo '</div>
+						<p>Model Category</p>
+						<div class="control-group">' ;
+				
+				foreach($model_categorys as $model_category)
+				{
+					echo '<label class="checkbox inline">
+                            <input type="checkbox" value="'.$model_category['category'].'" name="model_category"> '.$model_category['category'].'
+                          </label>' ;
+				}
+				echo '</div>
+						</div>
+					</div>' ;
+			}
+		}
+		
+		/*
+		- results for the advance search
+		- creates the full UI
+		- Auth Singh
+		*/
+		function getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$content_date,$content_type)
+		{
+			$startpoint = 0 ;
+			$limit = 100 ;
+			//content for photo type
+			if( $content_type == 'photo' || $content_type == 'all' )
+			{
+				$sortby = 'date' ;
+				$table_name = 'gallery_info' ;
+				$where_column = 'gallery_name' ;
+				//create gallery UI using the keyword with and without
+				$gallerys = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
+				
+				//these variables determines the start and the end point for printing row fluid
+				$start_point = 0;
+				$end_point = 1;
+				if($gallerys != 0 )
+				{
+					//print the photos header
+					echo '<div class="row-fluid">
+							<div id="mainBar" class="span12">
+									<h4>Photos</h4>
+							</div>
+						</div>';
+					
+					foreach($gallerys as $gallery)
+					{
+						//get the total no of images for each gallery
+						$total_no_images = $this->total_no_images($gallery['gallery_id']) ;
+						
+						//get the model for particular gallery
+						$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery['gallery_id']) ;
+						$model_name = $model_name[0]["model"] ;
+						
+						//get the single model name
+						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+		
+						//maintain the row fluid with only four models in a row
+						if($start_point%4 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						//for models whose status is online
+						if($gallery["status"] == 1)
+						{
+							//create the UI components
+							echo '<div class="span3 element">
+									<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
+									<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+									<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
+							//logic for displaying stars according to the rating
+							if( $gallery['rating'] == 0 )
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}	
+							for($i = 0 ; $i < $gallery['rating'] ; $i++)
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}
+							echo '</div>';
+						}
+						if($end_point%4 == 0)
+						{
+							echo '</div>';
+						}
+						
+						$start_point++ ;
+						$end_point++ ;
+						
+					}
+				}
+			}
+			
+			//content for model type
+			if( $content_type == 'model' || $content_type == 'all' )
+			{
+				$sortby = 'date' ;	
+				$table_name = 'model_info' ;
+				$where_column = 'name' ;
+				//create model UI using the keyword with and without
+				$models = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
+				
+				//these variables determines the start and the end point for printing row fluid
+				$start_point = 0;
+				$end_point = 1;
+				if( $models != 0 )
+				{
+					//print the model header
+					echo '<div class="row-fluid">
+							<div id="mainBar" class="span12">
+									<h4>Models</h4>
+							</div>
+						</div>';
+					
+					foreach($models as $model)
+					{
+						//for models whose status is online
+						if($model["status"] == 1)
+						{
+							//maintain the row fluid with only four models in a row
+							if($start_point%4 == 0)
+							{
+								echo '<div class="row-fluid">';
+							}
+							//create the UI components
+							echo '<div class="span3 element">
+									<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
+									<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+									<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
+							//logic for displaying stars according to the rating
+							if( $model['rating'] == 0 )
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}		
+							for($i = 0 ; $i < $model['rating'] ; $i++)
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}
+							echo '</div>';
+							
+							if($end_point%4 == 0)
+							{
+								echo '</div>';
+							}
+							
+							$start_point++ ;
+							$end_point++ ;
+						}
+						
+					}
+				}
+			}
+			
+			//content for movie type
+			if( $content_type == 'movie' || $content_type == 'all' )
+			{
+				$table_name = 'movie_info' ;
+				$sortby = 'date' ;
+				$where_column = 'movie_name' ;
+				//create movie UI using the keyword with and without
+				$movies = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
+				$start_point = 0;
+				$end_point = 1;
+				if( $movies != 0 )
+				{
+					//print the movie header
+					echo '<div class="row-fluid">
+							<div id="mainBar" class="span12">
+									<h4>Movies</h4>
+							</div>
+						</div>';
+					foreach($movies as $movie)
+					{
+						//get the videos durtion
+						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$movie['gallery_id']."/".$movie['gallery_id'].".".$movie['vid_format_1']) ;
+						
+						//get the movies multiple thumbs
+						$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs","*","movie_id",$movie['gallery_id']) ;
+						
+						//get the model for particular gallery
+						$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$movie['gallery_id']) ;
+						$model_name = $model_name[0]["model"] ;
+						
+						//get the single model name
+						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
+						
+						//maintain the row fluid with only four models in a row
+						if($start_point%4 == 0)
+						{
+							echo '<div class="row-fluid">';
+						}
+						//for models whose status is online
+						if($movie["status"] == 1)
+						{
+							//create the UI components
+							echo '<div class="span3 element">
+									<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
+									<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+							if($movie_thumbs != 0 && !empty($movie_thumbs))
+							{
+								echo 'class="hs-wrapper"';
+							}
+							else
+							{
+								echo 'class="vhs-wrapper"';
+							}
+							echo '>';
+							//check whether the movie have multiple thumb or not
+							if($movie_thumbs != 0 && !empty($movie_thumbs))
+							{
+								echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+							}
+							else{
+								echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+							}
+							echo '	</div></a>
+									
+									<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
+							//logic for displaying stars according to the rating
+							if( $movie['rating'] == 0 )
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}
+							for($i = 0 ; $i < $movie['rating'] ; $i++)
+							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							}
+							echo '</div>';
+						}
+						if($end_point%4 == 0)
+						{
+							echo '</div>';
+						}
+						
+						$start_point++ ;
+						$end_point++ ;
+						
+					}
+				}
+			}
+		}
 	}
 ?>

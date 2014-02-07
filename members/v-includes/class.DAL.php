@@ -375,5 +375,81 @@
 				return $rowcount;
 			}
 		}
+		
+		/*
+		- fuction get the advanced search for photos
+		- Auth Singh
+		*/
+		function getAdvSearch($table_name,$where_coloumn,$keyword_with,$keyword_exact,$keyword_without,$cdate,$sortby,$startpoint,$limit)
+		{
+			if( !empty($keyword_without) && isset($keyword_without) )
+			{
+				if(!empty($keyword_exact) && isset($keyword_exact) && !empty($keyword_with) && isset($keyword_with))
+				{
+					$query = $this->link->query("SELECT * FROM $table_name WHERE ((`$where_coloumn` LIKE '%$keyword_with%') OR (`$where_coloumn` LIKE '$keyword_exact')) AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+				}
+				else
+				{
+					//check for the keywords WILD CARDS
+					if(!empty($keyword_with) && isset($keyword_with))
+					{
+						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%') AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby'DESC LIMIT $startpoint,$limit");
+					}
+					//result for only exact
+					if(!empty($keyword_exact) && isset($keyword_exact))
+					{
+						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '$keyword_exact') AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+					}
+				}
+			}
+			else
+			{
+				if(!empty($keyword_exact) && isset($keyword_exact) && !empty($keyword_with) && isset($keyword_with))
+				{
+					$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%') OR (`$where_coloumn` LIKE '$keyword_exact') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+				}
+				else
+				{
+					//check for the keywords WILD CARDS
+					if(!empty($keyword_with) && isset($keyword_with))
+					{
+						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+					}
+					//result for only exact
+					if(!empty($keyword_exact) && isset($keyword_exact))
+					{
+						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '$keyword_exact')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+					}
+				}
+			}
+			
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- get the sorted category
+		- Aut Singh
+		*/
+		function getSortedCategory($table_name,$value,$sortyby)
+		{
+			$query = $this->link->query("SELECT $value from $table_name ORDER BY $sortyby");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
 	}
 ?>
