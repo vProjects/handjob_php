@@ -44,7 +44,26 @@
     
     <!-- movie player-->
     <div class="row-fluid">
-       	<div class="span10 offset1 media" style="height:400px;margin-top:10px;background-color:#000;"></div>
+       <div class="row-fluid v_player">
+			<video class="mejs-ted" width="900" height="507" src="http://handjobstop.com/members/videos/52f3d23a07a0a/s/52f3d23a07a0a.mp4" type="video/mp4" 
+				id="player1" poster="http://handjobstop.com/members/images/movie_thumb/52f3d23a07a0a.JPG" 
+				controls="controls" preload="none">
+			</video>
+
+				
+		<script>
+			$('audio,video').mediaelementplayer({
+				success: function(player, node) {
+					$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+				}
+			});
+			
+			</script>
+		
+          
+          <!-- new video player added here -->
+          </div>
+       	
     </div>
     
     <?php

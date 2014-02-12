@@ -28,6 +28,23 @@
 
     });
   </script>
+  
+	<!-- playing-movie page specific css and js -->
+	
+	<!-- new video player scripts -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<!-- new video player scripts -->
+		<script src="build/jquery.js"></script>	
+		<script src="build/mediaelement-and-player.min.js"></script>
+		<script src="build/testforfiles.js"></script>	
+		<link rel="stylesheet" href="build/mediaelementplayer.min.css" />
+	    <link rel="stylesheet" href="build/mejs-skins.css" />
+	<!-- new video player scripts -->
+	
+	<!-- new video player scripts -->
+	
+	<!-- playing-movie page specific css and js ends here -->
+
 </head>
 
 <body>
