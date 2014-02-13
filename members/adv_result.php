@@ -7,13 +7,27 @@
 	include ('v-templates/navbar.php');
 	
 	//get the value of id from the query string
-	$keyword_with = $GLOBALS["_POST"]["content_keyword_with"];
-	$keyword_exact = $GLOBALS["_POST"]["content_keyword_exact"];
-	$keyword_without = $GLOBALS["_POST"]["content_keyword_without"];
-	$content_date = $GLOBALS["_POST"]["content_date"] ;
-	$content_type = $GLOBALS["_POST"]["content_type"] ;
-	$movie_category = $GLOBALS["_POST"]["movie_category"] ;
-	$model_category = $GLOBALS["_POST"]["model_category"] ;
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' )
+	{
+		$keyword_with = $GLOBALS["_POST"]["content_keyword_with"];
+		$keyword_exact = $GLOBALS["_POST"]["content_keyword_exact"];
+		$keyword_without = $GLOBALS["_POST"]["content_keyword_without"];
+		$content_date = $GLOBALS["_POST"]["content_date"] ;
+		$content_type = $GLOBALS["_POST"]["content_type"] ;
+		$movie_category = $GLOBALS["_POST"]["movie_category"] ;
+		$model_category = $GLOBALS["_POST"]["model_category"] ;
+	}
+	//this will be used for the search box
+	elseif( $_SERVER['REQUEST_METHOD'] == 'GET' )
+	{
+		$keyword_with = $GLOBALS["_GET"]["content_keyword"];
+		$keyword_exact = '';
+		$keyword_without = '';
+		$content_date = 'all';
+		$content_type = 'all' ;
+		$movie_category = 'all' ;
+		$model_category = 'all' ;
+	}
 	
 	//initialize the date variable to the initial date
 	$cdate = '2012-01-01' ;
@@ -39,6 +53,7 @@
 	{
 		$cdate = date('Y-m-d',strtotime('-2 month')); ;
 	}
+	
 ?>
 
     
@@ -46,7 +61,7 @@
     	
         <?php
 			//get the content according to the type and keywords
-			$manageData->getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$cdate,$content_type) ;
+			$manageData->getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$cdate,$content_type,$model_category,$movie_category) ;
 						
             //generate an alternate number for the members favorite
             $alternate = rand(1,2) ;

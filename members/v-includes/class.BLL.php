@@ -66,8 +66,9 @@
 					}
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
-							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+							<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
+							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+							<h4 class="red_text">'.$model['name'].'</h4></a>
 							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $model['rating'] == 0 )
@@ -130,8 +131,9 @@
 					{
 						//create the UI components
 						echo '<div class="span4 element">
-								<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
-								<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+								<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
+								<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+								<h4 class="red_text">'.$model['name'].'</h4></a>
 								<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $model['rating'] == 0 )
@@ -204,8 +206,9 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
-							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
+							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+							<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
@@ -275,8 +278,13 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
-							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+							<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
+							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+							<h4 class="red_text">';
+					$model_name_ex = explode(",",$gallery["model"]) ;
+					echo $model_name_ex[0] ;
+					echo '</h4>
+							</a>
 							<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
@@ -600,7 +608,6 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
 							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
@@ -627,7 +634,7 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-							
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie["movie_name"].'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -699,7 +706,6 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
 							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
@@ -726,6 +732,7 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie["movie_name"].'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -797,7 +804,6 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</a></h4>
 							<a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low"><div ' ;
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
@@ -824,6 +830,7 @@
 						echo '<img src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
+					<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</a></h4>
 							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
@@ -917,8 +924,9 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model["name"].'">'.$model['name'].'</h4>
-							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+							<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model["name"].'">
+							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+							<h4 class="red_text">'.$model['name'].'</h4></a>
 							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $model['rating'] == 0 )
@@ -985,7 +993,6 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</a></h4>
 								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 								
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
@@ -1013,7 +1020,7 @@
 						echo '<img src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-							
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</a></h4>							
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1077,8 +1084,9 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
-								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+								<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">
+								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+								<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
@@ -1667,8 +1675,7 @@
 					{
 						//create the UI components
 						echo '<div class="span'.$span.' element">
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
-											<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 						if($movie_thumbs != 0 && !empty($movie_thumbs))
 						{
 							echo 'class="hs-wrapper"';
@@ -1694,8 +1701,7 @@
 							echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 						}
 						echo '	</div></a>
-								
-						
+								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1747,8 +1753,9 @@
 					{
 						//create the UI components
 						echo '<div class="span'.$span.' element">
-								<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">'.$gallery["gallery_name"].'</h4>
-								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+								<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">
+								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+								<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
@@ -2016,26 +2023,31 @@
 				echo '<h5>That match category keyword tags:</h5>' ;
 				
 				echo '<p>Movie Category</p>
-						<div class="control-group">' ;
-				
+						<div class="control-group">
+							<select name="movie_category[]" multiple="multiple" style="width:90%;">' ;
+				//default value for the select box
+				echo '<option value="all" selected="selected">All</option>' ;
+							
 				foreach($movie_categorys as $movie_category)
 				{
-					echo '<label class="checkbox inline">
-                            <input type="checkbox" value="'.$movie_category['category'].'" name="movie_category"> '.$movie_category['category'].'
-                          </label>' ;
+					echo '<option value="'.$movie_category['category'].'">'.$movie_category['category'].'</option>' ;
 				}
 				
-				echo '</div>
+				echo '</select>
+						</div>
 						<p>Model Category</p>
-						<div class="control-group">' ;
+						<div class="control-group">
+							<select name="model_category[]" multiple="multiple" style="width:90%;">' ;
+							
+				//default value for the select box
+				echo '<option value="all" selected="selected">All</option>' ;
 				
 				foreach($model_categorys as $model_category)
 				{
-					echo '<label class="checkbox inline">
-                            <input type="checkbox" value="'.$model_category['category'].'" name="model_category"> '.$model_category['category'].'
-                          </label>' ;
+					echo '<option value="'.$model_category['category'].'">'.$model_category['category'].'</option>' ;
 				}
-				echo '</div>
+				echo '</select>
+					</div>
 						</div>
 					</div>' ;
 			}
@@ -2046,8 +2058,35 @@
 		- creates the full UI
 		- Auth Singh
 		*/
-		function getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$content_date,$content_type)
+		function getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$content_date,$content_type,$model_categorys,$movie_categorys)
 		{
+			
+			//set the values for the category select box 'all' selection
+			if( $model_categorys[0] == 'all' )
+			{
+				$model_categorys = $this->manageContent->getSortedCategory('model_category','category','category') ;
+				//nullify the array
+				$model_categorys = '' ;
+				$i = 0 ;			//array index
+				foreach( $model_categorys_ar as $model_category_ar )
+				{
+					$moodel_categorys[$i] = $model_category_ar['category'] ;
+					$i++ ;
+				}
+			}
+			if( $movie_categorys[0] = 'all' )
+			{
+				$movie_categorys_ar = $this->manageContent->getSortedCategory('movie_category','category','category') ;
+				//nullify the array
+				$movie_categorys = '' ;
+				$i = 0 ;			//array index
+				foreach( $movie_categorys_ar as $movie_category_ar )
+				{
+					$movie_categorys[$i] = $movie_category_ar['category'] ;
+					$i++ ;
+				}
+			}
+			
 			$startpoint = 0 ;
 			$limit = 100 ;
 			//content for photo type
@@ -2055,7 +2094,7 @@
 			{
 				$sortby = 'date' ;
 				$table_name = 'gallery_info' ;
-				$where_column = 'gallery_name' ;
+				$where_column = 'category' ;
 				//create gallery UI using the keyword with and without
 				$gallerys = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
 				
@@ -2082,19 +2121,57 @@
 						
 						//get the single model name
 						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
-		
-						//maintain the row fluid with only four models in a row
-						if($start_point%4 == 0)
+						
+						//category array created from the db category value
+						$categorys_ar = $this->_getArrayCategory($gallery['category']) ;
+						
+						/*
+						- codes for checking and setting allow according to the
+						- selected categorys
+						*/
+						
+						//initialize the flags
+						$allow_model_category = 0 ;
+						$allow_movie_category = 0 ;
+						//check for the model category
+						foreach( $model_categorys as $model_category )
 						{
-							echo '<div class="row-fluid">';
+							foreach( $categorys_ar as $category_ar )
+							{
+								if( $category_ar == $model_category )
+								{
+									//set the print flag
+									$allow_model_category = 1 ;
+								}
+							}
 						}
-						//for models whose status is online
-						if($gallery["status"] == 1)
+						//check for the movie category
+						foreach( $movie_categorys as $movie_category )
 						{
+							foreach( $categorys_ar as $category_ar )
+							{
+								if( $category_ar == $movie_category )
+								{
+									//set the print flag
+									$allow_movie_category = 1 ;
+								}
+							}
+						}
+						
+						//for models whose status is online
+						if($gallery["status"] == 1 && ($allow_model_category == 1 || $allow_movie_category == 1))
+						{
+							//maintain the row fluid with only four models in a row
+							if($start_point%4 == 0)
+							{
+								echo '<div class="row-fluid">';
+							}
+							
 							//create the UI components
 							echo '<div class="span3 element">
-									<h4 class="red_text"><a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">'.$gallery["gallery_name"].'</h4>
-									<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src=""></a>
+									<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
+									<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+									<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 									<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 							//logic for displaying stars according to the rating
 							if( $gallery['rating'] == 0 )
@@ -2106,14 +2183,19 @@
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}
 							echo '</div>';
+							
+							if($end_point%4 == 0)
+							{
+								echo '</div>';
+							}
+							
+							$start_point++ ;
+							$end_point++ ;
+							
+							//reset the print flag
+							$allow_model_category = 0 ;
+							$allow_movie_category = 0 ;
 						}
-						if($end_point%4 == 0)
-						{
-							echo '</div>';
-						}
-						
-						$start_point++ ;
-						$end_point++ ;
 						
 					}
 				}
@@ -2124,7 +2206,7 @@
 			{
 				$sortby = 'date' ;	
 				$table_name = 'model_info' ;
-				$where_column = 'name' ;
+				$where_column = 'category' ;
 				//create model UI using the keyword with and without
 				$models = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
 				
@@ -2142,8 +2224,46 @@
 					
 					foreach($models as $model)
 					{
+						
+						//category array created from the db category value
+						$categorys_ar = $this->_getArrayCategory($model['category']) ;
+						
+						
+						/*
+						- codes for checking and setting allow according to the
+						- selected categorys
+						*/
+						
+						//initialize the flags
+						$allow_model_category = 0 ;
+						$allow_movie_category = 0 ;
+						//check for the model category
+						foreach( $model_categorys as $model_category )
+						{
+							foreach( $categorys_ar as $category_ar )
+							{
+								if( $category_ar == $model_category )
+								{
+									//set the print flag
+									$allow_model_category = 1 ;
+								}
+							}
+						}
+						//check for the movie category
+						foreach( $movie_categorys as $movie_category )
+						{
+							foreach( $categorys_ar as $category_ar )
+							{
+								if( $category_ar == $movie_category )
+								{
+									//set the print flag
+									$allow_movie_category = 1 ;
+								}
+							}
+						}
+						
 						//for models whose status is online
-						if($model["status"] == 1)
+						if($model["status"] == 1 && ($allow_model_category == 1 || $allow_movie_category == 1))
 						{
 							//maintain the row fluid with only four models in a row
 							if($start_point%4 == 0)
@@ -2152,8 +2272,9 @@
 							}
 							//create the UI components
 							echo '<div class="span3 element">
-									<h4 class="red_text"><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">'.$model['name'].'</h4>
-									<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo"></a>
+									<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
+									<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+									<h4 class="red_text">'.$model['name'].'</h4></a>
 									<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 							//logic for displaying stars according to the rating
 							if( $model['rating'] == 0 )
@@ -2173,6 +2294,10 @@
 							
 							$start_point++ ;
 							$end_point++ ;
+							
+							//reset the print flag
+							$allow_model_category = 0 ;
+							$allow_movie_category = 0 ;
 						}
 						
 					}
@@ -2184,7 +2309,7 @@
 			{
 				$table_name = 'movie_info' ;
 				$sortby = 'date' ;
-				$where_column = 'movie_name' ;
+				$where_column = 'category' ;
 				//create movie UI using the keyword with and without
 				$movies = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
 				$start_point = 0;
@@ -2197,6 +2322,7 @@
 									<h4>Movies</h4>
 							</div>
 						</div>';
+						
 					foreach($movies as $movie)
 					{
 						//get the videos durtion
@@ -2212,17 +2338,53 @@
 						//get the single model name
 						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 						
-						//maintain the row fluid with only four models in a row
-						if($start_point%4 == 0)
+						//category array created from the db category value
+						$categorys_ar = $this->_getArrayCategory($movie['category']) ;
+					
+						/*
+						- codes for checking and setting allow according to the
+						- selected categorys
+						*/
+						
+						//initialize the flags
+						$allow_model_category = 0 ;
+						$allow_movie_category = 0 ;
+						//check for the model category
+						foreach( $model_categorys as $model_category )
 						{
-							echo '<div class="row-fluid">';
+							foreach( $categorys_ar as $category_ar )
+							{
+								if( $category_ar == $model_category )
+								{
+									//set the print flag
+									$allow_model_category = 1 ;
+								}
+							}
 						}
-						//for models whose status is online
-						if($movie["status"] == 1)
+						//check for the movie category
+						foreach( $movie_categorys as $movie_category )
 						{
+							foreach( $categorys_ar as $category_ar )
+							{
+								if( $category_ar == $movie_category )
+								{
+									//set the print flag
+									$allow_movie_category = 1 ;
+								}
+							}
+						}
+						
+						
+						//for models whose status is online
+						if($movie["status"] == 1 && ($allow_model_category == 1 || $allow_movie_category == 1))
+						{
+							//maintain the row fluid with only four models in a row
+							if($start_point%4 == 0 )
+							{
+								echo '<div class="row-fluid">';
+							}
 							//create the UI components
 							echo '<div class="span3 element">
-									<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
 									<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 							if($movie_thumbs != 0 && !empty($movie_thumbs))
 							{
@@ -2249,7 +2411,7 @@
 								echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 							}
 							echo '	</div></a>
-									
+									<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
 									<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 							//logic for displaying stars according to the rating
 							if( $movie['rating'] == 0 )
@@ -2261,18 +2423,39 @@
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}
 							echo '</div>';
-						}
-						if($end_point%4 == 0)
-						{
-							echo '</div>';
-						}
-						
-						$start_point++ ;
-						$end_point++ ;
+							
+							if($end_point%4 == 0)
+							{
+								echo '</div>';
+							}
+							
+							$start_point++ ;
+							$end_point++ ;
+							
+							
+							//reset the print flag
+							$allow_model_category = 0 ;
+							$allow_movie_category = 0 ;
+							}
 						
 					}
 				}
 			}
 		}
+		
+		/*
+		- create an array fron the comma seperated
+		- input values
+		- @return array
+		- Auth Singh
+		*/
+		private function _getArrayCategory($values)
+		{
+			//create an array using comma seperated value
+			$ar_value = explode(',',$values) ; 
+			
+			return $ar_value ;
+		}
+		
 	}
 ?>

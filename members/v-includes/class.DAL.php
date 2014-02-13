@@ -416,9 +416,13 @@
 						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 					}
 					//result for only exact
-					if(!empty($keyword_exact) && isset($keyword_exact))
+					elseif(!empty($keyword_exact) && isset($keyword_exact))
 					{
 						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '$keyword_exact')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+					}
+					else
+					{
+						$query = $this->link->query("SELECT * FROM $table_name WHERE (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 					}
 				}
 			}

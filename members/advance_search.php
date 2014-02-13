@@ -71,7 +71,7 @@
                         </div>
                      </div>
                  </div>
-            </div> 
+            </div>
             <?php
 				//UI for the category
 				$manageData->getCategory_AdvancedSearch() ;
@@ -79,11 +79,7 @@
             <div class="row-fluid">
                 <div class="span10 offset2 form_part_button"> 
                       <div class="control-group">
-                      		
-                            <button type="submit" class="btn btn-large btn-danger">Clear Form</button>
-                            
-                            <button type="submit" class="btn btn-large btn-primary">List Result</button>
-                            
+                            <button type="submit" class="btn btn-large btn-danger">SEARCH</button>
                       </div> 
                 </div>
             </div>  

@@ -70,6 +70,13 @@ jQuery(document).ready(function() {
         effectTime: 1500
     });
 });
+
+function doSearch(search_id)
+{
+	var keyword = document.getElementById(search_id).value ;
+	
+	window.location = 'adv_result.php?content_keyword='+keyword ;
+}
 </script>
 
 
