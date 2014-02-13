@@ -15,14 +15,14 @@
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-responsive.css" />
 <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="assets/js/responsiveslides.min.js"></script>
+<script src="assets/js/responsiveslides.js"></script>
  <script>
     $(function () {
 
       // Slideshow 1
-      $(".rslides").responsiveSlides({
+      $('#abc').responsiveSlides({
         speed: 1000,
-        maxwidth: 100%
+        maxwidth: 3200
       });
 
     });
@@ -31,9 +31,9 @@
 	<!-- playing-movie page specific css and js -->
 	
 	<!-- new video player scripts -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 	<!-- new video player scripts -->
-		<script src="build/jquery.js"></script>	
+			
 		<script src="build/mediaelement-and-player.min.js"></script>
 		<script src="build/testforfiles.js"></script>	
 		<link rel="stylesheet" href="build/mediaelementplayer.min.css" />
