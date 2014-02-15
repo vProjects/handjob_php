@@ -9,6 +9,8 @@
 		//type whether sliced or movie
 		$type = $GLOBALS["_GET"]["type"] ;
 	}
+	
+	
 	if( $type == "movie" )
 	{
 		$movie_details = $manageData->getValue_Where("movie_info","*","id",$movie_id);
@@ -43,7 +45,22 @@
                 	</div>
                 </form>
             </div>
-            
+            <div class="form-horizontal">
+            	<div class="edit_date">
+                	<?php
+						//get the models
+						$model_ex = explode(',',$movie_details[0]['model']);
+						if( $type == 'movie' )
+						{
+							echo '<a href="http://www.handjobstop.com/members/playing_movie.php?movieId='.$movie_details[0]['gallery_id'].'&model='.$model_ex[0].'&gallery_id=0&type=low" target="_blank">Check Video Page</a>' ;
+						}
+						if( $type == 'sliced' )
+						{
+							echo '<a href="http://www.handjobstop.com/members/playing_movie.php?gallery_id='.$movie_details[0]['gallery_id'].'&model='.$model_ex[0].'&movieId='.$movie_details[0]['movie_id'].'&type=low" target="_blank">Check Video Page</a>' ;
+						}
+					?>
+                </div>
+            </div>
             <div class="form-horizontal">
             	<div class="edit_date">Date:<?php echo $movie_details[0]['date']; ?></div>
                 <form action="v-includes/functions/function.editMovies.php" method="post">
