@@ -19,6 +19,24 @@
 			onSelect: updateCoords
 		});
 	});
+	
+	$(function(){
+
+		$('#cropbox_movie').Jcrop({
+			onChange: showCoords,
+			onSelect: updateCoords,
+			aspectRatio: 16 / 9
+		});
+	});
+	
+	$(function(){
+
+		$('#cropbox_photo').Jcrop({
+			onChange: showCoords,
+			onSelect: updateCoords,
+			aspectRatio: 250/377
+		});
+	});
 
 	function updateCoords(c)
 	{

@@ -3,13 +3,13 @@
 	<div class="span4 footer_part">
     	<p class="footer_part_heading">Site links</p>
         <ul>
-        	<li><a href="#">Home</a></li>
-            <li><a href="#">Movies</a></li>
-            <li><a href="#">Photos</a></li>
-            <li><a href="#">Models</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Freinds</a></li>
-            <li><a href="#">JOIN NOW</a></li>
+        	<li><a href="tour.php">Home</a></li>
+            <li><a href="movie.php">Movies</a></li>
+            <li><a href="photo.php">Photos</a></li>
+            <li><a href="model.php">Models</a></li>
+            <li><a href="blog_list.php">Blog</a></li>
+            <li><a href="friends.php">Freinds</a></li>
+            <li><a href="join.php">JOIN NOW</a></li>
         </ul>
     </div>
      <div class="span4 footer_part">

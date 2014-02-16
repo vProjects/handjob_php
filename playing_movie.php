@@ -8,6 +8,7 @@
 	
 	$movie_id = "" ;
 	$gallery_id = "" ;
+	$type = "" ;
 	//if there is a get request then get movie_id
 	if( $GLOBALS["_GET"] > 0 )
 	{
@@ -15,10 +16,50 @@
 		$movie_id = $GLOBALS["_GET"]["movie_id"];
 		$gallery_id = $GLOBALS["_GET"]["gallery_id"];
 		$model_id = $GLOBALS["_GET"]["model_id"] ;
+		$type = $GLOBALS["_GET"]["type"] ;
 	}
 	
 	//codes for setting the views
 	$manageData->manageViews("movie",$movie_id);
+	
+	
+	/*
+	- codes for generating movie_url
+	- Auth Singh
+	*/
+	//codes for the movie_url
+	$video_url = "" ;
+	
+	if( $gallery_id != 0 )
+	{
+		$video_url .= "sliced/" ;
+	}
+	else
+	{
+		$video_url .= "videos/" ;
+	}
+	
+	$video_url .= $movie_id."/" ;
+	
+	//modify accoring to the type
+	if( $type == "medium" )
+	{
+		$video_url .= "m/" ;
+	}
+	elseif( $type != "high" )
+	{
+		$video_url .= "s/" ;
+	}
+	
+	//video link
+	if( $gallery_id != 0 )
+	{
+		$video_url .= $gallery_id.".mp4" ;
+	}
+	else
+	{
+		$video_url .= $movie_id.".mp4" ;
+	}
 ?>
 
 <!-- site description part starts here --->
@@ -36,17 +77,17 @@
 	?>
     <div class="row-fluid model_detail_heading">
     	<div class="btn-group">
-            <a href="#"><button class="btn <?php //if( $type=='recent'){ echo 'active' ;}?> btn-danger">Low</button></a>
-            <a href="#"><button class="btn <?php //if( $type=='rated'){ echo 'active' ;}?> btn-danger">Medium</button></a>
-            <a href="#"><button class="btn <?php //if( $type=='name'){ echo 'active' ;}?> btn-danger">High</button></a>
+            <a href="playing_movie.php?<?php echo "model=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=low" ; ?>"><button class="btn <?php if( $type=='low'){ echo 'active' ;}?> btn-danger">Low</button></a>
+            <a href="playing_movie.php?<?php echo "model=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=medium" ; ?>"><button class="btn <?php if( $type=='medium'){ echo 'active' ;}?> btn-danger">Medium</button></a>
+            <a href="playing_movie.php?<?php echo "model=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=high" ; ?>"><button class="btn <?php if( $type=='high'){ echo 'active' ;}?> btn-danger">High</button></a>
         </div>
     </div>
     
     <!-- movie player-->
     <div class="row-fluid">
        <div class="row-fluid v_player">
-			<video class="mejs-ted" width="900" height="507" src="http://handjobstop.com/members/videos/52f3d23a07a0a/s/52f3d23a07a0a.mp4" type="video/mp4" 
-				id="player1" poster="http://handjobstop.com/members/images/movie_thumb/52f3d23a07a0a.JPG" 
+			<video class="mejs-ted" width="900" height="507" src="http://handjobstop.com/<?php echo $video_url ;?>" type="video/mp4" 
+				id="player1" poster="http://handjobstop.com/images/movie_thumb/<?php echo $movie_id ; ?>.JPG" 
 				controls="controls" preload="none">
 			</video>
 

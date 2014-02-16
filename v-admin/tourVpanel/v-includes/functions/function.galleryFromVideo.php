@@ -99,7 +99,7 @@
 	$outputVideo_sample_image = $_SERVER['DOCUMENT_ROOT']."videos_sample_image/".$outputFolder."/";
 			
 	//required vid formats
-	$vidFormat_1 = "flv";
+	$vidFormat_1 = "mp4";
 	$vidFormat_2 = "";
 	$vidFormat_3 = "";
 	
