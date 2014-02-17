@@ -172,7 +172,7 @@ body{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cecece',GradientType=0 ); /* IE6-9 */
 }
 .lazy{
-	border: 1px solid grey;
+	border: 0px solid grey;
 }
 .twitter{
 	background-image:url(../../images/twitter.png);
@@ -427,7 +427,10 @@ body{
 	margin:10px 0;
 }
 .red_text{
-	color:#FF0000;
+	
+}
+.red_text:hover {
+	text-decoration: none;
 }
 .red_text a{
 	color:#FF0000;
