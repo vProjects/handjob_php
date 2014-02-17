@@ -698,3 +698,8 @@ a:hover, a:focus {
 				overflow: hidden;
 			}	
 }
+.join_now{
+	border: 1px solid #616161;
+    margin: 30px 0 0;
+    padding: 28px 0;
+}

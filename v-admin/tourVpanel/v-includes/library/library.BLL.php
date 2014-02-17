@@ -480,7 +480,7 @@
 					{
 						echo '<div class="span3 gallery_img">
 								<a href="cropGalleryImage.php?folderName='.$folderName.'&fileName='.$filename.'&save=false">
-									<img src="../../uploads/tour/images/'.$folderName.'/'.$filename.'" />
+									<img src="../../uploads/tour/images/'.$folderName.'/'.$filename.'"/>
 								</a>
 							</div>';
 						echo '';

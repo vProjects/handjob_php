@@ -129,6 +129,26 @@
 		- and till present date
 		- auth Singh
 		*/
+		function getValue_where_sorted_current($table_name,$value,$where_column,$value_where,$sortBy)
+		{
+			$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) AND (`$where_column`  LIKE '%$value_where%') ORDER BY $sortBy DESC ");
+				
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- function to get the value sorted
+		- and till present date
+		- auth Singh
+		*/
 		function getValue_limit_sorted_random($table_name,$value,$startPoint,$limit)
 		{
 			$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY RAND() ASC LIMIT $startPoint,$limit ");

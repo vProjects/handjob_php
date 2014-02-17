@@ -99,8 +99,8 @@
 									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
 									<div class="pull-right"><p>'.$model["date"].'</p></div>
 								</div>
+								<p>Views: '.$model["views"].'</p>
 								<p>Rating:';
-								
 								//logic for displaying stars according to the rating
 								if( $model['rating'] == 0 )
 								{
@@ -112,7 +112,6 @@
 								}
 								
 								echo '</p>
-								<p>Views: '.$model["views"].'</p>
 							</div>
 						</div>' ;
 						
@@ -176,6 +175,8 @@
 									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
 									<div class="pull-right"><p>'.$model["date"].'</p></div>
 								</div>
+								<p>Views: '.$model["views"].'</p>
+								
 								<p>Rating:';
 								
 								//logic for displaying stars according to the rating
@@ -189,7 +190,6 @@
 								}
 								
 								echo '</p>
-								<p>Views: '.$model["views"].'</p>
 							</div>
 						</div>' ;
 						
@@ -252,6 +252,7 @@
 									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
 									<div class="pull-right"><p>'.$model["date"].'</p></div>
 								</div>
+								<p>Views: '.$model["views"].'</p>
 								<p>Rating:';
 								
 								//logic for displaying stars according to the rating
@@ -265,7 +266,6 @@
 								}
 								
 								echo '</p>
-								<p>Views: '.$model["views"].'</p>
 							</div>
 						</div>' ;
 						
@@ -322,6 +322,10 @@
 					$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
 					$model_name = $model_name[0]["model"] ;
 					
+					
+					//get the movies multiple thumbs
+					$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs_tour","*","movie_id",$movie['gallery_id']) ;
+					
 					//get the single model name
 					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 				
@@ -331,13 +335,41 @@
 						echo '<div class="row-fluid">';
 					}
 					echo '<div class="span4 section_element">
-							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0">
-							<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
+							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low">
+					<div ';
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo 'class="hs-wrapper"';
+					}
+					else
+					{
+						echo 'class="vhs-wrapper"';
+					}
+					echo '>';
+					//check whether the movie have multiple thumb or not
+					if($movie_thumbs != 0 && !empty($movie_thumbs))
+					{
+						echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+									<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+					}
+					else{
+						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+					}
+					echo '	</div>
+							
 							<div class="photo_section_footer">
 								<div class="row-fluid">
 									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
+								<p>Movie- '.$videoDuration.'</p>
+								<p>Views: '.$movie["views"].'</p>
 								<p>Rating:';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -348,8 +380,7 @@
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
-					echo	'</p><p>Movie- '.$videoDuration.'</p>
-								<p>Views: '.$movie["views"].'</p>
+					echo	'</p>
 							</div>
 						</div>' ;
 						
@@ -469,16 +500,20 @@
 					{
 						echo '<div class="row-fluid">';
 					}
-					
+					$model_name_ex = explode(',',$gallery['model']) ;
 					//for models whose status is online
 					echo '<div class="span3 section_element">
-						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
+						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$model_name_ex[0].'">
 							<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
-								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div></a>
+								<div class="row-fluid">';
+								
+								
+					echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name_ex[0].'</b></p></div></a>
 									<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 								</div> 
+								<p>Views:'.$gallery["view"].'</p>
+						  		<p>Photos :'.$total_no_images.'</p>
 								<p>Rating:';
 					
 					//logic for displaying stars according to the rating
@@ -490,8 +525,7 @@
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
-					echo '</p><p>Views:'.$gallery["view"].'</p>
-						  <p>Photos :'.$total_no_images.'</p>
+					echo '</p>
 							</div>
 						</div>' ;
 					if($end_point%4 == 0)
@@ -650,7 +684,7 @@
 		*/
 		function getMoviesByModel($modelName)
 		{
-			$ModelMovies = $this->manageContent->getSearchValue("movie_info_tour","*","model",$modelName);
+			$ModelMovies = $this->manageContent->getValue_where_sorted_current("movie_info_tour","*",'model',$modelName,'date');
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -676,6 +710,9 @@
 						$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
 						$model_name = $model_name[0]["model"] ;
 						
+						//get the movies multiple thumbs
+						$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs_tour","*","movie_id",$movie['gallery_id']) ;
+					
 						//get the single model name
 						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 						
@@ -685,13 +722,39 @@
 							echo '<div class="row-fluid">';
 						}
 						echo '<div class="span4 section_element">
-							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0">
-							<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
+							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low"><div ';
+							if($movie_thumbs != 0 && !empty($movie_thumbs))
+							{
+								echo 'class="hs-wrapper"';
+							}
+							else
+							{
+								echo 'class="vhs-wrapper"';
+							}
+							echo '>';
+							//check whether the movie have multiple thumb or not
+							if($movie_thumbs != 0 && !empty($movie_thumbs))
+							{
+								echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+							}
+							else{
+								echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+							}
+							echo '	</div>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
 									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
+								<p>Movie- '.$videoDuration.'</p>
+								<p>Views: '.$movie["views"].'</p>
 								<p>Rating:';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -702,8 +765,7 @@
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						echo	'</p><p>Movie- '.$videoDuration.'</p>
-									<p>Views: '.$movie["views"].'</p>
+						echo	'</p>
 								</div>
 							</div>' ;
 
@@ -728,7 +790,7 @@
 		*/
 		function getGalleryByModel($modelName)
 		{
-			$gallerys = $this->manageContent->getSearchValue("gallery_info_tour","*","model",$modelName);
+			$gallerys = $this->manageContent->getValue_where_sorted_current('gallery_info_tour','*','model',$modelName,'date');
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -763,10 +825,15 @@
 							<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$model_name.'">
 								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 								<div class="photo_section_footer">
-									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div></a>
+									<div class="row-fluid">' ;
+									
+						$model_name_ex = explode(',',$gallery['model']) ;
+									
+						echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name_ex[0].'</b></p></div></a>
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div> 
+									<p>Views:'.$gallery["view"].'</p>
+									<p>Photos:'.$total_no_images.'</p>
 									<p>Rating:';
 						
 						//logic for displaying stars according to the rating
@@ -778,8 +845,7 @@
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						echo '</p><p>Views:'.$gallery["view"].'</p>
-								<p>Photos:'.$total_no_images.'</p>
+						echo '</p>
 								</div>
 							</div>' ;
 						if($end_point%4 == 0)
@@ -1138,6 +1204,9 @@
 						$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
 						$model_name = $model_name[0]["model"] ;
 						
+						//get the movies multiple thumbs
+						$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs_tour","*","movie_id",$movie['gallery_id']) ;
+					
 						//get the single model name
 						$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 						
@@ -1147,13 +1216,39 @@
 							echo '<div class="row-fluid">';
 						}
 						echo '<div class="span4 section_element">
-								<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0">
-								<img class="lazy img_update" data-src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" src="" alt="vdeo">
+								<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low"><div ';
+							if($movie_thumbs != 0 && !empty($movie_thumbs))
+							{
+								echo 'class="hs-wrapper"';
+							}
+							else
+							{
+								echo 'class="vhs-wrapper"';
+							}
+							echo '>';
+							//check whether the movie have multiple thumb or not
+							if($movie_thumbs != 0 && !empty($movie_thumbs))
+							{
+								echo		'<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_2"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_3"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_4"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_5"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_6"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_7"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_1"].'" style="width:100%;">
+											<img src="images/movie_thumb/'.$movie_thumbs[0]["thumb_8"].'" style="width:100%;">';
+							}
+							else{
+								echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
+							}
+							echo '	</div>
 								<div class="photo_section_footer">
 									<div class="row-fluid">
 										<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
 										<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 									</div>
+									<p>Movie- '.$videoDuration.'</p>
+									<p>Views: '.$movie["views"].'</p>
 									<p>Rating:';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1164,8 +1259,7 @@
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						echo	'</p><p>Movie- '.$videoDuration.'</p>
-									<p>Views: '.$movie["views"].'</p>
+						echo	'</p>
 								</div>
 							</div>' ;
 							
@@ -1219,7 +1313,9 @@
 									<div class="row-fluid">
 										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div></a>
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
-									</div> 
+									</div>
+									</p><p>Views:'.$gallery["view"].'</p>
+							  		<p>Photos :'.$total_no_images.'</p>
 									<p>Rating:';
 						
 						//logic for displaying stars according to the rating
@@ -1231,9 +1327,7 @@
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						echo '</p><p>Views:'.$gallery["view"].'</p>
-							  <p>Photos :'.$total_no_images.'</p>
-								</div>
+						echo '</div>
 							</div>' ;
 						if($end_point%4 == 0)
 						{
