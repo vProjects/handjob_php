@@ -699,7 +699,29 @@ a:hover, a:focus {
 			}	
 }
 .join_now{
-	border: 1px solid #616161;
+	border: 1px solid #999;
     margin: 30px 0 0;
-    padding: 28px 0;
+    padding: 28px;
+}
+.join_element{
+	color: #8F1818;
+    margin: 0 0 0 0;
+}
+.control-label-v{
+	 float: left;
+    padding-top: 5px;
+    text-align: right;
+}
+.controls-v {
+    margin-left: 100px;
+}
+.red_text{
+	color:#ff0000 ;
+}
+.bottom_border_grey{
+	border-bottom: 1px solid #999999;
+}
+.join-now-btn{
+	margin-bottom: 20px;
+	margin-top:20px ;
 }
