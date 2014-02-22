@@ -1,0 +1,8 @@
+AuthUserFile /home/sites/handjobstop.com/public_html/cgi-bin/pmkuAPb6CvxsoHQhVFB2e5WYqUyZKz3T/password/.htpasswd
+AuthGroupFile /dev/null
+AuthName RESTRICTED
+AuthType Basic
+ 
+<Limit GET POST>
+require valid-user
+</Limit>

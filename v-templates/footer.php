@@ -40,6 +40,7 @@
         <p>All rights reserved. 2013 - www.handjobstop.com</p>
     </div>    
 </div>
+
 <!--- footer ends here ------>
 
 <!--- js include part --->

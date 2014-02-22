@@ -78,8 +78,12 @@
 			//if the get varriable is set 
 			if(isset($model_id) && !empty($model_id))
 			{
-				//get the UI structure of model details
-				$manageData->getModelDetails($model_id);
+				$model_id = explode(',',$model_id) ;
+				foreach($model_id as $model)
+				{
+					//get the UI for model details from BLL
+					$manageData->getModelDetails($model) ;
+				}
 			}
 			
             //get the description

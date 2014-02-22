@@ -37,6 +37,10 @@
 				if( $article['rating'] == 0 )
 				{
 					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 				}		
 				for($i = 0 ; $i < $article['rating'] ; $i++)
 				{
@@ -104,6 +108,10 @@
 								//logic for displaying stars according to the rating
 								if( $model['rating'] == 0 )
 								{
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 								}		
 								for($i = 0 ; $i < $model['rating'] ; $i++)
@@ -183,6 +191,10 @@
 								if( $model['rating'] == 0 )
 								{
 									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 								}		
 								for($i = 0 ; $i < $model['rating'] ; $i++)
 								{
@@ -259,6 +271,10 @@
 								if( $model['rating'] == 0 )
 								{
 									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 								}		
 								for($i = 0 ; $i < $model['rating'] ; $i++)
 								{
@@ -325,7 +341,8 @@
 					
 					//get the movies multiple thumbs
 					$movie_thumbs = $this->manageContent->getValueWhere("movie_thumbs_tour","*","movie_id",$movie['gallery_id']) ;
-					
+					//all model names
+					$model_all = $model_name ;
 					//get the single model name
 					$model_name = substr($model_name.",",0,( strpos($model_name.",",",") )) ;
 				
@@ -335,7 +352,7 @@
 						echo '<div class="row-fluid">';
 					}
 					echo '<div class="span4 section_element">
-							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low">
+							<a href="playing_movie.php?model_id='.$model_all.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low">
 					<div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
@@ -365,7 +382,7 @@
 							
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name.'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Movie- '.$videoDuration.'</p>
@@ -374,6 +391,10 @@
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					for($i = 0 ; $i < $movie['rating'] ; $i++)
@@ -437,6 +458,10 @@
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					for($i = 0 ; $i < $slicedMovie['rating'] ; $i++)
@@ -503,7 +528,7 @@
 					$model_name_ex = explode(',',$gallery['model']) ;
 					//for models whose status is online
 					echo '<div class="span3 section_element">
-						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$model_name_ex[0].'">
+						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
 							<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 							<div class="photo_section_footer">
 								<div class="row-fluid">';
@@ -519,6 +544,10 @@
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}	
 					for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -579,7 +608,7 @@
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Measurement:</div>
-							<div class="span3 model_info_description">24/36/24</div>
+							<div class="span3 model_info_description">'.$modelDetails[0]["measurement"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Category:</div>
@@ -595,6 +624,10 @@
 			if( $modelDetails[0]["rating"] == 0 )
 			{
 				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 			}
 			else
 			{
@@ -646,7 +679,7 @@
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Measurement:</div>
-							<div class="span8 model_info_description">24/36/24</div>
+							<div class="span8 model_info_description">'.$modelDetails[0]["measurement"].'</div>
 						</div>
 						<div class="row-fluid model_detail_part">
 							<div class="span3 model_info_topic">Category:</div>
@@ -662,6 +695,10 @@
 			if( $modelDetails[0]["rating"] == 0 )
 			{
 				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">' ;
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+				echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 			}
 			else
 			{
@@ -722,7 +759,7 @@
 							echo '<div class="row-fluid">';
 						}
 						echo '<div class="span4 section_element">
-							<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low"><div ';
+							<a href="playing_movie.php?model_id='.$movie['model'].'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low"><div ';
 							if($movie_thumbs != 0 && !empty($movie_thumbs))
 							{
 								echo 'class="hs-wrapper"';
@@ -750,7 +787,7 @@
 							echo '	</div>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name.'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Movie- '.$videoDuration.'</p>
@@ -759,6 +796,10 @@
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
 						for($i = 0 ; $i < $movie['rating'] ; $i++)
@@ -822,7 +863,7 @@
 						}
 						//for models whose status is online
 						echo '<div class="span3 section_element">
-							<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$model_name.'">
+							<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
 								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 								<div class="photo_section_footer">
 									<div class="row-fluid">' ;
@@ -839,6 +880,10 @@
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}	
 						for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -1216,7 +1261,7 @@
 							echo '<div class="row-fluid">';
 						}
 						echo '<div class="span4 section_element">
-								<a href="playing_movie.php?model_id='.$model_name.'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low"><div ';
+								<a href="playing_movie.php?model_id='.$movie["model"].'&movie_id='.$movie["gallery_id"].'&gallery_id=0&type=low"><div ';
 							if($movie_thumbs != 0 && !empty($movie_thumbs))
 							{
 								echo 'class="hs-wrapper"';
@@ -1244,7 +1289,7 @@
 							echo '	</div>
 								<div class="photo_section_footer">
 									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$movie["movie_name"].'</b></p></div></a>
+										<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name.'</b></p></div></a>
 										<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 									</div>
 									<p>Movie- '.$videoDuration.'</p>
@@ -1254,6 +1299,11 @@
 						if( $movie['rating'] == 0 )
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+
 						}
 						for($i = 0 ; $i < $movie['rating'] ; $i++)
 						{
@@ -1321,6 +1371,10 @@
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}	
 						for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -1492,11 +1546,13 @@
 			{
 				$table_name = "movie_info_tour" ;
 				$field_where = "gallery_id" ;
+				$title = 'Movie' ;
 			}
 			if( $type == "gallery" )
 			{
 				$table_name = "gallery_info_tour" ;
 				$field_where = "gallery_id" ;
+				$title = 'Gallery' ;
 			}
 			
 			$description = $this->manageContent->getValueWhere($table_name,"description",$field_where,$field_id) ;
@@ -1506,7 +1562,7 @@
 				//create full UI
 				echo '<div class="row-fluid">
 						<div class="span12">
-							<h3 class="movie_description_heading">Movie Description</h3>
+							<h3 class="movie_description_heading">'.$title.' Description</h3>
 							<p class="movie_description">'.$description[0]["description"].'</p>
 							</div>	
 					   </div>' ;

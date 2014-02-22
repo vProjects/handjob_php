@@ -725,3 +725,13 @@ a:hover, a:focus {
 	margin-bottom: 20px;
 	margin-top:20px ;
 }
+.join_floating{
+	background-color: #FF0000;
+    border-radius: 10px 0 0 10px;
+    height: 124px;
+    position: fixed;
+    right: 0;
+    top: 38%;
+    width: 40px;
+    z-index: 2000;
+}

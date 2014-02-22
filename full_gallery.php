@@ -26,8 +26,13 @@
 		//get the model details if the model name is set
 		if( isset($model) && !empty($model) )
 		{
-			//create the UI using the BLL method
-			$manageData->getModel_Details_byName($model) ;
+			$model_id = explode(',',$model) ;
+			foreach($model_id as $models)
+			{
+				//get the UI for model details from BLL
+				$manageData->getModel_Details_byName($models) ;
+			}
+			
 		}
 		 //get the description
 		$manageData->getDescription($gallery_id,"gallery") ;

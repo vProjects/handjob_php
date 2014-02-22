@@ -32,7 +32,14 @@
 					$manageData->insertRating("rate_model",$user,$model_id) ;
 					//get the present rating from the database
 					$rate_present = $manageData->getValueWhere("model_info","rating","id",$model_id) ;
-					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					if( $rate_present[0]["rating"] != 0 )
+					{
+						$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					}
+					else
+					{
+						$rate_calc = $rate ;
+					}
 					//update the rating for the particular model
 					$manageData->updateValueWhere("model_info","rating",$rate_calc,"id",$model_id) ;
 					$result = "Thanks for providing the rating." ;
@@ -51,7 +58,14 @@
 				$manageData->insertRating("rate_model",$user,$model_id) ;
 				//get the present rating from the database
 				$rate_present = $manageData->getValueWhere("model_info","rating","id",$model_id) ;
-				$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				if( $rate_present[0]["rating"] != 0 )
+				{
+					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				}
+				else
+				{
+					$rate_calc = $rate ;
+				}
 				//update the rating for the particular model
 				$manageData->updateValueWhere("model_info","rating",$rate_calc,"id",$model_id) ;
 				$result = "Thanks for providing the rating." ;
@@ -83,7 +97,14 @@
 					$manageData->insertRating("rate_movie",$user,$movie_id) ;
 					//get the present rating from the database
 					$rate_present = $manageData->getValueWhere("movie_info","rating","gallery_id",$movie_id) ;
-					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					if( $rate_present[0]["rating"] != 0 )
+					{
+						$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					}
+					else
+					{
+						$rate_calc = $rate ;
+					}
 					//update the rating for the particular model
 					$manageData->updateValueWhere("movie_info","rating",$rate_calc,"gallery_id",$movie_id) ;
 					$result = "Thanks for providing the rating." ;
@@ -101,7 +122,14 @@
 				$manageData->insertRating("rate_movie",$user,$movie_id) ;
 				//get the present rating from the database
 				$rate_present = $manageData->getValueWhere("movie_info","rating","gallery_id",$movie_id) ;
-				$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				if( $rate_present[0]["rating"] != 0 )
+				{
+					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				}
+				else
+				{
+					$rate_calc = $rate ;
+				}
 				//update the rating for the particular model
 				$manageData->updateValueWhere("movie_info","rating",$rate_calc,"gallery_id",$movie_id) ;
 				$result = "Thanks for providing the rating." ;
@@ -133,7 +161,14 @@
 					$manageData->insertRating("rate_gallery",$user,$gallery_id) ;
 					//get the present rating from the database
 					$rate_present = $manageData->getValueWhere("gallery_info","rating","gallery_id",$gallery_id) ;
-					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					if( $rate_present[0]["rating"] != 0 )
+					{
+						$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					}
+					else
+					{
+						$rate_calc = $rate ;
+					}
 					//update the rating for the particular model
 					$manageData->updateValueWhere("gallery_info","rating",$rate_calc,"gallery_id",$gallery_id) ;
 					$result = "Thanks for providing the rating." ;
@@ -151,7 +186,14 @@
 				$manageData->insertRating("rate_gallery",$user,$gallery_id) ;
 				//get the present rating from the database
 				$rate_present = $manageData->getValueWhere("gallery_info","rating","gallery_id",$gallery_id) ;
-				$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				if( $rate_present[0]["rating"] != 0 )
+				{
+					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				}
+				else
+				{
+					$rate_calc = $rate ;
+				}
 				//update the rating for the particular model
 				$manageData->updateValueWhere("gallery_info","rating",$rate_calc,"gallery_id",$gallery_id) ;
 				$result = "Thanks for providing the rating." ;
@@ -184,7 +226,14 @@
 					$manageData->insertRating("rate_movie",$user,$movie_id) ;
 					//get the present rating from the database
 					$rate_present = $manageData->getValueWhere("sliced_vids","rating","gallery_id",$movie_id) ;
-					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					if( $rate_present[0]["rating"] != 0 )
+					{
+						$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					}
+					else
+					{
+						$rate_calc = $rate ;
+					}
 					//update the rating for the particular model
 					$manageData->updateValueWhere("sliced_vids","rating",$rate_calc,"gallery_id",$movie_id) ;
 					$result = "Thanks for providing the rating." ;
@@ -202,7 +251,14 @@
 				$manageData->insertRating("rate_movie",$user,$movie_id) ;
 				//get the present rating from the database
 				$rate_present = $manageData->getValueWhere("sliced_vids","rating","gallery_id",$movie_id) ;
-				$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				if( $rate_present[0]["rating"] != 0 )
+				{
+					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				}
+				else
+				{
+					$rate_calc = $rate ;
+				}
 				//update the rating for the particular model
 				$manageData->updateValueWhere("sliced_vids","rating",$rate_calc,"gallery_id",$movie_id) ;
 				$result = "Thanks for providing the rating." ;
@@ -234,7 +290,14 @@
 					$manageData->insertRating("rate_article",$user,$article_id) ;
 					//get the present rating from the database
 					$rate_present = $manageData->getValueWhere("article_info","rating","id",$article_id) ;
-					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					if( $rate_present[0]["rating"] != 0 )
+					{
+						$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+					}
+					else
+					{
+						$rate_calc = $rate ;
+					}
 					//update the rating for the particular model
 					$manageData->updateValueWhere("article_info","rating",$rate_calc,"id",$article_id) ;
 					$result = "Thanks for providing the rating." ;
@@ -252,7 +315,14 @@
 				$manageData->insertRating("rate_article",$user,$article_id) ;
 				//get the present rating from the database
 				$rate_present = $manageData->getValueWhere("article_info","rating","id",$article_id) ;
-				$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				if( $rate_present[0]["rating"] != 0 )
+				{
+					$rate_calc = ( $rate + $rate_present[0]["rating"] )/2 ;
+				}
+				else
+				{
+					$rate_calc = $rate ;
+				}
 				//update the rating for the particular model
 				$manageData->updateValueWhere("article_info","rating",$rate_calc,"id",$article_id) ;
 				$result = "Thanks for providing the rating." ;

@@ -68,8 +68,12 @@
 		//get the models details if id isset
 		if( isset($model_id) && !empty($model_id) )
 		{
-			//get the UI for model details from BLL
-			$manageData->getModel_Details($model_id) ;
+			$model_id = explode(',',$model_id) ;
+			foreach($model_id as $model)
+			{
+				//get the UI for model details from BLL
+				$manageData->getModel_Details($model) ;
+			}
 		}
 		
 		//get the description

@@ -64,3 +64,8 @@
         </div>
     </div>
     <!-- header top part ends here ---->
+<div class="join_floating">
+	<a href="join.php">
+    	<img src="images/join.png" />
+    </a>
+</div>

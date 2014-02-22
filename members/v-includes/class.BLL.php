@@ -74,6 +74,10 @@
 					if( $model['rating'] == 0 )
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}		
 					for($i = 0 ; $i < $model['rating'] ; $i++)
 					{
@@ -138,6 +142,10 @@
 						//logic for displaying stars according to the rating
 						if( $model['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}		
 						for($i = 0 ; $i < $model['rating'] ; $i++)
@@ -206,13 +214,17 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
+							<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
 							<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}	
 					for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -278,7 +290,7 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
+							<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
 							<h4 class="red_text">';
 					$model_name_ex = explode(",",$gallery["model"]) ;
@@ -289,6 +301,10 @@
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}	
 					for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -364,7 +380,14 @@
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
-								
+					if( $modelDetails[0]['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}
 					echo	'</div>
 						</div>
 					</div>
@@ -488,6 +511,10 @@
 							if( $article['rating'] == 0 )
 							{
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}		
 							for($i = 0 ; $i < $article['rating'] ; $i++)
 							{
@@ -608,7 +635,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -634,11 +661,15 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie["movie_name"].'</h4></a>
+							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$model_name.'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					for($i = 0 ; $i < $movie['rating'] ; $i++)
@@ -706,7 +737,7 @@
 				{
 					//create the UI components
 					echo '<div class="span4 element">
-							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -732,11 +763,15 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-							<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie["movie_name"].'</h4></a>
+							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$model_name.'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					for($i = 0 ; $i < $movie['rating'] ; $i++)
@@ -804,7 +839,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low"><div ' ;
+							<a href="playing_movie.php?model='.$slicedMovie['model'].'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low"><div ' ;
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -830,11 +865,15 @@
 						echo '<img src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-					<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie["movie_name"].' Part '.$part_no.'</a></h4>
+					<h4 class="red_text"><a href="playing_movie.php?model='.$slicedMovie['model'].'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie['model'].' Part '.$part_no.'</a></h4>
 							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
 					for($i = 0 ; $i < $slicedMovie['rating'] ; $i++)
@@ -932,6 +971,10 @@
 					if( $model['rating'] == 0 )
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}		
 					for($i = 0 ; $i < $model['rating'] ; $i++)
 					{
@@ -993,7 +1036,7 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+								<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 								
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
@@ -1020,11 +1063,15 @@
 						echo '<img src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'">'.$movie["movie_name"].'</a></h4>							
+								<h4 class="red_text"><a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'">'.$model_name.'</a></h4>							
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
 						for($i = 0 ; $i < $movie['rating'] ; $i++)
@@ -1084,13 +1131,17 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">
+								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
 								<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}	
 						for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -1675,7 +1726,7 @@
 					{
 						//create the UI components
 						echo '<div class="span'.$span.' element">
-								<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+								<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 						if($movie_thumbs != 0 && !empty($movie_thumbs))
 						{
 							echo 'class="hs-wrapper"';
@@ -1701,11 +1752,15 @@
 							echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 						}
 						echo '	</div></a>
-								<h4 class="red_text"><a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["movie_name"].'</a></h4>
+								<h4 class="red_text"><a href="playing_movie.php?model='.$movie["model"].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$model_name.'</a></h4>
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
 						for($i = 0 ; $i < $movie['rating'] ; $i++)
@@ -1753,13 +1808,17 @@
 					{
 						//create the UI components
 						echo '<div class="span'.$span.' element">
-								<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">
+								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
 								<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}	
 						for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -2169,13 +2228,17 @@
 							
 							//create the UI components
 							echo '<div class="span3 element">
-									<a href="full_gallery.php?model='.$model_name.'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
+									<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
 									<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
 									<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 									<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 							//logic for displaying stars according to the rating
 							if( $gallery['rating'] == 0 )
 							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}	
 							for($i = 0 ; $i < $gallery['rating'] ; $i++)
@@ -2279,6 +2342,10 @@
 							//logic for displaying stars according to the rating
 							if( $model['rating'] == 0 )
 							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}		
 							for($i = 0 ; $i < $model['rating'] ; $i++)
@@ -2385,7 +2452,7 @@
 							}
 							//create the UI components
 							echo '<div class="span3 element">
-									<a href="playing_movie.php?model='.$model_name.'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
+									<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><div ';
 							if($movie_thumbs != 0 && !empty($movie_thumbs))
 							{
 								echo 'class="hs-wrapper"';
@@ -2416,6 +2483,10 @@
 							//logic for displaying stars according to the rating
 							if( $movie['rating'] == 0 )
 							{
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							}
 							for($i = 0 ; $i < $movie['rating'] ; $i++)
