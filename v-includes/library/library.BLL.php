@@ -382,7 +382,7 @@
 							
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name.'</b></p></div></a>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$model_all.'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Movie- '.$videoDuration.'</p>
@@ -534,7 +534,7 @@
 								<div class="row-fluid">';
 								
 								
-					echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name_ex[0].'</b></p></div></a>
+					echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 									<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 								</div> 
 								<p>Views:'.$gallery["view"].'</p>
@@ -787,7 +787,7 @@
 							echo '	</div>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name.'</b></p></div></a>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie['model'].'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Movie- '.$videoDuration.'</p>
@@ -870,7 +870,7 @@
 									
 						$model_name_ex = explode(',',$gallery['model']) ;
 									
-						echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name_ex[0].'</b></p></div></a>
+						echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div> 
 									<p>Views:'.$gallery["view"].'</p>
@@ -1289,7 +1289,7 @@
 							echo '	</div>
 								<div class="photo_section_footer">
 									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$model_name.'</b></p></div></a>
+										<div class="pull-left"><p class="photo_section_heading"><b>'.$movie['model'].'</b></p></div></a>
 										<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 									</div>
 									<p>Movie- '.$videoDuration.'</p>
@@ -1361,7 +1361,7 @@
 								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
 								<div class="photo_section_footer">
 									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery["gallery_name"].'</b></p></div></a>
+										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div>
 									</p><p>Views:'.$gallery["view"].'</p>

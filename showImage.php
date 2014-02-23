@@ -59,8 +59,12 @@
 		//get the model details if the model name is set
 		if( isset($model) && !empty($model) )
 		{
-			//create the UI using the BLL method
-			$manageData->getModel_Details_byName($model) ;
+			$models = explode(',',$model) ;
+			foreach($models as $model_v)
+			{
+				//get the UI for model details from BLL
+				$manageData->getModel_Details($model_v) ;
+			}
 		}
 	?>
     <div class="row-fluid">

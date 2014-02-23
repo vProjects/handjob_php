@@ -22,6 +22,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body{
 	background-color:#e5e7e1;
 }
+a:hover, a:focus {
+color: #ff0000;
+text-decoration: none;
+}
 .container {
 	min-width: 90%;
 }
@@ -138,6 +142,7 @@ body{
 }
 .clickMore{
 	background-color: #ff0000;
+	border-radius: 6px;
 	display:block;
 	cursor:pointer;
 	color:#FFF;
@@ -297,6 +302,7 @@ body{
 .btn-danger{
 	background-image:none;
 	background-color:#ff0000;
+	border-radius: 5px;
 }
 .btn-danger:hover{
 	background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);

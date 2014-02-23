@@ -216,7 +216,7 @@
 					echo '<div class="span3 element">
 							<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
-							<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
+							<h4 class="red_text">'.$gallery["model"].'</h4></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
@@ -293,8 +293,7 @@
 							<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
 							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
 							<h4 class="red_text">';
-					$model_name_ex = explode(",",$gallery["model"]) ;
-					echo $model_name_ex[0] ;
+					echo $gallery["model"] ;
 					echo '</h4>
 							</a>
 							<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
@@ -661,7 +660,7 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$model_name.'</h4></a>
+							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie['model'].'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -763,7 +762,7 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$model_name.'</h4></a>
+							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie['model'].'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -1063,7 +1062,7 @@
 						echo '<img src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width:100%;">';
 					}
 					echo '	</div></a>
-								<h4 class="red_text"><a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'">'.$model_name.'</a></h4>							
+								<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'"><h4 class="red_text">'.$movie['model'].'</h4></a>							
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1133,7 +1132,7 @@
 						echo '<div class="span3 element">
 								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
-								<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
+								<h4 class="red_text">'.$gallery['model'].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
@@ -1752,7 +1751,7 @@
 							echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 						}
 						echo '	</div></a>
-								<h4 class="red_text"><a href="playing_movie.php?model='.$movie["model"].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$model_name.'</a></h4>
+								<h4 class="red_text"><a href="playing_movie.php?model='.$movie["model"].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["model"].'</a></h4>
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1810,7 +1809,7 @@
 						echo '<div class="span'.$span.' element">
 								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">
 								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
-								<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
+								<h4 class="red_text">'.$gallery['model'].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )

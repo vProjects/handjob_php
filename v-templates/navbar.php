@@ -18,7 +18,7 @@
                             <li <?php if($page_title == 'Models'){echo 'class="active"';}?>><a href="model.php">Models</a></li>
                             <li <?php if($page_title == 'Blogs'){echo 'class="active"';}?>><a href="blog_list.php">Blog</a></li>
                             <li <?php if($page_title == 'Friends'){echo 'class="active"';}?>><a href="friends.php">Friends</a></li>
-                            <li><a href="#" class="nav_join">Join now!</a></li>
+                            <li <?php if($page_title == 'Join Now'){echo 'class="active"';}?>><a href="join.php" class="nav_join">Join now!</a></li>
                         </ul>
                   </div>
             </div>

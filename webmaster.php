@@ -36,26 +36,40 @@
                 <div class="control-group">
                     <label class="control-label-v" for="inputEmail">Current Id</label>
                     <div class="controls-v">
-                        <input type="text" placeholder="Current Id">
+                        <input type="text" placeholder="Current Id" style="width: 85%;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label-v" for="inputEmail">Username</label>
                     <div class="controls-v">
-                        <input type="text" placeholder="Username">
+                        <input type="text" placeholder="Username" style="width: 85%;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label-v" for="inputPassword">Password</label>
                     <div class="controls-v">
-                        <input type="password" placeholder="Password">
+                        <input type="password" placeholder="Password" style="width: 85%;">
                     </div>
                 </div>
-                <input type="submit" class="btn btn-danger btn-large join-now-btn" value="Check">
-                <a href="join.php"><h4 class="join-now-btn">Click here to Create New Account now.</h4></a>
+                
+                <div class="row-fluid">
+			    	<div class="span12" style="text-align: center;">
+			        	<input type="submit" class="btn btn-danger btn-large join-now-btn" value="Check">
+			        </div>
+			    </div>
                 </form>
+                
+                <div class="row-fluid">
+			    	<div class="span12" style="text-align: center;">
+			        	<input type="button" class="btn btn-danger btn-large join-now-btn"  href="https://affiliateadmin.ccbill.com/signup.cgi?CA=909492-0000&
+			page_bgcolor=#FFFFFF&page_text=#000000&page_link=blue&page_vlink=purple&page_alink=blue&table_left=#AEAEFF&table_right=#FEFFC1&table_text=#000000&star_color=#CC0000
+			" value="Click here to Create New Account now" />
+			        </div>
+			    </div>
         </div>
     </div>
+    
+    
     
     <div class="row-fluid">
     	<div class="span12 join_now">
@@ -63,6 +77,37 @@
 </p>
         </div>
     </div>
+    <!-- members favourite portion starts here ---->
+    <div class="row-fluid photo_update">
+        <div class="span12">
+            <h3 class="site_heading"> Members Favorite</h3>
+            <div class="row-fluid photo_update_outline">
+                <div class="pagination pagination-small pageno_nav pull-right">
+                    <ul>
+                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <?php
+                //generate an alternate number for the members favorite
+                $alternate = rand(1,2) ;
+                if( $alternate%2 == 0 ) 
+                {
+                    //get the random members favourite movie
+                    $manageData->membersFavourite(0,9,'movie') ;			
+                }
+                else
+                {
+                    //get the random members favourite photos
+                    $manageData->membersFavourite(0,8,'photo') ;
+                }
+            ?>
+            
+            <!--- photo row3 ends here --->
+            
+        </div>
+     </div>   
+     <!-- members favourite portion ends here ---->
 </div>
 <!-- site description part ends here --->
 

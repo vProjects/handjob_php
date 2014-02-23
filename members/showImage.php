@@ -46,8 +46,12 @@
 			//if the get varriable is set 
 			if(isset($model) && !empty($model))
 			{
-				//get the UI structure of model details
-				$manageData->getModelDetails($model);
+				$models = explode(',',$model) ;
+				foreach($models as $model_v)
+				{
+					//get the UI for model details from BLL
+					$manageData->getModelDetails($model_v) ;
+				}
 			}
 			
             if(!empty($gallery_id) && isset($gallery_id))

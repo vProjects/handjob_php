@@ -68,12 +68,6 @@
             <div class="control-group">
                 <div class="controls">
                     <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
-                	$39.99(USD) for 30 days (non-recurring)
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
                 	$59.99(USD) for 90 days then $59.99(USD) recurring every 90 days
                 </div>
             </div>
@@ -81,6 +75,12 @@
                 <div class="controls">
                     <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
                 	$99.99(USD) for 180 days (non-recurring)
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                	$39.99(USD) for 30 days (non-recurring)
                 </div>
             </div>
         </div>
@@ -95,6 +95,37 @@
         </div>
         </form>
     </div>
+    <!-- members favourite portion starts here ---->
+    <div class="row-fluid photo_update">
+        <div class="span12">
+            <h3 class="site_heading"> Members Favorite</h3>
+            <div class="row-fluid photo_update_outline">
+                <div class="pagination pagination-small pageno_nav pull-right">
+                    <ul>
+                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <?php
+                //generate an alternate number for the members favorite
+                $alternate = rand(1,2) ;
+                if( $alternate%2 == 0 ) 
+                {
+                    //get the random members favourite movie
+                    $manageData->membersFavourite(0,9,'movie') ;			
+                }
+                else
+                {
+                    //get the random members favourite photos
+                    $manageData->membersFavourite(0,8,'photo') ;
+                }
+            ?>
+            
+            <!--- photo row3 ends here --->
+            
+        </div>
+     </div>   
+     <!-- members favourite portion ends here ---->
 </div>
 <!-- site description part ends here --->
 
