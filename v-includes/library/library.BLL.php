@@ -728,7 +728,7 @@
 				
 			if($ModelMovies != 0)
 			{
-				echo '<div class="row-fluid photo_update">
+				echo '<div class="row-fluid photo_update photo_update_outline">
 						<div class="span12">
 								<h3 class="site_heading"> Model Movies</h3>
 						 	</div>
@@ -837,7 +837,7 @@
 			$end_point = 1;
 			if( $gallerys != 0 )
 			{
-				echo '<div class="row-fluid photo_update">
+				echo '<div class="row-fluid photo_update photo_update_outline">
 						<div class="span12">
 								<h3 class="site_heading"> Model Gallery</h3>
 							</div>

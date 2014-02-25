@@ -37,7 +37,7 @@
         <!-- members favourite portion starts here ---->
         <div class="row-fluid photo_update">
         	<div class="span12">
-            	<h3 class="site_heading"> Members Favorite</h3>
+            	<h3 class="site_heading memfav"> Members Favorite</h3>
             </div>
             <div class="row-fluid photo_update_outline">
                 <div class="pagination pagination-small pageno_nav pull-right">
