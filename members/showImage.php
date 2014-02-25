@@ -84,9 +84,9 @@
 		<div class="row-fluid">
 			<div class="slider_wrapper">
 				<div class="slider_container show_image_container">
-					<img class="lazy" onClick="nextClick()" id="img_container_1" style="display: inline; max-width:none;" src="">
-					<img class="lazy" id="img_container_2" style="display: inline;width:100%;display:none; max-width:none" src="">
-					<img class="lazy" id="img_container_3" style="display: inline;width:100%;display:none; max-width:none;" src="">
+					<img class="lazy" onClick="nextClick()" id="img_container_1" style="display: inline; max-width:none;" />
+					<img class="lazy" id="img_container_2" style="display: inline;width:100%;display:none; max-width:none" />
+					<img class="lazy" id="img_container_3" style="display: inline;width:100%;display:none; max-width:none;" />
 				</div>
 			</div>
 		</div>
@@ -100,9 +100,9 @@
 		<div class="row-fluid">
 			<div class="slider_wrapper">
 				<div class="slider_container show_image_container">
-					<img class="lazy" onClick="nextClick()" id="img_container_1" style="display: inline; max-width:none;" src="">
-					<img class="lazy" id="img_container_2" style="display: inline;width:100%;display:none; max-width:none;" src="">
-					<img class="lazy" id="img_container_3" style="display: inline;width:100%;display:none; max-width:none;" src="">
+					<img class="lazy" onClick="nextClick()" id="img_container_1" style="display: inline; max-width:none;" />
+					<img class="lazy" id="img_container_2" style="display: inline;width:100%;display:none; max-width:none;" />
+					<img class="lazy" id="img_container_3" style="display: inline;width:100%;display:none; max-width:none;" />
 				</div>
 			</div>
 		</div>
@@ -116,9 +116,9 @@
 		<div class="row-fluid">
 			<div class="slider_wrapper">
 				<div class="slider_container show_image_container">
-					<img class="lazy" onClick="nextClick()" id="img_container_1" style="display: inline; max-width:none;" src="">
-					<img class="lazy" id="img_container_2" style="display: inline;width:100%;display:none; max-width:none;" src="">
-					<img class="lazy" id="img_container_3" style="display: inline;width:100%;display:none; max-width:none;" src="">
+					<img class="lazy" onClick="nextClick()" id="img_container_1" style="display: inline; max-width:none;" />
+					<img class="lazy" id="img_container_2" style="display: inline;width:100%;display:none; max-width:none;" />
+					<img class="lazy" id="img_container_3" style="display: inline;width:100%;display:none; max-width:none;" />
 				</div>
 			</div>
 		</div>

@@ -432,7 +432,7 @@
 						//create the UI components
 						echo '<div class="span3 element">
 								<a href="showImage.php?mode=gallery&type=low&model='.$model_name[0]["model"].'&galleryId='.$gallery_id.'&filename='.$filename.'">
-									<img class="lazy" data-src="'.$galleryPath."s/".$filename.'" src=""></a>
+									<img class="lazy" src="'.$galleryPath."s/".$filename.'"></a>
 								</a>';
 						echo '</div>';
 						

@@ -17,7 +17,7 @@
                         <li><a <?php if( $page_title == "Add Photos" ){ echo 'class="v_active"'; }?> href="galleryFromImage.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;New Photo Set</a></li>
                         <li><a <?php if( $page_title == "List Video" ){ echo 'class="v_active"'; }?> href="listVideo.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Movies</a></li>
                         <li><a <?php if( $page_title == "List Sliced" ){ echo 'class="v_active"'; }?> href="listSlicedVid.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Sliced Movies</a></li>
-                        <li><a <?php if( $page_title == "List Gallery" ){ echo 'class="v_active"'; }?> href="listGallery.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>
+                        <li><a <?php if( $page_title == "List Gallery" ){ echo 'v_active"'; }?> href="listGallery.php"><span class="icon-hand-right"></span>&nbsp;&nbsp;List Gallery</a></li>
                     </ul>
                 </div>
             </div>

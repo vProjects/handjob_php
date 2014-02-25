@@ -20,7 +20,16 @@
 					?>
                 </div>
             </div>
-        </div>
+            
+            <div class="row">
+                <div class="span12" style="text-align:center;">
+                    <a href="http://www.handjobstop.com/v-admin/tourVpanel/v-includes/cron_jobs/cronsConvertVid.php" target="_blank">
+                        <input type="button" class="btn btn-danger" value="Start Process" />
+                    </a>
+                </div>
+            </div>
+            
+    	</div>
     	
     </div><!--body main container ends here-->
     

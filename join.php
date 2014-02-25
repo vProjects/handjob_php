@@ -10,15 +10,36 @@
 
 <!-- site description part starts here --->
 <div class="container">
-	<div class="row-fluid">
-    	<div class="span12">
-        	<p>All Exclusive Hand Job content, High Res Images and HD videos. Real girls from around the world, watch real couples giving Hand jobs...! Downloadable Zip files Updated weekly. Start Browsing some of our episodes and join the HandJobStop.com family today.</p>
-        </div>
-    </div>
 	
+    <h3 class="site_heading">Site Features</h3>
     <div class="row-fluid">
     	<div class="span12 join_now">
-        	<p class="red_text">EXCLUSIVE HAND JOBS CONTENT. WMV VIDEO. MP4 VIDEO. FLV-STREAMING. FULL HD VIDEOS. HIGH RES IMAGES. CUSTOM ZIP FILES. UPDATES DAILY. NO DOWNLOAD LIMITATIONS. </p>
+        	<div class="row row_v_1">
+            	<div class="span2 join_now_inner">
+                	<img src="images/icon_1.png" alt="features" class="lazy img_update"/>
+                    <div class="feature_text">SAFE AND SECURE WEBSITE</div>
+                </div>
+                <div class="span2 join_now_inner">
+                	<img src="images/icon_2.png" alt="features" class="lazy img_update"/>
+                    <div class="feature_text">MOBILE ENABLED WEBSITE</div>
+                </div>
+                <div class="span2 join_now_inner">
+                	<img src="images/icon_3.png" alt="features" class="lazy img_update"/>
+                    <div class="feature_text">UPDATES 15 TIMES PER MONTH</div>
+                </div>
+                <div class="span2 join_now_inner">
+                	<img src="images/icon_4.png" alt="features" class="lazy img_update"/>
+                    <div class="feature_text">EXCLUSIVE BEHIND THE SCENES</div>
+                </div>
+                <div class="span2 join_now_inner">
+                	<img src="images/icon_5.png" alt="features" class="lazy img_update"/>
+                    <div class="feature_text">UP TO 24 MEGAPIXEL EROTIC</div>
+                </div>
+                <div class="span2 join_now_inner">
+                	<img src="images/icon_6.png" alt="features" class="lazy img_update"/>
+                    <div class="feature_text">ULTRA FAST DELIVERY NETWORK</div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -35,65 +56,84 @@
     </div>
     
     <div class="row-fluid">
-    	<div class="span6 join_now">
-        	    <form class="form-horizontal">
-                <legend class="red_text bottom_border_grey">Fill up the form.</legend>
-                <div class="control-group">
-                    <label class="control-label-v" for="inputEmail">Username</label>
-                    <div class="controls-v">
-                        <input type="text" placeholder="Username">
+    	<div class="span12 join_now">
+        	<div class="row-fluid">
+            	<div class="span6">
+                    <form class="form-horizontal">
+                    <legend class="red_text bottom_border_grey">Fill up the form.</legend>
+                    <div class="control-group">
+                        <label class="control-label-v" for="inputEmail">Username</label>
+                        <div class="controls-v">
+                            <input type="text" placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label-v" for="inputPassword">Password</label>
+                        <div class="controls-v">
+                            <input type="password" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label-v" for="inputEmail">Email</label>
+                        <div class="controls-v">
+                            <input type="text" placeholder="Email">
+                        </div>
                     </div>
                 </div>
-                <div class="control-group">
-                    <label class="control-label-v" for="inputPassword">Password</label>
-                    <div class="controls-v">
-                        <input type="password" placeholder="Password">
+                <div class="span6">
+                    <div class="control-group">
+                        <legend class="red_text bottom_border_grey">Choose your option.</legend>
+                        <div class="controls">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            $24.99(USD) for 30 days then $24.99(USD) recurring every 30 days
+                        </div>
                     </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label-v" for="inputEmail">Email</label>
-                    <div class="controls-v">
-                        <input type="text" placeholder="Email">
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            $59.99(USD) for 90 days then $59.99(USD) recurring every 90 days
+                        </div>
                     </div>
-                </div>
-        </div>
-        <div class="span6 join_now">
-        	<div class="control-group">
-            	<legend class="red_text bottom_border_grey">Choose your option.</legend>
-                <div class="controls">
-                    <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
-                	$24.99(USD) for 30 days then $24.99(USD) recurring every 30 days
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
-                	$59.99(USD) for 90 days then $59.99(USD) recurring every 90 days
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
-                	$99.99(USD) for 180 days (non-recurring)
-                </div>
-            </div>
-            <div class="control-group">
-                <div class="controls">
-                    <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
-                	$39.99(USD) for 30 days (non-recurring)
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            $99.99(USD) for 180 days (non-recurring)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            $39.99(USD) for 30 days (non-recurring)
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls" style="text-align:center;">
+                            <input type="submit" class="btn btn-primary btn-large join-now-btn-1" value="Join Now">
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row-fluid">
-    	<div class="control-group">
-            <div class="controls">
-                <input type="submit" class="btn btn-danger btn-large join-now-btn" value="Join Now">
-                <a href="#"><h4>Forgot Password ? Click Here</h4></a>
-                <a href="#"><h4 class="red_text">Already a member ? Click here to Login</h4></a>
-            </div>
+   
+    
+    <div class="row">
+    	<div class="span12 join_form_big_btn">
+            <h3 class="site_heading">CUSTOMER SERVICES</h3>
+        	<FORM ACTION="https://support.ccbill.com" >
+              <INPUT TYPE="submit"  VALUE="   I Forgot My Password / Customer Support   " class="btn btn-primary btn-large join-now-btn-1" style="min-width:60%;">
+            </FORM>
         </div>
-        </form>
+    </div>
+    
+    <div class="row">
+    	<div class="span12 join_form_big_btn">
+            <h3 class="site_heading">MEMBERS</h3>
+        	<FORM ACTION="http://handjobstop.com/members/" >
+              <INPUT TYPE="submit"  VALUE="    Already a member?  Click Here.    " class="btn btn-primary btn-large join-now-btn-1" style="min-width:60%;">
+            </FORM>
+        </div>
     </div>
     <!-- members favourite portion starts here ---->
     <div class="row-fluid photo_update">
