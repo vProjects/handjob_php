@@ -770,3 +770,6 @@ a:hover, a:focus {
 	font-size: 28px;
 	margin-top: 20px;
 }
+.memfav {
+	margin-bottom: -30px;
+}
