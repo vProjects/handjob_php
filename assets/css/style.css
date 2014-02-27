@@ -27,6 +27,9 @@ body{
 	color:#000;
 	font-size:14px;
 }
+a:hover, a:focus {
+	color: #ff0000;
+}
 .container {
 	min-width: 90%;
 }
@@ -214,11 +217,11 @@ body{
 }
 .end_caption h4{
 	margin:5px 0 0;
-	color: #ff0000;
+	color: #0088CC;
 	cursor: pointer;
 }
 .end_caption h4:hover {
-	color: #bd362f;
+	color: #ff0000;
 }
 .end_caption_border{
 	height:2px;
@@ -483,8 +486,15 @@ a:hover, a:focus {
 	width:130px;
 }
 .btn{
-	border-radius:5px ;
+	border-radius:0px ;
 }
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled]{
+	background-color:#ffffff !important;
+	color:#ff0000 ;
+	background-image:none ;
+	box-shadow: none;
+}
+
 .section_element_image {
     background-color: #FFFFFF;
     box-shadow: 3px 3px 7px #808080;
@@ -703,8 +713,8 @@ a:hover, a:focus {
 			}	
 }
 .join_now{
-	border: 1px solid #999;
-    margin: 30px 0 0;
+	background-color: #FFFFFF;
+    box-shadow: 0 1px 8px -1px #616161;
     padding: 28px;
 }
 .join_now_inner{
@@ -765,11 +775,30 @@ a:hover, a:focus {
 	text-align:center ;
 }
 .join-now-btn-1{
-	min-width: 300px;
-	min-height: 55px;
-	font-size: 28px;
-	margin-top: 20px;
+	font-size: 35px;
+    margin-top: 20px;
+    min-height: 55px;
+    min-width: 350px;
 }
 .memfav {
 	margin-bottom: -30px;
+}
+.plans{
+	background-color: #FFFFFF;
+    font-size: 15px;
+    padding: 3px 5px;
+	cursor:pointer ;
+}
+.plans:hover{
+	color: #FF0000;
+    font-size: 16px;
+}
+.border_radius_r{
+	border-radius:0 5px 5px 0;
+}
+.border_radius_l{
+	border-radius:5px 0 0 5px;
+}
+.border_radius{
+	border-radius:5px !important;
 }

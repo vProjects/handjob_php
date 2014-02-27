@@ -19,6 +19,7 @@
 		$date = $_POST['date'];
 		$status = $_POST['status'] ;
 		$description = $_POST['description'];
+		$members_movie = $_POST['members_movie'] ;
 	}
 	//varriable which will contain the category in string format
 	$category_string = ""; 
@@ -116,6 +117,16 @@
 	if( isset($description) && !empty($description))
 	{
 		$result = $manageData->updateValueWhere($table_name,"description",$description,"id",$movie_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	//update members movie it linked with
+	if( isset($members_movie) && !empty($members_movie))
+	{
+		$result = $manageData->updateValueWhere($table_name,"members_movie",$members_movie,"id",$movie_id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;

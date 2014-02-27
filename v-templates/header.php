@@ -59,7 +59,7 @@
             <form class="form-inline" action="v-includes/function/function.login.php" method="post">
               <input type="text" class="input-small login_textbox" placeholder="Username" name="u_name">
               <input type="password" class="input-small login_textbox" placeholder="Password" name="u_pass">
-              <button type="submit" class="btn btn-danger">Log In</button>
+              <button type="submit" class="btn btn-danger border_radius">Log In</button>
             </form>
         </div>
     </div>

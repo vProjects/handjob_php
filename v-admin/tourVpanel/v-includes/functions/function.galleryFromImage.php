@@ -19,6 +19,7 @@
 		$foldername = $_POST['foldername'];
 		$gallery_name = $_POST['gallery_name'];
 		$description = $_POST['description'];
+		$members_gallery = $_POST['members_gallery'];
 		$status = $_POST['status'];
 		$date = $_POST['date'];
 	}
@@ -107,7 +108,7 @@
 	$zipFiles->createZip($outputPath."s/",$outputPath,"s.zip");
 
 	//insert the values in the database for the gallery
-	$manageData->insertGalleryInfo($outputFolder,$gallery_name,$description,$outputPath,$category_string,$model_string,$date,0,0,$status);
+	$manageData->insertGalleryInfo($outputFolder,$gallery_name,$description,$members_gallery,$outputPath,$category_string,$model_string,$date,0,0,$status);
 	
 	//return the name of the folder using get request
 	header('Location: ../../galleryFromImage.php?galleryId='.$outputFolder);

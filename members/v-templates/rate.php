@@ -9,7 +9,6 @@
 		$type = $_REQUEST["type"] ;
 		$user = $_REQUEST["user"] ;
 		$rate = $_REQUEST["rate"] ;
-		
 		if( $type == "model" )
 		{
 			//get the model id

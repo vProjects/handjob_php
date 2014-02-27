@@ -13,6 +13,7 @@
 		
 		$gallery_name = $_POST['gallery_name'];
 		$description = $_POST['description'];
+		$members_movie = $_POST['members_movie'] ;
 		//samle image folder
 		$sample_image = $_POST['sample_image'];
 		
@@ -109,7 +110,7 @@
 	$resolutionSmall = $s_vedio_w."x".$s_vedio_h ;
 	
 	//insert the values in the cron table for automated execution by crons job
-	$result = $manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$input_sample_video_image,$outputVideo_sample_image,$date,1);	
+	$result = $manageData->insertCronGallery($inputVidForConversion,$gallery_name,$description,$members_movie,$outputVideoPath,$outputFilename,$model_string,$category_string,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolutionLarge,$resolutionMedium,$resolutionSmall,$input_sample_video_image,$outputVideo_sample_image,$date,1);	
 	
 	//return the name of the folder using get request
 	header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);

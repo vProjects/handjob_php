@@ -26,7 +26,7 @@
 				
 				$result = "1";
 				
-				$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$cronValue['date'],1);
+				$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['members_movie'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$cronValue['date'],1);
 				
 				
 				//clear the log file

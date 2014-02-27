@@ -27,6 +27,13 @@
                         <textarea type="text" placeholder="Description" class="textbox1" name="description"></textarea>
                     </div>
                     <div class="form-control v-form">
+                        <label class="control-label">Members Movie</label>
+                        <?php
+							//get the select box with members movies
+							$manageData->getMembersMovies() ;
+						?>
+                    </div>
+                    <div class="form-control v-form">
                         <label class="control-label">Date</label>
                         <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                     </div>

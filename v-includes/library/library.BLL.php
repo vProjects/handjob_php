@@ -331,8 +331,24 @@
 				//for models whose status is online
 				if($movie["status"] == 1)
 				{
-					//get the videos durtion
-					$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+					//initialize the varibales
+					$rating = '' ;
+					$video_duration = '' ;
+					//chech whether the movie is linked or not
+					if( isset($movie['members_movie']) && !empty($movie['members_movie']) )
+					{
+						$member_movie = $this->manageContent->getValueWhere("movie_info","*","id",$movie['members_movie']);
+						$member_movie_gallery_id = $member_movie[0]['gallery_id'] ;
+						//get the videos durtion
+						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$member_movie_gallery_id."/".$member_movie_gallery_id.".".$member_movie[0]['vid_format_1']) ;
+						$rating = $member_movie[0]['rating'] ;
+					}
+					else
+					{
+						//get the videos durtion
+						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+						$rating = $movie['rating'] ;
+					}
 					
 					//get the model for particular gallery
 					$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
@@ -389,7 +405,7 @@
 								<p>Views: '.$movie["views"].'</p>
 								<p>Rating:';
 					//logic for displaying stars according to the rating
-					if( $movie['rating'] == 0 )
+					if( $rating == 0 )
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -397,7 +413,7 @@
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
-					for($i = 0 ; $i < $movie['rating'] ; $i++)
+					for($i = 0 ; $i < $rating ; $i++)
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
@@ -517,9 +533,22 @@
 			{
 				if($gallery["status"] == 1)
 				{
-					//get the total number of images
-					$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
-					
+					//initialize the variables
+					$total_no_images = '' ;
+					$rating = '' ;
+					//get the members photos if the the gallery is linked
+					if( !empty($gallery['members_gallery']) && isset($gallery['members_gallery']) )
+					{
+						$gallery_member = $this->manageContent->getValueWhere('gallery_info','*','id',$gallery['members_gallery']) ;
+						$total_no_images = $this->total_no_images_members($gallery_member[0]['gallery_id']) ;
+						$rating = $gallery_member[0]['rating'] ;
+					}
+					else
+					{
+						//get the total number of images
+						$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+						$rating = $gallery["rating"] ;
+					}
 					//maintain the row fluid with only four models in a row
 					if($start_point%4 == 0)
 					{
@@ -542,7 +571,7 @@
 								<p>Rating:';
 					
 					//logic for displaying stars according to the rating
-					if( $gallery['rating'] == 0 )
+					if( $rating == 0 )
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -550,7 +579,7 @@
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}	
-					for($i = 0 ; $i < $gallery['rating'] ; $i++)
+					for($i = 0 ; $i < $rating ; $i++)
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
@@ -740,8 +769,24 @@
 					//for models whose status is online
 					if($movie["status"] == 1)
 					{
-						//get the videos durtion
-						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+						//initialize the varibales
+						$rating = '' ;
+						$video_duration = '' ;
+						//chech whether the movie is linked or not
+						if( isset($movie['members_movie']) && !empty($movie['members_movie']) )
+						{
+							$member_movie = $this->manageContent->getValueWhere("movie_info","*","id",$movie['members_movie']);
+							$member_movie_gallery_id = $member_movie[0]['gallery_id'] ;
+							//get the videos durtion
+							$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$member_movie_gallery_id."/".$member_movie_gallery_id.".".$member_movie[0]['vid_format_1']) ;
+							$rating = $member_movie[0]['rating'] ;
+						}
+						else
+						{
+							//get the videos durtion
+							$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+							$rating = $movie['rating'] ;
+						}
 						
 						//get the model for particular gallery
 						$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
@@ -794,7 +839,7 @@
 								<p>Views: '.$movie["views"].'</p>
 								<p>Rating:';
 						//logic for displaying stars according to the rating
-						if( $movie['rating'] == 0 )
+						if( $rating == 0 )
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -802,7 +847,7 @@
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
-						for($i = 0 ; $i < $movie['rating'] ; $i++)
+						for($i = 0 ; $i < $rating ; $i++)
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
@@ -846,8 +891,22 @@
 				{
 					if($gallery["status"] == 1)
 					{
-						//get the total no of images
-						$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+						//initialize the variables
+						$total_no_images = '' ;
+						$rating = '' ;
+						//get the members photos if the the gallery is linked
+						if( !empty($gallery['members_gallery']) && isset($gallery['members_gallery']) )
+						{
+							$gallery_member = $this->manageContent->getValueWhere('gallery_info','*','id',$gallery['members_gallery']) ;
+							$total_no_images = $this->total_no_images_members($gallery_member[0]['gallery_id']) ;
+							$rating = $gallery_member[0]['rating'] ;
+						}
+						else
+						{
+							//get the total number of images
+							$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+							$rating = $gallery["rating"] ;
+						}
 				
 						//get the model for particular gallery
 						$model_name = $this->manageContent->getValueWhere("gallery_info_tour","model","gallery_id",$gallery['gallery_id']) ;
@@ -878,7 +937,7 @@
 									<p>Rating:';
 						
 						//logic for displaying stars according to the rating
-						if( $gallery['rating'] == 0 )
+						if( $rating == 0 )
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -886,7 +945,7 @@
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}	
-						for($i = 0 ; $i < $gallery['rating'] ; $i++)
+						for($i = 0 ; $i < $rating ; $i++)
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
@@ -1242,8 +1301,24 @@
 					//for models whose status is online
 					if($movie["status"] == 1)
 					{
-						//get the videos durtion
-						$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+						//initialize the varibales
+						$rating = '' ;
+						$video_duration = '' ;
+						//chech whether the movie is linked or not
+						if( isset($movie['members_movie']) && !empty($movie['members_movie']) )
+						{
+							$member_movie = $this->manageContent->getValueWhere("movie_info","*","id",$movie['members_movie']);
+							$member_movie_gallery_id = $member_movie[0]['gallery_id'] ;
+							//get the videos durtion
+							$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/members/videos/".$member_movie_gallery_id."/".$member_movie_gallery_id.".".$member_movie[0]['vid_format_1']) ;
+							$rating = $member_movie[0]['rating'] ;
+						}
+						else
+						{
+							//get the videos durtion
+							$videoDuration = $this->getVideoLength("/home/sites/handjobstop.com/public_html/videos/".$movie["gallery_id"]."/".$movie["gallery_id"].".".$movie["vid_format_1"]) ;
+							$rating = $movie['rating'] ;
+						}
 						
 						//get the model for particular gallery
 						$model_name = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$movie['gallery_id']) ;
@@ -1296,7 +1371,7 @@
 									<p>Views: '.$movie["views"].'</p>
 									<p>Rating:';
 						//logic for displaying stars according to the rating
-						if( $movie['rating'] == 0 )
+						if( $rating == 0 )
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -1305,7 +1380,7 @@
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 
 						}
-						for($i = 0 ; $i < $movie['rating'] ; $i++)
+						for($i = 0 ; $i < $rating ; $i++)
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
@@ -1347,8 +1422,22 @@
 				{
 					if($gallery["status"] == 1)
 					{
-						//get the total no of images
-						$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+						//initialize the variables
+						$total_no_images = '' ;
+						$rating = '' ;
+						//get the members photos if the the gallery is linked
+						if( !empty($gallery['members_gallery']) && isset($gallery['members_gallery']) )
+						{
+							$gallery_member = $this->manageContent->getValueWhere('gallery_info','*','id',$gallery['members_gallery']) ;
+							$total_no_images = $this->total_no_images_members($gallery_member[0]['gallery_id']) ;
+							$rating = $gallery_member[0]['rating'] ;
+						}
+						else
+						{
+							//get the total number of images
+							$total_no_images = $this->total_no_images($gallery["gallery_id"]) ;
+							$rating = $gallery["rating"] ;
+						}
 						
 						//maintain the row fluid with only four models in a row
 						if($start_point%4 == 0)
@@ -1369,7 +1458,7 @@
 									<p>Rating:';
 						
 						//logic for displaying stars according to the rating
-						if( $gallery['rating'] == 0 )
+						if( $rating == 0 )
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
@@ -1377,7 +1466,7 @@
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}	
-						for($i = 0 ; $i < $gallery['rating'] ; $i++)
+						for($i = 0 ; $i < $rating ; $i++)
 						{
 							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 						}
@@ -1475,6 +1564,39 @@
 		function total_no_images($gallery_id)
 		{
 			$galleryPath = "gallery/".$gallery_id."/";
+			
+			//variable to calculate the total no of images
+			$total_images = 0 ;
+			
+			//get fileNames from the gallery folder
+			$filenames = scandir($galleryPath);
+			$filenames = array_slice($filenames,2);
+			foreach($filenames as $filename)
+			{
+				//to remove the zip files from the UI
+				$ext = pathinfo($galleryPath.$filename);
+				
+				if( $ext["extension"] != "zip")
+				{
+					if(!is_dir($galleryPath.$filename))
+					{
+						//increase the value by one
+						$total_images++ ;
+					}
+				}
+			}
+			
+			return $total_images ;				
+		}
+		
+		/*
+		- method for getting the no of images
+		- retutn the integer value of no. of images
+		- Auth Singh
+		*/
+		function total_no_images_members($gallery_id)
+		{
+			$galleryPath = "members/gallery/".$gallery_id."/";
 			
 			//variable to calculate the total no of images
 			$total_images = 0 ;

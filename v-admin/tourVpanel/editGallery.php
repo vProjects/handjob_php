@@ -14,6 +14,15 @@
 		
 		$gallery_details = $manageData->getValue_Where("gallery_info_tour","*","id",$gallery_id);
 	}
+	
+	//intialize variable
+	$members_gallery = '' ;
+ 	//check the gallery is linked or not
+	if( !empty($gallery_details[0]['members_gallery']) || isset($gallery_details[0]['members_gallery']) )
+	{
+		$members_gallery = $manageData->getValue_Where("gallery_info","*","id",$gallery_details[0]['members_gallery']);
+		$members_gallery = $members_gallery[0]['gallery_name'] ;
+	}
 ?>
         <!--container for content of the website-->
         <div class="span9" id="content_container">
@@ -50,6 +59,17 @@
                     <div class="form-control v-form">
                         <label class="control-label">Description</label>
                         <textarea type="text" placeholder="Description" class="textbox1" name="description"><?php echo $gallery_details[0]["description"]; ?></textarea>
+                    </div>
+                    <div class="form-control v-form">
+                        <label class="control-label">Members Gallery</label>
+                        <input type="text" class="textbox1" readonly="readonly" value="<?php echo $members_gallery; ?>"/>
+                    </div>
+                    <div class="form-control v-form">
+                        <label class="control-label"  style="color:#fff;">Members Gallery</label>
+                        <?php
+							//get the select box with members gallery
+							$manageData->getMembersGallery() ;
+						?>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Date</label>

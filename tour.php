@@ -46,13 +46,13 @@
     	<h3 class="site_heading"> Latest Movies Updates</h3>
         <div class="row-fluid photo_update_outline">
         	<div class="btn-group">
-            	<a href="tour.php?type_m=recent&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Most Recent</div></a>
+            	<a href="tour.php?type_m=recent&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger border_radius_l">Most Recent</div></a>
                 <a href="tour.php?type_m=rated&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Top Rated</div></a>
-                <a href="tour.php?type_m=name&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">A-Z</div></a>
+                <a href="tour.php?type_m=name&<?php echo 'type_p='.$type_p.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger border_radius_r">A-Z</div></a>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="movie.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
@@ -65,7 +65,7 @@
         <div class="row-fluid bottom-next">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="movie.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="movie.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
@@ -82,13 +82,13 @@
     	<h3 class="site_heading"> Latest Photos Updates</h3>
         <div class="row-fluid photo_update_outline">
         	<div class="btn-group">
-            	<a href="tour.php?type_p=recent&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Most Recent</div></a>
+            	<a href="tour.php?type_p=recent&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger border_radius_l">Most Recent</div></a>
                 <a href="tour.php?type_p=rated&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">Top Rated</div></a>
-                <a href="tour.php?type_p=name&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger">A-Z</div></a>
+                <a href="tour.php?type_p=name&<?php echo 'type_m='.$type_m.'&type_mo='.$type_mo; ?>"><div class="btn btn-danger border_radius_r">A-Z</div></a>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="photo.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
@@ -100,7 +100,7 @@
        <div class="row-fluid bottom-next">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="photo.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="photo.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
@@ -118,13 +118,13 @@
     	<h3 class="site_heading"> Latest Models Updates</h3>
         <div class="row-fluid photo_update_outline">
         	<div class="btn-group">
-            	<a href="tour.php?type_mo=recent&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger">Most Recent</div></a>
+            	<a href="tour.php?type_mo=recent&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger border_radius_l">Most Recent</div></a>
                 <a href="tour.php?type_mo=rated&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger">Top Rated</div></a>
-                <a href="tour.php?type_mo=name&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger">A-Z</div></a>
+                <a href="tour.php?type_mo=name&<?php echo 'type_m='.$type_m.'&type_p='.$type_p; ?>"><div class="btn btn-danger border_radius_r">A-Z</div></a>
             </div>
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="model.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
@@ -135,7 +135,7 @@
        <div class="row-fluid bottom-next">
         	<div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="model.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="model.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>
@@ -155,7 +155,7 @@
         <div class="row-fluid photo_update_outline">
             <div class="pagination pagination-small pageno_nav pull-right">
             	<ul>
-                    <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                    <li class="pageno_nav_viewall"><a class="btn btn-danger border_radius" href="join.php">Next &gt;</a></li>
                 </ul>
             </div>
         </div>

@@ -21,6 +21,15 @@
 	{
 		$movie_details = $manageData->getValue_Where("sliced_vids_tour","*","id",$movie_id);
 	}
+	
+	//intialize variable
+	$members_movie = '' ;
+ 	//check the gallery is linked or not
+	if( !empty($movie_details[0]['members_movie']) || isset($movie_details[0]['members_movie']) )
+	{
+		$members_movie = $manageData->getValue_Where("movie_info","*","id",$movie_details[0]['members_movie']);
+		$members_movie = $members_movie[0]['movie_name'] ;
+	}
 ?>
         <!--container for content of the website-->
         <div class="span9" id="content_container">
@@ -58,6 +67,17 @@
                     <div class="form-control v-form">
                         <label class="control-label">Description</label>
                         <textarea type="text" placeholder="Description" class="textbox1" name="description"><?php echo $movie_details[0]["description"]; ?></textarea>
+                    </div>
+                    <div class="form-control v-form">
+                        <label class="control-label">Members Movie</label>
+                        <input type="text" class="textbox1" readonly="readonly" value="<?php echo $members_movie; ?>"/>
+                    </div>
+                    <div class="form-control v-form">
+                        <label class="control-label"  style="color:#fff;">Members Movie</label>
+                        <?php
+							//get the select box with members gallery
+							$manageData->getMembersMovies() ;
+						?>
                     </div>
                     <div class="form-control v-form">
                         <label class="control-label">Date</label>

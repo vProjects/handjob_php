@@ -128,9 +128,9 @@
 		- method to insert the value for cron file video conversion
 		- Auth Singh
 		*/
-		function insertCronGallery($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$sample_input,$sample_output,$date,$cron_status)
+		function insertCronGallery($inputVideo,$gallery_name,$description,$members_movie,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$sample_input,$sample_output,$date,$cron_status)
 		{
-			$query = $this->link->prepare("INSERT INTO `cron_gallery_tour`(`input_video`, `gallery_name`, `description`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `sample_input`, `sample_output`, `date`, `cron_status`) VALUES"." ('".$inputVideo."','".$gallery_name."','".$description."','".$outputVidPath."','".$outFilename."','".$model."','".$category."','".$vidFormat_1."','".$vidFormat_2."','".$vidFormat_3."','".$resolution_l."','".$resolution_m."','".$resolution_s."','".$sample_input."','".$sample_output."','".$date."','".$cron_status."')") ;
+			$query = $this->link->prepare("INSERT INTO `cron_gallery_tour`(`input_video`, `gallery_name`, `description`, `members_movie`, `outVid_path`, `out_filename`, `model`, `category`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `resolution_l`, `resolution_m`, `resolution_s`, `sample_input`, `sample_output`, `date`, `cron_status`) VALUES"." ('".$inputVideo."','".$gallery_name."','".$description."','".$members_movie."','".$outputVidPath."','".$outFilename."','".$model."','".$category."','".$vidFormat_1."','".$vidFormat_2."','".$vidFormat_3."','".$resolution_l."','".$resolution_m."','".$resolution_s."','".$sample_input."','".$sample_output."','".$date."','".$cron_status."')") ;
 			//$values = array($inputVideo,$gallery_name,$description,$outputVidPath,$outFilename,$model,$category,$vidFormat_1,$vidFormat_2,$vidFormat_3,$resolution_l,$resolution_m,$resolution_s,$sample_input,$sample_output,$date,$cron_status);
 			
 			$query->execute();
@@ -165,10 +165,10 @@
 		- method to insert into gallery_info table
 		- Auth Singh
 		*/
-		function insertGalleryInfo($galleryId,$gallery_name,$description,$path,$category,$model,$date,$view,$rating,$status)
+		function insertGalleryInfo($galleryId,$gallery_name,$description,$members_gallery,$path,$category,$model,$date,$view,$rating,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `gallery_info_tour`(`gallery_id`,`gallery_name`,`description`,`path`, `category`, `model`, `date`,  `view`, `rating`,`status`) VALUES (?,?,?,?,?,?,?,?,?,?)");
-			$values = array($galleryId,$gallery_name,$description,$path,$category,$model,$date,$view,$rating,$status);
+			$query = $this->link->prepare("INSERT INTO `gallery_info_tour`(`gallery_id`,`gallery_name`,`description`,`members_gallery`,`path`, `category`, `model`, `date`,  `view`, `rating`,`status`) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$gallery_name,$description,$members_gallery,$path,$category,$model,$date,$view,$rating,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}
@@ -189,10 +189,10 @@
 		- method to insert into movie_info table
 		- Auth Singh
 		*/
-		function insertMovieInfo($galleryId,$movie_name,$description,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status)
+		function insertMovieInfo($galleryId,$movie_name,$description,$members_movie,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `movie_info_tour`(`gallery_id`, `movie_name`,`description`,`category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($galleryId,$movie_name,$description,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status);
+			$query = $this->link->prepare("INSERT INTO `movie_info_tour`(`gallery_id`, `movie_name`,`description`,`members_movie`,`category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$movie_name,$description,$members_movie,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}

@@ -770,6 +770,40 @@
 			}
 		}
 		
+		/*
+		- fuction to get the movie names from the members area
+		- creates the full UI with the select box
+		- Auth Singh
+		*/
+		function getMembersMovies()
+		{
+			$movies = $this->manageContent->getValue_sorted_asc('movie_info','*','movie_name') ;
+			echo '<select class="selectbox1" name="members_movie">
+                     <option value="">Link to the members movie</option>' ;
+			foreach( $movies as $movie )
+			{
+				echo '<option value="'.$movie["id"].'">'.$movie["movie_name"].'</option>' ;
+			}
+			echo '</select>' ;
+		}
+		
+		
+		/*
+		- fuction to get the gallery names from the members area
+		- creates the full UI with the select box
+		- Auth Singh
+		*/
+		function getMembersGallery()
+		{
+			$gallerys = $this->manageContent->getValue_sorted_asc('gallery_info','*','gallery_name') ;
+			echo '<select class="selectbox1" name="members_gallery">
+                     <option value="">Link to the members gallery</option>' ;
+			foreach( $gallerys as $gallery )
+			{
+				echo '<option value="'.$gallery["id"].'">'.$gallery["gallery_name"].'</option>' ;
+			}
+			echo '</select>' ;
+		}
 	}
 
 ?>

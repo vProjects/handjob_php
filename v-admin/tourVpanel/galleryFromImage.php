@@ -35,6 +35,14 @@
                         <label class="control-label">Description</label>
                         <textarea type="text" placeholder="Description" class="textbox1" name="description"></textarea>
                     </div>
+                    
+                    <div class="form-control v-form">
+                        <label class="control-label">Members Gallery</label>
+                        <?php
+							//get the select box with members gallery
+							$manageData->getMembersGallery() ;
+						?>
+                    </div>
                     <div class="form-control v-form">
                         <label class="control-label">Date</label>
                         <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />

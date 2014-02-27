@@ -23,6 +23,7 @@
 		$date = $_POST['date'];
 		$status = $_POST['status'] ;
 		$description = $_POST['description'];
+		$members_gallery = $_POST['members_gallery'] ;
 	}
 	//varriable which will contain the category in string format
 	$category_string = ""; 
@@ -105,6 +106,16 @@
 	if( isset($description) && !empty($description))
 	{
 		$result = $manageData->updateValueWhere($table_name,"description",$description,"id",$gallery_id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	//update members_gallery
+	if( isset($members_gallery) && !empty($members_gallery))
+	{
+		$result = $manageData->updateValueWhere($table_name,"members_gallery",$members_gallery,"id",$gallery_id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;
