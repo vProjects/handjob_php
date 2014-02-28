@@ -10,6 +10,11 @@
 
 <!-- site description part starts here --->
 <div class="container">
+	
+	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+	?>
 	<div class="row-fluid">
     	<div class="span12">
         	<p>All Exclusive Hand Job content, High Res Images and HD videos. Real girls from around the world, watch real couples giving Hand jobs...! Downloadable Zip files Updated weekly. Start Browsing some of our episodes and join the HandJobStop.com family today.</p>

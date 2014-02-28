@@ -16,6 +16,7 @@
 		$name = $_POST['name'];
 		$link = $_POST['link'];
 		$date = $_POST['date'];
+		$access_friends = $_POST['access_friends'];
 		$photo = $_FILES['photo']['name'];
 	}
 	
@@ -46,14 +47,14 @@
 		if(isset($name) && !empty($name) && isset($link) && !empty($link))
 		{
 			//insert the value in the datebase
-			$result = $manageData->insertFriends($name,$link,$result_upload,$date,1) ;
+			$result = $manageData->insertFriends($name,$link,$result_upload,$date,$access_friends,1) ;
 			if($result == 1)
 			{
-				$result = "Model inserted successfully.";
+				$result = "Friend inserted successfully.";
 			}
 			else
 			{
-				$result = "Model insert failed.";
+				$result = "Friend insert failed.";
 			}
 		}
 		else

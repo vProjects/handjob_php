@@ -15,6 +15,11 @@
 
 <!-- site description part starts here --->
 <div class="container">
+	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+	?>
+
 	<div class="row-fluid model_detail_heading">
     	<?php
 			//get the pagination for the page

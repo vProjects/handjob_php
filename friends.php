@@ -25,10 +25,8 @@
 <div class="container">
 	<?php
 		//include the model searchBar
-		//include('v-templates/modelSearchBar.php') ;
-	?>
-    <!--- gallery starts here --->
-    <?php 
+		include('v-templates/modelSearchBar.php') ;
+	
 		//get the photo gallery for the page
 		$manageData->getFriends(0,1000) ;
 	?>

@@ -1895,28 +1895,31 @@
 			$end_point = 1;
 			foreach($friends as $friend)
 			{
-				//maintain the row fluid with only four models in a row
-				if($start_point%4 == 0)
+				// access ** 1 - tour ** 2 - members ** 3 - both  
+				if( $friend['status'] == 1 && ($friend['access'] == 2 || $friend['access'] == 3) )
 				{
-					echo '<div class="row-fluid">';
+					//maintain the row fluid with only four models in a row
+					if($start_point%4 == 0)
+					{
+						echo '<div class="row-fluid">';
+					}
+					//for models whose status is online
+					if($friend["status"] == 1)
+					{
+						//create the UI components
+						echo '<div class="span3 element">
+								<h4 class="red_text"><a href="'.$friend['link'].'" target="_blank">'.$friend['name'].'</h4>
+								<img class="lazy" data-src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" src=""></a></div>';
+								
+					}
+					if($end_point%4 == 0)
+					{
+						echo '</div>';
+					}
+					
+					$start_point++ ;
+					$end_point++ ;
 				}
-				//for models whose status is online
-				if($friend["status"] == 1)
-				{
-					//create the UI components
-					echo '<div class="span3 element">
-							<h4 class="red_text"><a href="'.$friend['link'].'" target="_blank">'.$friend['name'].'</h4>
-							<img class="lazy" data-src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" src=""></a></div>';
-							
-				}
-				if($end_point%4 == 0)
-				{
-					echo '</div>';
-				}
-				
-				$start_point++ ;
-				$end_point++ ;
-				
 			}
 		}
 		

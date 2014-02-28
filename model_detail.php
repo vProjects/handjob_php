@@ -24,6 +24,9 @@
 <!-- site description part starts here --->
 <div class="container">
 	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+
 		//get the models details if id isset
 		if( isset($model_id) && !empty($model_id) )
 		{
@@ -41,7 +44,7 @@
       <!-- members favourite portion starts here ---->
     <div class="row-fluid photo_update">
         <div class="span12">
-            <h3 class="site_heading memfav"> Members Favorite</h3>
+            <h3 class="site_heading memfav" style="margin-top:30px;"> Members Favorite</h3>
             <div class="row-fluid photo_update_outline">
                 <div class="pagination pagination-small pageno_nav pull-right">
                     <ul>

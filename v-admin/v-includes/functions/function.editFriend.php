@@ -18,6 +18,7 @@
 		$name = $_POST['name'];
 		$link = $_POST['link'];
 		$date = $_POST['date'];
+		$access_friends = $_POST['access_friends'];
 		$status = $_POST['status'];
 		$photo = $_FILES['photo']['name'];
 		
@@ -55,6 +56,21 @@
 		}
 	}
 	
+	
+	//update access_friends
+	/*
+	- 3 for both
+	- 2 for members
+	- 1 for tour
+	*/
+	if( isset($access_friends) && !empty($access_friends))
+	{
+		$result = $manageData->updateValueWhere($table_name,"access",$access_friends,"id",$id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
 	
 	//update status
 	if( isset($status) && !empty($status))

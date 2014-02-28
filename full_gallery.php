@@ -23,6 +23,9 @@
 <!-- site description part starts here --->
 <div class="container">
 	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+	
 		//get the model details if the model name is set
 		if( isset($model) && !empty($model) )
 		{

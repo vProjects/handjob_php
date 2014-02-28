@@ -65,6 +65,9 @@
 <!-- site description part starts here --->
 <div class="container">
 	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+
 		//get the models details if id isset
 		if( isset($model_id) && !empty($model_id) )
 		{

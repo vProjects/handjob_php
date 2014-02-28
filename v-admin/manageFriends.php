@@ -31,6 +31,14 @@
                     <label class="control-label">Date</label>
                     <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                 </div>
+                <div class="form-control v-form">
+                	<label class="control-label">Show in:</label>
+                    <select class="selectbox1" name="access_friends">
+                    	<option value="3">Both</option>
+                        <option value="2">Members</option>
+                        <option value="1">Tour</option>
+                    </select>
+                </div>
                <div class="form-control v-form">
                 	<label class="control-label">Upload Photo</label>
                     <input type="file" class="textbox1" name="photo"/>

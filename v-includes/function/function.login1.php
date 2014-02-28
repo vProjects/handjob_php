@@ -30,7 +30,7 @@
 			//error wrong username and password
 			$_SESSION["error"] = "Invalid Username or Password." ;
 			//and send them to login page
-			//header('Location: ../../tour.php');
+			header('Location: ../../tour.php');
 		}
 	}
 	else

@@ -56,6 +56,9 @@
 <!-- site description part starts here --->
 <div class="container">
 	<?php
+		//include the model searchBar
+		include('v-templates/modelSearchBar.php') ;
+	
 		//get the model details if the model name is set
 		if( isset($model) && !empty($model) )
 		{
@@ -70,9 +73,9 @@
     <div class="row-fluid">
         <div class="row-fluid model_detail_heading">
             <div class="btn-group pull-left">
-                <div onClick="redirectIt('low','<?php echo $mode ; ?>')" class="btn btn-danger">Small</div>
-                <div onClick="redirectIt('medium','<?php echo $mode ; ?>')" class="btn btn-danger">Medium</div>
-                <div onClick="redirectIt('high','<?php echo $mode ; ?>')" class="btn btn-danger">Large</div>
+                <div onClick="redirectIt('low','<?php echo $mode ; ?>')" class="btn <?php if( $type=='low'){ echo 'active' ;}?> btn-danger">Small</div>
+                <div onClick="redirectIt('medium','<?php echo $mode ; ?>')" class="btn <?php if( $type=='medium'){ echo 'active' ;}?> btn-danger">Medium</div>
+                <div onClick="redirectIt('high','<?php echo $mode ; ?>')" class="btn <?php if( $type=='high'){ echo 'active' ;}?> btn-danger">Large</div>
             </div>
             <div class="btn-group pull-right">
                 <div class="btn btn-danger" onClick="firstClick()">First</div>

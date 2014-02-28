@@ -56,7 +56,7 @@
         </div>
         <div class="span4 offset2" id="login_section">
             <h5 class="site_heading">Member's Login</h5>
-            <form class="form-inline" action="v-includes/function/function.login.php" method="post">
+            <form class="form-inline" action="v-includes/function/function.login1.php" method="post">
               <input type="text" class="input-small login_textbox" placeholder="Username" name="u_name">
               <input type="password" class="input-small login_textbox" placeholder="Password" name="u_pass">
               <button type="submit" class="btn btn-danger border_radius">Log In</button>

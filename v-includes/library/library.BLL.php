@@ -97,10 +97,10 @@
 					//create the UI components
 					echo '<div class="span3 section_element">
             				<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
-							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="vdeo">	
+							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="model">
+							<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</b></p></div></a>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
 									<div class="pull-right"><p>'.$model["date"].'</p></div>
 								</div>
 								<p>Views: '.$model["views"].'</p>
@@ -177,10 +177,10 @@
 					//create the UI components
 					echo '<div class="span3 section_element">
             				<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
-							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="vdeo">	
+							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="model">
+							<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</b></p></div></a>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
 									<div class="pull-right"><p>'.$model["date"].'</p></div>
 								</div>
 								<p>Views: '.$model["views"].'</p>
@@ -258,10 +258,10 @@
 					//create the UI components
 					echo '<div class="span3 section_element">
             				<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
-							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="vdeo">	
+							<img class="lazy img_update" data-src="members/images/model_thumb/'.$model["image_thumb"].'"  alt="model">
+							<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</b></p></div></a>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading">'.$model['name'].'</a></b></p></div>
 									<div class="pull-right"><p>'.$model["date"].'</p></div>
 								</div>
 								<p>Views: '.$model["views"].'</p>
@@ -395,10 +395,10 @@
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
 					echo '	</div>
+							 <div class="pull-left"><p class="photo_section_heading"><b>'.$model_all.'</b></p></div></a>
 							
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$model_all.'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Movie- '.$videoDuration.'</p>
@@ -464,7 +464,7 @@
 				//for models whose status is online
 				echo '<div class="span4 section_element">
 							<a href="playing_movie.php?movie_id='.$movieId.'&gallery_id='.$slicedMovie["gallery_id"].'">
-							<img class="lazy img_update" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" src="" alt="vdeo">
+							<img class="lazy img_update" data-src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" src="" alt="">
 							<div class="photo_section_footer">
 								<div class="row-fluid">
 									<div class="pull-left"><p class="photo_section_heading"><b>'.$slicedMovie["movie_name"]." Part ".$part_no.'</b></p></div></a>
@@ -558,12 +558,11 @@
 					//for models whose status is online
 					echo '<div class="span3 section_element">
 						<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
-							<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
+							<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="model">
+							
+							<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 							<div class="photo_section_footer">
-								<div class="row-fluid">';
-								
-								
-					echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
+								<div class="row-fluid">
 									<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 								</div> 
 								<p>Views:'.$gallery["view"].'</p>
@@ -759,7 +758,7 @@
 			{
 				echo '<div class="row-fluid photo_update photo_update_outline">
 						<div class="span12">
-								<h3 class="site_heading"> Model Movies</h3>
+								<h3 class="site_heading model_heading_1"> Model Movies</h3>
 						 	</div>
 						 </div>';
 						 
@@ -830,9 +829,9 @@
 								echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 							}
 							echo '	</div>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie['model'].'</b></p></div></a>
 							<div class="photo_section_footer">
 								<div class="row-fluid">
-									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie['model'].'</b></p></div></a>
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
 								<p>Movie- '.$videoDuration.'</p>
@@ -884,7 +883,7 @@
 			{
 				echo '<div class="row-fluid photo_update photo_update_outline">
 						<div class="span12">
-								<h3 class="site_heading"> Model Gallery</h3>
+								<h3 class="site_heading model_heading_1" style="margin-top:30px;"> Model PHOTOS</h3>
 							</div>
 						 </div>';
 				foreach($gallerys as $gallery)
@@ -923,14 +922,14 @@
 						//for models whose status is online
 						echo '<div class="span3 section_element">
 							<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
-								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
+								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="photos">
+								<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 								<div class="photo_section_footer">
 									<div class="row-fluid">' ;
 									
 						$model_name_ex = explode(',',$gallery['model']) ;
 									
-						echo '<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
-										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
+						echo '			<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div> 
 									<p>Views:'.$gallery["view"].'</p>
 									<p>Photos:'.$total_no_images.'</p>
@@ -998,7 +997,7 @@
 						//create the UI components
 						echo '<div class="span3 section_element_image">
 								<a href="showImage.php?mode=galley&type=low&gallery_id='.$gallery_id.'&model='.$model.'&filename='.$filename.'">
-									<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="vdeo">
+									<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="photos">
 								</a>
 							</div>' ;
 						if($end_point%4 == 0)
@@ -1056,7 +1055,7 @@
 							//create the UI components
 							echo '<div class="span3 section_element_image">
 									<a href="showImage.php?mode=movie&type=low&gallery_id='.$gallery_id.'&model='.$model[0]["model"].'&filename='.$filename.'">
-										<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="vdeo">
+										<img class="lazy img_update" data-src="'.$galleryPath.$filename.'"src="" alt="photos">
 									</a>
 								</div>' ;
 							if($end_point%4 == 0)
@@ -1362,9 +1361,9 @@
 								echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 							}
 							echo '	</div>
+									<div class="pull-left"><p class="photo_section_heading"><b>'.$movie['model'].'</b></p></div></a>
 								<div class="photo_section_footer">
 									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$movie['model'].'</b></p></div></a>
 										<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 									</div>
 									<p>Movie- '.$videoDuration.'</p>
@@ -1447,10 +1446,10 @@
 						//for models whose status is online
 						echo '<div class="span3 section_element">
 							<a href="full_gallery.php?gallery_id='.$gallery["gallery_id"].'&model='.$gallery['model'].'">
-								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="vdeo">
+								<img class="lazy img_update" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" src="" alt="photos">
+								<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 								<div class="photo_section_footer">
 									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$gallery['model'].'</b></p></div></a>
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div>
 									</p><p>Views:'.$gallery["view"].'</p>
@@ -1674,7 +1673,7 @@
 			{
 				$table_name = "gallery_info_tour" ;
 				$field_where = "gallery_id" ;
-				$title = 'Gallery' ;
+				$title = "Photos" ;
 			}
 			
 			$description = $this->manageContent->getValueWhere($table_name,"description",$field_where,$field_id) ;
@@ -1712,30 +1711,33 @@
 			$end_point = 1;
 			foreach($friends as $friend)
 			{
-				//maintain the row fluid with only four models in a row
-				if($start_point%4 == 0)
-						{
-							echo '<div class="row-fluid">';
-						}
-						//for models whose status is online
-						echo '<div class="span3 section_element">
-							<a href="'.$friend['link'].'" target="_blank">
-								<img class="lazy img_update" src="members/images/friend_thumb/'.$friend["friend_thumb"].'"  alt="vdeo">
-								<div class="photo_section_footer">
-									<div class="row-fluid">
-										<div class="pull-left"><p class="photo_section_heading"><b>'.$friend["name"].'</b></p></div></a>
-									</div> ';
-									
-						echo '</div>
-							</div>' ;
-						if($end_point%4 == 0)
-						{
-							echo '</div>';
-						}
-				
-				$start_point++ ;
-				$end_point++ ;
-				
+				// access ** 1 - tour ** 2 - members ** 3 - both  
+				if( $friend['status'] == 1 && ($friend['access'] == 1 || $friend['access'] == 3) )
+				{
+					//maintain the row fluid with only four models in a row
+					if($start_point%4 == 0)
+							{
+								echo '<div class="row-fluid">';
+							}
+							//for models whose status is online
+							echo '<div class="span3 section_element">
+								<a href="'.$friend['link'].'" target="_blank">
+									<img class="lazy img_update" src="members/images/friend_thumb/'.$friend["friend_thumb"].'"  alt="friends">
+									<div class="photo_section_footer">
+										<div class="row-fluid">
+											<div class="pull-left"><p class="photo_section_heading"><b>'.$friend["name"].'</b></p></div></a>
+										</div> ';
+										
+							echo '</div>
+								</div>' ;
+							if($end_point%4 == 0)
+							{
+								echo '</div>';
+							}
+					
+					$start_point++ ;
+					$end_point++ ;
+				}
 			}
 		}
 	}
