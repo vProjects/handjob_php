@@ -13,7 +13,6 @@
 ?>
 
 <div id="bodyContainer" class="row-fluid">
-	<h1>Friends Page</h1>
     	 <?php
 		 	//get the required gallery
 			$manageData->getFriends(0,1000);

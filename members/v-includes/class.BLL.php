@@ -337,13 +337,13 @@
 			if( $modelDetails != 0 )
 			{
 				//these codes creates the UI output
-				echo '<div class="row-fluid">
-						<h3 class="site_heading red_text">'.$modelDetails[0]["name"].'</h3>
-					  </div>
-					  <div class="row-fluid model_detail">
+				echo '<div class="row-fluid model_detail">
+					    <div class="row-fluid">
+							<h3 class="site_heading red_text">'.$modelDetails[0]["name"].'</h3>
+					    </div>
 						<div class="span3">
 							<a href="model_detail.php?model_id='.$model_id.'&model_name='.$modelDetails[0]["name"].'">
-								<img src="images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
+								<img class="model_image_details" src="images/model_thumb/'.$modelDetails[0]["image_thumb"].'" width="250">
 							</a>
 						</div>
 						<div class="span8">
@@ -499,86 +499,90 @@
 			
 			foreach($articles as $article)
 			{
-				echo '<div class="row-fluid blog_container">
-						<div class="span12">
-							<h4>'.$article["article_title"].'</h4>
-							<p class="blog_author_name"> '.$article["article_author"].'</p>
-							<p>'.$article["article_description"].'</p>
-							<p> Added :'.$article["article_date"].'</p>
-							<p> Rating : ' ;
-							//get the ratings for the blog
-							if( $article['rating'] == 0 )
-							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							}		
-							for($i = 0 ; $i < $article['rating'] ; $i++)
-							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							}			
-				echo		'
-						</div>';
-					
-				echo '<div class="row-fluid">
-						<div class="span12">
-							<div class="offset2 span7 rating">
-								Rate Me:' ;
-				//get the stars for the rating box
-				//1
-				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,';
-				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
-				echo '">' ;
-				//2
-				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,';
-				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
-				echo '">' ;
-				//3
-				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,';
-				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
-				echo '">' ;
-				//4
-				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,';
-				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
-				echo '">' ;
-				//5
-				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,';
-				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
-				echo '">' ;
-				
-				echo '</div>
-					</div>
-				</div>' ;
-				
-				//comment box
-				echo '<div class="row-fluid">	
-						<div class="span12">
-							<p> Comments</p>
-							<form class="form-horizontal" action="functions/function.comment.php" method="post">
-								<div class="control-group">
-									<div class="controls">
-										<textarea rows="4" style="width: 50%" name="comment"></textarea>
-									</div>
-									<div class="controls">
-										<input type="hidden" value="'.$article["id"].'" name="id" />
-										<input type="hidden" value="article" name="type" />
-										<input type="hidden" value="';
-				echo $_SESSION['user'].'" name="member" />
-										<input type="submit" class="btn" value="Submit">
-									</div>			    		
-								</div>
-							</form>
-						</div>' ;
+				//2 - for members 3 - for both
+				if( $article['access'] == 2 || $article['access'] == 3)
+				{
+					echo '<div class="row-fluid blog_container">
+							<div class="span12">
+								<h4>'.$article["article_title"].'</h4>
+								<p class="blog_author_name"> '.$article["article_author"].'</p>
+								<p>'.$article["article_description"].'</p>
+								<p> Added :'.$article["article_date"].'</p>
+								<p> Rating : ' ;
+								//get the ratings for the blog
+								if( $article['rating'] == 0 )
+								{
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								}		
+								for($i = 0 ; $i < $article['rating'] ; $i++)
+								{
+									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								}			
+					echo		'
+							</div>';
 						
-				echo	'</div>' ;
-				
-				//get the comments for the blog
-				$this->getComments("article",$article["id"],0) ;	
-				//get the rating box for the article
+					echo '<div class="row-fluid">
+							<div class="span12">
+								<div class="offset2 span7 rating">
+									Rate Me:' ;
+					//get the stars for the rating box
+					//1
+					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,';
+					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+					echo '">' ;
+					//2
+					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,';
+					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+					echo '">' ;
+					//3
+					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,';
+					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+					echo '">' ;
+					//4
+					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,';
+					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+					echo '">' ;
+					//5
+					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,';
+					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+					echo '">' ;
 					
-				echo '</div>' ;
+					echo '</div>
+						</div>
+					</div>' ;
+					
+					//comment box
+					echo '<div class="row-fluid">	
+							<div class="span12">
+								<p> Comments</p>
+								<form class="form-horizontal" action="functions/function.comment.php" method="post">
+									<div class="control-group">
+										<div class="controls">
+											<textarea rows="4" style="width: 50%" name="comment"></textarea>
+										</div>
+										<div class="controls">
+											<input type="hidden" value="'.$article["id"].'" name="id" />
+											<input type="hidden" value="article" name="type" />
+											<input type="hidden" value="';
+					echo $_SESSION['user'].'" name="member" />
+											<input type="submit" class="btn" value="Submit">
+										</div>			    		
+									</div>
+								</form>
+							</div>' ;
+							
+					echo	'</div>' ;
+					
+					//get the comments for the blog
+					$this->getComments("article",$article["id"],0) ;	
+					//get the rating box for the article
+						
+					echo '</div>' ;
+				}
 			}
 		}
 		
@@ -902,7 +906,7 @@
 			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
 			if(isset($vidCapGallery) && !empty($vidCapGallery))
 			{
-				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-large btn-danger">Vid Caps</button></a>';
+				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-large btn-danger border_radius_r">Vid Caps</button></a>';
 			}
 		}
 		
@@ -916,7 +920,7 @@
 			$zipFilePath = "gallery/".$movieId."/";
 			if(file_exists($zipFilePath."h.zip"))
 			{
-				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-large btn-danger">High Zip</button></a>';
+				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-large btn-danger border_radius_l">High Zip</button></a>';
 			}
 			if(file_exists($zipFilePath."m.zip"))
 			{
@@ -924,7 +928,7 @@
 			}
 			if(file_exists($zipFilePath."s.zip"))
 			{
-				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-large btn-danger">Low Zip</button></a>';
+				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-large btn-danger border_radius_r">Low Zip</button></a>';
 			}
 		}
 		
@@ -1187,7 +1191,7 @@
 				//generate the pagination UI
 				echo '<div class="row-fluid">
 						<div class="span12 blank">
-							<div class="pagination pagination-small center">
+							<div class="pagination pagination-small pageno_nav center">
 							  <ul>';
 				//logic for setting the prev button
 				//condition for escaping the -ve page index when $page = 0
@@ -1300,7 +1304,7 @@
 			//for the recent
 			$sortBy = "rating";
 			//get values from the database
-			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',$sortBy,0,7);
+			$models = $this->manageContent->getValue_limit_sorted_current_a_1('model_info','*',$sortBy,0,7);
 			
 			//for the large pic
 			echo '<div class="row-fluid">
@@ -1366,23 +1370,23 @@
 		function getMostViewed_sidebar()
 		{
 			//get most viewed from the database
-			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',"views",0,4);
-			$movies = $this->manageContent->getValue_limit_sorted_current('movie_info','*',"views",0,4);
-			$gallerys = $this->manageContent->getValue_limit_sorted_current('gallery_info','*',"view",0,4);
+			$models = $this->manageContent->getValue_limit_sorted_current_d_1('model_info','*',"views",0,5);
+			$movies = $this->manageContent->getValue_limit_sorted_current_d_1('movie_info','*',"views",0,5);
+			$gallerys = $this->manageContent->getValue_limit_sorted_current_d_1('gallery_info','*',"view",0,5);
 			
 			echo '<div class="row-fluid social">
                 	<ul>
                     	<h5> Most Viewed Movies</h5>' ;
 			foreach( $movies as $movie )
 			{
-				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["movie_name"].'</a></li>' ;
+				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a></li>' ;
 			}
 			echo '</ul>
                 	<ul>
                     	<h5> Most Viewed Photos</h5>' ;
 			foreach( $gallerys as $gallery )
 			{
-				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["gallery_name"].'</a></li>' ;
+				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a></li>' ;
 			}
 			echo '</ul>
                 	<ul>
@@ -1403,23 +1407,23 @@
 		function getMostPopular_sidebar()
 		{
 			//get most viewed from the database
-			$models = $this->manageContent->getValue_limit_sorted_current('model_info','*',"rating",0,4);
-			$movies = $this->manageContent->getValue_limit_sorted_current('movie_info','*',"rating",0,4);
-			$gallerys = $this->manageContent->getValue_limit_sorted_current('gallery_info','*',"rating",0,4);
+			$models = $this->manageContent->getValue_limit_sorted_current_d_1('model_info','*',"rating",0,5);
+			$movies = $this->manageContent->getValue_limit_sorted_current_d_1('movie_info','*',"rating",0,5);
+			$gallerys = $this->manageContent->getValue_limit_sorted_current_d_1('gallery_info','*',"rating",0,5);
 			
 			echo '<div class="row-fluid social">
                 	<ul>
                     	<h5> Most Viewed Movies</h5>' ;
 			foreach( $movies as $movie )
 			{
-				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["movie_name"].'</a></li>' ;
+				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a></li>' ;
 			}
 			echo '</ul>
                 	<ul>
                     	<h5> Most Viewed Photos</h5>' ;
 			foreach( $gallerys as $gallery )
 			{
-				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["gallery_name"].'</a></li>' ;
+				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a></li>' ;
 			}
 			echo '</ul>
                 	<ul>
@@ -1908,8 +1912,8 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<h4 class="red_text"><a href="'.$friend['link'].'" target="_blank">'.$friend['name'].'</h4>
-								<img class="lazy" data-src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" src=""></a></div>';
+								<a href="'.$friend['link'].'" target="_blank"><img class="lazy" data-src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" src="">
+								<h4 class="red_text">'.$friend['name'].'</h4></a></div>';
 								
 					}
 					if($end_point%4 == 0)
@@ -2028,7 +2032,7 @@
 			//take comments from all the comment tables
 			//from model,article,movie and gallery
 			$comments = $this->manageContent->getAllComments() ;
-			shuffle($comments) ;
+			$comments = array_reverse($this->subval_sort($comments,'date'));
 			
 			foreach( $comments as $comment )
 			{
@@ -2044,6 +2048,20 @@
 			}
 		}
 		
+		/*
+		- Function to sort two dimentional array
+		- Auth Singh
+		*/
+		function subval_sort($a,$subkey) {
+			foreach($a as $k=>$v) {
+				$b[$k] = strtolower($v[$subkey]);
+			}
+			asort($b);
+			foreach($b as $key=>$val) {
+				$c[] = $a[$key];
+			}
+			return $c;
+		}
 		/*
 		- get the article feed for the index page
 		- create the full UI and return it

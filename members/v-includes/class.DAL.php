@@ -149,6 +149,43 @@
 			}
 		}
 		
+		
+		/*
+		- function to get the value sorted
+		- auth Singh
+		*/
+		function getValue_limit_sorted_current_a_1($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE() ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- function to get the value sorted
+		- auth Singh
+		*/
+		function getValue_limit_sorted_current_d_1($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			$query = $this->link->query("SELECT $value from $table_name WHERE `date` <= CURDATE() ORDER BY $sortBy DESC LIMIT $startPoint,$limit ");
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
 		/*
 		- function to get the row count of a table
 		- auth Singh
@@ -157,7 +194,7 @@
 		{
 			if( $table_name == "article_info")
 			{
-				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`end_date` <= CURDATE())");
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`end_date` <= CURDATE()) AND ((`access` = 2) OR (`access` = 3))");
 			}
 			elseif( $table_name == "model_info")
 			{
@@ -364,7 +401,7 @@
 		*/
 		function getAllComments()
 		{
-			$query = $this->link->query("(SELECT * FROM `movie_comment` ORDER BY `id` DESC LIMIT 0,3) UNION ALL (SELECT * FROM `model_comment` ORDER BY `id` DESC LIMIT 0,3) UNION ALL	(SELECT * FROM `gallery_comment` ORDER BY `id` DESC LIMIT 0,3) UNION ALL	(SELECT * FROM `article_comment` ORDER BY `id` DESC LIMIT 0,3)");
+			$query = $this->link->query("(SELECT * FROM `movie_comment` ORDER BY `id` DESC LIMIT 0,25) UNION ALL (SELECT * FROM `model_comment` ORDER BY `id` DESC LIMIT 0,25) UNION ALL	(SELECT * FROM `gallery_comment` ORDER BY `id` DESC LIMIT 0,25) UNION ALL	(SELECT * FROM `article_comment` ORDER BY `id` DESC LIMIT 0,25)");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){

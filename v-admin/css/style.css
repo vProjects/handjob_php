@@ -386,3 +386,10 @@ ul.nav li.dropdown:hover > ul.dropdown-menu {
 .thumb_container{
 	margin:10px auto;
 }
+.article_description{
+	max-width:400px ;
+}
+.article_description img{
+	height:300px !important;
+	width:300px !important;
+}

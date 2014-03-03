@@ -92,7 +92,7 @@
        
        <div class="row-fluid">
        		<div class="btn-group">
-                <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=low" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "low" ){ echo "active"; } ?>">Low</button></a>
+                <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=low" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "low" ){ echo "active"; } ?> border_radius_l">Low</button></a>
                 <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=medium" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "medium" ){ echo "active"; } ?>">Medium</button></a>
                 <a href="playing_movie.php?<?php echo "model=".$model_id."&movieId=".$movie_id."&gallery_id=".$gallery_id."&type=high" ; ?>"><button class="btn btn-large btn-danger <?php if( $type == "high" ){ echo "active"; } ?>">High</button></a>
 				<?php

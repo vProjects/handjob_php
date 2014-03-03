@@ -33,6 +33,15 @@
                     <label class="control-label">Date</label>
                     <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                 </div>
+                
+                <div class="form-control v-form">
+                	<label class="control-label">Show in:</label>
+                    <select class="selectbox1" name="access">
+                    	<option <?php if($friend_detial[0]['access'] == 3){ echo 'selected="selected"';} ?> value="3">Both</option>
+                        <option <?php if($friend_detial[0]['access'] == 2){ echo 'selected="selected"';} ?> value="2">Members</option>
+                        <option <?php if($friend_detial[0]['access'] == 1){ echo 'selected="selected"';} ?> value="1">Tour</option>
+                    </select>
+                </div>
                 <div class="form-control v-form">
                 	<label class="control-label">Blog Content</label><br><br>
                     <textarea type="text" id="editor1" placeholder="Content" class="textbox1" name="article_description"></textarea>

@@ -14,7 +14,7 @@
 		$member = $_POST['member'] ;
 	}
 	//get the date of insertion
-	$date = date('Y-m-h');
+	$date = date('Y-m-d h:i:s');
 	
 	$returnPath = "" ;
 	//initialize the table name variable

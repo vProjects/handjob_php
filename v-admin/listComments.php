@@ -57,6 +57,7 @@
                             <th><?php echo $page_type; ?> Name</th>
                             <th>Member</th>
                             <th>Comments</th>
+                            <th>Date</th>
                             <th>Delete</th>
                         </tr>
                     </thead>

@@ -108,7 +108,7 @@ a:hover, a:focus {
 	text-transform:capitalize;
 }
 .photo_update{
-	margin:20px 0px;
+	margin:20px 0px 0px 0px;
 }
 .access_login{
 	font-size:14px;

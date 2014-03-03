@@ -20,7 +20,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body{
-	background-color:#e5e7e1;
+	background-color:#f7f7f7;
 }
 a:hover, a:focus {
 color: #ff0000;
@@ -30,7 +30,21 @@ text-decoration: none;
 	min-width: 90%;
 }
 #header{
-	background-color:#e5e7e1;
+	background-color:#f7f7f7;
+}
+.btn-danger{
+	background-image:none !important;
+	background-color:#ff0000;
+	background-repeat: repeat-x;
+	border-color: #bd362f #bd362f #802420;
+	border-color:none ;
+	border-radius:0 ;
+}
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .btn-danger.disabled, .btn-danger[disabled]{
+	background-color:#ffffff !important;
+	color:#ff0000 ;
+	background-image:none ;
+	box-shadow: none;
 }
 .banner{
 }
@@ -149,6 +163,11 @@ text-decoration: none;
 	text-align:center;
 	margin-top: 2%;
 	margin-bottom:1%;
+	transition: all 0.5s ease 0s;
+}
+.clickMore:hover {
+	background-color: #ffffff;
+	color:#ff0000;
 	transition: all 0.5s ease 0s;
 }
 #secondaryMainBar{
@@ -299,11 +318,6 @@ text-decoration: none;
 		margin-left: 12%;
 	}
 }
-.btn-danger{
-	background-image:none;
-	background-color:#ff0000;
-	border-radius: 5px;
-}
 .btn-danger:hover{
 	background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
 	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
@@ -323,8 +337,8 @@ text-decoration: none;
      margin-right: auto;
 }
 .center_1st{
-	color:#fff;
-	background-color:#ff0000 !important;
+	color: #005580;
+	background-color: #ffffff !important;
 }
 .blank{
 	background: none;
@@ -418,6 +432,14 @@ text-decoration: none;
 /* model detail page css */
 .model_detail{
 	margin:20px 0;
+	background-color: #FFFFFF;
+	box-shadow: 0px 3px 8px 1px grey;
+	margin: 20px 0;
+	padding: 7px 0 7px 7px;
+}
+.model_image_details {
+	border: 1px solid #FF0000;
+	box-shadow: 0px 3px 8px 1px grey;
 }
 .model_info_topic{
 	font-size:18px;
@@ -705,4 +727,33 @@ text-decoration: none;
 }
 .nav {
 	margin-bottom: 4px;
+}
+
+.border_radius_r{
+	border-radius:0 5px 5px 0;
+}
+.border_radius_l{
+	border-radius:5px 0 0 5px;
+}
+.pageno_nav{
+	margin:4px 0 0;
+	color:#fff;
+	font-weight:600;
+}
+.pageno_nav ul li{
+	float: left;
+    list-style: none outside none;
+}
+.pageno_nav_viewall{
+	border:none;
+}
+.pageno_nav ul li a{
+	color:#fff;
+	margin-left: 5px;
+	background-color:#ff0000;
+	border-radius: 6px !important;
+}
+.pageno_nav ul li a:hover{
+	font-weight:bold;
+	color:#ff0000 !important;
 }

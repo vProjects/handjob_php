@@ -26,32 +26,36 @@
 			
 			foreach($articles as $article)
 			{
-				echo '<div class="row-fluid blog_container">
-						<div class="span12 blog_text">
-							<h3><a href="#" class="tour_blog_heading">'.$article["article_title"].'</a></h3>
-							<p class="tour_blog_author_name"> '.$article["article_author"].'</p>
-							<p>'.$article["article_description"].'</p>
-							<p>Added- '.$article["article_date"].'</p>
-							<p> Rating : ' ;
-				//get the ratings for the blog
-				if( $article['rating'] == 0 )
+				//1 - for tour 3 - for both
+				if( $article['access'] == 1 || $article['access'] == 3)
 				{
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-				}		
-				for($i = 0 ; $i < $article['rating'] ; $i++)
-				{
-					echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-				}			
-				echo		'<p> Comments</p>';
-				
-				//get the comments for the blog
-				$this->getComments("article",$article["id"],0) ;
+					echo '<div class="row-fluid blog_container">
+							<div class="span12 blog_text">
+								<h3><a href="#" class="tour_blog_heading">'.$article["article_title"].'</a></h3>
+								<p class="tour_blog_author_name"> '.$article["article_author"].'</p>
+								<p>'.$article["article_description"].'</p>
+								<p>Added- '.$article["article_date"].'</p>
+								<p> Rating : ' ;
+					//get the ratings for the blog
+					if( $article['rating'] == 0 )
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}		
+					for($i = 0 ; $i < $article['rating'] ; $i++)
+					{
+						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+					}			
+					echo		'<p> Comments</p>';
 					
-				echo '</div></div>' ;
+					//get the comments for the blog
+					$this->getComments("article",$article["id"],0) ;
+						
+					echo '</div></div>' ;
+				}
 			}
 		}
 		

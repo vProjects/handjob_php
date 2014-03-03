@@ -146,7 +146,7 @@
                         <li><a <?php if( $page_title == "Model Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Model"><span class="icon-hand-right"></span>&nbsp;&nbsp;Model Comments</a></li>
                         <li><a <?php if( $page_title == "Photos Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Photos"><span class="icon-hand-right"></span>&nbsp;&nbsp;Photos Comments</a></li>
                         <li><a <?php if( $page_title == "Movies Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Movies"><span class="icon-hand-right"></span>&nbsp;&nbsp;Movies Comments</a></li>
-                        <li><a <?php if( $page_title == "Article Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Article"><span class="icon-hand-right"></span>&nbsp;&nbsp;Article Comments</a></li>
+                        <li><a <?php if( $page_title == "Article Comments" ){ echo 'class="v_active"'; }?> href="listComments.php?type=Article"><span class="icon-hand-right"></span>&nbsp;&nbsp;Blog Comments</a></li>
                     </ul>
                 </div>
             </div>

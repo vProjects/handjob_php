@@ -23,7 +23,9 @@
             <div class="span4">
             	<h4>Tolal Elements: <?php echo $total_elements ; ?></h4>
             </div>
-				<?php
+            <div class="row-fluid">
+            	<div class="span12">
+                	<?php
                     //get the pagination of the page
                     $manageData->pagination($startPoint,"listBlog.php",10,"article_info","date",$keyword);
                 ?>
@@ -33,7 +35,7 @@
                         <tr>
                             <th>Title</th>
                             <th>Author</th>
-                            <th>Breif</th>
+                            <th>Description</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -47,6 +49,8 @@
                     //get the pagination of the page
                     $manageData->pagination($startPoint,"listBlog.php",10,"article_info","date",$keyword);
                 ?>
+                </div>
+            </div>
         </div>
     	
     </div><!--body main container ends here-->

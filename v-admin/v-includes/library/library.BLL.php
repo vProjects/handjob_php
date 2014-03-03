@@ -30,7 +30,7 @@
                         <tr>
                             <td>'.$article['article_title'].'</td>
 							<td>'.$article['article_author'].'</td>
-                            <td>'.$article['article_description'].'</td>
+							<td class="article_description">'.$article['article_description'].'</td>
                             <td><a href="editArticle.php?id='.$article['id'].'">
 								<button class="btn btn-warning" type="button">
 								<span class="icon-pencil"></span>&nbsp;&nbsp;EDIT</button>
@@ -786,6 +786,7 @@
 						<td>'.$values[0][$name_field].'</td>
 						<td>'.$comment['member'].'</td>
 						<td>'.$comment['comment'].'</td>
+						<td>'.$comment['date'].'</td>
 						<td><button class=" btn btn-danger" type="button" onClick="deleteComment('."'".$type."','".$comment['id']."'".')">
 								<span class=" icon-trash"></span>&nbsp;&nbsp;DELETE</button>
 							</td></tr></tbody>' ;

@@ -112,10 +112,10 @@
 		- method for inserting the article/blog
 		- auth Singh
 		*/
-		function insertArticle($aHeading, $aAuthor, $aDesc,$date)
+		function insertArticle($aHeading, $aAuthor, $aDesc,$date,$access)
 		{
-			$query = $this->link->prepare("INSERT INTO `article_info`(`article_title`, `article_author`, `article_description` , `article_date`) VALUES (?,?,?,?)");
-			$values = array($aHeading,$aAuthor,$aDesc,$date);
+			$query = $this->link->prepare("INSERT INTO `article_info`(`article_title`, `article_author`, `article_description` , `article_date`, `access`) VALUES (?,?,?,?,?)");
+			$values = array($aHeading,$aAuthor,$aDesc,$date,$access);
 			$query->execute($values);
 		}
 		

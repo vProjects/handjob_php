@@ -221,7 +221,7 @@
 		{
 			if( $table_name == "article_info")
 			{
-				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`end_date` <= CURDATE())");
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`end_date` <= CURDATE()) AND ((`access` = 1) OR (`access` = 3))");
 			}
 			elseif( $table_name == "model_info")
 			{

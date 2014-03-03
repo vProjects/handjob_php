@@ -9,6 +9,7 @@
 		$article_author = $_POST['article_author'];
 		$article_title = $_POST['article_title'];
 		$article_description = $_POST['article_description'];
+		$access = $_POST['access'];
 		
 		$date = $_POST['date'];
 	}
@@ -21,7 +22,7 @@
 	}
 	if(isset($article_title) && !empty($article_title) && isset($article_description) && !empty($article_description))
 	{
-		$result = $manageData->insertArticle($article_title,$article_author,$article_description,$date);
+		$result = $manageData->insertArticle($article_title,$article_author,$article_description,$date,$access);
 		$_SESSION['result'] = "Update Successfully.";
 	}
 	else

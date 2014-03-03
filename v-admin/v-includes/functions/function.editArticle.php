@@ -11,6 +11,7 @@
 		$article_author = $_POST['article_author'];
 		$article_title = $_POST['article_title'];
 		$article_description = $_POST['article_description'];
+		$access = $_POST['access'];
 		
 		$date = $_POST['date'];
 		$id = $_POST['id'];
@@ -56,6 +57,17 @@
 			$_SESSION['result'] = "Update Successful." ;
 		}
 	}
+	
+	//update the access
+	if( isset($access) && !empty($access))
+	{
+		$result = $manageData->updateValueWhere($table_name,"access",$access,"id",$id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
 	
 	header('Location: ../../editArticle.php?id='.$id);
 ?>
