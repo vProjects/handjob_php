@@ -810,3 +810,20 @@ a:hover, a:focus {
 	margin-bottom: 0px;
 	margin-top: 15px;
 }
+
+/* model contact form css 
+	Author: Dipanjan */
+
+.model_form_outline{
+	margin-top:20px;
+}
+.model_form_label{
+	padding:5px;
+	font-size:15px;
+	margin-left:5px;
+}
+.model_form_textbox{
+}
+.model_form_checkbox{
+	margin-top:0px !important;
+}
