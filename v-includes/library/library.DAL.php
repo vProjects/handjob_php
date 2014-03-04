@@ -104,7 +104,7 @@
 		*/
 		function getValue_limit_sorted_current($table_name,$value,$sortBy,$startPoint,$limit)
 		{
-			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" )
+			if( $sortBy == "name" || $sortBy == "gallery_name" || $sortBy == "movie_name" || $sortBy == 'model' )
 			{
 				$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
 			}

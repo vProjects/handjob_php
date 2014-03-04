@@ -153,6 +153,11 @@ text-decoration: none;
 	margin: 1% 0 0 0;
 	box-shadow: 2px 2px 7px 0px grey;
 	background-color:#FFF;
+	transition: all 0.5s ease 0s;
+}
+.element:hover {
+	box-shadow: 3px 3px 7px #ff0000;
+	transition: all 0.5s ease 0s;
 }
 .clickMore{
 	background-color: #ff0000;
@@ -376,8 +381,9 @@ text-decoration: none;
 	border-top: 1px solid #ffffff;
 }
 .advaced_search_form{
-	margin-bottom:40px;
-	background-color:#ffffff;
+	margin-bottom: 5px;
+	background-color: #ffffff;
+	margin-top: 5px !important;
 }
 .form_part{
 	padding-left:25px;
@@ -734,6 +740,9 @@ text-decoration: none;
 }
 .border_radius_l{
 	border-radius:5px 0 0 5px;
+}
+.r-btn{
+	border-radius:5px ;
 }
 .pageno_nav{
 	margin:4px 0 0;

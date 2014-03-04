@@ -14,6 +14,9 @@
 
 <div id="bodyContainer" class="row-fluid">
     	 <?php
+		 	//GET the model searchBar
+			include('v-templates/modelSearchBar.php');
+			
 		 	//get the required gallery
 			$manageData->getFriends(0,1000);
 			

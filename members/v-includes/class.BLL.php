@@ -180,7 +180,7 @@
 			elseif( $type == "name" )
 			{
 				//sort by name
-				$sortBy = "gallery_name" ;
+				$sortBy = "model" ;
 			}
 			else
 			{
@@ -601,7 +601,7 @@
 			elseif( $type == "name" )
 			{
 				//sort by name
-				$sortBy = "movie_name" ;
+				$sortBy = "model" ;
 			}
 			else
 			{

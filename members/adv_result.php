@@ -60,6 +60,9 @@
     <div id="bodyContainer" class="row-fluid">
     	
         <?php
+			//GET the model searchBar
+			include('v-templates/modelSearchBar.php');
+			
 			//get the content according to the type and keywords
 			$manageData->getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$cdate,$content_type,$model_category,$movie_category) ;
 						

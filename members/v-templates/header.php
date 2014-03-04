@@ -57,7 +57,7 @@
             <div class="span4 offset3 pull-right" id="advanced_search">
                 <div class="form-search pull-right">
                   <input type="text" class="input-medium search-query" id="search_box">
-                  <button type="button" class="btn btn-danger" onClick="doSearch('search_box')">Search</button>
+                  <button type="button" class="btn btn-danger r-btn" onClick="doSearch('search_box')">Search</button>
                   <!-- Button to trigger modal -->
                   <a href="advance_search.php" class="popup_link">Advanced Search</a>
                   <div class="row-fluid">

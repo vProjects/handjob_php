@@ -9,6 +9,15 @@
 	//include the pagination configuration file
 	include('v-includes/config_pagination.php');
 ?>
+	
+    <div class="row-fluid">
+        <div class="span12">
+            <?php
+                //GET the model searchBar
+                include('v-templates/modelSearchBar.php');
+            ?>
+        </div>
+    </div>
 
 	<div id="bodyContainer" class="row-fluid">
     	<!-- leftcontainer starts here---->

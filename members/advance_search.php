@@ -10,8 +10,16 @@
 	$pDate = date('Y-m-d',strtotime('-1 week'));
 	echo $pDate ;*/
 ?>
-
+	<div class="row-fluid">
+    	<div class="span12">
+        	<?php
+				//GET the model searchBar
+				include('v-templates/modelSearchBar.php');		
+			?>
+        </div>
+    </div>
 	<div id="bodyContainer" class="row-fluid advaced_search_form">
+    	
     	<div class="span8 offset2">
     	<form action="adv_result.php" class="form-horizontal" method="post">
             <div class="row-fluid">
@@ -79,13 +87,32 @@
             <div class="row-fluid">
                 <div class="span10 offset2 form_part_button"> 
                       <div class="control-group">
-                            <button type="submit" class="btn btn-large btn-danger">SEARCH</button>
+                            <button type="submit" class="btn btn-large btn-danger r-btn">SEARCH</button>
                       </div> 
                 </div>
             </div>  
         </form>
     </div>
+</div>
+    
+<div class="row-fluid">
+    <div class="span12">
+        <?php
+            //generate an alternate number for the members favorite
+            $alternate = rand(1,2) ;
+            if( $alternate%2 == 0 ) 
+            {
+                //get the random members favourite movie
+                $manageData->membersFavourite(0,12,'movie',4) ;			
+            }
+            else
+            {
+                //get the random members favourite photos
+                $manageData->membersFavourite(0,12,'photo',4) ;
+            }
+        ?>
     </div>
+</div>
 
 <?php
 	//include footer
