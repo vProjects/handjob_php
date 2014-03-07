@@ -17,7 +17,7 @@
         <ul>
         	<li><a href="#">Support</a></li>
             <li><a href="#">Contact Us</a></li>
-            <li><a href="#">Models Wanted</a></li>
+            <li><a href="modelContactForm.php">Models Wanted</a></li>
             <li><a href="#">Webmaster</a></li>
             <li><a href="#">Legal</a></li>
         </ul>

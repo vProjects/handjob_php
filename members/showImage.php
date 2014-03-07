@@ -35,7 +35,6 @@
 	{
 		$gallery_path = "gallery/".$gallery_id."/s/" ;
 	}
-	
 	//get the slider images
 	//get the filename array using the BLL
 	$filename = $manageData->getSliderImage($gallery_id,"gallery") ;
@@ -66,9 +65,9 @@
         <div class="row-fluid">
             <div class="row-fluid model_detail_heading">
                 <div class="btn-group pull-left">
-                    <div onClick="redirectIt('low','<?php echo $mode ; ?>')" class="btn btn-danger">Small</div>
-                    <div onClick="redirectIt('medium','<?php echo $mode ; ?>')" class="btn btn-danger">Medium</div>
-                    <div onClick="redirectIt('high','<?php echo $mode ; ?>')" class="btn btn-danger">Large</div>
+                    <div onClick="redirectIt('low','<?php echo $mode ; ?>')" class="btn btn-danger <?php if($type=='low'){echo 'active';}?>">Small</div>
+                    <div onClick="redirectIt('medium','<?php echo $mode ; ?>')" class="btn btn-danger <?php if($type=='medium'){echo 'active';}?>">Medium</div>
+                    <div onClick="redirectIt('high','<?php echo $mode ; ?>')" class="btn btn-danger <?php if($type=='high'){echo 'active';}?>">Large</div>
                 </div>
                 <div class="btn-group pull-right">
                     <div class="btn btn-danger" onClick="firstClick()">First</div>

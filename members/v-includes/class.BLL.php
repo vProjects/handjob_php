@@ -528,6 +528,8 @@
 					echo '<div class="row-fluid">
 							<div class="span12">
 								<div class="offset2 span7 rating">
+									<div class="row-fluid">
+										<div class="span6">
 									Rate Me:' ;
 					//get the stars for the rating box
 					//1
@@ -551,12 +553,24 @@
 					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
 					echo '">' ;
 					
-					echo '</div>
-						</div>
+					echo '</div><div class="span3 voted_people">';
+					
+					//get the rating for the particular movie
+					$enity_rating = $this->getRating('article',$article['id']) ;
+					
+					//get total voted people
+					$voted_people = $this->getPeopleVoted('article',$article['id']) ;
+					//codes to get the total number of the voted people
+					if( !empty($voted_people) )
+					{
+						echo "Rating: ".($enity_rating-1)."/5 <br/> ( ".$voted_people."Votes )" ;
+					}
+					
+					echo	'</div></div></div></div>
 					</div>' ;
 					
 					//comment box
-					echo '<div class="row-fluid">	
+					echo '<div class="row-fluid" id="'.$article['id'].'">	
 							<div class="span12">
 								<p> Comments</p>
 								<form class="form-horizontal" action="functions/function.comment.php" method="post">
@@ -1985,6 +1999,10 @@
 			{
 				$rating = $this->manageContent->getValueWhere("gallery_info","rating","gallery_id",$element_id) ;
 			}
+			if( $element_type == "article" )
+			{
+				$rating = $this->manageContent->getValueWhere("article_info","rating","id",$element_id) ;
+			}
 			if( $element_type == "model" )
 			{
 				$rating = $this->manageContent->getValueWhere("model_info","rating","id",$element_id) ;
@@ -2016,6 +2034,10 @@
 			{
 				$table_name = 'rate_model' ;
 			}
+			if( $type == "article" )
+			{
+				$table_name = 'rate_article' ;
+			}
 			//count the votes
 			$result = $this->manageContent->getTotalRows_vote($table_name,$entity_id) ;
 			return $result[0]['count(*)'] ;
@@ -2042,7 +2064,13 @@
 							<p>'.$comment["comment"].'</p>
 							<p>'.$comment["date"].'</p>
 							<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
-				echo		'<a href="'.$comment["page"].'">Read More</a>';
+				echo		'<a href="'.$comment["page"];
+				//codes for pointing the blog particular comment
+				if( $comment["page"] == 'blog_list.php' )
+				{
+					echo '#'.$comment['unit_id'] ;
+				}
+				echo '">Read More</a>';
 				echo	'</div>
 					</div>' ;
 			}

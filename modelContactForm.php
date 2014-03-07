@@ -245,10 +245,7 @@
             <div class="clearfix"></div>
         </div>
     </form>
-    
-    <!-- codes for the form ends here -->
-    </div>
-        <!-- members favourite portion starts here ---->
+     <!-- members favourite portion starts here ---->
         <div class="row-fluid photo_update">
             <div class="span12">
                 <h3 class="site_heading memfav"> Members Favorite</h3>
@@ -279,8 +276,10 @@
             </div>
          </div>   
          <!-- members favourite portion ends here ---->
+    <!-- codes for the form ends here -->
+    </div>
+       
      </div>    
-    <!--- movie details ends here --->
      
 
 </div>

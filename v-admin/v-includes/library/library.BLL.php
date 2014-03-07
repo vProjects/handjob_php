@@ -291,7 +291,9 @@
 		*/
 		function getCategoryList($tableName)
 		{
-			$categorys = $this->manageContent->getValue($tableName,"*");
+			$sortBy = "category" ;
+			$categorys = $this->manageContent->getValue_sorted_asc($tableName,"*",$sortBy);
+			
 			foreach($categorys as $category)
 			{
 				echo '<tr>';

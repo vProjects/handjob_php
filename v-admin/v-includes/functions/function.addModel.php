@@ -9,8 +9,7 @@
 	//include the media Library
 	include('../library/library.media.php');
 	$manageMedia = new libraryMedia();
-	//get the date of insertion
-	$date = date('Y-m-h');
+	
 	//global variable to store the result
 	$result = "";
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
@@ -43,6 +42,11 @@
 		$category_string = substr($category_string,1);
 	}
 	
+	if( empty($date) || !isset($date))
+	{
+		//get the date of insertion
+		$date = date('Y-m-h');
+	}
 	$outputFilenameSuffix = uniqid();
 	
 	//move the uploaded file to the temp/thumbs/ folder
@@ -64,7 +68,7 @@
 			
 			
 			//echo $model_name.','.$description.','.$age.','.$height.','.$weight.','.$measurement.','.$status.','.$date;
-			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$measurement,$category_string,$result_upload,$date,0,'1',$status);
+			$result = $manageData->insertModel($model_name,$description,$age,$height,$weight,$measurement,$category_string,$result_upload,$date,0,'5',$status);
 			if($result == 1)
 			{
 				//resize and save images in the location inside the members area
