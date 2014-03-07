@@ -19,6 +19,10 @@
 	{
 		$type = "recent" ;
 	}
+	if(isset($GLOBALS['_GET']['msg']))
+	{
+		$msg = $GLOBALS['_GET']['msg'];
+	}
 ?>
 
 <!-- site description part starts here --->
@@ -31,17 +35,22 @@
     <!-- codes for the form starts here -->
     <form action="v-includes/function/function.modelContactInfo.php" method="post" class="model_form_outline span8">
     	<div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">First Name:</div>
+        	<div class="model_form_label pull-left span3">**First Name:</div>
             <input type="text" placeholder="" name="f_name" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Last Name:</div>
+        	<div class="model_form_label pull-left span3">**Last Name:</div>
             <input type="text" placeholder="" name="l_name" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Date of Birth:</div>
+        	<div class="model_form_label pull-left span3">**Stage Name:</div>
+            <input type="text" placeholder="" name="public_name" class="model_form_textbox span8"/>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-group row-fluid">
+        	<div class="model_form_label pull-left span3">**Date of Birth:</div>
             <select id="month" name="month" class="span2">
                 <option value="00">Month</option>
                 <option value="01">January</option>
@@ -144,65 +153,43 @@
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Birth Place:</div>
+        	<div class="model_form_label pull-left span3">**Birth Place:</div>
             <input type="text" placeholder="" name="birth_place" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Country:</div>
+        	<div class="model_form_label pull-left span3">**Country:</div>
             <input type="text" placeholder="" name="country" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">State/Region:</div>
+        	<div class="model_form_label pull-left span3">**State/Region:</div>
             <input type="text" placeholder="" name="state" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">City:</div>
+        	<div class="model_form_label pull-left span3">**City:</div>
             <input type="text" placeholder="" name="city" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Street Address:</div>
+        	<div class="model_form_label pull-left span3">**Street Address:</div>
             <input type="text" placeholder="" name="street_address" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Postal Code:</div>
+        	<div class="model_form_label pull-left span3">**Postal Code:</div>
             <input type="text" placeholder="" name="postal_code" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Email Id:</div>
+        	<div class="model_form_label pull-left span3">**Email Id:</div>
             <input type="text" placeholder="" name="email_id" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Confirm Email Id:</div>
-            <input type="text" placeholder="" name="confirm_email_id" class="model_form_textbox span8"/>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Username:</div>
+        	<div class="model_form_label pull-left span3">**Username:</div>
             <input type="text" placeholder="" name="username" class="model_form_textbox span8"/>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Display Name:</div>
-            <input type="text" placeholder="" name="public_name" class="model_form_textbox span8"/>
-            <p class="span8 offset3">NOTE: The Display Name will be seen by others.<br />
-				Do not use your email address or your real name because it will be used in your public profile.</p>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Password:</div>
-            <input type="password" placeholder="" name="password" class="model_form_textbox span8"/>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Confirm Password:</div>
-            <input type="password" placeholder="" name="confirm_password" class="model_form_textbox span8"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
@@ -216,18 +203,8 @@
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Mobile Number:</div>
+        	<div class="model_form_label pull-left span3">**Mobile Number:</div>
             <input type="text" placeholder="" name="mobile_number" class="model_form_textbox span5"/>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">MSN:</div>
-            <input type="text" placeholder="" name="msn" class="model_form_textbox span5"/>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Yahoo:</div>
-            <input type="text" placeholder="" name="yahoo" class="model_form_textbox span5"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
@@ -241,25 +218,30 @@
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
+        	<div class="model_form_label pull-left span3">Facebook Link:</div>
+            <input type="text" placeholder="" name="fb_link" class="model_form_textbox span5"/>
+            <div class="clearfix"></div>
+        </div>
+        <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3">Twitter Name:</div>
             <input type="text" placeholder="" name="twitter" class="model_form_textbox span5"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3"></div>
-            <input type="checkbox" name="" class="model_form_checkbox"/>
-            <span>I have read and agree to the FetishModels <a href="#">Terms of Service</a> and the <a href="#">Privacy Policy.</a></span>
+        	<div class="model_form_label pull-left span3">**Image Links:</div>
+            <input type="text" placeholder="" name="img_links" class="model_form_textbox span5"/>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3"></div>
-            <input type="checkbox" name="" class="model_form_checkbox"/>
+            <input type="checkbox" name="year_limit" class="model_form_checkbox"/>
             <span>I am at least 18 years of age.</span>
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3"></div>
             <input type="submit" value="SUBMIT" class="btn btn-large btn-danger span3"/>
+            <p style="color:#ff0000;"><?php if(isset($msg)){ echo $msg; } ?></p>
             <div class="clearfix"></div>
         </div>
     </form>

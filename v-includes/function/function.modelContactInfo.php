@@ -7,6 +7,8 @@
 	//checking for server request method
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
+		if(!empty($GLOBALS['_POST']['f_name']) && !empty($GLOBALS['_POST']['l_name']) && !empty($GLOBALS['_POST']['public_name']) && !empty($GLOBALS['_POST']['day']) && !empty($GLOBALS['_POST']['month']) && !empty($GLOBALS['_POST']['year']) && !empty($GLOBALS['_POST']['birth_place']) && !empty($GLOBALS['_POST']['country']) && !empty($GLOBALS['_POST']['city']) && !empty($GLOBALS['_POST']['state']) && !empty($GLOBALS['_POST']['street_address']) && !empty($GLOBALS['_POST']['postal_code']) && !empty($GLOBALS['_POST']['email_id']) && !empty($GLOBALS['_POST']['username']) && !empty($GLOBALS['_POST']['mobile_number']) && !empty($GLOBALS['_POST']['img_links']) && $GLOBALS['_POST']['year_limit'] == 'on' )
+		{
 		//create the style properties of mail information
 		$cssProperties = '<style>
 							.info_heading{
@@ -29,6 +31,7 @@
 		$message_text = '<h3 class="info_heading">Model Information</h3>
 						<p><span class="topic_heading">First Name:</span><span class="topic_description">'.$GLOBALS['_POST']['f_name'].'</span></p>
 						<p><span class="topic_heading">Last Name:</span><span class="topic_description">'.$GLOBALS['_POST']['l_name'].'</span></p>
+						<p><span class="topic_heading">Stage name:</span><span class="topic_description">'.$GLOBALS['_POST']['public_name'].'</span></p>
 						<p><span class="topic_heading">Date of Birth:</span><span class="topic_description">'.$GLOBALS['_POST']['day'].'/'.$GLOBALS['_POST']['month'].'/'.$GLOBALS['_POST']['year'].'</span></p>
 						<p><span class="topic_heading">Birth Place:</span><span class="topic_description">'.$GLOBALS['_POST']['birth_place'].'</span></p>
 						<p><span class="topic_heading">Country:</span><span class="topic_description">'.$GLOBALS['_POST']['country'].'</span></p>
@@ -38,16 +41,14 @@
 						<p><span class="topic_heading">Postal Code:</span><span class="topic_description">'.$GLOBALS['_POST']['postal_code'].'</span></p>
 						<p><span class="topic_heading">Email Id:</span><span class="topic_description">'.$GLOBALS['_POST']['email_id'].'</span></p>
 						<p><span class="topic_heading">Username:</span><span class="topic_description">'.$GLOBALS['_POST']['username'].'</span></p>
-						<p><span class="topic_heading">Display name:</span><span class="topic_description">'.$GLOBALS['_POST']['public_name'].'</span></p>
-						<p><span class="topic_heading">Password:</span><span class="topic_description">'.$GLOBALS['_POST']['password'].'</span></p>
 						<p><span class="topic_heading">Phone Country Prefix:</span><span class="topic_description">'.$GLOBALS['_POST']['phone_country_prefix'].'</span></p>
 						<p><span class="topic_heading">Phone Number:</span><span class="topic_description">'.$GLOBALS['_POST']['phone_number'].'</span></p>
 						<p><span class="topic_heading">Mobile Number:</span><span class="topic_description">'.$GLOBALS['_POST']['mobile_number'].'</span></p>
-						<p><span class="topic_heading">MSN:</span><span class="topic_description">'.$GLOBALS['_POST']['msn'].'</span></p>
-						<p><span class="topic_heading">Yahoo:</span><span class="topic_description">'.$GLOBALS['_POST']['yahoo'].'</span></p>
 						<p><span class="topic_heading">ICQ:</span><span class="topic_description">'.$GLOBALS['_POST']['icq'].'</span></p>
 						<p><span class="topic_heading">Website URL/Webpages:</span><span class="topic_description">'.$GLOBALS['_POST']['web_url'].'</span></p>
-						<p><span class="topic_heading">Twitter Name:</span><span class="topic_description">'.$GLOBALS['_POST']['twitter'].'</span></p>';
+						<p><span class="topic_heading">Facebook Links:</span><span class="topic_description">'.$GLOBALS['_POST']['fb_link'].'</span></p>
+						<p><span class="topic_heading">Twitter Name:</span><span class="topic_description">'.$GLOBALS['_POST']['twitter'].'</span></p>
+						<p><span class="topic_heading">Image Links:</span><span class="topic_description">'.$GLOBALS['_POST']['img_links'].'</span></p>';
 		
 		
 		//creating the message with stylesheet
@@ -58,7 +59,12 @@
 		
 		//sending the mail
 		$mailSend = $mail->modelInfo($to,$message);
-		echo $mailSend;
+		
+		header("Location: ../../modelContactForm.php");
+		
+		}
+		
+		header("Location: ../../modelContactForm.php?msg=please fill all the field!");
 	}
 
 ?>
