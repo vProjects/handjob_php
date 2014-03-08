@@ -677,8 +677,8 @@
 					else{
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
-					echo '	</div></a>
-							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie['model'].'</h4></a>
+					echo '	</div>
+							<h4 class="red_text">'.$movie['model'].'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -779,8 +779,8 @@
 					else{
 						echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 					}
-					echo '	</div></a>
-							<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low"><h4 class="red_text">'.$movie['model'].'</h4></a>
+					echo '	</div>
+							<h4 class="red_text">'.$movie['model'].'</h4></a>
 							<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
@@ -881,8 +881,8 @@
 					else{
 						echo '<img src="images/movie_thumb/'.$slicedMovie["gallery_id"].'.JPG" style="width:100%;">';
 					}
-					echo '	</div></a>
-					<h4 class="red_text"><a href="playing_movie.php?model='.$slicedMovie['model'].'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low">'.$slicedMovie['model'].' Part '.$part_no.'</a></h4>
+					echo '	</div>
+					<h4 class="red_text">'.$slicedMovie['model'].' Part '.$part_no.'</h4></a>
 							<p>Added :'.$slicedMovie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$slicedMovie["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
@@ -1079,8 +1079,8 @@
 					else{
 						echo '<img src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width:100%;">';
 					}
-					echo '	</div></a>
-								<a href="playing_movie.php?model='.$movie['model'].'&movieId='.$movie['gallery_id'].'"><h4 class="red_text">'.$movie['model'].'</h4></a>							
+					echo '	</div>
+								<h4 class="red_text">'.$movie['model'].'</h4></a>							
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
@@ -1768,8 +1768,8 @@
 						else{
 							echo '<img src="images/movie_thumb/'.$movie["gallery_id"].'.JPG" style="width:100%;">';
 						}
-						echo '	</div></a>
-								<h4 class="red_text"><a href="playing_movie.php?model='.$movie["model"].'&movieId='.$movie['gallery_id'].'&gallery_id=0&type=low">'.$movie["model"].'</a></h4>
+						echo '	</div>
+								<h4 class="red_text">'.$movie["model"].'</h4></a>
 								<p>Added :'.$movie["date"].'<br />Duration: '.$videoDuration.'<br />Views: '.$movie["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )

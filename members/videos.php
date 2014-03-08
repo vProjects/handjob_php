@@ -19,7 +19,14 @@
     	 <?php
 		 	//GET the model searchBar
 			include('v-templates/modelSearchBar.php');
-			
+		?>
+        <div class="span5 pull-right margin_pagination">
+        	<?php	
+				//get the pagination for the page
+				$manageData->pagination($startPoint,"videos.php",10,"movie_info",$type,$keyword,$limit);
+			?>
+        </div>
+        <?php
 			//GET the model type nav bar
 			include('v-templates/typeNav.php');
 			

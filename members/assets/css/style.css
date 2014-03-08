@@ -337,7 +337,7 @@ text-decoration: none;
 
 /* Model page css */
 .center{
-	 float: none;
+	 float: right;
      margin-left: auto;
      margin-right: auto;
 }
@@ -765,4 +765,13 @@ text-decoration: none;
 .pageno_nav ul li a:hover{
 	font-weight:bold;
 	color:#ff0000 !important;
+}
+.red_border{
+	border-bottom: 1px solid #f20056;
+}
+.margin_bottom_2{
+	margin-bottom:4px ;
+}
+.margin_pagination{
+	margin-top: 23px;
 }
