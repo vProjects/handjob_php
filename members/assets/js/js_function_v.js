@@ -21,6 +21,21 @@ function rate(rating,username,id_input,type)
 	}
 }
 
+
+/* 
+ * codes to show the model detail and desc
+ * auth Vasu Naman
+ * 
+ */
+function showDetails(variable){
+		document.getElementById(variable).style.display = "block";
+		var mp = document.getElementById('mp');
+		mp.onmouseout=function(){
+			document.getElementById(variable).style.display = "none";
+		
+		};
+	} 
+
 /*
 - codes for like and dislike
 - Jquery Ajax with JavaScript

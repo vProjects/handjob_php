@@ -1322,11 +1322,20 @@
 			
 			//for the large pic
 			echo '<div class="row-fluid">
-                        <div class="mostPopular span12">
+                        <div class="mostPopular span12" id="mp" onmouseover="showDetails('.'\'description\''.')">
 							<a href="model_detail.php?model_id='.$models[0]["id"].'&model_name='.$models[0]['name'].'">
 								<img class="lazy" data-src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[0]["name"].'</h5>
 							</a>
+                        </div>
+                        <div id="description" style="display: none;">
+                        	<div>
+                        		Model Name
+                        	</div>
+                        	<div>
+                        		Model desc please use the classes that you already have it will save your time and hardwork
+                        	</div>
+                        
                         </div>
                     </div>' ;
 					
