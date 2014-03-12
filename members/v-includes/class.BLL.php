@@ -920,7 +920,7 @@
 			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
 			if(isset($vidCapGallery) && !empty($vidCapGallery))
 			{
-				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-large btn-danger border_radius_r">Vid Caps</button></a>';
+				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-primary btn-danger border_radius_r">Vid Caps</button></a>';
 			}
 		}
 		
@@ -934,15 +934,15 @@
 			$zipFilePath = "gallery/".$movieId."/";
 			if(file_exists($zipFilePath."h.zip"))
 			{
-				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-large btn-danger border_radius_l">High Zip</button></a>';
+				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-primary btn-danger border_radius_l">High Zip</button></a>';
 			}
 			if(file_exists($zipFilePath."m.zip"))
 			{
-				echo '<a href="'.$zipFilePath."m.zip".'"><button class="btn btn-large btn-danger">Med Zip</button></a>';
+				echo '<a href="'.$zipFilePath."m.zip".'"><button class="btn btn-primary btn-danger">Med Zip</button></a>';
 			}
 			if(file_exists($zipFilePath."s.zip"))
 			{
-				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-large btn-danger border_radius_r">Low Zip</button></a>';
+				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-primary btn-danger border_radius_r">Low Zip</button></a>';
 			}
 		}
 		
@@ -1204,8 +1204,8 @@
 				
 				//generate the pagination UI
 				echo '<div class="row-fluid">
-						<div class="span12 blank">
-							<div class="pagination pagination-small pageno_nav center">
+						<div class="span12 type_nav_allign">
+							<div class="pagination pagination-small pageno_nav center_1">
 							  <ul>';
 				//logic for setting the prev button
 				//condition for escaping the -ve page index when $page = 0
@@ -1251,7 +1251,8 @@
 						{
 							echo '" class="btn-danger center_1st';
 						}
-						echo '">'.$i.'</a></li>' ;
+						echo '" ';
+						echo '>'.$i.'</a></li>' ;
 						//increment the index no by 1
 						$no_index++ ;
 						if( $no_index > $max_no_index )
@@ -1315,25 +1316,24 @@
 		*/
 		function getRightSidebar_model()
 		{
-			//for the recent
-			$sortBy = "rating";
 			//get values from the database
-			$models = $this->manageContent->getValue_limit_sorted_current_a_1('model_info','*',$sortBy,0,7);
+			$models = $this->manageContent->getValue_limit_sorted_current_d_1('model_info','*',"views",0,7);
 			
 			//for the large pic
 			echo '<div class="row-fluid">
                         <div class="mostPopular span12" id="mp" onmouseover="showDetails('.'\'description\''.')">
 							<a href="model_detail.php?model_id='.$models[0]["id"].'&model_name='.$models[0]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[0]["name"].'</h5>
 							</a>
                         </div>
                         <div id="description" style="display: none;">
                         	<div>
-                        		Model Name
+                        		'.$models[0]["name"].'
                         	</div>
                         	<div>
-                        		Model desc please use the classes that you already have it will save your time and hardwork
+								<strong>Description:</strong><br/>
+                        		'.$models[0]["description"].'
                         	</div>
                         
                         </div>
@@ -1343,13 +1343,13 @@
 			echo '<div class="row-fluid">
                         <div class="mostPopular span6">
 							<a href="model_detail.php?model_id='.$models[1]["id"].'&model_name='.$models[1]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[1]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[1]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[1]["name"].'</h5>
 							</a>
                         </div>
                         <div class="mostPopular span6">
 							<a href="model_detail.php?model_id='.$models[2]["id"].'&model_name='.$models[2]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[2]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[2]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[2]["name"].'</h5>
 							</a>
                         </div>
@@ -1357,13 +1357,13 @@
                     <div class="row-fluid">
                         <div class="mostPopular span6">
 							<a href="model_detail.php?model_id='.$models[3]["id"].'&model_name='.$models[3]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[3]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[3]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[3]["name"].'</h5>
 							</a>
                         </div>
                         <div class="mostPopular span6">
 							<a href="model_detail.php?model_id='.$models[4]["id"].'&model_name='.$models[4]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[4]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[4]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[4]["name"].'</h5>
 							</a>	
                         </div>
@@ -1371,13 +1371,13 @@
                     <div class="row-fluid">
                         <div class="mostPopular span6">
 							<a href="model_detail.php?model_id='.$models[5]["id"].'&model_name='.$models[5]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[5]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[5]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[5]["name"].'</h5>
 							</a>
                         </div>
                         <div class="mostPopular span6">
 							<a href="model_detail.php?model_id='.$models[6]["id"].'&model_name='.$models[6]['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$models[6]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1" src="images/model_thumb/'.$models[6]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[6]["name"].'</h5>
 							</a>
                         </div>
@@ -1436,21 +1436,21 @@
 			
 			echo '<div class="row-fluid social">
                 	<ul>
-                    	<h5> Most Viewed Movies</h5>' ;
+                    	<h5> Most Popular Movies</h5>' ;
 			foreach( $movies as $movie )
 			{
 				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a></li>' ;
 			}
 			echo '</ul>
                 	<ul>
-                    	<h5> Most Viewed Photos</h5>' ;
+                    	<h5> Most Popular Photos</h5>' ;
 			foreach( $gallerys as $gallery )
 			{
 				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a></li>' ;
 			}
 			echo '</ul>
                 	<ul>
-                    	<h5> Most Viewed Models</h5>' ;
+                    	<h5> Most Popular Models</h5>' ;
 			
 			foreach( $models as $model )
 			{
@@ -1973,7 +1973,7 @@
 				//create single sugested site with the links
 				echo '<div class="mostPopular span6">
 						<a href="'.$site_info[0]['link'].'" target="_blank">
-                    		<img class="lazy" data-src="images/friend_thumb/'.$site_info[0]['friend_thumb'].'" src="" alt="suggested"> 
+                    		<img class="lazy_1" src="images/friend_thumb/'.$site_info[0]['friend_thumb'].'" src="" alt="suggested"> 
                         	<h5>'.$site_info[0]['name'].'</h5>
 						</a>
                     </div>' ;

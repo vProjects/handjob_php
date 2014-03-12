@@ -405,7 +405,7 @@
 								<div class="row-fluid">
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
-								<p>Movie- '.$videoDuration.'</p>
+								<p>Duration- '.$videoDuration.'</p>
 								<p>Views: '.$movie["views"].'</p>
 								<p>Rating:';
 					//logic for displaying stars according to the rating
@@ -488,7 +488,7 @@
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}
-					echo	'</p><p>Movie- 0min 0sec</p>
+					echo	'</p><p>Duration- 0min 0sec</p>
 								<p>Views: '.$slicedMovie["views"].'</p>
 							</div>
 						</div>' ;
@@ -569,8 +569,8 @@
 								<div class="row-fluid">
 									<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 								</div> 
-								<p>Views:'.$gallery["view"].'</p>
 						  		<p>Photos :'.$total_no_images.'</p>
+								<p>Views:'.$gallery["view"].'</p>
 								<p>Rating:';
 					
 					//logic for displaying stars according to the rating
@@ -838,7 +838,7 @@
 								<div class="row-fluid">
 									<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 								</div>
-								<p>Movie- '.$videoDuration.'</p>
+								<p>Duration- '.$videoDuration.'</p>
 								<p>Views: '.$movie["views"].'</p>
 								<p>Rating:';
 						//logic for displaying stars according to the rating
@@ -935,8 +935,8 @@
 									
 						echo '			<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div> 
-									<p>Views:'.$gallery["view"].'</p>
 									<p>Photos:'.$total_no_images.'</p>
+									<p>Views:'.$gallery["view"].'</p>
 									<p>Rating:';
 						
 						//logic for displaying stars according to the rating
@@ -1370,7 +1370,7 @@
 									<div class="row-fluid">
 										<div class="pull-right"><p>Added: '.$movie["date"].'</p></div>
 									</div>
-									<p>Movie- '.$videoDuration.'</p>
+									<p>Duration- '.$videoDuration.'</p>
 									<p>Views: '.$movie["views"].'</p>
 									<p>Rating:';
 						//logic for displaying stars according to the rating
@@ -1456,8 +1456,8 @@
 									<div class="row-fluid">
 										<div class="pull-right"><p>'.$gallery["date"].'</p></div>
 									</div>
-									</p><p>Views:'.$gallery["view"].'</p>
 							  		<p>Photos :'.$total_no_images.'</p>
+									</p><p>Views:'.$gallery["view"].'</p>
 									<p>Rating:';
 						
 						//logic for displaying stars according to the rating

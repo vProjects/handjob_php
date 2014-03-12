@@ -71,7 +71,7 @@
 		?>
         
         <div id="bodyContainer" class="row-fluid">
-           <div class="row-fluid">
+           <div class="row-fluid border_red">
                 <div class="btn-group">
                     <?php
                         if(isset($gallery_id) && !empty($gallery_id))
