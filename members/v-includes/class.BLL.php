@@ -1321,9 +1321,9 @@
 			
 			//for the large pic
 			echo '<div class="row-fluid">
-                        <div class="mostPopular span12" id="mp" onmouseover="showDetails('.'\'description\''.')">
+                        <div class="mostPopular span12" id="mp">
 							<a href="model_detail.php?model_id='.$models[0]["id"].'&model_name='.$models[0]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 main" src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[0]["name"].'</h5>
 							</a>
                         </div>
@@ -1342,45 +1342,123 @@
 			//for the smaller pics		
 			echo '<div class="row-fluid">
                         <div class="mostPopular span6">
+                        
+	                        <div id="description" style="display: none;">
+	                        	<div>
+	                        		'.$models[0]["name"].'
+	                        	</div>
+	                        	<div>
+									<strong>Description:</strong><br/>
+	                        		'.$models[0]["description"].'
+	                        	</div>
+	                        
+	                        </div>
+                        
 							<a href="model_detail.php?model_id='.$models[1]["id"].'&model_name='.$models[1]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[1]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[1]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[1]["name"].'</h5>
-							</a>
+							</a>					
                         </div>
+                        
                         <div class="mostPopular span6">
+	                        <div id="description" style="display: none;">
+	                        	<div>
+	                        		'.$models[0]["name"].'
+	                        	</div>
+	                        	<div>
+									<strong>Description:</strong><br/>
+	                        		'.$models[0]["description"].'
+	                        	</div>
+	                        
+	                        </div>
+							
+
 							<a href="model_detail.php?model_id='.$models[2]["id"].'&model_name='.$models[2]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[2]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[2]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[2]["name"].'</h5>
 							</a>
-                        </div>
+						</div>
                     </div>
                     <div class="row-fluid">
                         <div class="mostPopular span6">
+	                        <div id="description" style="display: none;">
+	                        	<div>
+	                        		'.$models[0]["name"].'
+	                        	</div>
+	                        	<div>
+									<strong>Description:</strong><br/>
+	                        		'.$models[0]["description"].'
+	                        	</div>
+	                        
+	                        </div>
+							
+
 							<a href="model_detail.php?model_id='.$models[3]["id"].'&model_name='.$models[3]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[3]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[3]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[3]["name"].'</h5>
 							</a>
-                        </div>
+					   </div>
+                        
+                       
+
                         <div class="mostPopular span6">
+	                        <div id="description" style="display: none;">
+	                        	<div>
+	                        		'.$models[0]["name"].'
+	                        	</div>
+	                        	<div>
+									<strong>Description:</strong><br/>
+	                        		'.$models[0]["description"].'
+	                        	</div>
+	                        
+	                        </div>
+
+
 							<a href="model_detail.php?model_id='.$models[4]["id"].'&model_name='.$models[4]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[4]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[4]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[4]["name"].'</h5>
 							</a>	
                         </div>
                     </div>
                     <div class="row-fluid">
                         <div class="mostPopular span6">
+	                        <div id="description" style="display: none;">
+	                        	<div>
+	                        		'.$models[0]["name"].'
+	                        	</div>
+	                        	<div>
+									<strong>Description:</strong><br/>
+	                        		'.$models[0]["description"].'
+	                        	</div>
+	                        
+	                        </div>
+							
+
 							<a href="model_detail.php?model_id='.$models[5]["id"].'&model_name='.$models[5]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[5]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[5]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[5]["name"].'</h5>
 							</a>
-                        </div>
+                       </div>
+
+
                         <div class="mostPopular span6">
+	                        <div id="description" style="display: none;">
+	                        	<div>
+	                        		'.$models[0]["name"].'
+	                        	</div>
+	                        	<div>
+									<strong>Description:</strong><br/>
+	                        		'.$models[0]["description"].'
+	                        	</div>
+	                        
+	                        </div>
+							
+
 							<a href="model_detail.php?model_id='.$models[6]["id"].'&model_name='.$models[6]['name'].'">
-								<img class="lazy_1" src="images/model_thumb/'.$models[6]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[6]["image_thumb"].'" src="" alt="most popular model"> 
 								<h5>'.$models[6]["name"].'</h5>
 							</a>
-                        </div>
+					   </div>
                     </div>';		
 			
 			
@@ -1397,19 +1475,46 @@
 			$movies = $this->manageContent->getValue_limit_sorted_current_d_1('movie_info','*',"views",0,5);
 			$gallerys = $this->manageContent->getValue_limit_sorted_current_d_1('gallery_info','*',"view",0,5);
 			
-			echo '<div class="row-fluid social">
+			echo '<div class="row-fluid social mv">
                 	<ul>
                     	<h5> Most Viewed Movies</h5>' ;
 			foreach( $movies as $movie )
 			{
-				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a></li>' ;
+				echo '<li>
+				
+                        <div id="descriptionImg" style="display: none;">
+                        	<div>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        	<div>
+								<strong>Description:</strong><br/>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        
+                        </div>
+				
+					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a>
+					</li>' ;
 			}
 			echo '</ul>
                 	<ul>
                     	<h5> Most Viewed Photos</h5>' ;
 			foreach( $gallerys as $gallery )
 			{
-				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a></li>' ;
+				echo '<li>
+                        <div id="descriptionImg" style="display: none;">
+                        	<div>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        	<div>
+								<strong>Description:</strong><br/>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        
+                        </div>
+
+					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a>
+					</li>' ;
 			}
 			echo '</ul>
                 	<ul>
@@ -1417,7 +1522,20 @@
 			
 			foreach( $models as $model )
 			{
-				echo '<li><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a></li>' ;
+				echo '<li>
+                        <div id="descriptionImg" style="display: none;">
+                        	<div>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        	<div>
+								<strong>Description:</strong><br/>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        
+                        </div>
+				
+				<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a>
+				</li>' ;
 			}
 			echo '</ul>
                 </div>' ;
@@ -1434,19 +1552,45 @@
 			$movies = $this->manageContent->getValue_limit_sorted_current_d_1('movie_info','*',"rating",0,5);
 			$gallerys = $this->manageContent->getValue_limit_sorted_current_d_1('gallery_info','*',"rating",0,5);
 			
-			echo '<div class="row-fluid social">
+			echo '<div class="row-fluid social mv">
                 	<ul>
                     	<h5> Most Popular Movies</h5>' ;
 			foreach( $movies as $movie )
 			{
-				echo '<li><a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a></li>' ;
+				echo '<li>
+                        <div id="descriptionImg" style="display: none;">
+                        	<div>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        	<div>
+								<strong>Description:</strong><br/>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        
+                        </div>
+
+					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a>
+					</li>' ;
 			}
 			echo '</ul>
                 	<ul>
                     	<h5> Most Popular Photos</h5>' ;
 			foreach( $gallerys as $gallery )
 			{
-				echo '<li><a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a></li>' ;
+				echo '<li>
+                        <div id="descriptionImg" style="display: none;">
+                        	<div>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        	<div>
+								<strong>Description:</strong><br/>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        
+                        </div>
+
+					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a>
+					</li>' ;
 			}
 			echo '</ul>
                 	<ul>
@@ -1454,7 +1598,20 @@
 			
 			foreach( $models as $model )
 			{
-				echo '<li><a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a></li>' ;
+				echo '<li>
+                        <div id="descriptionImg" style="display: none;">
+                        	<div>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        	<div>
+								<strong>Description:</strong><br/>
+                        		'.$movie['gallery_id'].'
+                        	</div>
+                        
+                        </div>
+
+					<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a>
+					</li>' ;
 			}
 			echo '</ul>
                 </div>' ;
