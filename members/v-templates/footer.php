@@ -63,6 +63,8 @@ function endclip(){
 <script type="text/javascript" src="assets/js/image_slider.js"></script>
 <script type="text/javascript" src="assets/js/jquery.lazy.js"></script>
 <script src="assets/js/bootstrap.js"></script>
+<script src="../assets/js/responsiveslides.js"></script>
+
 <script type="text/javascript">
 jQuery(document).ready(function() {
     jQuery("img.lazy").lazy({
@@ -70,6 +72,18 @@ jQuery(document).ready(function() {
         effectTime: 1500
     });
 });
+
+$(function () {
+
+  // Slideshow 1
+  $('#abc').responsiveSlides({
+        speed: 1000,
+        maxwidth: 3200
+      });
+
+    });
+ 
+
 
 function doSearch(search_id)
 {

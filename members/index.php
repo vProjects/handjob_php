@@ -2,6 +2,8 @@
 	$page_title = 'HOME';
 	//get header
 	include ('v-templates/header.php');
+		//include slider section
+	include 'v-templates/slider.php';
 	
 	
 ?>
