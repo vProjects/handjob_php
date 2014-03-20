@@ -9,6 +9,48 @@
 	//include the pagination configuration file
 	include('v-includes/config_pagination.php');
 ?>
+	 <script>
+		    	/*
+		 * function to show mouse over effects on the model images on the home page
+		 * 
+		 */
+		$( document ).ready(function() {
+			$('.row-fluid .mostPopular .main').mouseover(function() {
+			  	var descBox = $(this).parent().parent().parent().children('#description');
+			  	descBox.css("display","block");
+			});
+			
+			$('.row-fluid .mostPopular .main').mouseout(function() {
+			  	var descBox = $(this).parent().parent().parent().children('#description');
+			  	descBox.css("display","none");
+			});
+
+
+			$('.row-fluid .mostPopular .kid').mouseover(function() {
+			  	var descBox = $(this).parent().parent().children('#description');
+			  	descBox.css("display","block");
+			});
+			
+			$('.row-fluid .mostPopular .kid').mouseout(function() {
+			  	var descBox = $(this).parent().parent().children('#description');
+			  	descBox.css("display","none");
+			});
+			
+			$('.mv .link').mouseover(function(){
+				var descBox = $(this).parent().children('#descriptionImg')
+				descBox.css("display","block");
+			});
+			
+			$('.mv .link').mouseout(function(){
+				var descBox = $(this).parent().children('#descriptionImg')
+				descBox.css("display","none");
+			});
+			
+			
+			
+		});
+
+    </script>
 	
     <div class="row-fluid">
         <div class="span12">

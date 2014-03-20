@@ -1335,7 +1335,6 @@
 								<strong>Description:</strong><br/>
                         		'.$models[0]["description"].'
                         	</div>
-                        
                         </div>
                     </div>' ;
 					
@@ -1345,11 +1344,11 @@
                         
 	                        <div id="description" style="display: none;">
 	                        	<div>
-	                        		'.$models[0]["name"].'
+	                        		'.$models[1]["name"].'
 	                        	</div>
 	                        	<div>
 									<strong>Description:</strong><br/>
-	                        		'.$models[0]["description"].'
+	                        		'.$models[1]["description"].'
 	                        	</div>
 	                        
 	                        </div>
@@ -1363,11 +1362,11 @@
                         <div class="mostPopular span6">
 	                        <div id="description" style="display: none;">
 	                        	<div>
-	                        		'.$models[0]["name"].'
+	                        		'.$models[2]["name"].'
 	                        	</div>
 	                        	<div>
 									<strong>Description:</strong><br/>
-	                        		'.$models[0]["description"].'
+	                        		'.$models[2]["description"].'
 	                        	</div>
 	                        
 	                        </div>
@@ -1383,11 +1382,11 @@
                         <div class="mostPopular span6">
 	                        <div id="description" style="display: none;">
 	                        	<div>
-	                        		'.$models[0]["name"].'
+	                        		'.$models[3]["name"].'
 	                        	</div>
 	                        	<div>
 									<strong>Description:</strong><br/>
-	                        		'.$models[0]["description"].'
+	                        		'.$models[3]["description"].'
 	                        	</div>
 	                        
 	                        </div>
@@ -1404,11 +1403,11 @@
                         <div class="mostPopular span6">
 	                        <div id="description" style="display: none;">
 	                        	<div>
-	                        		'.$models[0]["name"].'
+	                        		'.$models[4]["name"].'
 	                        	</div>
 	                        	<div>
 									<strong>Description:</strong><br/>
-	                        		'.$models[0]["description"].'
+	                        		'.$models[4]["description"].'
 	                        	</div>
 	                        
 	                        </div>
@@ -1424,11 +1423,11 @@
                         <div class="mostPopular span6">
 	                        <div id="description" style="display: none;">
 	                        	<div>
-	                        		'.$models[0]["name"].'
+	                        		'.$models[5]["name"].'
 	                        	</div>
 	                        	<div>
 									<strong>Description:</strong><br/>
-	                        		'.$models[0]["description"].'
+	                        		'.$models[5]["description"].'
 	                        	</div>
 	                        
 	                        </div>
@@ -1444,11 +1443,11 @@
                         <div class="mostPopular span6">
 	                        <div id="description" style="display: none;">
 	                        	<div>
-	                        		'.$models[0]["name"].'
+	                        		'.$models[6]["name"].'
 	                        	</div>
 	                        	<div>
 									<strong>Description:</strong><br/>
-	                        		'.$models[0]["description"].'
+	                        		'.$models[6]["description"].'
 	                        	</div>
 	                        
 	                        </div>
@@ -1482,15 +1481,10 @@
 			{
 				echo '<li>
 				
-                        <div id="descriptionImg" style="display: none;">
+                        <div id="descriptionImg" style="display: none;" class="movie_hover">
                         	<div>
-                        		'.$movie['gallery_id'].'
+                        		<img class="lazy" src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width: 100%; display: inline;" alt="gallery">
                         	</div>
-                        	<div>
-								<strong>Description:</strong><br/>
-                        		'.$movie['gallery_id'].'
-                        	</div>
-                        
                         </div>
 				
 					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a>
@@ -1504,13 +1498,8 @@
 				echo '<li>
                         <div id="descriptionImg" style="display: none;">
                         	<div>
-                        		'.$movie['gallery_id'].'
+                        		<img class="lazy" src="images/gallery_thumb/'.$gallery['gallery_id'].'.JPG" style="width: 100%; display: inline;" alt="gallery">
                         	</div>
-                        	<div>
-								<strong>Description:</strong><br/>
-                        		'.$movie['gallery_id'].'
-                        	</div>
-                        
                         </div>
 
 					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a>
@@ -1525,13 +1514,8 @@
 				echo '<li>
                         <div id="descriptionImg" style="display: none;">
                         	<div>
-                        		'.$movie['gallery_id'].'
+                        		<img class="lazy" src="images/model_thumb/'.$model['image_thumb'].'" style="width: 100%; display: inline;" alt="gallery">
                         	</div>
-                        	<div>
-								<strong>Description:</strong><br/>
-                        		'.$movie['gallery_id'].'
-                        	</div>
-                        
                         </div>
 				
 				<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a>
@@ -1558,15 +1542,10 @@
 			foreach( $movies as $movie )
 			{
 				echo '<li>
-                        <div id="descriptionImg" style="display: none;">
+                        <div id="descriptionImg" style="display: none;" class="movie_hover">
                         	<div>
-                        		'.$movie['gallery_id'].'
+                        		<img class="lazy" src="images/movie_thumb/'.$movie['gallery_id'].'.JPG" style="width: 100%; display: inline;" alt="gallery">
                         	</div>
-                        	<div>
-								<strong>Description:</strong><br/>
-                        		'.$movie['gallery_id'].'
-                        	</div>
-                        
                         </div>
 
 					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a>
@@ -1580,13 +1559,8 @@
 				echo '<li>
                         <div id="descriptionImg" style="display: none;">
                         	<div>
-                        		'.$movie['gallery_id'].'
+                        		<img class="lazy" src="images/gallery_thumb/'.$gallery['gallery_id'].'.JPG" style="width: 100%; display: inline;" alt="gallery">
                         	</div>
-                        	<div>
-								<strong>Description:</strong><br/>
-                        		'.$movie['gallery_id'].'
-                        	</div>
-                        
                         </div>
 
 					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a>
@@ -1601,13 +1575,8 @@
 				echo '<li>
                         <div id="descriptionImg" style="display: none;">
                         	<div>
-                        		'.$movie['gallery_id'].'
+                        		<img class="lazy" src="images/model_thumb/'.$model['image_thumb'].'" style="width: 100%; display: inline;" alt="gallery">
                         	</div>
-                        	<div>
-								<strong>Description:</strong><br/>
-                        		'.$movie['gallery_id'].'
-                        	</div>
-                        
                         </div>
 
 					<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'" class="link">'.$model["name"].'</a>
@@ -1749,7 +1718,7 @@
 						<div class="span10">
 							<p>'.$comment["comment"].'</p>
 							<p>'.$comment["date"].'</p>
-							<p><i class="icon-glass"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span></p>
+							<p><i class="icon-thumbs-up-v"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down-v"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span></p>
 						</div>
 					</div>' ;
 					
@@ -2229,7 +2198,7 @@
 							<h4>'.$comment["member"].'</h4>
 							<p>'.$comment["comment"].'</p>
 							<p>'.$comment["date"].'</p>
-							<p><i class="icon-glass"></i><span class="commentstatus"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-remove-sign"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
+							<p><i class="like-img"></i><span class="commentstatus"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
 				echo		'<a href="'.$comment["page"];
 				//codes for pointing the blog particular comment
 				if( $comment["page"] == 'blog_list.php' )

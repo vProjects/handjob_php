@@ -34,7 +34,7 @@
 <div class="row-fluid footer_text_part">
 	<div class="span10 offset1">
         <hr class="footer_hr" />
-        <p>All models on handjobstop.com were 18 years of age or older when photographed lorem ipsum lorem ipsum lorem ipsum</p>
+        <p>All models on handjobstop.com were 18 years of age or older when photographed.</p>
         <p>WARNING: If you are under 21 years of age or if it is illegal to view adult material in your community, please leave now. We can't be held responsible for your actions. We are not acting in any way to send you this information; you are choosing to receive it! Continuing further means that you understand and accept responsibility for your own actions, thus releasing the creators of this website and our service provider from all liability.</p>
         <p>All rights reserved. 2013 - www.handjobstop.com</p>
     </div>    
