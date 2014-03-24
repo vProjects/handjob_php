@@ -3,6 +3,8 @@
 	//get header
 	include ('v-templates/header.php');
 	
+	//get the main banner
+	include ('v-templates/main_banner.php');
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
 	

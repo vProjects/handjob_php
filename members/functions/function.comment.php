@@ -38,7 +38,7 @@
 		$gallery_id = $_POST["gallery_id"] ;
 		
 		//return path
-		$returnPath = "playing_movie.php?movieId=".$id."&gallery_id=".$gallery_id."&type=low" ;
+		$returnPath = "playing_movie.php?movieId=".$id."&gallery_id=".$gallery_id."&type=low"."&model=".$_POST["model"] ;
 		
 		if( $gallery_id != 0 )
 		{

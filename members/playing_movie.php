@@ -2,7 +2,9 @@
 	$page_title = 'PLAYING-MOVIE';
 	//get header
 	include ('v-templates/header.php');
-
+	
+	//get the main banner
+	include ('v-templates/main_banner.php');
 	//get the horizontal navbar
 	include ('v-templates/navbar.php');
 	
@@ -81,8 +83,8 @@
 			//if the get varriable is set 
 			if(isset($model_id) && !empty($model_id))
 			{
-				$model_id = explode(',',$model_id) ;
-				foreach($model_id as $model)
+				$model_idv = explode(',',$model_id) ;
+				foreach($model_idv as $model)
 				{
 					//get the UI for model details from BLL
 					$manageData->getModelDetails($model) ;
@@ -144,14 +146,14 @@
             <div class="span12">
                 <div class="offset3 span6 rating">
                     <div class="row-fluid">
-                        <div class="span7">
-                            Rate Me:
+                        <div class="span7 voted_people stars_container">
+                            NOT
                             <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
                             <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
                             <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
                             <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
                             <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo $gallery_id;}else{ echo $movie_id ;}?>','<?php if(isset($gallery_id) && $gallery_id != 0){ echo 'sliced';}else{ echo 'movie' ;}?>')">
-                            
+                            HOT
                             <?php
                                 //check the rating to find thats i hot or not
                                 if( $enity_rating > 3 )
@@ -159,6 +161,17 @@
                                     echo '<img src="images/img_hot.png" alt="rate-me" />' ;
                                 }
                             ?>
+                            <div class="row-fluid">
+                                <div class="span12 voted_people">
+                                    <div class="num_rating" <?php if($enity_rating <= 3){echo 'style="margin-left: 51px;"';} ?>>
+                                        <span class="num_rating_in">1</span>
+                                        <span class="num_rating_in">2</span>
+                                        <span class="num_rating_in">3</span>
+                                        <span class="num_rating_in">4</span>
+                                        <span class="num_rating_in">5</span>                                
+                                    </div>
+                                 </div>
+                            </div>
                         </div>
                         <div class="span3 voted_people">
                             <?php
@@ -202,6 +215,7 @@
                             <div class="controls">
                                 <input type="hidden" value="<?php echo $movie_id ; ?>" name="id" />
                                 <input type="hidden" value="<?php echo $gallery_id ; ?>" name="gallery_id" />
+                                <input type="hidden" value="<?php echo $model_id ; ?>" name="model" />
                                 <input type="hidden" value="movie" name="type" />
                                 <input type="hidden" value="<?php echo $_SESSION['user'] ;?>" name="member" />
                                 <input type="submit" class="btn" value="Submit">

@@ -529,8 +529,8 @@
 							<div class="span12">
 								<div class="offset2 span7 rating">
 									<div class="row-fluid">
-										<div class="span6">
-									Rate Me:' ;
+										<div class="span6 voted_people stars_container">
+									NOT' ;
 					//get the stars for the rating box
 					//1
 					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,';
@@ -551,7 +551,22 @@
 					//5
 					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,';
 					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
-					echo '">' ;
+					echo '">HOT' ;
+					if( $article['rating'] > 3 )
+					{
+						echo '<img src="images/img_hot.png" alt="rate-me" />' ;
+					}
+					echo '<div class="row-fluid">
+                                <div class="span12 voted_people">
+                                    <div class="num_rating" style="margin-left: 62px;">
+                                        <span class="num_rating_in" style="margin-left: 22px;">1</span>
+                                        <span class="num_rating_in" style="margin-left: 22px;">2</span>
+                                        <span class="num_rating_in" style="margin-left: 22px;">3</span>
+                                        <span class="num_rating_in" style="margin-left: 22px;">4</span>
+                                        <span class="num_rating_in" style="margin-left: 22px;">5</span>                                
+                                    </div>
+                                 </div>
+                            </div>' ;
 					
 					echo '</div><div class="span3 voted_people">';
 					

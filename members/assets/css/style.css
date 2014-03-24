@@ -53,7 +53,7 @@ text-decoration: none;
 	padding: 1% 1% 1% 0;
 }
 .form-search{
-	padding:10% 12%;
+	padding: 10% 12% 0;
 }
 .navbar-inner{
 	padding-left:0;
@@ -555,6 +555,7 @@ text-decoration: none;
 	border-bottom-width: 2px;
 	margin: 20px 0 20px 0;
 	padding: 20px 20px;
+	width: 480px !important;
 }
 .selectBox_v{
 	width:40px;
@@ -835,7 +836,16 @@ text-decoration: none;
 	height: 30px;
 	margin-top: -5px;
 }
-.rslides {
+.num_rating{
+	margin-left:30px ;
+}
+.stars_container{
+	width: 300px !important;
+}
+.num_rating_in{
+	float: left;
+    margin-left: 26px;
+}.rslides {
   position: relative;
   list-style: none;
   overflow: hidden;
