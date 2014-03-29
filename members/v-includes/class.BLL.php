@@ -558,12 +558,13 @@
 					}
 					echo '<div class="row-fluid">
                                 <div class="span12 voted_people">
-                                    <div class="num_rating" style="margin-left: 62px;">
-                                        <span class="num_rating_in" style="margin-left: 22px;">1</span>
-                                        <span class="num_rating_in" style="margin-left: 22px;">2</span>
-                                        <span class="num_rating_in" style="margin-left: 22px;">3</span>
-                                        <span class="num_rating_in" style="margin-left: 22px;">4</span>
-                                        <span class="num_rating_in" style="margin-left: 22px;">5</span>                                
+                                    <div class="num_rating">
+                                        <span class="num_rating_in">1</span>
+                                        <span class="num_rating_in">2</span>
+                                        <span class="num_rating_in">3</span>
+                                        <span class="num_rating_in">4</span>
+                                        <span class="num_rating_in">5</span>    
+                                        <div class="clearfix"></div>                            
                                     </div>
                                  </div>
                             </div>' ;
@@ -1729,11 +1730,11 @@
 						</div>
 					</div>
 					<div class="row-fluid comments">
-						<div class="span2"><img src="http://placehold.it/100x100/" alt="userimage"></div>
+						<div class="span2"><img src="http://placehold.it/200x200/" alt="userimage"></div>
 						<div class="span10">
 							<p>'.$comment["comment"].'</p>
-							<p>'.$comment["date"].'</p>
-							<p><i class="icon-thumbs-up-v"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down-v"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span></p>
+							<p class="themecolor">'.$comment["date"].'</p>
+							<p><i class="icon-thumbs-up-v" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"></i><span class="commentstatus" onclick="status('."'like','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down-v" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"></i><span class="commentstatus" onclick="status('."'dislike','".$comment["id"]."','".$_SESSION["user"]."','".$type."','".$i."'".')"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span></p>
 						</div>
 					</div>' ;
 					
@@ -2212,8 +2213,8 @@
 						<div class="span11">
 							<h4>'.$comment["member"].'</h4>
 							<p>'.$comment["comment"].'</p>
-							<p>'.$comment["date"].'</p>
-							<p><i class="like-img"></i><span class="commentstatus"> Like </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down"></i><span class="commentstatus"> Dislike </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
+							<p class="themecolor">'.$comment["date"].'</p>
+							<p><i class="icon-thumbs-up-v"></i><span class="commentstatus"> Likes </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down-v"></i><span class="commentstatus"> Dislikes </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
 				echo		'<a href="'.$comment["page"];
 				//codes for pointing the blog particular comment
 				if( $comment["page"] == 'blog_list.php' )
@@ -2252,7 +2253,7 @@
 			$articles = $this->manageContent->getValue_limit_sorted_current_a('article_info','*',"article_date",0,5);
 			foreach($articles as $article)
 			{
-				echo '<div class="row-fluid">
+				echo '<div class="row-fluid recarticle">
 						<div class="span10">
 							<h4>'.$article["article_title"].'</h4>
 							<p class="blog_author_name"> '.$article["article_author"].'</p>
