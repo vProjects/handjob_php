@@ -238,6 +238,17 @@
             <span>I am at least 18 years of age.</span>
             <div class="clearfix"></div>
         </div>
+		<div class="form-group row-fluid">
+        	<div class="model_form_label pull-left span3">Upload Image:</div>
+            <input type="file" placeholder="" name="" class="model_form_textbox span5">
+            <div class="clearfix"></div>
+        </div>        
+		<div class="form-group row-fluid">
+        	<div class="model_form_label pull-left span3">Short note:</div>
+            <textarea class="model_form_textbox span5"></textarea>
+            <div class="clearfix"></div>
+        </div>        
+
         <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3"></div>
             <input type="submit" value="SUBMIT" class="btn btn-large btn-danger span3"/>
@@ -252,7 +263,7 @@
                 <div class="row-fluid photo_update_outline">
                     <div class="pagination pagination-small pageno_nav pull-right">
                         <ul>
-                            <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                            <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next</a></li>
                         </ul>
                     </div>
                 </div>

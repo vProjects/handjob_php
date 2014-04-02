@@ -270,7 +270,7 @@ text-decoration: none;
 	color:#888888;
 }
 .footer_part ul li a:hover{
-	color:#da4f49;
+	color:#ff0000;
 }
 .footer_text_part{
 	padding:40px 0 15px;
@@ -894,5 +894,7 @@ text-decoration: none;
 .themecolor {
 	color: #ff0000;
 }
-
+.socialIcons {
+	float: left;
+}
 

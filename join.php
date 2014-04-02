@@ -83,23 +83,20 @@
    
     
     <div class="row">
-    	<div class="span12 join_form_big_btn">
-            <h3 class="site_heading">CUSTOMER SERVICES</h3>
+    	<div class="span6 join_form_big_btn">
+            <h4 class="site_heading">CUSTOMER SERVICES</h4>
         	<FORM ACTION="https://support.ccbill.com" >
               <INPUT TYPE="submit"  VALUE="   I Forgot My Password / Customer Support   " class="btn btn-danger btn-large border_radius">
             </FORM>
         </div>
-    </div>
-    
-    <div class="row">
-    	<div class="span12 join_form_big_btn">
-            <h3 class="site_heading">MEMBERS</h3>
+    	<div class="span6 join_form_big_btn">
+            <h4 class="site_heading">MEMBERS</h4>
         	<FORM ACTION="http://handjobstop.com/members/" >
               <INPUT TYPE="submit"  VALUE="    Already a member?  Click Here.    " class="btn btn-danger btn-large border_radius">
             </FORM>
         </div>
+        
     </div>
-    
     
     <h3 class="site_heading">Site Features</h3>
     <div class="row-fluid">
@@ -141,7 +138,7 @@
             <div class="row-fluid photo_update_outline">
                 <div class="pagination pagination-small pageno_nav pull-right">
                     <ul>
-                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next</a></li>
                     </ul>
                 </div>
             </div>

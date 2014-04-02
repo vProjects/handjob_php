@@ -201,7 +201,7 @@ a:hover, a:focus {
 	color:#888888;
 }
 .footer_part ul li a:hover{
-	color:#da4f49;
+	color:#ff0000;
 }
 .footer_text_part{
 	padding:40px 0 15px;
@@ -794,8 +794,8 @@ a:hover, a:focus {
 	cursor:pointer ;
 }
 .plans:hover{
-	color: #FF0000;
-    font-size: 16px;
+	/* color: #FF0000; */
+    /* font-size: 16px; */
 }
 .border_radius_r{
 	border-radius:0 5px 5px 0;
@@ -826,4 +826,7 @@ a:hover, a:focus {
 }
 .model_form_checkbox{
 	margin-top:0px !important;
+}
+.socialIcons {
+	float: left;
 }
