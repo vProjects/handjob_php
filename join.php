@@ -112,7 +112,7 @@
                 </div>
                 <div class="span2 join_now_inner">
                 	<img src="images/icon_3.png" alt="features" class="lazy img_update"/>
-                    <div class="feature_text">REGULAR UPDATES</div>
+                    <div class="feature_text">DAILY UPDATES</div>
                 </div>
                 <div class="span2 join_now_inner">
                 	<img src="images/icon_4.png" alt="features" class="lazy img_update"/>
@@ -120,11 +120,11 @@
                 </div>
                 <div class="span2 join_now_inner">
                 	<img src="images/icon_5.png" alt="features" class="lazy img_update"/>
-                    <div class="feature_text">EROTIC SENCES</div>
+                    <div class="feature_text">HIGH RESOLUTION</div>
                 </div>
                 <div class="span2 join_now_inner">
                 	<img src="images/icon_6.png" alt="features" class="lazy img_update"/>
-                    <div class="feature_text">FAST NETWORK</div>
+                    <div class="feature_text">FULL HD</div>
                 </div>
             </div>
         </div>

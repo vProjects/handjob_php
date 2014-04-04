@@ -36,7 +36,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			elseif( $type == "name" )
 			{

@@ -2,8 +2,6 @@
 	$page_title = 'HOME';
 	//get header
 	include ('v-templates/header.php');
-		//include slider section
-	include 'v-templates/slider.php';
 	
 	
 ?>
@@ -223,8 +221,9 @@
                     </div>
                 </div>
                 <div class="row-fluid social">
-                	<a class="twitter-timeline" href="https://twitter.com/namantweets" data-widget-id="422881942036443136">Tweets by @namantweets</a>
+					<a class="twitter-timeline" href="https://twitter.com/handjobsstop" data-widget-id="451360896585965568">Tweets by @handjobsstop</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 
 
                 </div><!--social box ends here---twiter-->
@@ -236,12 +235,7 @@
                     </div>
                 </div>
                 <div class="row-fluid social">
-                	<ul>
-                    	<li class="facebook"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                        <li class="facebook"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                        <li class="facebook"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                        <li class="facebook"><a href="" class="link">Elevated X now comes with pre-designed splash and join pages!</a></li>
-                    </ul>
+					<div class="fb-like-box" data-href="https://www.facebook.com/handjobstop?ref=hl" data-width="284" data-height="300" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>
                 </div><!--social box ends here---facebook-->
             </div> <!-- rightContainer ends here -->
          </div>

@@ -251,7 +251,7 @@
 
         <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3"></div>
-            <input type="submit" value="SUBMIT" class="btn btn-large btn-danger span3"/>
+            <input type="submit" value="SUBMIT" class="btn btn-large btn-danger span3" style="border-radius: 6px !important;"/>
             <p style="color:#ff0000;"><?php if(isset($msg)){ echo $msg; } ?></p>
             <div class="clearfix"></div>
         </div>

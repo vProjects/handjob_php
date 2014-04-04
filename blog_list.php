@@ -10,7 +10,9 @@
 	
 	//variable for the type of search
 	$type = "" ;
-	$keyword = "" ;;
+	$keyword = "" ;
+	
+	$limit = '15';
 ?>
 
 <!-- site description part starts here --->

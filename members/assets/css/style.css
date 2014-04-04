@@ -195,7 +195,7 @@ text-decoration: none;
 
 }
 .mostPopular{
-	padding:5%;
+	padding:3%;
 	text-align:center;
 	
 }
@@ -373,6 +373,7 @@ text-decoration: none;
 }
 .type_nav_allign{
 	margin-top: 9px;
+	border-bottom: 1px solid #f20000;
 }
 .btn_group_outline{
 	margin: 35px 0 7px 0;

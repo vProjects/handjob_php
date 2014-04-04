@@ -16,8 +16,8 @@
         <ul>
         	<li><a href="https://support.ccbill.com/" target="_blank">Support</a></li>
             <li><a href="mailto:webmaster@handjobstop.com" target="_blank">Contact Us</a></li>
-            <li><a href="http://handjobstop.com/modelContactForm.php" target="_blank">Models Wanted</a></li>
-            <li><a href="#">Webmaster</a></li>
+            <li><a href="http://handjobstop.com/modelContactForm.php">Models Wanted</a></li>
+            <li><a href="http://www.handjobstop.com/webmaster.php">Webmaster</a></li>
             <li><a href="#">Legal</a></li>
         </ul>
       </div>
@@ -26,7 +26,7 @@
         <ul>
         	<li><a href="https://www.facebook.com/handjobstop?ref=hl" target="_blank"><img src="images/facebooks.png" class="socialIcons" alt="facebook"></a></li>
             <li><a href="#"><img src="images/twitters.png" target="_blank" class="socialIcons" alt="twitter"></a></li>
-            <li><a href="#"><img src="images/googleplus.png" target="_blank" class="socialIcons" alt="google plus"></a></li>
+            <li><a href="#"><img src="images/insta.png" target="_blank" class="socialIcons" alt="google plus"></a></li>
         </ul>
       </div>
 </div>

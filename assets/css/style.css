@@ -725,7 +725,8 @@ a:hover, a:focus {
 	border: 1px solid #CCC;
     margin: 2px 0;
     padding: 28px;
-	background-color:#ffffff ;
+	background-color:#ffffff;
+	box-shadow: 0px 3px 8px 1px grey;
 }
 .join_element{
 	color: #8F1818;
@@ -777,6 +778,7 @@ a:hover, a:focus {
 }
 .join_form_big_btn{
 	text-align:center ;
+	margin-top: 15px;
 }
 .join-now-btn-1{
 	font-size: 35px;
