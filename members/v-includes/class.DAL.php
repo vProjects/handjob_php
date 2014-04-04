@@ -99,7 +99,7 @@
 		
 		/*
 		- function to get the value sorted
-		- and till present date
+		- and till present date ASC
 		- auth Singh
 		*/
 		function getValue_limit_sorted_current($table_name,$value,$sortBy,$startPoint,$limit)
@@ -107,6 +107,32 @@
 			if( $sortBy == "name" || $sortBy == "model" || $sortBy == "movie_name" )
 			{
 				$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY $sortBy ASC LIMIT $startPoint,$limit ");
+			}
+			else
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+			}
+			$query->execute();
+			$rowcount = $query->rowCount();
+			if($rowcount > 0){
+				$result = $query->fetchAll(PDO::FETCH_ASSOC);
+				return $result;
+			}
+			else{
+				return $rowcount;
+			}
+		}
+		
+		/*
+		- function to get the value sorted
+		- and till present date DESC
+		- auth Singh
+		*/
+		function getValue_limit_sorted_current_d($table_name,$value,$sortBy,$startPoint,$limit)
+		{
+			if( $sortBy == "name" || $sortBy == "model" || $sortBy == "movie_name" )
+			{
+				$query = $this->link->query("SELECT $value from $table_name WHERE (`date` <= CURDATE()) AND (`status` = 1) ORDER BY $sortBy DESC LIMIT $startPoint,$limit ");
 			}
 			else
 			{
@@ -136,7 +162,7 @@
 			}
 			else
 			{
-				$query = $this->link->query("SELECT $value from $table_name WHERE `end_date` <= CURDATE() ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
+				$query = $this->link->query("SELECT $value from $table_name WHERE  (`end_date` <= CURDATE()) AND ((`access` = 2) OR (`access` = 3)) AND (`article_date` <= CURDATE()) ORDER BY $sortBy DESC LIMIT $startPoint,$limit");
 			}
 			$query->execute();
 			$rowcount = $query->rowCount();

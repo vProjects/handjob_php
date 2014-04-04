@@ -70,7 +70,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			elseif( $type == "name" )
 			{
@@ -231,7 +231,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			elseif( $type == "name" )
 			{
@@ -313,7 +313,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			elseif( $type == "name" )
 			{
@@ -516,7 +516,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "view";
 			}
 			elseif( $type == "name" )
 			{
@@ -1203,7 +1203,7 @@
 					{
 						echo '&keyword='.$keyword;
 					}
-					echo '">&lt; Previous</a></li>';
+					echo '"> Previous</a></li>';
 				}
 				elseif( $page != 0 )
 				{
@@ -1212,7 +1212,7 @@
 					{
 						echo '&keyword='.$keyword;
 					}
-					echo '">&lt; Previous</a></li>';
+					echo '"> Previous</a></li>';
 				}
 				/*for the indexes*/
 				//index initilization variable
@@ -1228,7 +1228,13 @@
 				{
 					if( $i > 0 )
 					{
-						echo '<li><a class="btn-danger center_1st" href="'.$PageUrl.'?p='.($i-1).'&type='.$type;
+						echo '<li><a class="btn-danger center_1st ';
+						//codes for active class
+						if( $page == ( $i - 1 ) )
+						{
+							echo 'active';
+						}
+						echo '" href="'.$PageUrl.'?p='.($i-1).'&type='.$type;
 						if ( isset($keyword) && !empty($keyword) )
 						{
 							echo '&keyword='.$keyword;
@@ -1254,7 +1260,7 @@
 					{
 						echo '&keyword='.$keyword;
 					}
-					echo '">Next &gt;</a></li>' ;
+					echo '">Next </a></li>' ;
 				}
 				//for the last button
 				//echo '<li><a href="'.$PageUrl.'?p='.($no_page - 1).'&limit='.$limit.'">Last</a></li>' ;

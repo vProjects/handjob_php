@@ -109,7 +109,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			else
 			{
@@ -175,7 +175,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "view";
 			}
 			elseif( $type == "name" )
 			{
@@ -256,7 +256,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "view";
 			}
 			else
 			{
@@ -626,7 +626,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			elseif( $type == "name" )
 			{
@@ -733,7 +733,7 @@
 			//check the type and fetch the data accordingly
 			if( $type == "rated" )
 			{
-				$sortBy = "rating";
+				$sortBy = "views";
 			}
 			else
 			{
