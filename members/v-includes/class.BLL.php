@@ -67,21 +67,21 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
-							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+							<img class="lazy" src="images/model_thumb/'.$model["image_thumb"].'"  style="width:100%;"  alt="vdeo">
 							<h4 class="red_text">'.$model['name'].'</h4></a>
 							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $model['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}		
 					for($i = 0 ; $i < $model['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 					
@@ -136,21 +136,21 @@
 						//create the UI components
 						echo '<div class="span4 element">
 								<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
-								<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+								<img class="lazy" src="images/model_thumb/'.$model["image_thumb"].'"  style="width:100%;"  alt="vdeo">
 								<h4 class="red_text">'.$model['name'].'</h4></a>
 								<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $model['rating'] == 0 )
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}		
 						for($i = 0 ; $i < $model['rating'] ; $i++)
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						echo '</div>';
 					}
@@ -215,21 +215,21 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
-							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+							<img class="lazy" src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" >
 							<h4 class="red_text">'.$gallery["model"].'</h4></a>
 							<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}	
 					for($i = 0 ; $i < $gallery['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 				}
@@ -291,7 +291,7 @@
 					//create the UI components
 					echo '<div class="span4 element">
 							<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
-							<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+							<img class="lazy" src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" >
 							<h4 class="red_text">';
 					echo $gallery["model"] ;
 					echo '</h4>
@@ -300,15 +300,15 @@
 					//logic for displaying stars according to the rating
 					if( $gallery['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}	
 					for($i = 0 ; $i < $gallery['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 				}
@@ -321,6 +321,7 @@
 				$end_point++ ;
 				
 			}
+			
 		}
 		
 		/*
@@ -377,15 +378,15 @@
 								
 					for($i = 0 ;$i < $modelDetails[0]["rating"] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					if( $modelDetails[0]['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo	'</div>
 						</div>
@@ -512,15 +513,15 @@
 								//get the ratings for the blog
 								if( $article['rating'] == 0 )
 								{
-									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+									echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+									echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+									echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+									echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 								}		
 								for($i = 0 ; $i < $article['rating'] ; $i++)
 								{
-									echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+									echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 								}			
 					echo		'
 							</div>';
@@ -699,15 +700,15 @@
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					for($i = 0 ; $i < $movie['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 				}
@@ -801,15 +802,15 @@
 					//logic for displaying stars according to the rating
 					if( $movie['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					for($i = 0 ; $i < $movie['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 				}
@@ -903,15 +904,15 @@
 					//logic for displaying stars according to the rating
 					if( $slicedMovie['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					for($i = 0 ; $i < $slicedMovie['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 				}
@@ -997,21 +998,21 @@
 					//create the UI components
 					echo '<div class="span3 element">
 							<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model["name"].'">
-							<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+							<img class="lazy" src="images/model_thumb/'.$model["image_thumb"].'"  style="width:100%;"  alt="vdeo">
 							<h4 class="red_text">'.$model['name'].'</h4></a>
 							<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 					//logic for displaying stars according to the rating
 					if( $model['rating'] == 0 )
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}		
 					for($i = 0 ; $i < $model['rating'] ; $i++)
 					{
-						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+						echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 					}
 					echo '</div>';
 				}
@@ -1101,15 +1102,15 @@
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						for($i = 0 ; $i < $movie['rating'] ; $i++)
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						echo '</div>';
 					}
@@ -1165,21 +1166,21 @@
 						//create the UI components
 						echo '<div class="span3 element">
 								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&model_id='.$modelId.'&index=10&page=0&element=10">
-								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+								<img class="lazy" src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" >
 								<h4 class="red_text">'.$gallery['model'].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos : '.$total_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}	
 						for($i = 0 ; $i < $gallery['rating'] ; $i++)
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						echo '</div>';
 					}
@@ -1339,7 +1340,7 @@
 			echo '<div class="row-fluid">
                         <div class="mostPopular span12" id="mp">
 							<a href="model_detail.php?model_id='.$models[0]["id"].'&model_name='.$models[0]['name'].'">
-								<img class="lazy_1 main" src="images/model_thumb/'.$models[0]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 main" src="images/model_thumb/'.$models[0]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[0]["name"].'</h5>
 							</a>
                         </div>
@@ -1370,7 +1371,7 @@
 	                        </div>
                         
 							<a href="model_detail.php?model_id='.$models[1]["id"].'&model_name='.$models[1]['name'].'">
-								<img class="lazy_1 kid" src="images/model_thumb/'.$models[1]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[1]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[1]["name"].'</h5>
 							</a>					
                         </div>
@@ -1389,7 +1390,7 @@
 							
 
 							<a href="model_detail.php?model_id='.$models[2]["id"].'&model_name='.$models[2]['name'].'">
-								<img class="lazy_1 kid" src="images/model_thumb/'.$models[2]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[2]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[2]["name"].'</h5>
 							</a>
 						</div>
@@ -1409,7 +1410,7 @@
 							
 
 							<a href="model_detail.php?model_id='.$models[3]["id"].'&model_name='.$models[3]['name'].'">
-								<img class="lazy_1 kid" src="images/model_thumb/'.$models[3]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[3]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[3]["name"].'</h5>
 							</a>
 					   </div>
@@ -1430,7 +1431,7 @@
 
 
 							<a href="model_detail.php?model_id='.$models[4]["id"].'&model_name='.$models[4]['name'].'">
-								<img class="lazy_1 kid" src="images/model_thumb/'.$models[4]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[4]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[4]["name"].'</h5>
 							</a>	
                         </div>
@@ -1450,7 +1451,7 @@
 							
 
 							<a href="model_detail.php?model_id='.$models[5]["id"].'&model_name='.$models[5]['name'].'">
-								<img class="lazy_1 kid" src="images/model_thumb/'.$models[5]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[5]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[5]["name"].'</h5>
 							</a>
                        </div>
@@ -1470,7 +1471,7 @@
 							
 
 							<a href="model_detail.php?model_id='.$models[6]["id"].'&model_name='.$models[6]['name'].'">
-								<img class="lazy_1 kid" src="images/model_thumb/'.$models[6]["image_thumb"].'" src="" alt="most popular model"> 
+								<img class="lazy_1 kid" src="images/model_thumb/'.$models[6]["image_thumb"].'"  alt="most popular model"> 
 								<h5>'.$models[6]["name"].'</h5>
 							</a>
 					   </div>
@@ -1925,15 +1926,15 @@
 						//logic for displaying stars according to the rating
 						if( $movie['rating'] == 0 )
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						for($i = 0 ; $i < $movie['rating'] ; $i++)
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						echo '</div>';
 					}
@@ -1977,21 +1978,21 @@
 						//create the UI components
 						echo '<div class="span'.$span.' element">
 								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">
-								<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+								<img class="lazy" src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" >
 								<h4 class="red_text">'.$gallery['model'].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 						//logic for displaying stars according to the rating
 						if( $gallery['rating'] == 0 )
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}	
 						for($i = 0 ; $i < $gallery['rating'] ; $i++)
 						{
-							echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+							echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 						}
 						echo '</div>';
 					}
@@ -2077,7 +2078,7 @@
 					{
 						//create the UI components
 						echo '<div class="span3 element">
-								<a href="'.$friend['link'].'" target="_blank"><img class="lazy" data-src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" src="">
+								<a href="'.$friend['link'].'" target="_blank"><img class="lazy" src="images/friend_thumb/'.$friend['friend_thumb'].'" style="width:100%;" >
 								<h4 class="red_text">'.$friend['name'].'</h4></a></div>';
 								
 					}
@@ -2115,7 +2116,7 @@
 				//create single sugested site with the links
 				echo '<div class="mostPopular span6">
 						<a href="'.$site_info[0]['link'].'" target="_blank">
-                    		<img class="lazy_1" src="images/friend_thumb/'.$site_info[0]['friend_thumb'].'" src="" alt="suggested"> 
+                    		<img class="lazy_1" src="images/friend_thumb/'.$site_info[0]['friend_thumb'].'"  alt="suggested"> 
                         	<h5>'.$site_info[0]['name'].'</h5>
 						</a>
                     </div>' ;
@@ -2428,21 +2429,21 @@
 							//create the UI components
 							echo '<div class="span3 element">
 									<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
-									<img class="lazy" data-src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" src="">
+									<img class="lazy" src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" >
 									<h4 class="red_text">'.$gallery["gallery_name"].'</h4></a>
 									<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';
 							//logic for displaying stars according to the rating
 							if( $gallery['rating'] == 0 )
 							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 							}	
 							for($i = 0 ; $i < $gallery['rating'] ; $i++)
 							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 							}
 							echo '</div>';
 							
@@ -2535,21 +2536,21 @@
 							//create the UI components
 							echo '<div class="span3 element">
 									<a href="model_detail.php?model_id='.$model["id"].'&model_name='.$model['name'].'">
-									<img class="lazy" data-src="images/model_thumb/'.$model["image_thumb"].'" src="" style="width:100%;"  alt="vdeo">
+									<img class="lazy" src="images/model_thumb/'.$model["image_thumb"].'"  style="width:100%;"  alt="vdeo">
 									<h4 class="red_text">'.$model['name'].'</h4></a>
 									<p>Added :'.$model["date"].'<br />Views: '.$model["views"].'</p>';
 							//logic for displaying stars according to the rating
 							if( $model['rating'] == 0 )
 							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 							}		
 							for($i = 0 ; $i < $model['rating'] ; $i++)
 							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 							}
 							echo '</div>';
 							
@@ -2682,15 +2683,15 @@
 							//logic for displaying stars according to the rating
 							if( $movie['rating'] == 0 )
 							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 							}
 							for($i = 0 ; $i < $movie['rating'] ; $i++)
 							{
-								echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
 							}
 							echo '</div>';
 							

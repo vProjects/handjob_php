@@ -131,8 +131,12 @@
 		//sliced video format
 		$sliced_format = "mp4";
 		
-		//insert the values in the cron table for slicing
-		$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,1);
+		//if slicing exists
+		if( !empty($no_slicing) && ($no_slicing != 0) )
+		{
+			//insert the values in the cron table for slicing
+			$manageData->insertCronSilce($outputFilename,$gallery_name,$model_string,$category_string,$inputFile,$outputPathSliced,$movieDuration,$no_slicing,$sliced_format,$resolutionLarge,$resolutionMedium,$resolutionSmall,$date,1);
+		}
 	}
 	
 	//return the name of the folder using get request
