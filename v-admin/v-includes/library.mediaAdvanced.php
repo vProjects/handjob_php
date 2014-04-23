@@ -40,7 +40,7 @@
 			$snaps_interval = $movie_duration/($max_thumb+1) ;
 			//get the main thumb
 			//get thumbnail for the video
-			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,'900x507',$outputPathThumb,$outputFilename,$thumbFormat);
+			$this->mediaQuery->getThumbs($inputVidForConversion,$startTime,"900x507",$outputPathThumb,$outputFilename,$thumbFormat);
 			//get multiple thumbnail for the video
 			for( $i = 0 ; $i < $max_thumb ; $i++ )
 			{
@@ -169,7 +169,7 @@
 				{
 					$this->mediaQuery->resizeImage($inputFilePath.$filename,3000,3000*$HWRatio,$outputPath.$filename);
 					$this->mediaQuery->resizeImage($inputFilePath.$filename,1600,1600*$HWRatio,$outputPath."m/".$filename);
-					$this->mediaQuery->resizeImage($inputFilePath.$filename,1024,(1024*$HWRatio),$outputPath."s/".$filename);
+					$this->mediaQuery->resizeImage($inputFilePath.$filename,1024,1024*$HWRatio,$outputPath."s/".$filename);
 				}
 				else
 				{

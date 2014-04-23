@@ -30,7 +30,8 @@ class FileUpload{
 		echo 'entered into file uploading sections<br>';
 		$filename = $_FILES[$input_name]['name'];
 		
-		$ext = substr($filename,strpos($filename,'.'),4);
+		$ext = explode(".",$filename);
+		$ext = ".".$ext[1];
 		
 		if(!in_array($ext,$this->allowed_filetypes)){
 			$this->error = 'The file you attempted to upload is not allowed';

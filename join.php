@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	$page_title = 'Join Now';
 	//get header
 	include ('v-templates/header.php');
@@ -43,32 +44,37 @@
                             <input type="text" placeholder="Email">
                         </div>
                     </div>
+                    </form>
                 </div>
+                
+                
+                <form action='signup.php' method="post">
                 <div class="span6">
                     <div class="control-group">
                         <legend class="red_text bottom_border_grey">Choose your option.</legend>
                         <div class="controls plans">
-                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;" value="0000000163:840">
                             <strong>$24.99(USD)</strong> for 30 days then $24.99(USD) recurring every 30 days
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls plans">
-                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;" value="0000000419:840">
                             <strong>$59.99(USD)</strong> for 90 days then $59.99(USD) recurring every 90 days
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls plans">
-                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;" value="0000000420:840">
                             <strong>$99.99(USD)</strong> for 180 days (non-recurring)
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="controls plans">
-                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;">
+                            <input type="radio" name="plan" class="join_element" style="margin:-2px 0 0 0;" value="0000000150:840">
                             <strong>$39.99(USD)</strong> for 30 days (non-recurring)
                         </div>
+                        <p style="color:#F00;margin-top:5px"><?php if(isset($_SESSION['result'])){echo $_SESSION['result'];unset($_SESSION['result']);} ?></p>
                     </div>
                     <div class="control-group">
                         <div class="controls" style="text-align:center;">

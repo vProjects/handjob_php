@@ -22,7 +22,7 @@
 	}
 	if(isset($article_title) && !empty($article_title) && isset($article_description) && !empty($article_description))
 	{
-		$result = $manageData->insertArticle($article_title,$article_author,$article_description,$date,$access);
+		$result = $manageData->insertArticle($article_title,$article_author,$article_description,$date,$access,5);
 		$_SESSION['result'] = "Update Successfully.";
 	}
 	else

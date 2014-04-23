@@ -163,7 +163,7 @@
                             ?>
                             <div class="row-fluid">
                                 <div class="span12 voted_people">
-                                    <div class="num_rating" <?php if($enity_rating <= 3){echo 'style="margin-left: 51px;"';} ?>>
+                                    <div class="num_rating" <?php if($enity_rating <= 3){echo 'style="margin-left: 65px;"';} ?>>
                                         <span class="num_rating_in">1</span>
                                         <span class="num_rating_in">2</span>
                                         <span class="num_rating_in">3</span>

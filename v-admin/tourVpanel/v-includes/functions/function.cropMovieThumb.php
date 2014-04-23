@@ -26,7 +26,7 @@
 		
 		imagejpeg($dst_r,"../../../../temp/thumbs/".$filename,$jpeg_quality);
 		
-		$mediaQuery->resizeImage($inputPath,317,178,$inputPath);
+		$mediaQuery->resizeImage($inputPath,900,507,$inputPath);
 		$mediaQuery->mergeImage($inputPath,$inputPath,"","");
 	  
 		header('Location: ../../cropMovieThumb.php?filename='.$filename.'&type='.$_POST['type'].'&save=answer&id='.$_POST['id']);

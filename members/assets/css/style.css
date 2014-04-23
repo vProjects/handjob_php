@@ -296,6 +296,7 @@ text-decoration: none;
 }
 .movie_description{
 	padding: 10px;
+	margin-bottom: 5px;
 }
 
 /* bootstrap css modification */
@@ -753,6 +754,7 @@ text-decoration: none;
 .v_player{
 	margin-top: 3px;
 	border-top: 1px solid #ff0000;
+	padding-top: 15px;
 }
 .hide_img img{
 	display:none ;
@@ -850,14 +852,14 @@ text-decoration: none;
 	cursor: pointer;
 }
 .num_rating{
-	margin-left: 54px;
+	margin-left: 44px;
 }
 .stars_container{
 	width: 300px !important;
 }
 .num_rating_in{
 	float: left;
-    width: 30px;
+    width: 34px;
     height:31px;
 }
 .rslides {

@@ -63,14 +63,14 @@
                         <img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,'<?php echo $_SESSION["user"] ;?>','<?php echo $model_id ;?>','model')"> HOT
                         <?php
                             //check the rating to find thats i hot or not
-                            if( $enity_rating > 3 )
+                            if( $enity_rating > 3 && !empty($voted_people) )
                             {
                                 echo '<img src="images/img_hot.png" alt="rate-me" />' ;
                             }
                         ?>
                         <div class="row-fluid">
                             <div class="span12 voted_people">
-                            	<div class="num_rating"  <?php if($enity_rating <= 3){echo 'style="margin-left: 51px;"';} ?>>
+                            	<div class="num_rating"  <?php if($enity_rating <= 3 || empty($voted_people) ){echo 'style="margin-left: 65px;"';} ?>>
                                     <span class="num_rating_in">1</span>
                                     <span class="num_rating_in">2</span>
                                     <span class="num_rating_in">3</span>

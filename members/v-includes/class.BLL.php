@@ -553,18 +553,34 @@
 					echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,';
 					echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
 					echo '">HOT' ;
-					if( $article['rating'] > 3 )
+					
+					//get the rating for the particular movie
+					$enity_rating = $this->getRating('article',$article['id']) ;
+					
+					//get total voted people
+					$voted_people = $this->getPeopleVoted('article',$article['id']) ;
+					
+					if( $article['rating'] > 3 && !empty($voted_people) )
 					{
 						echo '<img src="images/img_hot.png" alt="rate-me" />' ;
 					}
 					echo '<div class="row-fluid">
                                 <div class="span12 voted_people">
-                                    <div class="num_rating">
-                                        <span class="num_rating_in">1</span>
-                                        <span class="num_rating_in">2</span>
-                                        <span class="num_rating_in">3</span>
-                                        <span class="num_rating_in">4</span>
-                                        <span class="num_rating_in">5</span>    
+                                    <div class="num_rating"';
+					if( $article['rating'] > 3 && !empty($voted_people) )
+					{
+						echo ' style="margin-left:53px;"';
+					}
+					else
+					{
+						echo ' style="margin-left:73px;"';
+					}
+					echo '>
+                                        <span class="num_rating_in" style="width:31px;">1</span>
+                                        <span class="num_rating_in" style="width:31px;">2</span>
+                                        <span class="num_rating_in" style="width:31px;">3</span>
+                                        <span class="num_rating_in" style="width:31px;">4</span>
+                                        <span class="num_rating_in" style="width:31px;">5</span>    
                                         <div class="clearfix"></div>                            
                                     </div>
                                  </div>
@@ -572,11 +588,6 @@
 					
 					echo '</div><div class="span3 voted_people">';
 					
-					//get the rating for the particular movie
-					$enity_rating = $this->getRating('article',$article['id']) ;
-					
-					//get total voted people
-					$voted_people = $this->getPeopleVoted('article',$article['id']) ;
 					//codes to get the total number of the voted people
 					if( !empty($voted_people) )
 					{
@@ -851,7 +862,7 @@
 				$format = $this->manageContent->getValueWhere("movie_info","vid_format_1","gallery_id",$slicedMovie['movie_id']);
 				
 				//get the model for particular gallery
-				$model_name = $this->manageContent->getValueWhere("sliced_vids","model","gallery_id",$slicedMovie['gallery_id']) ;
+				$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$slicedMovie['movie_id']) ;
 				$model_name = $model_name[0]["model"] ;
 				
 				//get the movies multiple thumbs
@@ -873,7 +884,7 @@
 				{
 					//create the UI components
 					echo '<div class="span3 element">
-							<a href="playing_movie.php?model='.$slicedMovie['model'].'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low"><div ' ;
+							<a href="playing_movie.php?model='.$model_name.'&movieId='.$slicedMovie['movie_id'].'&gallery_id='.$slicedMovie["gallery_id"].'&type=low"><div ' ;
 					if($movie_thumbs != 0 && !empty($movie_thumbs))
 					{
 						echo 'class="hs-wrapper"';
@@ -935,9 +946,10 @@
 		function getVidCapLink($movieId)
 		{
 			$vidCapGallery = $this->manageContent->getValueWhere("vidcaps_info","*","gallery_id",$movieId);
+			$parent_movie = $this->manageContent->getValueWhere("movie_info","*","gallery_id",$movieId);
 			if(isset($vidCapGallery) && !empty($vidCapGallery))
 			{
-				echo '<a href="full_gallery.php?galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-primary btn-danger border_radius_r">Vid Caps</button></a>';
+				echo '<a href="full_gallery.php?model='.$parent_movie[0]['model'].'&galleryId='.$vidCapGallery[0]['gallery_id'].'&index=10&page=0&element=10"><button class="btn btn-primary btn-danger border_radius_r">Vid Caps</button></a>';
 			}
 		}
 		
@@ -2164,7 +2176,15 @@
 					$rating = $this->manageContent->getValueWhere("model_info","rating","name",$element_id) ;
 				}
 			}
-			return ( intval( $rating[0]['rating'] ) + 1 ) ;
+			
+			$rating_return = intval( $rating[0]['rating'] ) + 1 ;
+			
+			if( $rating_return > 5 )
+			{
+				$rating_return = 5 ;
+			}
+			
+			return $rating_return ;
 		}
 		
 		/*
