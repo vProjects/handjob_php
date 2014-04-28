@@ -240,12 +240,12 @@
         </div>
 		<div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3">Upload Image:</div>
-            <input type="file" placeholder="" name="" class="model_form_textbox span5">
+            <input type="file" placeholder="" name="modelImage" class="model_form_textbox span5">
             <div class="clearfix"></div>
         </div>        
 		<div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3">Short note:</div>
-            <textarea class="model_form_textbox span5"></textarea>
+            <textarea class="model_form_textbox span5" name="shortNote"></textarea>
             <div class="clearfix"></div>
         </div>        
 

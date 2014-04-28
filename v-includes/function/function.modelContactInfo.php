@@ -48,7 +48,9 @@
 						<p><span class="topic_heading">Website URL/Webpages:</span><span class="topic_description">'.$GLOBALS['_POST']['web_url'].'</span></p>
 						<p><span class="topic_heading">Facebook Links:</span><span class="topic_description">'.$GLOBALS['_POST']['fb_link'].'</span></p>
 						<p><span class="topic_heading">Twitter Name:</span><span class="topic_description">'.$GLOBALS['_POST']['twitter'].'</span></p>
-						<p><span class="topic_heading">Image Links:</span><span class="topic_description">'.$GLOBALS['_POST']['img_links'].'</span></p>';
+						<p><span class="topic_heading">Image Links:</span><span class="topic_description">'.$GLOBALS['_POST']['img_links'].'</span></p>
+						<p><span class="topic_heading">Image Links:</span><span class="topic_description">'.$GLOBALS['_POST']['shortNote'].'</span></p>';
+						
 		
 		
 		//creating the message with stylesheet

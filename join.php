@@ -24,31 +24,31 @@
     	<div class="span12 join_now">
         	<div class="row-fluid">
             	<div class="span6">
-                    <form class="form-horizontal">
+                    <form action='signup.php' class="form-horizontal" method="post">
                     <legend class="red_text bottom_border_grey">Fill up the form.</legend>
                     <div class="control-group">
                         <label class="control-label-v" for="inputEmail">Username</label>
                         <div class="controls-v">
-                            <input type="text" placeholder="Username">
+                            <input type="text" name="username" placeholder="Username">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label-v" for="inputPassword">Password</label>
                         <div class="controls-v">
-                            <input type="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password">
                         </div>
                     </div>
                     <div class="control-group">
                         <label class="control-label-v" for="inputEmail">Email</label>
                         <div class="controls-v">
-                            <input type="text" placeholder="Email">
+                            <input type="text" name="email" placeholder="Email">
                         </div>
                     </div>
-                    </form>
+                    
                 </div>
                 
                 
-                <form action='signup.php' method="post">
+               
                 <div class="span6">
                     <div class="control-group">
                         <legend class="red_text bottom_border_grey">Choose your option.</legend>
