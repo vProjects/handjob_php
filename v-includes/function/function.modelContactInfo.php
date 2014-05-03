@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	//include the File Upload library for uploading the images
+	include('../library/class.upload_file.php');
+	$UploadFile = new FileUpload();
+	
 	//include the Mail library for the method to send the mail
 	include('../library/class.mail.php');
 	$mail = new Mail();
@@ -7,8 +11,14 @@
 	//checking for server request method
 	if($_SERVER['REQUEST_METHOD'] == 'POST')
 	{
-		if(!empty($GLOBALS['_POST']['f_name']) && !empty($GLOBALS['_POST']['l_name']) && !empty($GLOBALS['_POST']['public_name']) && !empty($GLOBALS['_POST']['day']) && !empty($GLOBALS['_POST']['month']) && !empty($GLOBALS['_POST']['year']) && !empty($GLOBALS['_POST']['birth_place']) && !empty($GLOBALS['_POST']['country']) && !empty($GLOBALS['_POST']['city']) && !empty($GLOBALS['_POST']['state']) && !empty($GLOBALS['_POST']['street_address']) && !empty($GLOBALS['_POST']['postal_code']) && !empty($GLOBALS['_POST']['email_id']) && !empty($GLOBALS['_POST']['username']) && !empty($GLOBALS['_POST']['mobile_number']) && !empty($GLOBALS['_POST']['img_links']) && $GLOBALS['_POST']['year_limit'] == 'on' )
+		if(!empty($GLOBALS['_POST']['f_name']) && !empty($GLOBALS['_POST']['l_name']) && !empty($GLOBALS['_POST']['public_name']) && !empty($GLOBALS['_POST']['day']) && !empty($GLOBALS['_POST']['month']) && !empty($GLOBALS['_POST']['year']) && !empty($GLOBALS['_POST']['birth_place']) && !empty($GLOBALS['_POST']['country']) && !empty($GLOBALS['_POST']['city']) && !empty($GLOBALS['_POST']['state']) && !empty($GLOBALS['_POST']['street_address']) && !empty($GLOBALS['_POST']['postal_code']) && !empty($GLOBALS['_POST']['email_id']) && !empty($GLOBALS['_POST']['username']) && !empty($GLOBALS['_POST']['mobile_number']) && !empty($GLOBALS['_FILES']['modelImage']) && $GLOBALS['_POST']['year_limit'] == 'on' )
 		{
+			//upload the image
+			$filename_desired = $GLOBALS['_POST']['f_name'].mktime();
+			$uploadImage = $UploadFile->upload_file($filename_desired,'modelImage','../../images/model_image/');
+			//image link 
+			$image_link = 'handjobstop.com/images/model_image/'.$uploadImage;
+			
 		//create the style properties of mail information
 		$cssProperties = '<style>
 							.info_heading{
@@ -48,8 +58,8 @@
 						<p><span class="topic_heading">Website URL/Webpages:</span><span class="topic_description">'.$GLOBALS['_POST']['web_url'].'</span></p>
 						<p><span class="topic_heading">Facebook Links:</span><span class="topic_description">'.$GLOBALS['_POST']['fb_link'].'</span></p>
 						<p><span class="topic_heading">Twitter Name:</span><span class="topic_description">'.$GLOBALS['_POST']['twitter'].'</span></p>
-						<p><span class="topic_heading">Image Links:</span><span class="topic_description">'.$GLOBALS['_POST']['img_links'].'</span></p>
-						<p><span class="topic_heading">Image Links:</span><span class="topic_description">'.$GLOBALS['_POST']['shortNote'].'</span></p>';
+						<p><span class="topic_heading">Model Image:</span><span class="topic_description"><img src="'.$image_link.'" alt="modelImage"></span></p>
+						<p><span class="topic_heading">Note:</span><span class="topic_description">'.$GLOBALS['_POST']['short_note'].'</span></p>';
 						
 		
 		
@@ -57,16 +67,24 @@
 		$message = $cssProperties.$message_text;
 		
 		//email address of receiver
-		$to = 'dipanjan.electrical@gmail.com';
+		$to = 'Filmme37@gmail.com';
+		
+		$headers = "From: admin@handjobstop.com"."\r\n";
+				
+		$headers .= "MIME-Version: 1.0\r\n";
+		$headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 		
 		//sending the mail
-		$mailSend = $mail->modelInfo($to,$message);
+		$mailSend = $mail->modelInfo($to,$message,$headers);
 		
 		header("Location: ../../modelContactForm.php");
 		
 		}
+		else
+		{
+			header("Location: ../../modelContactForm.php?msg=please fill all the field!");
+		}
 		
-		header("Location: ../../modelContactForm.php?msg=please fill all the field!");
 	}
 
 ?>

@@ -33,7 +33,7 @@
 	?>
     
     <!-- codes for the form starts here -->
-    <form action="v-includes/function/function.modelContactInfo.php" method="post" class="model_form_outline span8">
+    <form action="v-includes/function/function.modelContactInfo.php" method="post" class="model_form_outline span8" enctype="multipart/form-data">
     	<div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3">**First Name:</div>
             <input type="text" placeholder="" name="f_name" class="model_form_textbox span8"/>
@@ -228,26 +228,21 @@
             <div class="clearfix"></div>
         </div>
         <div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">**Image Links:</div>
-            <input type="text" placeholder="" name="img_links" class="model_form_textbox span5"/>
-            <div class="clearfix"></div>
-        </div>
-        <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3"></div>
             <input type="checkbox" name="year_limit" class="model_form_checkbox"/>
             <span>I am at least 18 years of age.</span>
             <div class="clearfix"></div>
         </div>
 		<div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Upload Image:</div>
-            <input type="file" placeholder="" name="modelImage" class="model_form_textbox span5">
+        	<div class="model_form_label pull-left span3">**Upload Image:</div>
+            <input type="file" name="modelImage" class="model_form_textbox span5">
             <div class="clearfix"></div>
-        </div>        
-		<div class="form-group row-fluid">
-        	<div class="model_form_label pull-left span3">Short note:</div>
-            <textarea class="model_form_textbox span5" name="shortNote"></textarea>
+        </div>  
+        <div class="form-group row-fluid">
+        	<div class="model_form_label pull-left span3">Short Note:</div>
+            <textarea rows="3" name="short_note" class="model_form_textbox span5"></textarea>
             <div class="clearfix"></div>
-        </div>        
+        </div>      
 
         <div class="form-group row-fluid">
         	<div class="model_form_label pull-left span3"></div>
