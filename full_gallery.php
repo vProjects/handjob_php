@@ -63,7 +63,7 @@
                 <div class="row-fluid photo_update_outline">
                     <div class="pagination pagination-small pageno_nav pull-right">
                         <ul>
-                            <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                            <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next </a></li>
                         </ul>
                     </div>
                 </div>

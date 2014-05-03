@@ -19,7 +19,7 @@
             <li><a href="mailto:webmaster@handjobstop.com" target="_blank">Contact Us</a></li>
             <li><a href="http://handjobstop.com/modelContactForm.php">Models Wanted</a></li>
             <li><a href="http://www.handjobstop.com/webmaster.php">Webmaster</a></li>
-            <li><a href="#">Legal</a></li>
+            <li><a href="http://www.handjobstop.com/legal.php">Legal</a></li>
         </ul>
       </div>
       <div class="span4 footer_part">
@@ -34,7 +34,7 @@
 <div class="row-fluid footer_text_part">
 	<div class="span10 offset1">
         <hr class="footer_hr" />
-        <p>All models on handjobstop.com were 18 years of age or older when photographed.</p>
+        <p><a href="http://www.handjobstop.com/legal.php">18 U.S.C 2257 Record Keeping Requirements Compliance Statement</a></p>
         <p>WARNING: If you are under 21 years of age or if it is illegal to view adult material in your community, please leave now. </p>
         <p>All rights reserved. 2014 - www.handjobstop.com</p>
     </div>    

@@ -2032,13 +2032,13 @@
 			//get the table name according to the page
 			if( $type == "movie" )
 			{
-				$title = "Movie" ;
+				$title = "Movies" ;
 				$table_name = "movie_info" ;
 				$field_where = "gallery_id" ;
 			}
 			if( $type == "gallery" )
 			{
-				$title = "Gallery" ;
+				$title = "Photos" ;
 				$table_name = "gallery_info" ;
 				$field_where = "gallery_id" ;
 			}

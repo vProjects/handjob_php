@@ -34,26 +34,26 @@
         </div>
     </div>
     
-    <div class="row-fluid">
-    	<div class="span6 join_now">
+    <div class="row-fluid webmaster_contact_row">
+    	<div class="span8 offset2 join_now">
         	    <form class="form-horizontal">
                 <legend class="red_text bottom_border_grey">Check your status.</legend>
                 <div class="control-group">
                     <label class="control-label-v" for="inputEmail">Current Id</label>
                     <div class="controls-v">
-                        <input type="text" placeholder="Current Id" style="width: 85%;">
+                        <input type="text" placeholder="Current Id" style="width: 70%;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label-v" for="inputEmail">Username</label>
                     <div class="controls-v">
-                        <input type="text" placeholder="Username" style="width: 85%;">
+                        <input type="text" placeholder="Username" style="width: 70%;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label-v" for="inputPassword">Password</label>
                     <div class="controls-v">
-                        <input type="password" placeholder="Password" style="width: 85%;">
+                        <input type="password" placeholder="Password" style="width: 70%;">
                     </div>
                 </div>
                 
@@ -78,7 +78,7 @@
     
     <div class="row-fluid">
     	<div class="span12 join_now">
-        	<p style="text-align:center;">Below is the URL you will send traffic to. Replace the "<span class="red_text">XXXXXX</span>" with the account number CCBILL provides you when you signed up. Please note that this is one continuous URL. Use this linking code on any banner, graphic, or text link you wish.<br/><br/>http://refer.ccbill.com/cgi-bin/clicks.cgi?CA=909492-0013&PA=<span class="red_text">XXXXXX</span>&HTML=http://www.handjobstop.com/tour2/index.php? <br/><br/>Pick what you need to promote. If you need more pictures or video clips for your promo pages please contact me I'll be glad to help you. <a href="mailto:filmme37@yahoo.com">filmme37@yahoo.com</a><br/><br/>ICQ: 176998299
+        	<p style="text-align:center;">Below is the URL you will send traffic to. Replace the "<span class="red_text">XXXXXX</span>" with the account number CCBILL provides you when you signed up. Please note that this is one continuous URL. Use this linking code on any banner, graphic, or text link you wish.<br/><br/>http://refer.ccbill.com/cgi-bin/clicks.cgi?CA=909492-0013&PA=<span class="red_text">XXXXXX</span>&HTML=http://www.handjobstop.com/tour2/index.php? <br/><br/>Pick what you need to promote. If you need more pictures or video clips for your promo pages please contact me I'll be glad to help you. <a href="mailto:webmaster@handjobstop.com">webmaster@handjobstop.com</a><br/><br/>ICQ: 176998299
 </p>
         </div>
     </div>
@@ -89,7 +89,7 @@
             <div class="row-fluid photo_update_outline">
                 <div class="pagination pagination-small pageno_nav pull-right">
                     <ul>
-                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next &gt;</a></li>
+                        <li class="pageno_nav_viewall"><a class="btn-danger" href="join.php">Next </a></li>
                     </ul>
                 </div>
             </div>
