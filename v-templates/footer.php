@@ -4,9 +4,9 @@
     	<p class="footer_part_heading">Site links</p>
         <ul>
         	<li><a href="tour.php">Home</a></li>
-            <li><a href="model.php">Models</a></li>
+            <li><a href="movie.php">Movies</a></li>
             <li><a href="photo.php">Photos</a></li>
-            <li><a href="movie.php">Videos</a></li>
+            <li><a href="model.php">Models</a></li>
             <li><a href="blog_list.php">Blogs</a></li>
             <li><a href="friends.php">Freinds</a></li>
             <li><a href="join.php">JOIN NOW</a></li>
