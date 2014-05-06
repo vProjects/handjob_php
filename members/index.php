@@ -69,7 +69,7 @@
 			<div class="row-fluid comArt">
 				<ul class="nav nav-tabs">
 				  <li class="tab"><a href="#home" data-toggle="tab">Recent Comments</a></li>
-				  <li class="tab"><a href="#profile" data-toggle="tab">Recent Article</a></li>
+				  <li class="tab"><a href="#profile" data-toggle="tab">Recent Articles</a></li>
 				</ul>
 				<div id="myTabContent" class="tab-content">
 				  <div class="tab-pane fade in active" id="home">

@@ -86,7 +86,7 @@
     	<div class="span3" id="rightContainer">
         	<div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12" style="margin-top:0">
-                            <h4>Most Popular Model</h4>
+                            <h4>Most Popular Models</h4>
                     </div>
                 </div>
                 <div class="popularmodels">
@@ -99,7 +99,7 @@
                 
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">
-                            <h4>Suggested Site</h4>
+                            <h4>Suggested Sites</h4>
                     </div>
                 </div>
             	<?php
@@ -109,7 +109,7 @@
                 
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">
-                            <h4>Most Viewed Update</h4>
+                            <h4>Most Viewed Updates</h4>
                     </div>
                 </div>
                 <?php
@@ -119,7 +119,7 @@
                 
                 <div class="row-fluid">
                     <div ID="secondaryMainBar" class="span12">
-                            <h4>Most Popular Update</h4>
+                            <h4>Most Popular Updates</h4>
                     </div>
                 </div>
                 <?php
@@ -144,7 +144,7 @@
                     </div>
                 </div>
                 <div class="row-fluid social">
-					<div class="fb-like-box" data-href="https://www.facebook.com/handjobstop?ref=hl" data-width="284" data-height="300" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>                </div><!--social box ends here---facebook-->
+					<div class="fb-like-box" data-href="https://www.facebook.com/handjobstop?ref=hl" data-width="255" data-height="600" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"></div>                </div><!--social box ends here---facebook-->
         </div>
         <!-- rightcontainer ends here---->
     </div>

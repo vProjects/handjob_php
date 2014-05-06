@@ -78,7 +78,7 @@
     
     <div class="row-fluid">
     	<div class="span12 join_now">
-        	<p style="text-align:center;">Below is the URL you will send traffic to. Replace the "<span class="red_text">XXXXXX</span>" with the account number CCBILL provides you when you signed up. Please note that this is one continuous URL. Use this linking code on any banner, graphic, or text link you wish.<br/><br/>http://refer.ccbill.com/cgi-bin/clicks.cgi?CA=909492-0013&PA=<span class="red_text">XXXXXX</span>&HTML=http://www.handjobstop.com/tour2/index.php? <br/><br/>Pick what you need to promote. If you need more pictures or video clips for your promo pages please contact me I'll be glad to help you. <a href="mailto:webmaster@handjobstop.com">webmaster@handjobstop.com</a><br/><br/>ICQ: 176998299
+        	<p style="text-align:center;">Below is the URL you will send traffic to. Replace the "<span class="red_text">XXXXXX</span>" with the account number CCBILL provides you when you signed up. Please note that this is one continuous URL. Use this linking code on any banner, graphic, or text link you wish.<br/><br/>http://refer.ccbill.com/cgi-bin/clicks.cgi?CA=909492-0013&PA=<span class="red_text">XXXXXX</span>&HTML=http://www.handjobstop.com/tour2/index.php? <br/><br/>Pick what you need to promote. If you need more pictures or video clips for your promo pages please contact me I'll be glad to help you. <a href="mailto:webmaster@handjobstop.com">webmaster@handjobstop.com</a><br/><br/>
 </p>
         </div>
     </div>

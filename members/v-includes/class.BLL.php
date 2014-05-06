@@ -407,7 +407,10 @@
 			
 			//get the gallery details from the database
 			$model_name = $this->manageContent->getValueWhere("gallery_info","model","gallery_id",$gallery_id) ;
-			
+			if( empty($model_name) )
+			{
+				$model_name = $this->manageContent->getValueWhere("movie_info","model","gallery_id",$gallery_id) ;
+			}
 			//these variables determines the start and the end point for printing row fluid
 			$start_point = 0;
 			$end_point = 1;
@@ -587,11 +590,14 @@
                             </div>' ;
 					
 					echo '</div><div class="span3 voted_people">';
-					
+					if( $enity_rating > 5 )
+					{
+						$enity_rating = 5;
+					}
 					//codes to get the total number of the voted people
 					if( !empty($voted_people) )
 					{
-						echo "Rating: ".($enity_rating-1)."/5 <br/> ( ".$voted_people."Votes )" ;
+						echo "Rating: ".($enity_rating)."/5 <br/> ( ".$voted_people."Votes )" ;
 					}
 					
 					echo	'</div></div></div></div>
@@ -961,17 +967,17 @@
 		function getZipLinks($movieId)
 		{
 			$zipFilePath = "gallery/".$movieId."/";
-			if(file_exists($zipFilePath."h.zip"))
+			if(file_exists($zipFilePath."s.zip"))
 			{
-				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-primary btn-danger border_radius_l">High Zip</button></a>';
+				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-primary btn-danger border_radius_l">Low Zip</button></a>';
 			}
 			if(file_exists($zipFilePath."m.zip"))
 			{
 				echo '<a href="'.$zipFilePath."m.zip".'"><button class="btn btn-primary btn-danger">Med Zip</button></a>';
 			}
-			if(file_exists($zipFilePath."s.zip"))
+			if(file_exists($zipFilePath."h.zip"))
 			{
-				echo '<a href="'.$zipFilePath."s.zip".'"><button class="btn btn-primary btn-danger border_radius_r">Low Zip</button></a>';
+				echo '<a href="'.$zipFilePath."h.zip".'"><button class="btn btn-primary btn-danger border_radius_r">High Zip</button></a>';
 			}
 		}
 		
@@ -1516,7 +1522,7 @@
                         	</div>
                         </div>
 				
-					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a>
+					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'&model='.$movie['model'].'" class="link">'.$movie["model"].'</a>
 					</li>' ;
 			}
 			echo '</ul>
@@ -1531,7 +1537,7 @@
                         	</div>
                         </div>
 
-					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a>
+					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model='.$gallery['model'].'" class="link">'.$gallery["model"].'</a>
 					</li>' ;
 			}
 			echo '</ul>
@@ -1577,7 +1583,7 @@
                         	</div>
                         </div>
 
-					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'" class="link">'.$movie["model"].'</a>
+					<a href="playing_movie.php?movieId='.$movie['gallery_id'].'&model='.$movie['model'].'" class="link">'.$movie["model"].'</a>
 					</li>' ;
 			}
 			echo '</ul>
@@ -1592,7 +1598,7 @@
                         	</div>
                         </div>
 
-					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'" class="link">'.$gallery["model"].'</a>
+					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model='.$gallery['model'].'" class="link">'.$gallery["model"].'</a>
 					</li>' ;
 			}
 			echo '</ul>
@@ -1989,7 +1995,7 @@
 					{
 						//create the UI components
 						echo '<div class="span'.$span.' element">
-								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=20">
+								<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
 								<img class="lazy" src="images/gallery_thumb/'.$gallery["gallery_id"].'.JPG" style="width:100%;" >
 								<h4 class="red_text">'.$gallery['model'].'</h4></a>
 								<p>Added :'.$gallery["date"].'<br />Photos: '.$total_no_images.'<br />Views: '.$gallery["view"].'</p>';

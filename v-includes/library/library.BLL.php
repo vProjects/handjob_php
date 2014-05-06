@@ -49,10 +49,10 @@
 					{
 						echo '<img class="lazy" data-src="images/star-on.png" src="" alt="star">';
 					}			
-					echo		'<p> Comments</p>';
+					/*echo		'<p> Comments</p>';
 					
 					//get the comments for the blog
-					$this->getComments("article",$article["id"],0) ;
+					$this->getComments("article",$article["id"],0) ;*/
 						
 					echo '</div></div>' ;
 				}

@@ -750,6 +750,7 @@ a:hover, a:focus {
 .join-now-btn{
 	margin-bottom: 20px;
 	margin-top:20px ;
+	border-radius: 6px;
 }
 .join_floating{
 	background-color: #FF0000;
