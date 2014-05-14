@@ -56,13 +56,21 @@
 		//return path
 		$returnPath = "model_detail.php?model_id=".$id."&model_name=".$model_name ;
 	}
-	if( $type == "article" )
+	if( $type == "article" || $type == "article_full" )
 	{
 		//table name for the movie comment
 		$table_name = "article_comment" ;
+		if( $type == "article_full" )
+		{
+			//return path
+			$returnPath = "blog_page.php?article_id=".$id ;
+		}
+		else
+		{
+			//return path
+			$returnPath = "blog_list.php" ;
+		}
 		
-		//return path
-		$returnPath = "blog_list.php" ;
 	}
 	//check whether all the variable are set or not
 	if( isset($type) && !empty($type) && isset($id) && !empty($id) && isset($member) && !empty($member) )

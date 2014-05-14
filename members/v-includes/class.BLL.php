@@ -508,8 +508,8 @@
 				{
 					echo '<div class="row-fluid blog_container">
 							<div class="span12">
-								<h4>'.$article["article_title"].'</h4>
-								<p class="blog_author_name"> '.$article["article_author"].'</p>
+								<h4 class="blog_heading">'.$article["article_title"].'</h4>
+								<p> '.$article["article_author"].'</p>
 								<p>'.$article["article_description"].'</p>
 								<p> Added :'.$article["article_date"].'</p>
 								<p> Rating : ' ;
@@ -1158,7 +1158,7 @@
 			{
 				echo '<div class="row-fluid">
 						<div id="mainBar" class="span12">
-								<h4>Model Gallery</h4>
+								<h4>Model Photos</h4>
 						</div>
 					</div>';
 				foreach($modelGallerys as $gallery)
@@ -1537,7 +1537,7 @@
                         	</div>
                         </div>
 
-					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model='.$gallery['model'].'" class="link">'.$gallery["model"].'</a>
+					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model='.$gallery['model'].'&index=10&page=0&element=10" class="link">'.$gallery["model"].'</a>
 					</li>' ;
 			}
 			echo '</ul>
@@ -1598,7 +1598,7 @@
                         	</div>
                         </div>
 
-					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model='.$gallery['model'].'" class="link">'.$gallery["model"].'</a>
+					<a href="full_gallery.php?galleryId='.$gallery['gallery_id'].'&model='.$gallery['model'].'&index=10&page=0&element=10" class="link">'.$gallery["model"].'</a>
 					</li>' ;
 			}
 			echo '</ul>
@@ -2050,6 +2050,11 @@
 			}
 			
 			$description = $this->manageContent->getValueWhere($table_name,"description",$field_where,$field_id) ;
+			if( $description == 0 )
+			{
+				$title = "Photos" ;
+				$description = $this->manageContent->getValueWhere("movie_info","description",$field_where,$field_id) ;
+			}
 			
 			if( $description != 0 )
 			{
@@ -2242,11 +2247,15 @@
 							<p>'.$comment["comment"].'</p>
 							<p class="themecolor">'.$comment["date"].'</p>
 							<p><i class="icon-thumbs-up-v"></i><span class="commentstatus"> Likes </span><span class="badge badge-success">'.$comment["comment_like"].'</span> <i class="icon-thumbs-down-v"></i><span class="commentstatus"> Dislikes </span><span class="badge badge-inverse">'.$comment["comment_dislike"].'</span> </p>';
-				echo		'<a href="'.$comment["page"];
+				echo		'<a href="';
 				//codes for pointing the blog particular comment
 				if( $comment["page"] == 'blog_list.php' )
 				{
-					echo '#'.$comment['unit_id'] ;
+					echo 'blog_page.php?article_id='.$comment['unit_id'] ;
+				}
+				else
+				{
+					echo $comment["page"];
 				}
 				echo '">Read More</a>';
 				echo	'</div>
@@ -2286,7 +2295,7 @@
 							<p class="blog_author_name"> '.$article["article_author"].'</p>
 							<p>'.$article["article_description"].'</p>
 							<p> Added :'.$article["article_date"].'</p>
-							<a href="blog_list.php">Read More</a>';			
+							<a href="blog_page.php?article_id='.$article['id'].'">Read More</a>';			
 				echo		'</div></div>';
 			}
 		}
@@ -2752,6 +2761,147 @@
 			$ar_value = explode(',',$values) ; 
 			
 			return $ar_value ;
+		}
+		
+		/*
+		- get the full articles from the database
+		- generate the UI for the design
+		- Auth Singh
+		*/
+		function getFullArticles($article_id)
+		{
+			$article = $this->manageContent->getValueWhere('article_info','*',"id",$article_id);
+			$article = $article[0];
+			
+			//2 - for members 3 - for both
+			if( $article['access'] == 2 || $article['access'] == 3)
+			{
+				echo '<div class="row-fluid blog_container">
+						<div class="span12">
+							<h4>'.$article["article_title"].'</h4>
+							<p class="blog_author_name"> '.$article["article_author"].'</p>
+							<p>'.$article["article_description"].'</p>
+							<p> Added :'.$article["article_date"].'</p>
+							<p> Rating : ' ;
+							//get the ratings for the blog
+							if( $article['rating'] == 0 )
+							{
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							}		
+							for($i = 0 ; $i < $article['rating'] ; $i++)
+							{
+								echo '<img class="lazy" src="images/star-on.png"  alt="star">';
+							}			
+				echo		'
+						</div>';
+					
+				echo '<div class="row-fluid">
+						<div class="span12">
+							<div class="offset2 span7 rating">
+								<div class="row-fluid">
+									<div class="span6 voted_people stars_container">
+								NOT' ;
+				//get the stars for the rating box
+				//1
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(1,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//2
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(2,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//3
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(3,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//4
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(4,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">' ;
+				//5
+				echo '<img class="rateme" src="images/white-star.png" alt="star" onclick="rate(5,';
+				echo "'".$_SESSION["user"]."','".$article["id"]."','article')" ;
+				echo '">HOT' ;
+				
+				//get the rating for the particular movie
+				$enity_rating = $this->getRating('article',$article['id']) ;
+				
+				//get total voted people
+				$voted_people = $this->getPeopleVoted('article',$article['id']) ;
+				
+				if( $article['rating'] > 3 && !empty($voted_people) )
+				{
+					echo '<img src="images/img_hot.png" alt="rate-me" />' ;
+				}
+				echo '<div class="row-fluid">
+							<div class="span12 voted_people">
+								<div class="num_rating"';
+				if( $article['rating'] > 3 && !empty($voted_people) )
+				{
+					echo ' style="margin-left:53px;"';
+				}
+				else
+				{
+					echo ' style="margin-left:73px;"';
+				}
+				echo '>
+									<span class="num_rating_in" style="width:31px;">1</span>
+									<span class="num_rating_in" style="width:31px;">2</span>
+									<span class="num_rating_in" style="width:31px;">3</span>
+									<span class="num_rating_in" style="width:31px;">4</span>
+									<span class="num_rating_in" style="width:31px;">5</span>    
+									<div class="clearfix"></div>                            
+								</div>
+							 </div>
+						</div>' ;
+				
+				echo '</div><div class="span3 voted_people">';
+				if( $enity_rating > 5 )
+				{
+					$enity_rating = 5;
+				}
+				//codes to get the total number of the voted people
+				if( !empty($voted_people) )
+				{
+					echo "Rating: ".($enity_rating)."/5 <br/> ( ".$voted_people."Votes )" ;
+				}
+				
+				echo	'</div></div></div></div>
+				</div>' ;
+				
+				//comment box
+				echo '<div class="row-fluid" id="'.$article['id'].'">	
+						<div class="span12">
+							<p> Comments</p>
+							<form class="form-horizontal" action="functions/function.comment.php" method="post">
+								<div class="control-group">
+									<div class="controls">
+										<textarea rows="4" style="width: 50%" name="comment"></textarea>
+									</div>
+									<div class="controls">
+										<input type="hidden" value="'.$article["id"].'" name="id" />
+										<input type="hidden" value="article_full" name="type" />
+										<input type="hidden" value="';
+				echo $_SESSION['user'].'" name="member" />
+										<input type="submit" class="btn" value="Submit">
+									</div>			    		
+								</div>
+							</form>
+						</div>' ;
+						
+				echo	'</div>' ;
+				
+				//get the comments for the blog
+				$this->getComments("article",$article["id"],0) ;	
+				//get the rating box for the article
+					
+				echo '</div>' ;
+			}
+			
 		}
 		
 	}

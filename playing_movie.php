@@ -71,8 +71,8 @@
 		//get the models details if id isset
 		if( isset($model_id) && !empty($model_id) )
 		{
-			$model_id = explode(',',$model_id) ;
-			foreach($model_id as $model)
+			$model_ids = explode(',',$model_id) ;
+			foreach($model_ids as $model)
 			{
 				//get the UI for model details from BLL
 				$manageData->getModel_Details($model) ;
@@ -84,9 +84,9 @@
 	?>
     <div class="row-fluid model_detail_heading">
     	<div class="btn-group">
-            <a href="playing_movie.php?<?php echo "model=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=low" ; ?>"><button class="btn <?php if( $type=='low'){ echo 'active' ;}?> btn-danger border_radius_l">Low</button></a>
-            <a href="playing_movie.php?<?php echo "model=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=medium" ; ?>"><button class="btn <?php if( $type=='medium'){ echo 'active' ;}?> btn-danger">Medium</button></a>
-            <a href="playing_movie.php?<?php echo "model=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=high" ; ?>"><button class="btn <?php if( $type=='high'){ echo 'active' ;}?> btn-danger border_radius_r">High</button></a>
+            <a href="playing_movie.php?<?php echo "model_id=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=low" ; ?>"><button class="btn <?php if( $type=='low'){ echo 'active' ;}?> btn-danger border_radius_l">Low</button></a>
+            <a href="playing_movie.php?<?php echo "model_id=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=medium" ; ?>"><button class="btn <?php if( $type=='medium'){ echo 'active' ;}?> btn-danger">Medium</button></a>
+            <a href="playing_movie.php?<?php echo "model_id=".$model_id."&movie_id=".$movie_id."&gallery_id=".$gallery_id."&type=high" ; ?>"><button class="btn <?php if( $type=='high'){ echo 'active' ;}?> btn-danger border_radius_r">High</button></a>
         </div>
     </div>
     

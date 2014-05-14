@@ -1025,7 +1025,7 @@
 		{
 			//get the model name for the video
 			$model  = $this->manageContent->getValueWhere("movie_info_tour","model","gallery_id",$gallery_id) ;
-			$galleryPath = "videos_sample_image/".$gallery_id."/";
+			$galleryPath = "videos_sample_image/".$gallery_id."/s/";
 			//image location will change according to the large,small and medium requests
 			$imageLocation = "videos_sample_image/".$gallery_id."/";
 			//these variables determines the start and the end point for printing row fluid

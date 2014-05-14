@@ -27,7 +27,7 @@
         <ul>
         	<li><a href="https://www.facebook.com/handjobstop?ref=hl" target="_blank"><img src="images/facebooks.png" class="socialIcons" alt="facebook"></a></li>
             <li><a href="https://twitter.com/handjobsstop" target="_blank"><img src="images/twitters.png" target="_blank" class="socialIcons" alt="twitter"></a></li>
-            <li><a href="#"><img src="images/insta.png" target="_blank" class="socialIcons" alt="google plus"></a></li>
+            <li><a href="http://instagram.com/shootspeter" target="_blank"><img src="images/insta.png" target="_blank" class="socialIcons" alt="google plus"></a></li>
         </ul>
       </div>
 </div>

@@ -36,29 +36,41 @@
     
     <div class="row-fluid webmaster_contact_row">
     	<div class="span8 offset2 join_now">
-        	    <form class="form-horizontal">
+        	    <form class="form-horizontal" method="post" action="https://affiliateadmin.ccbill.com/signup.cgi">
                 <legend class="red_text bottom_border_grey">Check your status.</legend>
                 <div class="control-group">
                     <label class="control-label-v" for="inputEmail">Current Id</label>
                     <div class="controls-v">
-                        <input type="text" placeholder="Current Id" style="width: 70%;">
+                        <input type="text" name="EID" placeholder="Current Id" style="width: 70%;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label-v" for="inputEmail">Username</label>
                     <div class="controls-v">
-                        <input type="text" placeholder="Username" style="width: 70%;">
+                        <input type="text" name="username" placeholder="Username" style="width: 70%;">
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label-v" for="inputPassword">Password</label>
                     <div class="controls-v">
-                        <input type="password" placeholder="Password" style="width: 70%;">
+                        <input type="password" name="password" placeholder="Password" style="width: 70%;">
                     </div>
                 </div>
                 
                 <div class="row-fluid">
 			    	<div class="span12" style="text-align: center;">
+                        <input type="hidden" name="CA" value="909492-0000">
+                        <input type="hidden" name="GR" value="">
+                        <input type="hidden" name="page_background" value="">
+                        <input type="hidden" name="page_bgcolor" value="#FFFFFF">
+                        <input type="hidden" name="page_text" value="#000000">
+                        <input type="hidden" name="page_link" value="blue">
+                        <input type="hidden" name="page_vlink" value="purple">
+                        <input type="hidden" name="page_alink" value="blue">
+                        <input type="hidden" name="table_left" value="#AEAEFF">
+                        <input type="hidden" name="table_right" value="#FEFFC1">
+                        <input type="hidden" name="table_text" value="#000000">
+                        <input type="hidden" name="star_color" value="#CC0000">
 			        	<input type="submit" class="btn btn-danger btn-large join-now-btn" value="Check">
 			        </div>
 			    </div>
@@ -66,9 +78,8 @@
                 
                 <div class="row-fluid">
 			    	<div class="span12" style="text-align: center;">
-			        	<input type="button" class="btn btn-danger btn-large join-now-btn"  href="https://affiliateadmin.ccbill.com/signup.cgi?CA=909492-0000&
-			page_bgcolor=#FFFFFF&page_text=#000000&page_link=blue&page_vlink=purple&page_alink=blue&table_left=#AEAEFF&table_right=#FEFFC1&table_text=#000000&star_color=#CC0000
-			" value="Click here to Create New Account now" />
+			        	<a href="https://affiliateadmin.ccbill.com/signup.cgi?CA=909492-0000&
+			page_bgcolor=#FFFFFF&page_text=#000000&page_link=blue&page_vlink=purple&page_alink=blue&table_left=#AEAEFF&table_right=#FEFFC1&table_text=#000000&star_color=#CC0000"><input type="button" class="btn btn-danger btn-large join-now-btn"  value="Click here to Create New Account now" /></a>
 			        </div>
 			    </div>
         </div>
