@@ -225,7 +225,7 @@
 			}
 			elseif( $table_name == "model_info")
 			{
-				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`date` <= CURDATE()) AND (`name` LIKE '%$searchKeyword%')");
+				$query = $this->link->query("SELECT count(*) from $table_name WHERE (`date` <= CURDATE()) AND (`name` LIKE '$searchKeyword%')");
 			}
 			else
 			{

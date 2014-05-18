@@ -342,6 +342,25 @@
 		}
 		
 		/*
+		- get model names for the select box of article section
+		- Auth Singh
+		*/
+		function getModelNames_a($model)
+		{
+			$modelNames = $this->manageContent->getValue_sorted_asc("model_info","name","name");
+			echo '<option value="">Select One</option>';
+			foreach($modelNames as $modelName)
+			{
+				echo '<option ';
+				if( $model == $modelName['name'] )
+				{
+					echo 'selected="selected" ';
+				}
+				echo 'value="'.$modelName['name'].'">'.$modelName['name'].'</option>';
+			}
+		}
+		
+		/*
 		- get the list of the videos and create UI
 		- using the movie_info table
 		- Auth Singh

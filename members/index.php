@@ -116,7 +116,7 @@
                 
                  <div class="row-fluid">  
                     <div id="mainBar" class="span12">
-                            <h4>Latest Photo Updates</h4>
+                            <h4>Latest Photos Updates</h4>
                     </div>
                 </div>
                 <?php
@@ -136,7 +136,7 @@
                 
 				<div class="row-fluid">
                     <div id="mainBar" class="span12">
-                            <h4>Latest Model Updates</h4>
+                            <h4>Latest Models Updates</h4>
                     </div>
                 </div>
                 <?php

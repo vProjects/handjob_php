@@ -508,7 +508,18 @@
 				{
 					echo '<div class="row-fluid blog_container">
 							<div class="span12">
-								<h4 class="blog_heading">'.$article["article_title"].'</h4>
+								<a href="';
+					if( !empty($article['model']))
+					{
+						//get the model id
+						$model_id = $this->manageContent->getValueWhere('model_info','id','name',$article['model']);
+						echo "model_detail.php?model_id=".$model_id[0]['id']."&model_name=".$article['model'];
+					}
+					else
+					{
+						echo "#";
+					}
+					echo '"><h4 class="blog_heading">'.$article["article_title"].'</h4></a>
 								<p> '.$article["article_author"].'</p>
 								<p>'.$article["article_description"].'</p>
 								<p> Added :'.$article["article_date"].'</p>
@@ -1060,7 +1071,7 @@
 			{
 				echo '<div class="row-fluid">
 						<div id="mainBar" class="span12">
-								<h4>Model Video</h4>
+								<h4>Models Movies</h4>
 						</div>
 					</div>';
 				foreach($ModelMovies as $movie)
@@ -1158,7 +1169,7 @@
 			{
 				echo '<div class="row-fluid">
 						<div id="mainBar" class="span12">
-								<h4>Model Photos</h4>
+								<h4>Models Photos</h4>
 						</div>
 					</div>';
 				foreach($modelGallerys as $gallery)
@@ -1284,7 +1295,7 @@
 						}
 						if( $page+1 == $i )
 						{
-							echo '" class="btn-danger center_1st';
+							echo '" class="btn-danger active';
 						}
 						echo '" ';
 						echo '>'.$i.'</a></li>' ;

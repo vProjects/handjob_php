@@ -3,10 +3,10 @@
 	<div class="span4 footer_part">
     	<p class="footer_part_heading">Site links</p>
         <ul>
-        	<li><a href="index.php">Home</a></li>
-            <li><a href="model.php">Models</a></li>
+        	<li><a href="index.php">Home</a>
+            <li><a href="videos.php">Movies</a></li></li>
             <li><a href="photos.php">Photos</a></li>
-            <li><a href="videos.php">Videos</a></li>
+            <li><a href="model.php">Models</a></li>
             <li><a href="blog_list.php">Blogs</a></li>
             <li><a href="friends.php">Freinds</a></li>
         </ul>

@@ -36,6 +36,15 @@
                     <input type="text" placeholder="Title" value="<?php echo $article_detail[0]['article_title']; ?>" class="textbox1" name="article_title"/>
                 </div>
                 <div class="form-control v-form">
+                    <label class="control-label">Model</label>
+                    <select class="selectbox1" name="model">
+                        <?php 
+                            //get the list of the model categories
+                            $manageData->getModelNames_a($article_detail[0]['model']);
+                        ?>
+                    </select>
+                </div>
+                <div class="form-control v-form">
                     <label class="control-label">Date</label>
                     <input type="text" placeholder="Date" class="textbox1" name="date" id="datepicker" />
                 </div>

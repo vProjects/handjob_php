@@ -31,7 +31,18 @@
 				{
 					echo '<div class="row-fluid blog_container">
 							<div class="span12 blog_text">
-								<h3><a href="#" class="tour_blog_heading">'.$article["article_title"].'</a></h3>
+								<h3><a href="';
+					if( !empty($article['model']))
+					{
+						//get the model id
+						$model_id = $this->manageContent->getValueWhere('model_info','id','name',$article['model']);
+						echo "model_detail.php?model_id=".$model_id[0]['id']."&model_name=".$article['model'];
+					}
+					else
+					{
+						echo "#";
+					}
+					echo '" class="tour_blog_heading">'.$article["article_title"].'</a></h3>
 								<p class="tour_blog_author_name"> '.$article["article_author"].'</p>
 								<p>'.$article["article_description"].'</p>
 								<p>Added- '.$article["article_date"].'</p>

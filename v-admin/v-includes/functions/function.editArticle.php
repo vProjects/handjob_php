@@ -12,6 +12,7 @@
 		$article_title = $_POST['article_title'];
 		$article_description = $_POST['article_description'];
 		$access = $_POST['access'];
+		$model = $_POST['model'];
 		
 		$date = $_POST['date'];
 		$id = $_POST['id'];
@@ -42,6 +43,16 @@
 	if( isset($article_title) && !empty($article_title))
 	{
 		$result = $manageData->updateValueWhere($table_name,"article_title",$article_title,"id",$id);
+		if( $result == 1 )
+		{
+			$_SESSION['result'] = "Update Successful." ;
+		}
+	}
+	
+	//update the model
+	if( isset($model) && !empty($model))
+	{
+		$result = $manageData->updateValueWhere($table_name,"model",$model,"id",$id);
 		if( $result == 1 )
 		{
 			$_SESSION['result'] = "Update Successful." ;
