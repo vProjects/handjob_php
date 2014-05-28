@@ -2328,30 +2328,32 @@
 				echo '<h5>That match category keyword tags:</h5>' ;
 				
 				echo '<p>Movie Category</p>
-						<div class="control-group">
-							<select name="movie_category[]" multiple="multiple" style="width:90%;">' ;
+						<div class="control-group">';
+							//<select name="movie_category[]" multiple="multiple" style="width:90%;">' ;
 				//default value for the select box
-				echo '<option value="all" selected="selected">All</option>' ;
-							
+				//echo '<option value="all" selected="selected">All</option>' ;
+				echo "<input type='checkbox' name='movie_category[]' value='all'>All<br/>";			
 				foreach($movie_categorys as $movie_category)
 				{
-					echo '<option value="'.$movie_category['category'].'">'.$movie_category['category'].'</option>' ;
+					//echo '<option value="'.$movie_category['category'].'">'.$movie_category['category'].'</option>' ;
+					echo "<input type='checkbox' name='movie_category[]' value='".$movie_category['category']."'>".$movie_category['category'].'<br/>';
 				}
 				
-				echo '</select>
+				echo '
 						</div>
 						<p>Model Category</p>
-						<div class="control-group">
-							<select name="model_category[]" multiple="multiple" style="width:90%;">' ;
+						<div class="control-group">';
+							//<select name="model_category[]" multiple="multiple" style="width:90%;">' ;
 							
 				//default value for the select box
-				echo '<option value="all" selected="selected">All</option>' ;
-				
+				//echo '<option value="all" selected="selected">All</option>' ;
+				echo "<input type='checkbox' name='model_category[]' value='all'>All<br/>";
 				foreach($model_categorys as $model_category)
 				{
-					echo '<option value="'.$model_category['category'].'">'.$model_category['category'].'</option>' ;
+					//echo '<option value="'.$model_category['category'].'">'.$model_category['category'].'</option>' ;
+					echo "<input type='checkbox' name='model_category[]' value='".$model_category['category']."'>".$model_category['category'].'<br/>';
 				}
-				echo '</select>
+				echo '
 					</div>
 						</div>
 					</div>' ;
@@ -2365,17 +2367,17 @@
 		*/
 		function getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$content_date,$content_type,$model_categorys,$movie_categorys)
 		{
-			
 			//set the values for the category select box 'all' selection
 			if( $model_categorys[0] == 'all' )
 			{
-				$model_categorys = $this->manageContent->getSortedCategory('model_category','category','category') ;
+				$model_categorys_ar = $this->manageContent->getSortedCategory('model_category','category','category') ;
+				
 				//nullify the array
 				$model_categorys = '' ;
 				$i = 0 ;			//array index
 				foreach( $model_categorys_ar as $model_category_ar )
 				{
-					$moodel_categorys[$i] = $model_category_ar['category'] ;
+					$model_categorys[$i] = $model_category_ar['category'] ;
 					$i++ ;
 				}
 			}
@@ -2391,7 +2393,6 @@
 					$i++ ;
 				}
 			}
-			
 			$startpoint = 0 ;
 			$limit = 100 ;
 			//content for photo type
@@ -2439,26 +2440,36 @@
 						$allow_model_category = 0 ;
 						$allow_movie_category = 0 ;
 						//check for the model category
-						foreach( $model_categorys as $model_category )
+						foreach( $categorys_ar as $category_ar )
 						{
-							foreach( $categorys_ar as $category_ar )
+							//foreach( $categorys_ar as $category_ar )
 							{
-								if( $category_ar == $model_category )
+								if( in_array( $category_ar, $model_categorys ))
 								{
 									//set the print flag
 									$allow_model_category = 1 ;
 								}
+								else
+								{
+									//set the print flag
+									$allow_model_category = 0 ;
+								}
 							}
 						}
 						//check for the movie category
-						foreach( $movie_categorys as $movie_category )
+						foreach( $categorys_ar as $category_ar  )
 						{
-							foreach( $categorys_ar as $category_ar )
+							//foreach( $categorys_ar as $category_ar )
 							{
-								if( $category_ar == $movie_category )
+								if( in_array($category_ar,$movie_categorys) )
 								{
 									//set the print flag
 									$allow_movie_category = 1 ;
+								}
+								else
+								{
+									//set the print flag
+									$allow_movie_category = 0 ;
 								}
 							}
 						}
@@ -2471,7 +2482,6 @@
 							{
 								echo '<div class="row-fluid">';
 							}
-							
 							//create the UI components
 							echo '<div class="span3 element">
 									<a href="full_gallery.php?model='.$gallery['model'].'&galleryId='.$gallery['gallery_id'].'&index=10&page=0&element=10">
@@ -2547,26 +2557,36 @@
 						$allow_model_category = 0 ;
 						$allow_movie_category = 0 ;
 						//check for the model category
-						foreach( $model_categorys as $model_category )
+						foreach( $categorys_ar as $category_ar )
 						{
-							foreach( $categorys_ar as $category_ar )
+							//foreach( $categorys_ar as $category_ar )
 							{
-								if( $category_ar == $model_category )
+								if( in_array( $category_ar, $model_categorys ))
 								{
 									//set the print flag
 									$allow_model_category = 1 ;
 								}
+								else
+								{
+									//set the print flag
+									$allow_model_category = 0 ;
+								}
 							}
 						}
 						//check for the movie category
-						foreach( $movie_categorys as $movie_category )
+						foreach( $categorys_ar as $category_ar  )
 						{
-							foreach( $categorys_ar as $category_ar )
+							//foreach( $categorys_ar as $category_ar )
 							{
-								if( $category_ar == $movie_category )
+								if( in_array($category_ar,$movie_categorys) )
 								{
 									//set the print flag
 									$allow_movie_category = 1 ;
+								}
+								else
+								{
+									//set the print flag
+									$allow_movie_category = 0 ;
 								}
 							}
 						}
@@ -2663,26 +2683,36 @@
 						$allow_model_category = 0 ;
 						$allow_movie_category = 0 ;
 						//check for the model category
-						foreach( $model_categorys as $model_category )
+						foreach( $categorys_ar as $category_ar )
 						{
-							foreach( $categorys_ar as $category_ar )
+							//foreach( $categorys_ar as $category_ar )
 							{
-								if( $category_ar == $model_category )
+								if( in_array( $category_ar, $model_categorys ))
 								{
 									//set the print flag
 									$allow_model_category = 1 ;
 								}
+								else
+								{
+									//set the print flag
+									$allow_model_category = 0 ;
+								}
 							}
 						}
 						//check for the movie category
-						foreach( $movie_categorys as $movie_category )
+						foreach( $categorys_ar as $category_ar  )
 						{
-							foreach( $categorys_ar as $category_ar )
+							//foreach( $categorys_ar as $category_ar )
 							{
-								if( $category_ar == $movie_category )
+								if( in_array($category_ar,$movie_categorys) )
 								{
 									//set the print flag
 									$allow_movie_category = 1 ;
+								}
+								else
+								{
+									//set the print flag
+									$allow_movie_category = 0 ;
 								}
 							}
 						}
