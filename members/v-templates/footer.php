@@ -18,7 +18,7 @@
             <li><a href="mailto:webmaster@handjobstop.com" target="_blank">Contact Us</a></li>
             <li><a href="http://handjobstop.com/modelContactForm.php">Models Wanted</a></li>
             <li><a href="http://www.handjobstop.com/webmaster.php">Webmaster</a></li>
-            <li><a href="#">Legal</a></li>
+            <li><a href="legal.php">Legal</a></li>
         </ul>
       </div>
       <div class="span4 footer_part">
