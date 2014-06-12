@@ -358,7 +358,7 @@ a:hover, a:focus {
 	padding: 10px;
 }
 .terms_condition_heading{
-	color:#f15199;
+	color:#ff0000;
 }
 .terms_conditions_text{
 	font-size:12px;
@@ -389,7 +389,7 @@ a:hover, a:focus {
 	border-right:1px solid #636363;
 }
 .home_footer_nav li a{
-	color:#f15199;
+	color:#ff0000;
 }
 /* model page css */
 .search_model{
@@ -847,4 +847,31 @@ a:hover, a:focus {
 }
 .webmaster_contact_row{
 	margin:25px 0;
+}
+
+/* ajit */
+
+.warn-custom{
+	margin-bottom: 1em;
+}
+
+.head-custom{
+	margin-bottom: 1em;
+}
+
+.terms-custom{
+	height: 120px;
+}
+
+.custom-loc-thnk{
+	margin-top: 3em;
+}
+
+.terms-btm{
+	margin-bottom: 3em;
+}
+.img_center_index {
+	width: 100%;
+	display: block;
+	text-align: center;
 }

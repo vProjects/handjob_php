@@ -2199,7 +2199,7 @@
 				}
 			}
 			
-			$rating_return = intval( $rating[0]['rating'] ) + 1 ;
+			$rating_return = intval( $rating[0]['rating'] ) ;
 			
 			if( $rating_return > 5 )
 			{

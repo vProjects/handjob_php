@@ -34,14 +34,11 @@
 	}
 	
 	//if the model and movie category is not set then make them to all
-	if( empty($model_category) && !isset($model_category) )
+	if( empty($model_category) && !isset($model_category) && empty($movie_category) && !isset($movie_category) ) 
 	{
 		$model_category[0] = "all";
-	}
-	if( empty($movie_category) && !isset($movie_category) )
-	{
 		$movie_category[0] = "all";
-	} 
+	}
 	
 	//initialize the date variable to the initial date
 	$cdate = '2012-01-01' ;

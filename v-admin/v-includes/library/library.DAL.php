@@ -225,10 +225,10 @@
 		- method to insert into movie_info table
 		- Auth Singh
 		*/
-		function insertMovieInfo($galleryId,$movie_name,$description,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status)
+		function insertMovieInfo($galleryId,$movie_name,$description,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$rating,$status)
 		{
-			$query = $this->link->prepare("INSERT INTO `movie_info`(`gallery_id`, `movie_name`,`description`,`category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
-			$values = array($galleryId,$movie_name,$description,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$status);
+			$query = $this->link->prepare("INSERT INTO `movie_info`(`gallery_id`, `movie_name`,`description`,`category`, `model`, `path`, `vid_format_1`, `vid_format_2`, `vid_format_3`, `duration`, `date`,`rating`, `status`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			$values = array($galleryId,$movie_name,$description,$category,$model,$path,$vid_format_1,$vid_format_2,$vid_format_3,$duration,$date,$rating,$status);
 			$query->execute($values);
 			return $query->rowCount();
 		}

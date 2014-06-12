@@ -29,7 +29,7 @@
 				//insert the appropiate values in the gallery table and movies table
 				$manageData->insertVidCapInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['out_snap_path'],$cronValue['category'],$cronValue['model'],$cronValue['date'],0,0,1);
 				
-				$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$cronValue['date'],1);
+				$manageData->insertMovieInfo($cronValue['out_filename'],$cronValue['gallery_name'],$cronValue['description'],$cronValue['category'],$cronValue['model'],$cronValue['outVid_path'],$cronValue['vid_format_1'],$cronValue['vid_format_2'],$cronValue['vid_format_3'],"",$cronValue['date'],5,1);
 				
 				//delete the values from cron gallery table
 				$manageData->deleteValue('cron_gallery','id',$cronValue['id']);

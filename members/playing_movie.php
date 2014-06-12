@@ -177,7 +177,7 @@
                             <?php
                                 if( !empty($voted_people) )
                                 {
-                                    echo "Rating: ".($enity_rating-1)."/5 <br/> ( ".$voted_people."Votes )" ;
+                                    echo "Rating: ".($enity_rating)."/5 <br/> ( ".$voted_people."Votes )" ;
                                 }
                             ?>
                         </div>
