@@ -107,7 +107,7 @@
 	$vidFormat_3 = "";
 	
 	//resolution according to the inputs format WxH
-	$resolutionLarge = $l_vedio_w."x".$l_vedio_h ;
+	echo $resolutionLarge = $l_vedio_w."x".$l_vedio_h ;
 	$resolutionMedium = $m_vedio_w."x".$m_vedio_h ;
 	$resolutionSmall = $s_vedio_w."x".$s_vedio_h ;
 	
@@ -140,7 +140,7 @@
 	}
 	
 	//return the name of the folder using get request
-	header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);
+	//header('Location: ../../uploadVideo.php?galleryId='.$outputFolder);
 	
 	
 ?>

@@ -37,6 +37,10 @@
 				//get the UI structure of model details
 				$manageData->getModelDetails($model_id);
 			}
+			else
+			{
+				$manageData->getModelDetails($model_name);
+			}
 			
 			if(isset($model_name) && !empty($model_name))
 			{

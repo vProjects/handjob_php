@@ -304,7 +304,7 @@
 		function getSearchValue($table_name,$value,$row_value,$searchKeyword)
 		{
 			$sortBy = 'date' ;
-			$query = $this->link->query("SELECT $value from $table_name where $row_value LIKE '%$searchKeyword%' ORDER BY $sortBy DESC");
+			$query = $this->link->query("SELECT $value from $table_name where ($row_value LIKE '%$searchKeyword%') AND (`date` <= CURDATE()) ORDER BY $sortBy DESC");
 			$query->execute();
 			$rowcount = $query->rowCount();
 			if($rowcount > 0){
@@ -449,19 +449,19 @@
 			{
 				if(!empty($keyword_exact) && isset($keyword_exact) && !empty($keyword_with) && isset($keyword_with))
 				{
-					$query = $this->link->query("SELECT * FROM $table_name WHERE ((`$where_coloumn` LIKE '%$keyword_with%') OR (`$where_coloumn` LIKE '$keyword_exact')) AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+					$query = $this->link->query("SELECT * FROM `$table_name` WHERE ((`$where_coloumn` LIKE '%$keyword_with%') OR (`$where_coloumn` LIKE '$keyword_exact')) AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 				}
 				else
 				{
 					//check for the keywords WILD CARDS
 					if(!empty($keyword_with) && isset($keyword_with))
 					{
-						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%') AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby'DESC LIMIT $startpoint,$limit");
+						$query = $this->link->query("SELECT * FROM `$table_name` WHERE (`$where_coloumn` LIKE '%$keyword_with%') AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby'DESC LIMIT $startpoint,$limit");
 					}
 					//result for only exact
 					if(!empty($keyword_exact) && isset($keyword_exact))
 					{
-						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '$keyword_exact') AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+						$query = $this->link->query("SELECT * FROM `$table_name` WHERE (`$where_coloumn` LIKE '$keyword_exact') AND (`$where_coloumn` NOT LIKE '%$keyword_without%') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 					}
 				}
 			}
@@ -469,23 +469,24 @@
 			{
 				if(!empty($keyword_exact) && isset($keyword_exact) && !empty($keyword_with) && isset($keyword_with))
 				{
-					$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%') OR (`$where_coloumn` LIKE '$keyword_exact') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+					$query = $this->link->query("SELECT * FROM `$table_name` WHERE (`$where_coloumn` LIKE '%$keyword_with%') OR (`$where_coloumn` LIKE '$keyword_exact') AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 				}
 				else
 				{
 					//check for the keywords WILD CARDS
 					if(!empty($keyword_with) && isset($keyword_with))
 					{
-						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '%$keyword_with%')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+						$query = $this->link->query("SELECT * FROM `$table_name` WHERE (`$where_coloumn` LIKE '%$keyword_with%')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+						//echo "SELECT * FROM `$table_name` WHERE (`$where_coloumn` LIKE '%$keyword_with%')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit";
 					}
 					//result for only exact
 					elseif(!empty($keyword_exact) && isset($keyword_exact))
 					{
-						$query = $this->link->query("SELECT * FROM $table_name WHERE (`$where_coloumn` LIKE '$keyword_exact')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+						$query = $this->link->query("SELECT * FROM `$table_name` WHERE (`$where_coloumn` LIKE '$keyword_exact')  AND (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 					}
 					else
 					{
-						$query = $this->link->query("SELECT * FROM $table_name WHERE (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
+						$query = $this->link->query("SELECT * FROM `$table_name` WHERE (`date` > '$cdate') ORDER BY $sortby DESC LIMIT $startpoint,$limit");
 					}
 				}
 			}

@@ -109,7 +109,7 @@
 	$zipFiles->createZip($outputPath."s/",$outputPath,"s.zip");
 
 	//insert the values in the database for the gallery
-	$manageData->insertGalleryInfo($outputFolder,$gallery_name,$description,$outputPath,$category_string,$model_string,$date,0,0,$status);
+	$manageData->insertGalleryInfo($outputFolder,$gallery_name,$description,$outputPath,$category_string,$model_string,$date,0,5,$status);
 	
 	//return the name of the folder using get request
 	header('Location: ../../galleryFromImage.php?galleryId='.$outputFolder);

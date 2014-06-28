@@ -1071,7 +1071,7 @@
 			{
 				echo '<div class="row-fluid">
 						<div id="mainBar" class="span12">
-								<h4>Models Movies</h4>
+								<h4>Model Movies</h4>
 						</div>
 					</div>';
 				foreach($ModelMovies as $movie)
@@ -1169,7 +1169,7 @@
 			{
 				echo '<div class="row-fluid">
 						<div id="mainBar" class="span12">
-								<h4>Models Photos</h4>
+								<h4>Model Photos</h4>
 						</div>
 					</div>';
 				foreach($modelGallerys as $gallery)
@@ -2368,7 +2368,7 @@
 		function getAdvSearch($keyword_with,$keyword_without,$keyword_exact,$content_date,$content_type,$model_categorys,$movie_categorys)
 		{
 			//set the values for the category select box 'all' selection
-			if( $model_categorys[0] == 'all' )
+			if( $model_categorys[0] == 'all' || $model_categorys == 'all'  )
 			{
 				$model_categorys_ar = $this->manageContent->getSortedCategory('model_category','category','category') ;
 				
@@ -2381,7 +2381,7 @@
 					$i++ ;
 				}
 			}
-			if( $movie_categorys[0] = 'all' )
+			if( $movie_categorys[0] = 'all' || $movie_categorys = 'all' )
 			{
 				$movie_categorys_ar = $this->manageContent->getSortedCategory('movie_category','category','category') ;
 				//nullify the array
@@ -2400,7 +2400,7 @@
 			{
 				$sortby = 'date' ;
 				$table_name = 'gallery_info' ;
-				$where_column = 'category' ;
+				$where_column = 'model' ;
 				//create gallery UI using the keyword with and without
 				$gallerys = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
 				
@@ -2525,7 +2525,7 @@
 			{
 				$sortby = 'date' ;	
 				$table_name = 'model_info' ;
-				$where_column = 'category' ;
+				$where_column = 'name' ;
 				//create model UI using the keyword with and without
 				$models = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
 				
@@ -2642,7 +2642,7 @@
 			{
 				$table_name = 'movie_info' ;
 				$sortby = 'date' ;
-				$where_column = 'category' ;
+				$where_column = 'model' ;
 				//create movie UI using the keyword with and without
 				$movies = $this->manageContent->getAdvSearch($table_name,$where_column,$keyword_with,$keyword_exact,$keyword_without,$content_date,$sortby,$startpoint,$limit) ;
 				$start_point = 0;
@@ -2814,12 +2814,15 @@
 			$article = $this->manageContent->getValueWhere('article_info','*',"id",$article_id);
 			$article = $article[0];
 			
+			//get the model id from the model info table using the name
+			$model_id = $this->manageContent->getValueWhere('model_info','id','name',$article['model']);
+			
 			//2 - for members 3 - for both
 			if( $article['access'] == 2 || $article['access'] == 3)
 			{
 				echo '<div class="row-fluid blog_container">
 						<div class="span12">
-							<h4>'.$article["article_title"].'</h4>
+							<a href="model_detail.php?model_id='.$model_id[0]['id'].'&model_name='.$article['model'].'"><h4>'.$article["article_title"].'</h4></a>
 							<p class="blog_author_name"> '.$article["article_author"].'</p>
 							<p>'.$article["article_description"].'</p>
 							<p> Added :'.$article["article_date"].'</p>
